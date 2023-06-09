@@ -9,7 +9,7 @@ public class TipSystem : MonoBehaviour
     public CanvasGroup cg;
     public TMPro.TextMeshProUGUI text;
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         instance = this;
     }
