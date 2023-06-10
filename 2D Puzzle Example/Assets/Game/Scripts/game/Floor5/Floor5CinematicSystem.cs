@@ -140,7 +140,7 @@ public class Floor5CinematicSystem : MonoBehaviour
     {
         liftImg.DOColor(Color.white, 4).OnComplete(() =>
         {
-            SoundSystem.instance.Play("ding");
+            //SoundSystem.instance.Play("ding");
             liftBlinker.SetActive(true);
             liftButtons.SetActive(true);
         });
