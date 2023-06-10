@@ -90,17 +90,22 @@ public class Floor5CinematicSystem : MonoBehaviour
 
     public void StartJiSawScene_SpeakWords()
     {
-        foreach (var w in words)
-            w.SetActive(false);
-        jisawScene.SetActive(true);
+        exitJisawViewBtn.SetActive(false);
 
+        foreach (var w in words)
+        {
+            w.transform.DOKill();
+            w.SetActive(false);
+        }
+           
+        jisawScene.SetActive(true);
         bigJisawView.transform.DOKill();
-        bigJisawView.transform.DOShakePosition(13, 4);
+        bigJisawView.transform.DOShakePosition(12, 4);
 
         var sequence = DOTween.Sequence();
         foreach (var w in words)
         {
-            sequence.AppendInterval(0.35f);
+            sequence.AppendInterval(0.25f);
             sequence.AppendCallback(() =>
             {
                 w.SetActive(true);
