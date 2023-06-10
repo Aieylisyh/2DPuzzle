@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Floor5CinematicSystem : MonoBehaviour
 {
@@ -10,8 +11,17 @@ public class Floor5CinematicSystem : MonoBehaviour
 
     public GameObject jisawScene;
     public GameObject[] words;
-    public bool canEnterJisawScene;
 
+    bool _canEnterJisawScene;
+    bool _canRevealLift;
+    bool _hasRevealedLift;
+
+    public Image liftImg;
+    public Image bgImg;
+
+    public GameObject liftButtons;
+    public GameObject liftBlinker;
+    public GameObject exitJisawViewBtn;
     // Use this for initialization
     void Start()
     {
@@ -21,21 +31,28 @@ public class Floor5CinematicSystem : MonoBehaviour
     // Update is called once per frame
     void StartPlay()
     {
+        liftBlinker.SetActive(false);
         jisawScene.SetActive(false);
+        liftButtons.SetActive(false);
+        exitJisawViewBtn.SetActive(false);
+        _canEnterJisawScene = false;
+        _canRevealLift = false;
+        _hasRevealedLift = false;
 
         var sequence = DOTween.Sequence(); //Sequence生成
-                                           //Tweenをつなげる
+        //Tweenをつなげる
         sequence.AppendCallback(() =>
            {
                jisaw.transform.DOKill();
                jisaw.position = jisawStartPos.position;
-               canEnterJisawScene = false;
            })
+            .AppendInterval(1.0f)
+            .Append(bgImg.DOColor(Color.white, 1.5f))
             .Append(jisaw.DOMoveX(jisawEndPos.position.x, 7).SetEase(Ease.OutQuad))
             .Join(jisaw.DOShakeRotation(7, 1, 18, 70, false))
             .AppendCallback(() =>
             {
-                canEnterJisawScene = true;
+                _canEnterJisawScene = true;
             })
             .Play();
 
@@ -60,11 +77,11 @@ public class Floor5CinematicSystem : MonoBehaviour
 
     public void OnClickJiSawScene()
     {
-        if (!canEnterJisawScene)
+        if (!_canEnterJisawScene)
             return;
 
         jisawScene.SetActive(true);
-        canEnterJisawScene = false;
+        _canEnterJisawScene = false;
         StartJiSawScene_SpeakWords();
     }
 
@@ -77,22 +94,41 @@ public class Floor5CinematicSystem : MonoBehaviour
         var sequence = DOTween.Sequence();
         foreach (var w in words)
         {
-            sequence.AppendInterval(0.3f);
+            sequence.AppendInterval(0.35f);
             sequence.AppendCallback(() =>
             {
                 w.SetActive(true);
                 w.transform.DOKill();
-                w.transform.DOShakePosition(2, 5);
+                w.transform.DOShakePosition(2, 7);
             });
         }
+        sequence.AppendCallback(() =>
+        {
+            _canRevealLift = true;
+            Debug.Log("canRevealLift");
+            exitJisawViewBtn.SetActive(true);
+        });
 
         sequence.Play();
     }
     public void OnClickExitJisawScene()
     {
-        canEnterJisawScene = true;
+        _canEnterJisawScene = true;
         foreach (var w in words)
             w.SetActive(false);
         jisawScene.SetActive(false);
+        if (_canRevealLift && !_hasRevealedLift)
+        {
+            RevealList();
+        }
+    }
+
+    void RevealList()
+    {
+        liftImg.DOColor(Color.white, 4).OnComplete(() =>
+        {
+            liftBlinker.SetActive(true);
+            liftButtons.SetActive(true);
+        });
     }
 }
