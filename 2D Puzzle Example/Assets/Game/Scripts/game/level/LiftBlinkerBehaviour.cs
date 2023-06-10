@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using com;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +32,7 @@ public class LiftBlinkerBehaviour : MonoBehaviour
             {
                 img.enabled = true;
                 _timer = Random.Range(durationMin, durationMax);
-
+                SoundSystem.instance.Play("blink");
             }
         }
         _timer -= Time.deltaTime;

@@ -28,6 +28,5 @@ public class ClickFeedbackSystem : MonoBehaviour
 
         //Debug.Log(Input.mousePosition);
         //Debug.Log(sf);
-        SoundSystem.instance.Play("click");
     }
 }

@@ -3977,6 +3977,7 @@ MonoBehaviour:
   liftButtons: {fileID: 923310420}
   liftBlinker: {fileID: 1278743402}
   exitJisawViewBtn: {fileID: 1267443476}
+  bigJisawView: {fileID: 1355857539}
 --- !u!1 &787407503
 GameObject:
   m_ObjectHideFlags: 0
@@ -6328,12 +6329,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundList:
-  - tag: game
+  - tag: ui
     siList:
     - name: click
       ac: {fileID: 8300000, guid: 72b748bd68ded0a44acf7c208b8971b0, type: 3}
     - name: item
-      ac: {fileID: 8300000, guid: 35cf7766e9e2aa542811e896fde57989, type: 3}
+      ac: {fileID: 8300000, guid: 552d52072739cd041b1dc9898d62c3c2, type: 3}
+    - name: btn ok
+      ac: {fileID: 8300000, guid: fecd6d81457fcd745836d11799ce8eee, type: 3}
+  - tag: scene
+    siList:
+    - name: ding
+      ac: {fileID: 8300000, guid: 998e4d5c143ce0e448102fb712daf627, type: 3}
+    - name: no open
+      ac: {fileID: 8300000, guid: 737010eb783674e4da908e3e7a649255, type: 3}
+    - name: show word
+      ac: {fileID: 8300000, guid: d4a0a60c3932b954ea0db79067f724e2, type: 3}
+    - name: swipe
+      ac: {fileID: 8300000, guid: 08365213b7fcd1141943dd5f0166d7f3, type: 3}
+    - name: trigger
+      ac: {fileID: 8300000, guid: ade769037fa163743a4cc4b07a9b94bd, type: 3}
+    - name: blink
+      ac: {fileID: 8300000, guid: 2521bb8d9ca205a499f83168f56f79cd, type: 3}
 --- !u!4 &1235483281
 Transform:
   m_ObjectHideFlags: 0
@@ -7405,7 +7422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -161.5, y: -440.94}
+  m_AnchoredPosition: {x: -180, y: -440.94}
   m_SizeDelta: {x: 356, y: 318}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1355857541

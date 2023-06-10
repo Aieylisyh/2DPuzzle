@@ -2,6 +2,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using com;
 
 public class Floor5CinematicSystem : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Floor5CinematicSystem : MonoBehaviour
     public GameObject liftButtons;
     public GameObject liftBlinker;
     public GameObject exitJisawViewBtn;
+    public GameObject bigJisawView;
     // Use this for initialization
     void Start()
     {
@@ -48,10 +50,11 @@ public class Floor5CinematicSystem : MonoBehaviour
            })
             .AppendInterval(1.0f)
             .Append(bgImg.DOColor(Color.white, 1.5f))
-            .Append(jisaw.DOMoveX(jisawEndPos.position.x, 7).SetEase(Ease.OutQuad))
+            .Append(jisaw.DOMoveX(jisawEndPos.position.x, 7))
             .Join(jisaw.DOShakeRotation(7, 1, 18, 70, false))
             .AppendCallback(() =>
             {
+                SoundSystem.instance.Play("trigger");
                 _canEnterJisawScene = true;
             })
             .Play();
@@ -91,6 +94,9 @@ public class Floor5CinematicSystem : MonoBehaviour
             w.SetActive(false);
         jisawScene.SetActive(true);
 
+        bigJisawView.transform.DOKill();
+        bigJisawView.transform.DOShakePosition(13, 4);
+
         var sequence = DOTween.Sequence();
         foreach (var w in words)
         {
@@ -100,12 +106,13 @@ public class Floor5CinematicSystem : MonoBehaviour
                 w.SetActive(true);
                 w.transform.DOKill();
                 w.transform.DOShakePosition(2, 7);
+                SoundSystem.instance.Play("show word");
             });
         }
         sequence.AppendCallback(() =>
         {
             _canRevealLift = true;
-            Debug.Log("canRevealLift");
+            //Debug.Log("canRevealLift");
             exitJisawViewBtn.SetActive(true);
         });
 
@@ -116,6 +123,7 @@ public class Floor5CinematicSystem : MonoBehaviour
         _canEnterJisawScene = true;
         foreach (var w in words)
             w.SetActive(false);
+        SoundSystem.instance.Play("btn ok");
         jisawScene.SetActive(false);
         if (_canRevealLift && !_hasRevealedLift)
         {
@@ -127,6 +135,7 @@ public class Floor5CinematicSystem : MonoBehaviour
     {
         liftImg.DOColor(Color.white, 4).OnComplete(() =>
         {
+            SoundSystem.instance.Play("ding");
             liftBlinker.SetActive(true);
             liftButtons.SetActive(true);
         });

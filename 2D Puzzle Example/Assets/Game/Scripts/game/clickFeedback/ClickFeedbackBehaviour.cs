@@ -19,6 +19,6 @@ public class ClickFeedbackBehaviour : MonoBehaviour
 
         GetComponent<RectTransform>().anchoredPosition3D = new Vector3(mousePos.x, mousePos.y, 0);
 
-        SoundSystem.instance.Play("item");
+        SoundSystem.instance.Play("click");
     }
 }
