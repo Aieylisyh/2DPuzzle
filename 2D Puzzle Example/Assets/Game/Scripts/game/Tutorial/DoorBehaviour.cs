@@ -15,5 +15,4 @@ public class DoorBehaviour : MonoBehaviour
         //transform.DOShakePosition(5, 10, 10);
         sr.DOColor(color, 10);
     }
-
 }
