@@ -4,6 +4,9 @@ using UnityEngine;
 public class LevelSystem : MonoBehaviour
 {
     public static LevelSystem instance;
+
+
+
     // Use this for initialization
     void Awake()
     {
@@ -24,4 +27,6 @@ public class LevelSystem : MonoBehaviour
 
         InventorySystem.instance.AddItem(new ItemData(1, "candle"));
     }
+
+
 }

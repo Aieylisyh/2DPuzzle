@@ -18,6 +18,8 @@ public class Floor5CinematicSystem : MonoBehaviour
     bool _hasRevealedLift;
 
     public Image liftImg;
+    public Image doorRightImg;
+    public Image doorLeftImg;
     public Image bgImg;
 
     public GameObject liftButtons;
@@ -33,10 +35,13 @@ public class Floor5CinematicSystem : MonoBehaviour
     // Update is called once per frame
     void StartPlay()
     {
+        liftImg.color = Color.black;
+
         liftBlinker.SetActive(false);
         jisawScene.SetActive(false);
         liftButtons.SetActive(false);
         exitJisawViewBtn.SetActive(false);
+
         _canEnterJisawScene = false;
         _canRevealLift = false;
         _hasRevealedLift = false;
@@ -97,7 +102,7 @@ public class Floor5CinematicSystem : MonoBehaviour
             w.transform.DOKill();
             w.SetActive(false);
         }
-           
+
         jisawScene.SetActive(true);
         bigJisawView.transform.DOKill();
         bigJisawView.transform.DOShakePosition(12, 4);
@@ -138,6 +143,9 @@ public class Floor5CinematicSystem : MonoBehaviour
 
     void RevealList()
     {
+        doorRightImg.DOColor(Color.white, 4.5f);
+        doorLeftImg.DOColor(Color.white, 4.5f);
+
         liftImg.DOColor(Color.white, 4).OnComplete(() =>
         {
             //SoundSystem.instance.Play("ding");

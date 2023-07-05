@@ -12,9 +12,21 @@ public class LiftControlPanel : MonoBehaviour
     public List<LiftControlPanelButton> buttons = new List<LiftControlPanelButton>();//列表
 
     public GameObject redLightOn;
+    public GameObject exitBtn;
+
+    private Coroutine _redLightCoroutine;
+    public void ResetBtns()
+    {
+        OnButtonClicked(0);
+        exitBtn.SetActive(false);
+        if (_redLightCoroutine != null)
+            StopCoroutine(_redLightCoroutine);
+    }
+
     public void OnButtonClicked(int btnFloor)
     {
         Debug.Log("按下了button floor " + btnFloor);
+        exitBtn.SetActive(false);
         //遍历
         foreach (LiftControlPanelButton btn in buttons)
         {
@@ -24,7 +36,7 @@ public class LiftControlPanel : MonoBehaviour
                 btn.btnHalo.SetActive(true);
 
                 redLightOn.SetActive(true);
-                StartCoroutine(TurnOffRedLight());
+                _redLightCoroutine = StartCoroutine(TurnOffRedLight());
             }
             else
             {
@@ -32,6 +44,15 @@ public class LiftControlPanel : MonoBehaviour
                 btn.btnHalo.SetActive(false);
             }
         }
+
+        LiftSystem.instance.OnLiftDestinationSet(btnFloor);
+        exitBtn.SetActive(true);
+    }
+
+    public void OnClickExit()
+    {
+        exitBtn.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     IEnumerator TurnOffRedLight()
@@ -46,5 +67,6 @@ public class LiftControlPanel : MonoBehaviour
         redLightOn.SetActive(true);
         yield return new WaitForSeconds(0.15f);
         redLightOn.SetActive(false);
+        exitBtn.SetActive(true);
     }
 }
