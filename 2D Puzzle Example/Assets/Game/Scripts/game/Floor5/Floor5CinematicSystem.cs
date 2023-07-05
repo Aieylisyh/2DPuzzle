@@ -6,6 +6,7 @@ using com;
 
 public class Floor5CinematicSystem : MonoBehaviour
 {
+    public static Floor5CinematicSystem instance;
     public Transform jisaw;
     public Transform jisawStartPos;
     public Transform jisawEndPos;
@@ -21,12 +22,16 @@ public class Floor5CinematicSystem : MonoBehaviour
     public Image doorRightImg;
     public Image doorLeftImg;
     public Image bgImg;
-
+    public GameObject liftControlPanelButton;
     public GameObject liftButtons;
     public GameObject liftBlinker;
     public GameObject exitJisawViewBtn;
     public GameObject bigJisawView;
-    // Use this for initialization
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         StartPlay();
@@ -36,7 +41,7 @@ public class Floor5CinematicSystem : MonoBehaviour
     void StartPlay()
     {
         liftImg.color = Color.black;
-
+        liftControlPanelButton.SetActive(false);
         liftBlinker.SetActive(false);
         jisawScene.SetActive(false);
         liftButtons.SetActive(false);
@@ -141,7 +146,7 @@ public class Floor5CinematicSystem : MonoBehaviour
         }
     }
 
-    void RevealList()
+    public void RevealList()
     {
         doorRightImg.DOColor(Color.white, 4.5f);
         doorLeftImg.DOColor(Color.white, 4.5f);
@@ -151,6 +156,7 @@ public class Floor5CinematicSystem : MonoBehaviour
             //SoundSystem.instance.Play("ding");
             liftBlinker.SetActive(true);
             liftButtons.SetActive(true);
+            liftControlPanelButton.SetActive(true);
         });
     }
 }

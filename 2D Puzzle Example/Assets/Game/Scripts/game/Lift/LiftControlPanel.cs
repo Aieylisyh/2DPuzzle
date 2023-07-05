@@ -67,6 +67,8 @@ public class LiftControlPanel : MonoBehaviour
         redLightOn.SetActive(true);
         yield return new WaitForSeconds(0.15f);
         redLightOn.SetActive(false);
-        exitBtn.SetActive(true);
+        // exitBtn.SetActive(true);
+        // exitBtn.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

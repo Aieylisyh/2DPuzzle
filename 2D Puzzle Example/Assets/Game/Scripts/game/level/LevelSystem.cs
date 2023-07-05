@@ -5,14 +5,20 @@ public class LevelSystem : MonoBehaviour
 {
     public static LevelSystem instance;
 
-
-
-    // Use this for initialization
     void Awake()
     {
         instance = this;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("debug fast OnClickExitJisawScene");
+            Floor5CinematicSystem.instance.OnClickExitJisawScene();
+            Floor5CinematicSystem.instance.RevealList();
+        }
+    }
 
     public void OnClickTestKey()
     {
