@@ -10,8 +10,13 @@ public class LiftDoor
     public float closeX;
     public float duration;
 
+    public bool stopped { get; private set; }
+    public bool closeOrToClose { get; private set; }
+    public bool closedAndStopped { get { return stopped & closeOrToClose; } }
+
     public void Set(bool toOpen, bool instant)
     {
+        closeOrToClose = !toOpen;
         var targetX = toOpen ? openX : closeX;
         if (instant)
         {
@@ -19,11 +24,13 @@ public class LiftDoor
             var pos = door.anchoredPosition;
             pos.x = targetX;
             door.anchoredPosition = pos;
+            stopped = true;
         }
         else
         {
+            stopped = false;
             door.DOKill();
-            door.DOAnchorPosX(targetX, duration).SetEase(Ease.InOutCubic);
+            door.DOAnchorPosX(targetX, duration).SetEase(Ease.InOutCubic).OnComplete(() => { stopped = true; });
         }
     }
 }

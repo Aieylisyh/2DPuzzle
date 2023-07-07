@@ -26,6 +26,11 @@ public class LiftControlPanel : MonoBehaviour
     public void OnButtonClicked(int btnFloor)
     {
         Debug.Log("按下了button floor " + btnFloor);
+        if (btnFloor == LiftSystem.instance.currentFloor)
+        {
+            return;
+        }
+
         exitBtn.SetActive(false);
         //遍历
         foreach (LiftControlPanelButton btn in buttons)

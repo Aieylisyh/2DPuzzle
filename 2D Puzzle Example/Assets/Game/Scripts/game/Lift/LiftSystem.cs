@@ -15,7 +15,6 @@ public class LiftSystem : MonoBehaviour
     public TextMeshProUGUI liftNumLabel;
 
     public float liftSpeed;
-    private float _timeArrive;
     private float _targetFloor;
     private bool _goDownDirection;
 
@@ -49,7 +48,7 @@ public class LiftSystem : MonoBehaviour
     private bool _lastIsLiftRunning = false;
     public bool IsLiftRunning
     {
-        get { return GameTime.time <= _timeArrive; }
+        get { return _crtFloor != _targetFloor; }
     }
 
     void SyncFloorLight()
@@ -80,14 +79,27 @@ public class LiftSystem : MonoBehaviour
 
     void Sync()
     {
+        MoveLift();
         SyncLiftDisplayer();
         SyncFloorLight();
         SyncSmallControlPanel();
     }
 
+    void MoveLift()
+    {
+        if (liftDoors.DoorsClosedAndStopped())
+        {
+            _crtFloor += GameTime.deltaTime * liftSpeed * (_goDownDirection ? -1f : 1f);
+            if (_crtFloor - _targetFloor <= 0.25f)
+            {
+                _crtFloor = _targetFloor;
+                OnArrived();
+            }
+        }
+    }
+
     void SyncLiftDisplayer()
     {
-        _crtFloor += GameTime.deltaTime * liftSpeed * (_goDownDirection ? -1f : 1f);
         liftNumLabel.text = currentFloor.ToString();
     }
 
@@ -129,7 +141,6 @@ public class LiftSystem : MonoBehaviour
         _targetFloor = (float)intTargetFloor;
         var delta = _targetFloor - _crtFloor;
         var duration = Mathf.Abs(delta) / liftSpeed;
-        _timeArrive = GameTime.time + duration;
         _goDownDirection = delta < 0;
 
         liftDoors.doorLeft.Set(false, false);
