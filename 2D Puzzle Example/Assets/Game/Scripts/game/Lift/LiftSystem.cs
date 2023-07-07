@@ -40,15 +40,25 @@ public class LiftSystem : MonoBehaviour
     private void Start()
     {
         _crtFloor = 5;
+        _targetFloor = 5;
+
         liftDoors.doorRight.Set(true, true);
         liftDoors.doorLeft.Set(true, true);
+
+        SyncLiftDisplayer();
         SyncFloorLight();
+        SyncSmallControlPanel();
     }
 
     private bool _lastIsLiftRunning = false;
     public bool IsLiftRunning
     {
-        get { return _crtFloor != _targetFloor; }
+        get
+        {
+            var delta = Mathf.Abs(_crtFloor - _targetFloor);
+            //Debug.Log(delta);
+            return delta > 0f;
+        }
     }
 
     void SyncFloorLight()
@@ -105,16 +115,18 @@ public class LiftSystem : MonoBehaviour
 
     void SyncSmallControlPanel()
     {
-        scp_floor1Light.SetActive(IsLiftRunning && _targetFloor == 1);
-        scp_floor2Light.SetActive(IsLiftRunning && _targetFloor == 2);
-        scp_floor3Light.SetActive(IsLiftRunning && _targetFloor == 3);
-        scp_floor4Light.SetActive(IsLiftRunning && _targetFloor == 4);
-        scp_floor5Light.SetActive(IsLiftRunning && _targetFloor == 5);
-        scp_RedLight.SetActive(IsLiftRunning);
+        var b = IsLiftRunning;
+        scp_floor1Light.SetActive(b && _targetFloor == 1);
+        scp_floor2Light.SetActive(b && _targetFloor == 2);
+        scp_floor3Light.SetActive(b && _targetFloor == 3);
+        scp_floor4Light.SetActive(b && _targetFloor == 4);
+        scp_floor5Light.SetActive(b && _targetFloor == 5);
+        scp_RedLight.SetActive(b);
     }
 
     public void TryShowLiftControlPanel()
     {
+        Debug.Log("TryShowLiftControlPanel");
         if (IsLiftRunning)
         {
             //SoundSystem.instance.Play("dudu");
@@ -138,6 +150,11 @@ public class LiftSystem : MonoBehaviour
 
     public void OnLiftDestinationSet(int intTargetFloor)
     {
+        if (intTargetFloor <= 0 || intTargetFloor > 5)
+        {
+            return;
+        }
+
         _targetFloor = (float)intTargetFloor;
         var delta = _targetFloor - _crtFloor;
         var duration = Mathf.Abs(delta) / liftSpeed;

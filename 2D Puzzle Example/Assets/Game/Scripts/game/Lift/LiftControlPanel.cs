@@ -25,23 +25,15 @@ public class LiftControlPanel : MonoBehaviour
 
     public void OnButtonClicked(int btnFloor)
     {
-        Debug.Log("按下了button floor " + btnFloor);
-        if (btnFloor == LiftSystem.instance.currentFloor)
-        {
-            return;
-        }
+        Debug.Log("按下了button floor " + btnFloor + " currentFloor " + LiftSystem.instance.currentFloor);
 
-        exitBtn.SetActive(false);
-        //遍历
+        var sameFloor = btnFloor == LiftSystem.instance.currentFloor;
         foreach (LiftControlPanelButton btn in buttons)
         {
-            if (btnFloor == btn.floor)
+            if (btnFloor == btn.floor && !sameFloor)
             {
                 btn.btnLight.SetActive(true);
                 btn.btnHalo.SetActive(true);
-
-                redLightOn.SetActive(true);
-                _redLightCoroutine = StartCoroutine(TurnOffRedLight());
             }
             else
             {
@@ -50,8 +42,11 @@ public class LiftControlPanel : MonoBehaviour
             }
         }
 
+        if (sameFloor || btnFloor <= 0 || btnFloor > 5)
+            return;
+
+        _redLightCoroutine = StartCoroutine(CloseDoorSequence());
         LiftSystem.instance.OnLiftDestinationSet(btnFloor);
-        exitBtn.SetActive(true);
     }
 
     public void OnClickExit()
@@ -60,8 +55,10 @@ public class LiftControlPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    IEnumerator TurnOffRedLight()
+    IEnumerator CloseDoorSequence()
     {
+        exitBtn.SetActive(false);
+        redLightOn.SetActive(true);
         yield return new WaitForSeconds(1.0f);
         redLightOn.SetActive(false);
         yield return new WaitForSeconds(0.15f);
