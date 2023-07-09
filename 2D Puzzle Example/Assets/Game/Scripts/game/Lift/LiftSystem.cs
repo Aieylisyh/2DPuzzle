@@ -100,7 +100,7 @@ public class LiftSystem : MonoBehaviour
         if (liftDoors.DoorsClosedAndStopped())
         {
             _crtFloor += GameTime.deltaTime * liftSpeed * (_goDownDirection ? -1f : 1f);
-            if (_crtFloor - _targetFloor <= 0.25f)
+            if (Mathf.Abs(_crtFloor - _targetFloor) <= 0.25f)
             {
                 _crtFloor = _targetFloor;
                 OnArrived();

@@ -9445,7 +9445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liftControlPanel: {fileID: 344128084}
   liftNumLabel: {fileID: 864025716}
-  liftSpeed: 0.6
+  liftSpeed: 0.7
   liftDoors: {fileID: 1393997939}
   floor1Dark: {fileID: 1711110979}
   floor2Dark: {fileID: 185679553}
