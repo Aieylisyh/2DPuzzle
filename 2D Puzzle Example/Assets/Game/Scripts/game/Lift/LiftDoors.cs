@@ -9,4 +9,14 @@ public class LiftDoors : MonoBehaviour
     {
         return doorRight.closedAndStopped && doorLeft.closedAndStopped;
     }
+
+    public bool DoorsOpenAndStopped()
+    {
+        return doorRight.openAndStopped && doorLeft.openAndStopped;
+    }
+
+    public bool DoorsMoving()
+    {
+        return !doorRight.stopped || !doorLeft.stopped;
+    }
 }

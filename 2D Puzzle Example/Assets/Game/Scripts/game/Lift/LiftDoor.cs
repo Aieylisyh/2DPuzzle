@@ -13,7 +13,7 @@ public class LiftDoor
     public bool stopped { get; private set; }
     public bool closeOrToClose { get; private set; }
     public bool closedAndStopped { get { return stopped & closeOrToClose; } }
-
+    public bool openAndStopped { get { return stopped & !closeOrToClose; } }
     public void Set(bool toOpen, bool instant)
     {
         closeOrToClose = !toOpen;

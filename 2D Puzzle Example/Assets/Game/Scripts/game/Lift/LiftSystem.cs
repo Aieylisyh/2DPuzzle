@@ -48,6 +48,7 @@ public class LiftSystem : MonoBehaviour
         SyncLiftDisplayer();
         SyncFloorLight();
         SyncSmallControlPanel();
+        StartCoroutine(SmallPanelRedLightBlinking());
     }
 
     private bool _lastIsLiftRunning = false;
@@ -121,20 +122,45 @@ public class LiftSystem : MonoBehaviour
         scp_floor3Light.SetActive(b && _targetFloor == 3);
         scp_floor4Light.SetActive(b && _targetFloor == 4);
         scp_floor5Light.SetActive(b && _targetFloor == 5);
-        scp_RedLight.SetActive(b);
+    }
+
+    IEnumerator SmallPanelRedLightBlinking()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.125f);
+            if (LiftState_doorMoving())
+                scp_RedLight.SetActive(!scp_RedLight.activeSelf);
+            else if (LiftState_moving())
+                scp_RedLight.SetActive(true);
+            else
+                scp_RedLight.SetActive(false);
+        }
+    }
+
+    //open stop dark
+    //door moving blinking
+    //moving lit
+    bool LiftState_moving()
+    {
+        return IsLiftRunning && liftDoors.DoorsClosedAndStopped();
+    }
+
+    bool LiftState_idle()
+    {
+        return !IsLiftRunning && liftDoors.DoorsOpenAndStopped();
+    }
+
+    bool LiftState_doorMoving()
+    {
+        return liftDoors.DoorsMoving();
     }
 
     public void TryShowLiftControlPanel()
     {
         Debug.Log("TryShowLiftControlPanel");
-        if (IsLiftRunning)
-        {
-            //SoundSystem.instance.Play("dudu");
-        }
-        else
-        {
+        if (LiftState_idle())
             ShowLiftControlPanel();
-        }
     }
 
     public void ShowLiftControlPanel()

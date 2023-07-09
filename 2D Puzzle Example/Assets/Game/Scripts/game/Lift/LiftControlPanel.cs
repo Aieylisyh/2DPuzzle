@@ -58,17 +58,13 @@ public class LiftControlPanel : MonoBehaviour
     IEnumerator CloseDoorSequence()
     {
         exitBtn.SetActive(false);
-        redLightOn.SetActive(true);
-        yield return new WaitForSeconds(0.4f);
-        redLightOn.SetActive(false);
-        yield return new WaitForSeconds(0.125f);
-        redLightOn.SetActive(true);
-        yield return new WaitForSeconds(0.125f);
-        redLightOn.SetActive(false);
-        yield return new WaitForSeconds(0.125f);
-        redLightOn.SetActive(true);
-        yield return new WaitForSeconds(0.125f);
-        redLightOn.SetActive(false);
+        for (int i = 0; i <= 3; i++)
+        {
+            redLightOn.SetActive(true);
+            yield return new WaitForSeconds(0.125f);
+            redLightOn.SetActive(false);
+            yield return new WaitForSeconds(0.125f);
+        }
         // exitBtn.SetActive(true);
         // exitBtn.SetActive(false);
         gameObject.SetActive(false);
