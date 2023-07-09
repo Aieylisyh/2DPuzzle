@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
-using UnityEditor.UIElements;
 
 public class ClickMove : MonoBehaviour
 {

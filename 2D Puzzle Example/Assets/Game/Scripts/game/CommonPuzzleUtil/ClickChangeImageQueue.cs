@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ClickChangeImageQueue : MonoBehaviour
 {
@@ -23,9 +22,7 @@ public class ClickChangeImageQueue : MonoBehaviour
         var i = index % len;
 
         for (int j = 0; j < len; j++)
-        {
             queue[j].SetActive(j == i);
-        }
     }
 
     public void OnClick()
