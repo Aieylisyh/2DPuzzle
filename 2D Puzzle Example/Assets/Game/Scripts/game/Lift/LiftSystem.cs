@@ -18,7 +18,8 @@ public class LiftSystem : MonoBehaviour
     private float _targetFloor;
     private bool _goDownDirection;
 
-    public LiftDoors liftDoors;
+    LiftDoors _liftDoors;
+    FloorSwitcher _floorSwitcher;
 
     public GameObject floor1Dark;
     public GameObject floor2Dark;
@@ -35,6 +36,8 @@ public class LiftSystem : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        _liftDoors = GetComponent<LiftDoors>();
+        _floorSwitcher = GetComponent<FloorSwitcher>();
     }
 
     private void Start()
@@ -42,8 +45,8 @@ public class LiftSystem : MonoBehaviour
         _crtFloor = 5;
         _targetFloor = 5;
 
-        liftDoors.doorRight.Set(true, true);
-        liftDoors.doorLeft.Set(true, true);
+        _liftDoors.doorRight.Set(true, true);
+        _liftDoors.doorLeft.Set(true, true);
 
         SyncLiftDisplayer();
         SyncFloorLight();
@@ -98,7 +101,7 @@ public class LiftSystem : MonoBehaviour
 
     void MoveLift()
     {
-        if (liftDoors.DoorsClosedAndStopped())
+        if (_liftDoors.DoorsClosedAndStopped())
         {
             _crtFloor += GameTime.deltaTime * liftSpeed * (_goDownDirection ? -1f : 1f);
             if (Mathf.Abs(_crtFloor - _targetFloor) <= 0.25f)
@@ -143,17 +146,17 @@ public class LiftSystem : MonoBehaviour
     //moving lit
     bool LiftState_moving()
     {
-        return IsLiftRunning && liftDoors.DoorsClosedAndStopped();
+        return IsLiftRunning && _liftDoors.DoorsClosedAndStopped();
     }
 
     bool LiftState_idle()
     {
-        return !IsLiftRunning && liftDoors.DoorsOpenAndStopped();
+        return !IsLiftRunning && _liftDoors.DoorsOpenAndStopped();
     }
 
     bool LiftState_doorMoving()
     {
-        return liftDoors.DoorsMoving();
+        return _liftDoors.DoorsMoving();
     }
 
     public void TryShowLiftControlPanel()
@@ -186,13 +189,14 @@ public class LiftSystem : MonoBehaviour
         var duration = Mathf.Abs(delta) / liftSpeed;
         _goDownDirection = delta < 0;
 
-        liftDoors.doorLeft.Set(false, false);
-        liftDoors.doorRight.Set(false, false);
+        _liftDoors.doorLeft.Set(false, false);
+        _liftDoors.doorRight.Set(false, false);
     }
 
     void OnArrived()
     {
-        liftDoors.doorLeft.Set(true, false);
-        liftDoors.doorRight.Set(true, false);
+        _liftDoors.doorLeft.Set(true, false);
+        _liftDoors.doorRight.Set(true, false);
+        _floorSwitcher.SetFloor(currentFloor);
     }
 }
