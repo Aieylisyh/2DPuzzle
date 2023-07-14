@@ -27,12 +27,8 @@ public class LevelSystem : MonoBehaviour
         InventorySystem.instance.AddItem(new ItemData(1, "key"));
     }
 
-    public void OnClickTestCandle()
+    public void OnClickCandle()
     {
-        TipSystem.instance.ShowText("???...", true);
-
         InventorySystem.instance.AddItem(new ItemData(1, "candle"));
     }
-
-
 }

@@ -22,13 +22,13 @@ public class ItemBehaviour : MonoBehaviour
     public void PlayFeedback_key()
     {
         img.color = Color.white;
-
+        img.raycastTarget = false;
         img.DOKill();
         rect.DOKill();
 
-        var v = rect.anchoredPosition.y + 35;
+        var v = rect.anchoredPosition.y + 25;
 
-        rect.DOAnchorPosY(v, 1.2f).SetEase(Ease.InBounce).OnComplete(
+        rect.DOAnchorPosY(v, 0.8f).SetEase(Ease.InBack).OnComplete(
             () => { img.DOFade(0, 0.8f); });
     }
 }

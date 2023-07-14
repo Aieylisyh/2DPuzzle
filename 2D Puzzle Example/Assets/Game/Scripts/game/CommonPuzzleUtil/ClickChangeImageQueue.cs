@@ -19,8 +19,8 @@ public class ClickChangeImageQueue : MonoBehaviour
 
     public void Set(int index)
     {
-        crtIndex = index;
         var len = queue.Length;
+        crtIndex = index % len;
         var i = index % len;
 
         for (int j = 0; j < len; j++)
