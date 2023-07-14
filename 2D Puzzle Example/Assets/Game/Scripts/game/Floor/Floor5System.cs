@@ -4,9 +4,9 @@ using DG.Tweening;
 using UnityEngine.UI;
 using com;
 
-public class Floor5CinematicSystem : MonoBehaviour
+public class Floor5System : MonoBehaviour
 {
-    public static Floor5CinematicSystem instance;
+    public static Floor5System instance;
     public Transform jisaw;
     public Transform jisawStartPos;
     public Transform jisawEndPos;
@@ -148,10 +148,10 @@ public class Floor5CinematicSystem : MonoBehaviour
 
     public void RevealList()
     {
-        doorRightImg.DOColor(Color.white, 4.5f);
-        doorLeftImg.DOColor(Color.white, 4.5f);
+        doorRightImg.DOColor(Color.white, 4.0f);
+        doorLeftImg.DOColor(Color.white, 4.0f);
 
-        liftImg.DOColor(Color.white, 4).OnComplete(() =>
+        liftImg.DOColor(Color.white, 3.6f).OnComplete(() =>
         {
             //SoundSystem.instance.Play("ding");
             liftBlinker.SetActive(true);

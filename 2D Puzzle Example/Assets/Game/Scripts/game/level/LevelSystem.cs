@@ -15,8 +15,8 @@ public class LevelSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("debug fast OnClickExitJisawScene");
-            Floor5CinematicSystem.instance.OnClickExitJisawScene();
-            Floor5CinematicSystem.instance.RevealList();
+            Floor5System.instance.OnClickExitJisawScene();
+            Floor5System.instance.RevealList();
         }
     }
 

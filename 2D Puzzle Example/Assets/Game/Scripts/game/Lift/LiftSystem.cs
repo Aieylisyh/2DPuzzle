@@ -159,9 +159,17 @@ public class LiftSystem : MonoBehaviour
         return _liftDoors.DoorsMoving();
     }
 
+    public bool lockLift;
+
     public void TryShowLiftControlPanel()
     {
         Debug.Log("TryShowLiftControlPanel");
+        if (lockLift)
+        {
+            Debug.Log("lift locked!");
+            return;
+        }
+
         if (LiftState_idle())
             ShowLiftControlPanel();
     }

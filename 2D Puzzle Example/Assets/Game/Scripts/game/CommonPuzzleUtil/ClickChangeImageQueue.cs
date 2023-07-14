@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using com;
+using UnityEngine;
 
 public class ClickChangeImageQueue : MonoBehaviour
 {
     public GameObject[] queue;
-    int crtIndex;
+    public int crtIndex;
+    public string sfxId;
 
     private void Start()
     {
@@ -28,5 +30,6 @@ public class ClickChangeImageQueue : MonoBehaviour
     public void OnClick()
     {
         Next();
+        SoundSystem.instance.Play(sfxId);
     }
 }

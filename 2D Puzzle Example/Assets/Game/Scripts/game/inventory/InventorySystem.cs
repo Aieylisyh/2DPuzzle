@@ -88,7 +88,11 @@ public class InventorySystem : MonoBehaviour
             {
                 s.data.n -= item.n;
                 if (s.data.n <= 0)
+                {
+                    if (_crtSlot == s)
+                        _crtSlot = null;
                     s.SetEmpty();
+                }
 
                 return true;
             }
