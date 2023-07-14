@@ -16444,7 +16444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &845566120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16495,6 +16495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c905442a1f98e204bb180a0e333e7d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1588691550}
   woodenFace1: {fileID: 699241903}
   woodenFace2: {fileID: 1785979730}
   correctIndex1: 2
@@ -16511,8 +16512,8 @@ MonoBehaviour:
   doorLayer1_l: {fileID: 590753655}
   doorLayer2_l: {fileID: 896426149}
   doorLayer3_l: {fileID: 241978458}
-  doorMoveEndX_r: 250
-  doorMoveEndX_l: -350
+  doorMoveEndX_r: 260
+  doorMoveEndX_l: -360
   bikeEndPos: {fileID: 769182830}
   bike: {fileID: 1579615544}
   bgWithCrackImg: {fileID: 432646122}
@@ -32396,7 +32397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1493686466
 RectTransform:
   m_ObjectHideFlags: 0
