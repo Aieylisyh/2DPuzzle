@@ -17,20 +17,14 @@ public class Floor3System : MonoBehaviour
     }
     void Start()
     {
-        StartPlay();
     }
 
-    void StartPlay()
-    {
-
-    }
-
-    void OnClickMan()
+    public void OnClickMan()
     {
         speakerMan.Speak();
     }
 
-    void OnClickWoman()
+    public void OnClickWoman()
     {
         speakerWoman.Speak();
     }
