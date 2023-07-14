@@ -8,7 +8,7 @@ public class TipSystem : MonoBehaviour
 
     public CanvasGroup cg;
     public TMPro.TextMeshProUGUI text;
-    // Use this for initialization
+
     void Awake()
     {
         instance = this;
@@ -16,19 +16,21 @@ public class TipSystem : MonoBehaviour
 
     public void ShowText(string content, bool autoHide)
     {
+        Debug.Log(content);
         text.text = content;
-        cg.DOKill();
         cg.alpha = 0;
-        cg.DOFade(1, 1.5f);
+        cg.DOKill();
+        var t = cg.DOFade(1, 1.5f);
 
         if (autoHide)
         {
-            cg.DOFade(0, 1.5f).SetDelay(3);
+            t.OnComplete(HideText);
         }
     }
 
     public void HideText()
     {
+        Debug.Log("h");
         cg.DOFade(0, 1.5f);
     }
 }

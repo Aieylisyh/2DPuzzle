@@ -71,6 +71,9 @@ public class Floor2System : MonoBehaviour
         if (_seqStarted)
             return;
 
+        if (targetImg.gameObject.activeSelf)
+            return;
+
         var crtSelectedInvItemData = InventorySystem.instance.GetCurrentItemData();
         if (crtSelectedInvItemData == null || crtSelectedInvItemData.id != candleItemId)
             return;
@@ -78,8 +81,8 @@ public class Floor2System : MonoBehaviour
         //remove item, unselect if empty
         InventorySystem.instance.RemoveItem(new ItemData(1, candleItemId));
         SoundSystem.instance.Play("candle put in");
-        candle1Img.gameObject.SetActive(true);
-        candle1Img.DOFade(1, 1.5f);
+        targetImg.gameObject.SetActive(true);
+        targetImg.DOFade(1, 1.5f);
 
         CheckEventStart();
     }
@@ -107,6 +110,10 @@ public class Floor2System : MonoBehaviour
         LiftSystem.instance.lockLift = true;
 
         //fade candles
+        candle1Img.DOKill();
+        candle2Img.DOKill();
+        candle3Img.DOKill();
+        candle4Img.DOKill();
         candle1Img.DOFade(0, 1);
         candle2Img.DOFade(0, 1);
         candle3Img.DOFade(0, 1);
@@ -139,6 +146,7 @@ public class Floor2System : MonoBehaviour
 
         //gun drop
         yield return new WaitForSeconds(0.35f);
+        pistolItem.SetActive(true);
         pistolItem.transform.DOMove(pistolTo.position, pistolMoveDuration).SetEase(Ease.InQuad).OnComplete(
             () =>
             {
