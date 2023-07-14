@@ -22,6 +22,7 @@ public class Floor5System : MonoBehaviour
     public Image doorRightImg;
     public Image doorLeftImg;
     public Image bgImg;
+
     public GameObject liftControlPanelButton;
     public GameObject liftButtons;
     public GameObject liftBlinker;

@@ -46,12 +46,17 @@ public class Floor1System : MonoBehaviour
             SoundSystem.instance.Play("change");
 
             woodenFace2.SetActive(true);
+            woodenFace2.transform.DOShakePosition(2, 3, 8);
             woodenFace1.SetActive(false);
 
             icon1.gameObject.SetActive(false);
             icon2.gameObject.SetActive(false);
             icon3.gameObject.SetActive(false);
             icon4.gameObject.SetActive(false);
+
+            bgWithCrackImg.gameObject.SetActive(true);
+            bgWithCrackImg.color = new Color(1, 1, 1, 0);
+            bgWithCrackImg.DOFade(1, 2);
         }
     }
 
@@ -62,6 +67,7 @@ public class Floor1System : MonoBehaviour
         var itemData = InventorySystem.instance.GetCurrentItemData();
         if (itemData != null && itemData.id == "key")
         {
+            Debug.Log("has key");
             SoundSystem.instance.Play("change");
             InventorySystem.instance.RemoveItem(new ItemData(1, "key"));
             StartCoroutine(EndGameSeq());
@@ -79,13 +85,44 @@ public class Floor1System : MonoBehaviour
 
     public Transform bikeEndPos;
     public GameObject bike;
-
+    public Image bgWithCrackImg;
+    public Image darkness;
     IEnumerator EndGameSeq()
     {
-        woodenFace2.transform.DOShakePosition(4, 5);
+        LiftSystem.instance.lockLift = true;
+        bgWithCrackImg.DOFade(0, 3);
+
+        woodenFace2.transform.DOShakePosition(4, 4, 8);
+        yield return new WaitForSeconds(3);
+        woodenFace2.GetComponent<Image>().DOFade(0, 2);
         yield return new WaitForSeconds(1);
+        bgWithCrackImg.gameObject.SetActive(false);
+
+        //open doors
+        doorLayer3_r.gameObject.SetActive(true);
+        doorLayer3_l.gameObject.SetActive(true);
+        doorLayer2_r.gameObject.SetActive(true);
+        doorLayer2_l.gameObject.SetActive(true);
+        doorLayer1_r.gameObject.SetActive(true);
+        doorLayer1_l.gameObject.SetActive(true);
+
+        doorLayer3_r.transform.DOMoveX(doorMoveEndX_r, 4);
+        doorLayer3_l.transform.DOMoveX(doorMoveEndX_l, 4);
+        yield return new WaitForSeconds(2);
+
+        doorLayer2_r.transform.DOMoveX(doorMoveEndX_r, 4);
+        doorLayer2_l.transform.DOMoveX(doorMoveEndX_l, 4);
+        yield return new WaitForSeconds(2);
+
+        doorLayer1_r.transform.DOMoveX(doorMoveEndX_r, 4);
+        doorLayer1_l.transform.DOMoveX(doorMoveEndX_l, 4);
+        yield return new WaitForSeconds(3);
 
         bike.transform.DOMoveX(bikeEndPos.position.x, 7);
         bike.transform.DOShakeRotation(7, 1, 18, 70, false);
+        yield return new WaitForSeconds(4);
+        darkness.gameObject.SetActive(true);
+        darkness.DOFade(1, 6);
+        //LiftSystem.instance.lockLift = false;
     }
 }
