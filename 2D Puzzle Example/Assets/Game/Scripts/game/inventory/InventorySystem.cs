@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
-using static UnityEditor.Progress;
 using com;
 
 public class InventorySystem : MonoBehaviour
