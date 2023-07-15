@@ -84,7 +84,7 @@ public class Floor1System : MonoBehaviour
     public float doorMoveEndX_r;
     public float doorMoveEndX_l;
 
-    public Transform bikeEndPos;
+    public RectTransform bikeEndPos;
     public GameObject bike;
     public Image bgWithCrackImg;
     public Image darkness;
@@ -103,7 +103,7 @@ public class Floor1System : MonoBehaviour
 
         woodenFace2.transform.DOShakePosition(3, 5, 8);
         yield return new WaitForSeconds(1);
-        woodenFace2.GetComponent<Image>().DOFade(0, 2);
+        woodenFace2.GetComponent<Image>().DOFade(0, 0.5f);
         yield return new WaitForSeconds(0.5f);
         bgWithCrackImg.gameObject.SetActive(false);
 
@@ -120,7 +120,7 @@ public class Floor1System : MonoBehaviour
         doorLayer1_l.DOAnchorPosX(doorMoveEndX_l, 4);
         yield return new WaitForSeconds(3);
 
-        bike.transform.DOMoveX(bikeEndPos.position.x, 7);
+        bike.GetComponent<RectTransform>().DOAnchorPosX(bikeEndPos.anchoredPosition.x, 7);
         bike.transform.DOShakeRotation(7, 1, 18, 70, false);
         yield return new WaitForSeconds(6);
 

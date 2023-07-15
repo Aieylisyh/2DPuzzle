@@ -7,9 +7,9 @@ using com;
 public class Floor5System : MonoBehaviour
 {
     public static Floor5System instance;
-    public Transform jisaw;
-    public Transform jisawStartPos;
-    public Transform jisawEndPos;
+    public RectTransform jisaw;
+    public RectTransform jisawStartPos;
+    public RectTransform jisawEndPos;
 
     public GameObject jisawScene;
     public GameObject[] words;
@@ -68,7 +68,7 @@ public class Floor5System : MonoBehaviour
            })
             .AppendInterval(1.0f)
             .Append(bgImg.DOColor(Color.white, 1.5f))
-            .Append(jisaw.DOMoveX(jisawEndPos.position.x, 7))
+            .Append(jisaw.DOAnchorPosX(jisawEndPos.anchoredPosition.x, 7))
             .Join(jisaw.DOShakeRotation(7, 1, 18, 70, false))
             .AppendCallback(() =>
             {
