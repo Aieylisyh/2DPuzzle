@@ -91,7 +91,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 1944883300787392496}
   mousePos: {x: 0, y: 0, z: 0}
-  rx: 1
-  ry: 1
-  offsetX: 0
-  offsetY: 0
