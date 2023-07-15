@@ -8,10 +8,6 @@ public class ClickFeedbackBehaviour : MonoBehaviour
 {
     public Image img;
     public Vector3 mousePos;
-    public float rx;
-    public float ry;
-    public float offsetX;
-    public float offsetY;
     void Start()
     {
         Destroy(gameObject, 1);
@@ -22,9 +18,7 @@ public class ClickFeedbackBehaviour : MonoBehaviour
         img.raycastTarget = false;
 
         var p = Camera.main.ScreenToWorldPoint(mousePos);
-        Debug.Log(mousePos + " " + p);
-        var finalPos = new Vector2(p.x * rx + offsetX, p.y * ry + offsetY);
-        transform.position = finalPos;
+        transform.position = p;
 
         var rect = GetComponent<RectTransform>();
         var anchoredPos = rect.anchoredPosition3D;
