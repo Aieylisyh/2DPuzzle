@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using com;
+using System.Collections;
 using UnityEngine;
 
 public class LevelSystem : MonoBehaviour
@@ -22,7 +23,7 @@ public class LevelSystem : MonoBehaviour
 
     public void OnClickTestKey()
     {
-       //add item will hide the current displaying tip, so must add item before set tip
+        //add item will hide the current displaying tip, so must add item before set tip
         InventorySystem.instance.AddItem(new ItemData(1, "key"));
         TipSystem.instance.ShowText("This is a key, but it is rusty...", true);
     }

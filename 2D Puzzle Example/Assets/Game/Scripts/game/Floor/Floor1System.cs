@@ -101,15 +101,13 @@ public class Floor1System : MonoBehaviour
 
         bgWithCrackImg.DOFade(0, 3);
 
-        woodenFace2.transform.DOShakePosition(4, 4, 8);
-        yield return new WaitForSeconds(3);
-        woodenFace2.GetComponent<Image>().DOFade(0, 2);
+        woodenFace2.transform.DOShakePosition(3, 5, 8);
         yield return new WaitForSeconds(1);
+        woodenFace2.GetComponent<Image>().DOFade(0, 2);
+        yield return new WaitForSeconds(0.5f);
         bgWithCrackImg.gameObject.SetActive(false);
 
         //open doors
-
-
         doorLayer3_r.DOAnchorPosX(doorMoveEndX_r, 4);
         doorLayer3_l.DOAnchorPosX(doorMoveEndX_l, 4);
         yield return new WaitForSeconds(1.5f); ;
@@ -125,6 +123,7 @@ public class Floor1System : MonoBehaviour
         bike.transform.DOMoveX(bikeEndPos.position.x, 7);
         bike.transform.DOShakeRotation(7, 1, 18, 70, false);
         yield return new WaitForSeconds(6);
+
         darkness.gameObject.SetActive(true);
         darkness.DOFade(1, 5);
         Floor5System.instance.vignette.DOColor(Color.white, 2);

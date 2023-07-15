@@ -23,14 +23,12 @@ public class TipSystem : MonoBehaviour
         var t = cg.DOFade(1, 1.5f);
 
         if (autoHide)
-        {
-            t.OnComplete(HideText);
-        }
+            cg.DOFade(0, 1.5f).SetDelay(3.3f);
     }
 
     public void HideText()
     {
-        Debug.Log("h");
+        //Debug.Log("h");
         cg.DOFade(0, 1.5f);
     }
 }

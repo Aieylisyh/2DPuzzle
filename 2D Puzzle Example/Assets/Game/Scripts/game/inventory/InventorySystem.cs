@@ -44,7 +44,7 @@ public class InventorySystem : MonoBehaviour
             {
                 i.n += newItem.n;
                 s.SetItem(i);
-                SoundSystem.instance.Play("item");
+                SoundSystem.instance.Play(GetPrototype(newItem.id).sfx);
                 return;
             }
         }
@@ -53,6 +53,7 @@ public class InventorySystem : MonoBehaviour
         {
             if (s.data == null)
             {
+                SoundSystem.instance.Play(GetPrototype(newItem.id).sfx);
                 s.SetItem(newItem);
                 return;
             }

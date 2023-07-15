@@ -15,4 +15,4 @@ MonoBehaviour:
   id: candle
   title: Candle
   sp: {fileID: 21300000, guid: 01dc4e49cb7a01148b3e46db764deb1e, type: 3}
-  sfx: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
+  sfx: item

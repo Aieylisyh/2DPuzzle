@@ -188,9 +188,7 @@ public class LiftSystem : MonoBehaviour
     public void OnLiftDestinationSet(int intTargetFloor)
     {
         if (intTargetFloor <= 0 || intTargetFloor > 5)
-        {
             return;
-        }
 
         _targetFloor = (float)intTargetFloor;
         var delta = _targetFloor - _crtFloor;
@@ -199,6 +197,8 @@ public class LiftSystem : MonoBehaviour
 
         _liftDoors.doorLeft.Set(false, false);
         _liftDoors.doorRight.Set(false, false);
+
+        SoundSystem.instance.Play("tuto");
     }
 
     void OnArrived()
@@ -206,5 +206,7 @@ public class LiftSystem : MonoBehaviour
         _liftDoors.doorLeft.Set(true, false);
         _liftDoors.doorRight.Set(true, false);
         _floorSwitcher.SetFloor(currentFloor);
+
+        SoundSystem.instance.Play("pistol drop");
     }
 }

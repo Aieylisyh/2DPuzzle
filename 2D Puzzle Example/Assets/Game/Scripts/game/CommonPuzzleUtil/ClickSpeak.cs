@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using com;
 
 public class ClickSpeak : MonoBehaviour
 {
     public GameObject[] speachs;
     public float duration = 7;
 
+    public string sfx;
     GameObject _crtSpeach;
     int _index;
 
@@ -18,6 +20,8 @@ public class ClickSpeak : MonoBehaviour
 
     public void Speak()
     {
+        SoundSystem.instance.Play(sfx);
+
         _index++;
         if (_index >= speachs.Length)
             _index = 0;
@@ -30,17 +34,15 @@ public class ClickSpeak : MonoBehaviour
             {
                 s.SetActive(true);
                 s.transform.DOShakePosition(2, 7).OnComplete(
-                    () =>
-                    {
-                        s.SetActive(false);
-                        _crtSpeach = null;
-                    }
-                    );
+                () =>
+                {
+                    s.SetActive(false);
+                    _crtSpeach = null;
+                }
+                );
             }
             else
-            {
                 s.SetActive(false);
-            }
         }
     }
 }

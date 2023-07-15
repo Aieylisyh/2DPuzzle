@@ -7,5 +7,5 @@ public class ItemPrototype : ScriptableObject
     public string id;
     public string title;
     public Sprite sp;
-    public AudioClip sfx;
+    public string sfx;
 }

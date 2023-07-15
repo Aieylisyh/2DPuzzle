@@ -521,7 +521,7 @@ RectTransform:
   - {fileID: 1354945463}
   - {fileID: 1210514164}
   m_Father: {fileID: 1902124866}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21116,7 +21116,7 @@ RectTransform:
   - {fileID: 1136303046}
   - {fileID: 1018437571}
   m_Father: {fileID: 1902124866}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26301,7 +26301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46.999996, y: 425}
+  m_AnchoredPosition: {x: 36, y: 425}
   m_SizeDelta: {x: 86, y: 275}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &309787295
@@ -26316,7 +26316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc843c1cdd5971645aedfef413ee5fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freq: -1
+  freq: -0.6
   trans: {fileID: 309787294}
   amplitude: 10
   baseEular: {x: 0, y: 0, z: 1}
@@ -34540,7 +34540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 130}
+  m_AnchoredPosition: {x: 0, y: 85}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738228380
@@ -39912,7 +39912,7 @@ MonoBehaviour:
   pistolItem: {fileID: 1228106496}
   pistolFrom: {fileID: 1958832464}
   pistolTo: {fileID: 1678036399}
-  pistolMoveDuration: 1.25
+  pistolMoveDuration: 1.2
   web: {fileID: 518730411}
   candle1Fire: {fileID: 50467359}
   candle2Fire: {fileID: 85264740}
@@ -40448,6 +40448,7 @@ MonoBehaviour:
   pistolId: pistol
   jisawImg: {fileID: 552912226}
   vignette: {fileID: 1543008399}
+  jisawButton: {fileID: 1182178195}
 --- !u!1 &770502384
 GameObject:
   m_ObjectHideFlags: 0
@@ -41611,7 +41612,7 @@ RectTransform:
   - {fileID: 201019087}
   - {fileID: 2036081678}
   m_Father: {fileID: 1902124866}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -48862,7 +48863,8 @@ MonoBehaviour:
   speachs:
   - {fileID: 1534496093}
   - {fileID: 1263745406}
-  duration: 7
+  duration: 5
+  sfx: tuto
 --- !u!114 &911447807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48877,7 +48879,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speachs:
   - {fileID: 1352675655}
-  duration: 7
+  duration: 4
+  sfx: tuto
 --- !u!114 &911447808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48893,7 +48896,8 @@ MonoBehaviour:
   speachs:
   - {fileID: 273627683}
   - {fileID: 1553488294}
-  duration: 7
+  duration: 4
+  sfx: tuto
 --- !u!1 &912298705
 GameObject:
   m_ObjectHideFlags: 0
@@ -50213,7 +50217,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -85}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 110, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940954314
 MonoBehaviour:
@@ -51179,7 +51183,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -85}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 110, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &970869434
 MonoBehaviour:
@@ -56814,7 +56818,7 @@ MonoBehaviour:
     - name: click
       ac: {fileID: 8300000, guid: 72b748bd68ded0a44acf7c208b8971b0, type: 3}
     - name: item
-      ac: {fileID: 8300000, guid: 552d52072739cd041b1dc9898d62c3c2, type: 3}
+      ac: {fileID: 8300000, guid: 0425ddfecd3927a46aa8dcfbc484ba17, type: 3}
     - name: btn ok
       ac: {fileID: 8300000, guid: fecd6d81457fcd745836d11799ce8eee, type: 3}
   - tag: scene
@@ -56833,6 +56837,14 @@ MonoBehaviour:
       ac: {fileID: 8300000, guid: 2521bb8d9ca205a499f83168f56f79cd, type: 3}
     - name: shoot
       ac: {fileID: 8300000, guid: ecbe20eac05b81c45ad48f0883128a89, type: 3}
+    - name: candle put in
+      ac: {fileID: 8300000, guid: 911a5bab319c8d04ab46cf5e4bd10de5, type: 3}
+    - name: trigger
+      ac: {fileID: 8300000, guid: ade769037fa163743a4cc4b07a9b94bd, type: 3}
+    - name: pistol drop
+      ac: {fileID: 8300000, guid: 998e4d5c143ce0e448102fb712daf627, type: 3}
+    - name: tuto
+      ac: {fileID: 8300000, guid: 3d64f686f42a4b1418d7e7ecd7576a73, type: 3}
 --- !u!4 &1235483281
 Transform:
   m_ObjectHideFlags: 0
@@ -74788,7 +74800,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -85}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 110, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1518031769
 MonoBehaviour:
@@ -75916,7 +75928,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -85}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 110, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555515508
 MonoBehaviour:
@@ -92979,7 +92991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 187, y: 425}
+  m_AnchoredPosition: {x: 165, y: 425}
   m_SizeDelta: {x: 86, y: 275}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1879830697
@@ -92994,7 +93006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc843c1cdd5971645aedfef413ee5fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freq: -1
+  freq: -0.6
   trans: {fileID: 1879830696}
   amplitude: 10
   baseEular: {x: 0, y: 0, z: 1}
@@ -94276,10 +94288,10 @@ RectTransform:
   - {fileID: 26686031}
   - {fileID: 218043504}
   - {fileID: 1296294199}
-  - {fileID: 2092492839}
   - {fileID: 94613352}
-  - {fileID: 18770527}
+  - {fileID: 2092492839}
   - {fileID: 826378974}
+  - {fileID: 18770527}
   m_Father: {fileID: 249827711}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94315,9 +94327,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speachs:
-  - {fileID: 2092492838}
   - {fileID: 94613351}
-  duration: 7
+  - {fileID: 2092492838}
+  duration: 5
+  sfx: tuto
 --- !u!114 &1902124869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94331,9 +94344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speachs:
-  - {fileID: 18770526}
   - {fileID: 826378973}
-  duration: 7
+  - {fileID: 18770526}
+  duration: 5
+  sfx: tuto
 --- !u!1 &1905950989
 GameObject:
   m_ObjectHideFlags: 0
@@ -101338,7 +101352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -273, y: 425}
+  m_AnchoredPosition: {x: -247, y: 425}
   m_SizeDelta: {x: 86, y: 275}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2013877503
@@ -101353,7 +101367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc843c1cdd5971645aedfef413ee5fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freq: 1
+  freq: 0.6
   trans: {fileID: 2013877502}
   amplitude: 10
   baseEular: {x: 0, y: 0, z: 1}
@@ -102554,7 +102568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113, y: 425}
+  m_AnchoredPosition: {x: -115, y: 425}
   m_SizeDelta: {x: 86, y: 275}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2059602258
@@ -102569,7 +102583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc843c1cdd5971645aedfef413ee5fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freq: 1
+  freq: 0.6
   trans: {fileID: 2059602257}
   amplitude: 10
   baseEular: {x: 0, y: 0, z: 1}
@@ -102856,7 +102870,7 @@ RectTransform:
   - {fileID: 1800086074}
   - {fileID: 1998420248}
   m_Father: {fileID: 1902124866}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

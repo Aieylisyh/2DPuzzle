@@ -33,6 +33,7 @@ public class Floor5System : MonoBehaviour
     public string pistolId = "pistol";
     public Image jisawImg;
     public Image vignette;
+    public GameObject jisawButton;
 
     private void Awake()
     {
@@ -127,11 +128,15 @@ public class Floor5System : MonoBehaviour
         SoundSystem.instance.Play("shoot");
         jisawImg.rectTransform.DOShakeAnchorPos(3, 10, 10);
         jisawImg.DOColor(Color.red, 0.5f).SetEase(Ease.OutBounce);
+
         yield return new WaitForSeconds(0.5f);
+        vignette.DOColor(new Color(0.32f, 0, 0, 1), 0.5f);
         jisawImg.DOColor(Color.white, 0.5f).SetEase(Ease.OutBounce);
-        jisawImg.DOFade(0, 2).SetDelay(0.5f);
-        yield return new WaitForSeconds(1);
-        vignette.DOColor(new Color(0.5f, 0, 0, 1), 2);
+        jisawImg.DOFade(0, 1.5f);
+
+        yield return new WaitForSeconds(1.5f);
+        jisawButton.SetActive(false);
+        jisawImg.gameObject.SetActive(false);
         LiftSystem.instance.lockLift = false;
     }
 
