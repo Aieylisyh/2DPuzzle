@@ -22640,7 +22640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &171063761
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25381,7 +25381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &242211820
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39858,7 +39858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &763505356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40445,6 +40445,10 @@ MonoBehaviour:
   liftBlinker: {fileID: 1278743402}
   exitJisawViewBtn: {fileID: 1267443476}
   bigJisawView: {fileID: 1355857539}
+  webBurned: 0
+  pistolId: pistol
+  jisawImg: {fileID: 552912226}
+  vignette: {fileID: 1543008399}
 --- !u!1 &770502384
 GameObject:
   m_ObjectHideFlags: 0
@@ -48910,7 +48914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &912298706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50651,7 +50655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &953077923
 RectTransform:
   m_ObjectHideFlags: 0

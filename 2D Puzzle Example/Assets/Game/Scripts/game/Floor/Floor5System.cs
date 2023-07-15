@@ -29,6 +29,11 @@ public class Floor5System : MonoBehaviour
     public GameObject exitJisawViewBtn;
     public GameObject bigJisawView;
 
+    public bool webBurned;
+    public string pistolId = "pistol";
+    public Image jisawImg;
+    public Image vignette;
+
     private void Awake()
     {
         instance = this;
@@ -41,6 +46,7 @@ public class Floor5System : MonoBehaviour
     // Update is called once per frame
     void StartPlay()
     {
+        webBurned = false;
         liftImg.color = Color.black;
         liftControlPanelButton.SetActive(false);
         liftBlinker.SetActive(false);
@@ -94,9 +100,39 @@ public class Floor5System : MonoBehaviour
         if (!_canEnterJisawScene)
             return;
 
+        if (webBurned)
+        {
+            TryKillJisaw();
+            return;
+        }
+
         jisawScene.SetActive(true);
         _canEnterJisawScene = false;
         StartJiSawScene_SpeakWords();
+    }
+
+    void TryKillJisaw()
+    {
+        var crtSelectedInvItemData = InventorySystem.instance.GetCurrentItemData();
+        if (crtSelectedInvItemData == null || crtSelectedInvItemData.id != pistolId)
+            return;
+
+        InventorySystem.instance.RemoveItem(new ItemData(1, pistolId));
+        StartCoroutine(KillSeq());
+    }
+
+    IEnumerator KillSeq()
+    {
+        LiftSystem.instance.lockLift = true;
+        SoundSystem.instance.Play("shoot");
+        jisawImg.rectTransform.DOShakeAnchorPos(3, 10, 10);
+        jisawImg.DOColor(Color.red, 1).SetEase(Ease.OutBounce);
+        yield return new WaitForSeconds(1);
+        jisawImg.DOColor(Color.white, 1).SetEase(Ease.OutBounce);
+        jisawImg.DOFade(0, 2).SetDelay(1);
+        yield return new WaitForSeconds(1);
+        vignette.DOColor(Color.red, 3);
+        LiftSystem.instance.lockLift = false;
     }
 
     public void StartJiSawScene_SpeakWords()

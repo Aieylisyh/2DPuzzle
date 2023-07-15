@@ -108,7 +108,7 @@ public class Floor2System : MonoBehaviour
 
         //lock lift
         LiftSystem.instance.lockLift = true;
-
+        Floor5System.instance.webBurned = true;
         //fade candles
         candle1Img.DOKill();
         candle2Img.DOKill();
