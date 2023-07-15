@@ -126,12 +126,12 @@ public class Floor5System : MonoBehaviour
         LiftSystem.instance.lockLift = true;
         SoundSystem.instance.Play("shoot");
         jisawImg.rectTransform.DOShakeAnchorPos(3, 10, 10);
-        jisawImg.DOColor(Color.red, 1).SetEase(Ease.OutBounce);
+        jisawImg.DOColor(Color.red, 0.5f).SetEase(Ease.OutBounce);
+        yield return new WaitForSeconds(0.5f);
+        jisawImg.DOColor(Color.white, 0.5f).SetEase(Ease.OutBounce);
+        jisawImg.DOFade(0, 2).SetDelay(0.5f);
         yield return new WaitForSeconds(1);
-        jisawImg.DOColor(Color.white, 1).SetEase(Ease.OutBounce);
-        jisawImg.DOFade(0, 2).SetDelay(1);
-        yield return new WaitForSeconds(1);
-        vignette.DOColor(Color.red, 3);
+        vignette.DOColor(new Color(0.5f, 0, 0, 1), 2);
         LiftSystem.instance.lockLift = false;
     }
 

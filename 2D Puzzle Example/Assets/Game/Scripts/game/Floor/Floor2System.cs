@@ -110,14 +110,15 @@ public class Floor2System : MonoBehaviour
         LiftSystem.instance.lockLift = true;
         Floor5System.instance.webBurned = true;
         //fade candles
+        yield return new WaitForSeconds(0.7f);
         candle1Img.DOKill();
         candle2Img.DOKill();
         candle3Img.DOKill();
         candle4Img.DOKill();
-        candle1Img.DOFade(0, 1);
-        candle2Img.DOFade(0, 1);
-        candle3Img.DOFade(0, 1);
-        candle4Img.DOFade(0, 1);
+        candle1Img.DOFade(0, 1.5f);
+        candle2Img.DOFade(0, 1.5f);
+        candle3Img.DOFade(0, 1.5f);
+        candle4Img.DOFade(0, 1.5f);
 
         //all candle burn
         yield return new WaitForSeconds(1.1f);

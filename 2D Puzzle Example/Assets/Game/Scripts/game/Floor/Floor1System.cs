@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using com;
+using UnityEngine.Rendering.PostProcessing;
 
 public class Floor1System : MonoBehaviour
 {
@@ -126,6 +127,7 @@ public class Floor1System : MonoBehaviour
         yield return new WaitForSeconds(6);
         darkness.gameObject.SetActive(true);
         darkness.DOFade(1, 5);
+        Floor5System.instance.vignette.DOColor(Color.white, 2);
         //LiftSystem.instance.lockLift = false;
     }
 }
