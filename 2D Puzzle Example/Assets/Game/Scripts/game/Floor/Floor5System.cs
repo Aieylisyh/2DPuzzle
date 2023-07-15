@@ -38,12 +38,12 @@ public class Floor5System : MonoBehaviour
     {
         instance = this;
     }
+
     void Start()
     {
         StartPlay();
     }
 
-    // Update is called once per frame
     void StartPlay()
     {
         webBurned = false;
@@ -177,18 +177,17 @@ public class Floor5System : MonoBehaviour
             w.SetActive(false);
         SoundSystem.instance.Play("btn ok");
         jisawScene.SetActive(false);
+
         if (_canRevealLift && !_hasRevealedLift)
-        {
             RevealList();
-        }
     }
 
     public void RevealList()
     {
-        doorRightImg.DOColor(Color.white, 4.0f);
-        doorLeftImg.DOColor(Color.white, 4.0f);
+        doorRightImg.DOColor(Color.white, 3.0f);
+        doorLeftImg.DOColor(Color.white, 3.0f);
 
-        liftImg.DOColor(Color.white, 3.6f).OnComplete(() =>
+        liftImg.DOColor(Color.white, 2.7f).OnComplete(() =>
         {
             //SoundSystem.instance.Play("ding");
             liftBlinker.SetActive(true);
