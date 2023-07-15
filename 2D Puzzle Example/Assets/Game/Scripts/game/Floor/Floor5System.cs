@@ -152,7 +152,7 @@ public class Floor5System : MonoBehaviour
         var sequence = DOTween.Sequence();
         foreach (var w in words)
         {
-            sequence.AppendInterval(0.25f);
+            sequence.AppendInterval(0.2f);
             sequence.AppendCallback(() =>
             {
                 w.SetActive(true);

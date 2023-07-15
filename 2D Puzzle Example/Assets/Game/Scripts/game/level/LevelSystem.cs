@@ -30,11 +30,12 @@ public class LevelSystem : MonoBehaviour
     public void OnClickCandle()
     {
         InventorySystem.instance.AddItem(new ItemData(1, "candle"));
+        TipSystem.instance.ShowText("I don't like candles", true);
     }
 
     public void OnClickPistol()
     {
         InventorySystem.instance.AddItem(new ItemData(1, "pistol"));
-        TipSystem.instance.ShowText("It has one bullet loaded", true);
+        TipSystem.instance.ShowText("It has one bullet loaded...", true);
     }
 }

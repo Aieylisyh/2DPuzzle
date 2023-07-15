@@ -93,6 +93,11 @@ public class InventorySystem : MonoBehaviour
                         _crtSlot = null;
                     s.SetEmpty();
                 }
+                else
+                {
+                    s.SetItem(s.data);
+                    s.ToggleSelected(_crtSlot == s);
+                }
 
                 return true;
             }

@@ -58,7 +58,7 @@ public class Floor4System : MonoBehaviour
         btn.SetActive(false);
 
         LiftSystem.instance.lockLift = true;
-        itemTrans.DOAnchorPos(itemEndPos, itemDropDuration).SetEase(Ease.InCubic).SetDelay(1).OnComplete(
+        itemTrans.DOAnchorPos(itemEndPos, itemDropDuration).SetEase(Ease.InCubic).SetDelay(0.1f).OnComplete(
             () =>
             {
                 LiftSystem.instance.lockLift = false;
@@ -68,10 +68,10 @@ public class Floor4System : MonoBehaviour
 
     bool RightAnswer()
     {
-        Debug.Log(icon1.crtIndex);
-        Debug.Log(icon2.crtIndex);
-        Debug.Log(icon3.crtIndex);
-        Debug.Log(icon4.crtIndex);
+        //Debug.Log(icon1.crtIndex);
+        //Debug.Log(icon2.crtIndex);
+        //Debug.Log(icon3.crtIndex);
+        //Debug.Log(icon4.crtIndex);
         if (icon1.crtIndex == correctIndex1
          && icon2.crtIndex == correctIndex2
          && icon3.crtIndex == correctIndex3
