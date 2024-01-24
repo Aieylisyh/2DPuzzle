@@ -48,6 +48,8 @@ public class TimeflowScene : MonoBehaviour
 
         foreach (var o in TimeflowObjects)
         {
+            if (o.obj == null)
+                continue;
             if (t >= o.startTime && t <= o.endTime)
             {
                 o.obj.SetActive(o.isToShow);

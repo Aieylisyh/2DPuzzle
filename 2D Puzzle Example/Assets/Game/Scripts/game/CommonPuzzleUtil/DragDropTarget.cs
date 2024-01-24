@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,9 +20,42 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
     DragDropContainer _startDDC;
     Vector3 _startPos;
 
+    public enum EndFeedback
+    {
+        None,
+        Disable,
+        Destroy,
+        FadeImage,
+        FadeImageAndUp,
+    }
+    public EndFeedback endFeedback;
+
+    public enum Showup
+    {
+        None,
+        Fade,
+        Scale,
+    }
+    public Showup showup;
+
     private void Awake()
     {
         rectTrans = GetComponent<RectTransform>();
+        switch (showup)
+        {
+            case Showup.None:
+                break;
+            case Showup.Fade:
+                var img = GetComponent<Image>();
+                img.color = new Color(1, 1, 1, 0);
+                img.DOFade(1, 0.6f);
+                break;
+            case Showup.Scale:
+                var s = rectTrans.localScale;
+                rectTrans.localScale = Vector3.zero;
+                rectTrans.DOScale(s, 0.6f);
+                break;
+        }
     }
 
     private void Start()
@@ -70,13 +104,43 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         else
         {
             SetToDragDropContrainer(endContainer);
-            //this.enabled = false;//depends
+            ApplyEndFeedback();
         }
 
         foreach (var ddc in containers)
         {
             if (ddc != endContainer)
                 ddc.inside = false;
+        }
+    }
+
+    public void ApplyEndFeedback()
+    {
+        switch (endFeedback)
+        {
+            case EndFeedback.None:
+                break;
+            case EndFeedback.Disable:
+                this.enabled = false;
+                break;
+            case EndFeedback.Destroy:
+                Destroy(this.gameObject);
+                break;
+            case EndFeedback.FadeImage:
+                GetComponent<Image>().DOFade(0, 1.2f).OnComplete(
+                    () => { Destroy(this.gameObject); });
+                break;
+            case EndFeedback.FadeImageAndUp:
+                var img = GetComponent<Image>();
+                img.DOKill();
+                var v = rectTrans.anchoredPosition.y + 40;
+                rectTrans.DOAnchorPosY(v, 0.8f).SetEase(Ease.InBack).OnComplete(
+                    () =>
+                    {
+                        img.DOFade(0, 0.8f).OnComplete(
+                   () => { Destroy(this.gameObject); });
+                    });
+                break;
         }
     }
 
