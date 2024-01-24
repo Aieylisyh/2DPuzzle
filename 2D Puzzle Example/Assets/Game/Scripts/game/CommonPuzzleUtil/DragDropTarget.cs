@@ -41,6 +41,11 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
     private void Awake()
     {
         rectTrans = GetComponent<RectTransform>();
+    }
+
+    private void OnEnable()
+    {
+        SetToDragDropContrainer(_startDDC);
         switch (showup)
         {
             case Showup.None:
@@ -48,20 +53,18 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
             case Showup.Fade:
                 var img = GetComponent<Image>();
                 img.color = new Color(1, 1, 1, 0);
-                img.DOFade(1, 0.6f);
+                img.DOKill();
+                img.DOFade(1, 0.8f);
                 break;
             case Showup.Scale:
                 var s = rectTrans.localScale;
                 rectTrans.localScale = Vector3.zero;
-                rectTrans.DOScale(s, 0.6f);
+                rectTrans.DOKill();
+                rectTrans.DOScale(s, 0.8f).SetEase(Ease.OutBounce);
                 break;
         }
     }
 
-    private void Start()
-    {
-        SetToDragDropContrainer(_startDDC);
-    }
 
     void SetToDragDropContrainer(DragDropContainer ddc)
     {

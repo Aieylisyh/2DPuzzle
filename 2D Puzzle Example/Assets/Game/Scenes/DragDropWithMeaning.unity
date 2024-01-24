@@ -262,18 +262,18 @@ MonoBehaviour:
     showTime2: 7
     endTime: 8
     img: {fileID: 438862415}
-  - startTime: 4
-    showTime1: 5
+  - startTime: 7
+    showTime1: 8
     showTime2: 10
     endTime: 11
     img: {fileID: 169503834}
-  - startTime: 9
-    showTime1: 10
+  - startTime: 10
+    showTime1: 11
     showTime2: 15
     endTime: 16
     img: {fileID: 594464212}
-  - startTime: 13
-    showTime1: 14
+  - startTime: 15
+    showTime1: 16
     showTime2: 111
     endTime: 122
     img: {fileID: 985946015}
@@ -776,18 +776,18 @@ MonoBehaviour:
     showTime2: 7
     endTime: 8
     img: {fileID: 509220314}
-  - startTime: 4
-    showTime1: 5
+  - startTime: 7
+    showTime1: 8
     showTime2: 10
     endTime: 11
     img: {fileID: 1607067617}
-  - startTime: 9
-    showTime1: 10
+  - startTime: 10
+    showTime1: 11
     showTime2: 15
     endTime: 16
     img: {fileID: 250431934}
-  - startTime: 13
-    showTime1: 14
+  - startTime: 15
+    showTime1: 16
     showTime2: 111
     endTime: 122
     img: {fileID: 1116344434}
@@ -1502,7 +1502,7 @@ MonoBehaviour:
   - {fileID: 185622911}
   _startDDC: {fileID: 185622911}
   endFeedback: 4
-  showup: 1
+  showup: 2
 --- !u!114 &388674941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,18 +2625,18 @@ MonoBehaviour:
     showTime2: 7
     endTime: 8
     img: {fileID: 274821550}
-  - startTime: 4
-    showTime1: 5
+  - startTime: 7
+    showTime1: 8
     showTime2: 10
     endTime: 11
     img: {fileID: 1347949725}
-  - startTime: 9
-    showTime1: 10
+  - startTime: 10
+    showTime1: 11
     showTime2: 15
     endTime: 16
     img: {fileID: 238863869}
-  - startTime: 13
-    showTime1: 14
+  - startTime: 15
+    showTime1: 16
     showTime2: 111
     endTime: 122
     img: {fileID: 1461525486}
@@ -3083,18 +3083,18 @@ MonoBehaviour:
     showTime2: 7
     endTime: 8
     img: {fileID: 1708753057}
-  - startTime: 4
-    showTime1: 5
+  - startTime: 7
+    showTime1: 8
     showTime2: 10
     endTime: 11
     img: {fileID: 243459643}
-  - startTime: 9
-    showTime1: 10
+  - startTime: 10
+    showTime1: 11
     showTime2: 15
     endTime: 16
     img: {fileID: 1124546171}
-  - startTime: 13
-    showTime1: 14
+  - startTime: 15
+    showTime1: 16
     showTime2: 111
     endTime: 122
     img: {fileID: 1108148050}
