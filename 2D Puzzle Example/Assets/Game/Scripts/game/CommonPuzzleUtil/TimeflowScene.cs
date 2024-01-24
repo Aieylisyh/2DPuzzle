@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TimeflowScene : MonoBehaviour
 {
+    public float offset;
+
     [System.Serializable]
     public struct TimeflowObject
     {
@@ -13,6 +15,7 @@ public class TimeflowScene : MonoBehaviour
         public GameObject obj;
         public bool isToShow;
     }
+
     [System.Serializable]
     public struct TimeflowOpatiqueImage
     {
@@ -22,14 +25,27 @@ public class TimeflowScene : MonoBehaviour
         public bool isToShow;
     }
 
+    [System.Serializable]
+    public struct TimeflowOpatiqueFadeImage
+    {
+        public float startTime;
+        public float showTime1;
+        public float showTime2;
+        public float endTime;
+        public Image img;
+    }
+
     [SerializeField]
     TimeflowOpatiqueImage[] timeflowOpatiqueImages;
     [SerializeField]
     TimeflowObject[] TimeflowObjects;
-
+    [SerializeField]
+    TimeflowOpatiqueFadeImage[] timeflowOpatiqueFadeImages;
 
     public void Tick(float t)
     {
+        t = offset + t;
+
         foreach (var o in TimeflowObjects)
         {
             if (t >= o.startTime && t <= o.endTime)
@@ -78,6 +94,36 @@ public class TimeflowScene : MonoBehaviour
                 {
                     c.a = 0;
                 }
+            }
+            i.img.color = c;
+        }
+
+
+
+        foreach (var i in timeflowOpatiqueFadeImages)
+        {
+            var c = i.img.color;
+            if (t < i.startTime)
+            {
+                c.a = 0;
+            }
+            else if (t >= i.startTime && t <= i.showTime1)
+            {
+                var ratio = (t - i.startTime) / (i.showTime1 - i.startTime);
+                c.a = Mathf.Lerp(0, 1, ratio);
+            }
+            else if (t >= i.showTime1 && t <= i.showTime2)
+            {
+                c.a = 1;
+            }
+            else if (t >= i.showTime2 && t <= i.endTime)
+            {
+                var ratio = (t - i.showTime2) / (i.endTime - i.showTime2);
+                c.a = Mathf.Lerp(1, 0, ratio);
+            }
+            else if (t > i.endTime)
+            {
+                c.a = 0;
             }
             i.img.color = c;
         }
