@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using DG.Tweening;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+
 
 public class LetterBehaviour : MonoBehaviour
 {
