@@ -58,6 +58,7 @@ namespace Rescue
 
         void ToggleOffMobileAlarm()
         {
+            SoundSystem.instance.Play("switchoff");
             mobileVibSound.Stop();
             mobile.DOKill();
             stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
@@ -83,9 +84,7 @@ namespace Rescue
             if (stage != GameStage.SceneGirlInBed_PendingMobileInteraction)
                 return;
 
-            SoundSystem.instance.Play("switchoff");
             ToggleOffMobileAlarm();
         }
-
     }
 }
