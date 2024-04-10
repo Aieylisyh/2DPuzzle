@@ -12,6 +12,10 @@ namespace Rescue
     {
         public static RescueSystem instance;
 
+        public CanvasGroup sceneCg_girlInBed1;
+        public CanvasGroup sceneCg_washFace;
+
+
         void Awake()
         {
             instance = this;
@@ -30,6 +34,15 @@ namespace Rescue
         {
             StartSceneGirlInBed();
             zoomParentOrginalPos = zoomParent.position;
+
+            sceneCg_girlInBed1.alpha = 1;
+            sceneCg_girlInBed1.interactable = true;
+            sceneCg_girlInBed1.blocksRaycasts = true;
+
+            sceneCg_washFace.alpha = 0;
+            sceneCg_washFace.interactable = false;
+            sceneCg_washFace.blocksRaycasts = false;
+
         }
 
         public RectTransform mobile;

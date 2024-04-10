@@ -11,8 +11,6 @@ namespace Rescue
     public partial class RescueSystem : MonoBehaviour
     {
         public Transform dotParent;
-        public CanvasGroup lastSceneCg;
-        public CanvasGroup currentSceneCg;
 
         public float dotInterval = 0.1f;
 
@@ -46,14 +44,14 @@ namespace Rescue
                        s.DOFade(0, 1);
                    }
 
-                   lastSceneCg.alpha = 0;
-                   lastSceneCg.interactable = false;
-                   lastSceneCg.blocksRaycasts = false;
-                   currentSceneCg.alpha = 0;
-                   currentSceneCg.interactable = false;
-                   currentSceneCg.blocksRaycasts = false;
-                   currentSceneCg.DOKill();
-                   currentSceneCg.DOFade(1, 2);
+                   sceneCg_girlInBed1.alpha = 0;
+                   sceneCg_girlInBed1.interactable = false;
+                   sceneCg_girlInBed1.blocksRaycasts = false;
+                   sceneCg_washFace.alpha = 0;
+                   sceneCg_washFace.interactable = false;
+                   sceneCg_washFace.blocksRaycasts = false;
+                   sceneCg_washFace.DOKill();
+                   sceneCg_washFace.DOFade(1, 2);
                }));
         }
 
