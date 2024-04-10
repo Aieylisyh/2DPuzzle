@@ -57,6 +57,22 @@ namespace Rescue
                }));
         }
 
+        public void SwitchToDressingScene()
+        {
+            Debug.Log("SwitchToDressingScene");
+            sceneCg_washFace.gameObject.SetActive(false);
+            sceneCg_dressing.alpha = 1;
+            sceneCg_dressing.interactable = true;
+            sceneCg_dressing.blocksRaycasts = true;
+        }
+
+        public void FocusViewOnPickedCloth(Vector2 localAnchoredPos)
+        {
+            var duration = 3.5f;
+            var rect = sceneCg_dressing.GetComponent<RectTransform>();
+            rect.DOScale(1.4f, duration);
+            rect.DOAnchorPos(-localAnchoredPos, duration);
+        }
     }
 
 }

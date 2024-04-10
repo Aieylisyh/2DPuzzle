@@ -1,3 +1,5 @@
+using Rescue;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +19,22 @@ public class WashFaceSwipeWoundBehaviour : MonoBehaviour
             {
                 HealWound(w);
             }
+        }
+
+        bool allWoundsHealed = true;
+        foreach (var w in wounds)
+        {
+            var img = w.GetComponent<Image>();
+            if (img.color.a > 0.08f)
+            {
+                allWoundsHealed = false;
+                break;
+            }
+        }
+
+        if (allWoundsHealed)
+        {
+            RescueSystem.instance.SwitchToDressingScene();
         }
     }
 
