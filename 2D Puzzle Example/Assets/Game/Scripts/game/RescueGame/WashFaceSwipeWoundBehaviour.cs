@@ -1,3 +1,4 @@
+using com;
 using Rescue;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -38,6 +39,9 @@ public class WashFaceSwipeWoundBehaviour : MonoBehaviour
         }
     }
 
+    private float _soundCd = 0.3f;
+    private float _nextSoundCanPlayTime;
+
     void HealWound(RectTransform wound)
     {
         var img = wound.GetComponent<Image>();
@@ -45,6 +49,12 @@ public class WashFaceSwipeWoundBehaviour : MonoBehaviour
         c.a -= healAlphaDelta;
         c.a = Mathf.Clamp(c.a, 0, 1);
         img.color = c;
+
+        if (Time.time > _nextSoundCanPlayTime)
+        {
+            _nextSoundCanPlayTime = Time.time + _soundCd;
+            SoundSystem.instance.Play("swipe");
+        }
     }
 
 }

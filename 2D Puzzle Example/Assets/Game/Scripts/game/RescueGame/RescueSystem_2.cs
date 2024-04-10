@@ -50,8 +50,8 @@ namespace Rescue
                    sceneCg_girlInBed1.interactable = false;
                    sceneCg_girlInBed1.blocksRaycasts = false;
                    sceneCg_washFace.alpha = 0;
-                   sceneCg_washFace.interactable = false;
-                   sceneCg_washFace.blocksRaycasts = false;
+                   sceneCg_washFace.interactable = true;
+                   sceneCg_washFace.blocksRaycasts = true;
                    sceneCg_washFace.DOKill();
                    sceneCg_washFace.DOFade(1, 2);
                }));
