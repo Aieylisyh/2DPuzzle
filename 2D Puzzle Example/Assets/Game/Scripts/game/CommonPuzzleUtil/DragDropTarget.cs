@@ -79,12 +79,16 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         _startPos = rectTrans.anchoredPosition;
         GetComponent<Image>().raycastTarget = false;
         rectTrans.SetParent(draggingParent.transform);
+        //Debug.Log("OnBeginDrag ");
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         rectTrans.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
+        var wfswb = GetComponent<WashFaceSwipeWoundBehaviour>();
+        if(wfswb!=null)
+            wfswb.OnSwiping(rectTrans.anchoredPosition);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -94,7 +98,7 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         {
             if (ddc.inside)
             {
-                Debug.Log("OnEndDrag " + ddc);
+                //Debug.Log("OnEndDrag " + ddc);
                 endContainer = ddc;
                 break;
             }
@@ -149,6 +153,6 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
+        //Debug.Log("OnPointerDown ");
     }
 }

@@ -15,6 +15,8 @@ namespace Rescue
         public float dotInterval = 0.1f;
 
         public AudioSource[] sfxsSwitching;
+
+
         void SwitchToWashScene()
         {
             foreach (var s in sfxsSwitching)
