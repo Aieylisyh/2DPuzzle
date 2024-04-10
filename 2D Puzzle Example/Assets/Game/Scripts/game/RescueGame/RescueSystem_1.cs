@@ -40,6 +40,7 @@ namespace Rescue
                 () =>
                 {
                     SwitchInBedImage();
+                    StartCoroutine(DelayAction(2.0f, SwitchToWashScene));
                 }
                 );
         }
