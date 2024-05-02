@@ -3,6 +3,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Rescue
 {
@@ -19,7 +20,7 @@ namespace Rescue
         IEnumerator StartScene_OutsidePuzzle(float delay)
         {
             puzzleStarting = false;
-            yield return new WaitForSeconds(delay + 1f);
+            yield return new WaitForSeconds(delay + 0.8f);
             Debug.Log("SwitchToOutsidePuzzleScene");
             ToggleCg(sceneCg_girlInBed1, false);
             ToggleCg(sceneCg_washFace, false);
@@ -32,8 +33,11 @@ namespace Rescue
             endImage_OutsidePuzzle.alpha = 0;
             chatFrame_OutsidePuzzle.alpha = 0;
             puzzleContainer_OutsidePuzzle.alpha = 0;
-
-
+            var words = puzzleContainer_OutsidePuzzle.GetComponentsInChildren<FloatingDraggableWord>();
+            foreach (var word in words)
+            {
+                word.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            }
 
             float durationFadeIn = 1.5f;
             sceneCg_OutsidePuzzle.DOFade(1, durationFadeIn);
@@ -44,12 +48,18 @@ namespace Rescue
             chatFrame_OutsidePuzzle.DOFade(1, durationShowPuzzle);
             yield return new WaitForSeconds(durationShowPuzzle);
             puzzleStarting = true;
-            puzzleContainer_OutsidePuzzle.DOFade(1, 2f).SetEase(Ease.OutCubic);
+
+            foreach (var word in words)
+            {
+                word.StartFloat();
+                word.transform.GetChild(0).GetComponent<Image>().DOColor(Color.white, 2f).SetDelay(UnityEngine.Random.Range(0.1f, 5f));
+            }
+            puzzleContainer_OutsidePuzzle.alpha = 1;
         }
 
         public void OnStartDrag_OutsidePuzzle()
         {
-            AnimateMovableBody_OutsidePuzzle();
+            // AnimateMovableBody_OutsidePuzzle();
         }
 
         public void OnEndDrag_OutsidePuzzle()
@@ -57,14 +67,39 @@ namespace Rescue
             AnimateMovableBody_OutsidePuzzle();
         }
 
+        public float movableBody_OutsidePuzzle_shakeSize = 1f;
         void AnimateMovableBody_OutsidePuzzle()
         {
-
+            movableBody_OutsidePuzzle.localScale = Vector3.one;
+            movableBody_OutsidePuzzle.DOKill();
+            movableBody_OutsidePuzzle.DOPunchScale(Vector3.one * movableBody_OutsidePuzzle_shakeSize, 0.6f, 2);
         }
 
-        void OnPuzzleEnd_OutsidePuzzle()
+        public void OnPuzzleEnd_OutsidePuzzle()
         {
+            var allWordsDone = true;
+            var words = puzzleContainer_OutsidePuzzle.GetComponentsInChildren<FloatingDraggableWord>();
+            foreach (var word in words)
+            {
+                if (word.enabled)
+                {
+                    allWordsDone = false;
+                    break;
+                }
 
+            }
+            if (allWordsDone)
+            {
+                Debug.Log("Puzzle end!!!");
+                endImage_OutsidePuzzle.DOFade(1, 1).SetDelay(0.5f).OnComplete(
+                    () =>
+                    {
+                        endImage_OutsidePuzzle.transform.DOPunchScale(Vector3.one * 0.03f, 0.5f, 2);
+
+                    }
+
+                    );
+            }
         }
     }
 }

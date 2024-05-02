@@ -3775,7 +3775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3851,7 +3851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4984,6 +4984,7 @@ GameObject:
   - component: {fileID: 494097266}
   - component: {fileID: 494097268}
   - component: {fileID: 494097267}
+  - component: {fileID: 494097269}
   m_Layer: 5
   m_Name: draggable word (3)
   m_TagString: Untagged
@@ -5050,6 +5051,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494097265}
   m_CullTransparentMesh: 1
+--- !u!114 &494097269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494097265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e306d49b41d7971479c01a49b3c74616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 879632810}
+  constrainRect: {fileID: 2132048038}
+  speed: 0.12
+  floatingTurnTimeMin: 0.8
+  floatingTurnTimeMax: 2
+  floatingTurnAngleMin: 120
+  floatingTurnAngleMax: 240
+  correctThreshold: 22
 --- !u!1 &496112500
 GameObject:
   m_ObjectHideFlags: 0
@@ -5684,6 +5705,7 @@ MonoBehaviour:
   containers:
   - {fileID: 167777910}
   _startDDC: {fileID: 167777910}
+  freeDrag: 0
   endFeedback: 0
   showup: 2
 --- !u!114 &623215295
@@ -5758,7 +5780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6313,7 +6335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6502,7 +6524,7 @@ GameObject:
   - component: {fileID: 694790077}
   - component: {fileID: 694790076}
   m_Layer: 5
-  m_Name: draggable word
+  m_Name: "draggable word \uFF08me fixed\uFF09"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6543,7 +6565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6921,6 +6943,7 @@ GameObject:
   - component: {fileID: 780571073}
   - component: {fileID: 780571075}
   - component: {fileID: 780571074}
+  - component: {fileID: 780571076}
   m_Layer: 5
   m_Name: draggable word
   m_TagString: Untagged
@@ -6987,6 +7010,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780571072}
   m_CullTransparentMesh: 1
+--- !u!114 &780571076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780571072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e306d49b41d7971479c01a49b3c74616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 879632810}
+  constrainRect: {fileID: 2132048038}
+  speed: 0.12
+  floatingTurnTimeMin: 0.8
+  floatingTurnTimeMax: 2
+  floatingTurnAngleMin: 120
+  floatingTurnAngleMax: 240
+  correctThreshold: 22
 --- !u!1 &782108894
 GameObject:
   m_ObjectHideFlags: 0
@@ -7074,6 +7117,7 @@ GameObject:
   - component: {fileID: 786050126}
   - component: {fileID: 786050128}
   - component: {fileID: 786050127}
+  - component: {fileID: 786050129}
   m_Layer: 5
   m_Name: draggable word (1)
   m_TagString: Untagged
@@ -7140,6 +7184,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786050125}
   m_CullTransparentMesh: 1
+--- !u!114 &786050129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786050125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e306d49b41d7971479c01a49b3c74616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 879632810}
+  constrainRect: {fileID: 2132048038}
+  speed: 0.12
+  floatingTurnTimeMin: 0.8
+  floatingTurnTimeMax: 2
+  floatingTurnAngleMin: 120
+  floatingTurnAngleMax: 240
+  correctThreshold: 22
 --- !u!1 &791020469
 GameObject:
   m_ObjectHideFlags: 0
@@ -8398,7 +8462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11725,7 +11789,7 @@ MonoBehaviour:
   sceneCg_girlInBed1: {fileID: 752132580}
   sceneCg_washFace: {fileID: 1124961483}
   sceneCg_dressing: {fileID: 1017691149}
-  gameStartPhase: 3
+  gameStartPhase: 2
   mobile: {fileID: 297650862}
   zoomParent: {fileID: 752132577}
   stage: 0
@@ -11747,6 +11811,7 @@ MonoBehaviour:
   chatFrame_OutsidePuzzle: {fileID: 1978321989}
   movableBody_OutsidePuzzle: {fileID: 2040826024}
   puzzleStarting: 0
+  movableBody_OutsidePuzzle_shakeSize: 0.025
 --- !u!82 &1235483287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16433,6 +16498,7 @@ GameObject:
   - component: {fileID: 1575053636}
   - component: {fileID: 1575053638}
   - component: {fileID: 1575053637}
+  - component: {fileID: 1575053639}
   m_Layer: 5
   m_Name: draggable word (2)
   m_TagString: Untagged
@@ -16499,6 +16565,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575053635}
   m_CullTransparentMesh: 1
+--- !u!114 &1575053639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575053635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e306d49b41d7971479c01a49b3c74616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 879632810}
+  constrainRect: {fileID: 2132048038}
+  speed: 0.12
+  floatingTurnTimeMin: 0.8
+  floatingTurnTimeMax: 2
+  floatingTurnAngleMin: 120
+  floatingTurnAngleMax: 240
+  correctThreshold: 22
 --- !u!1 &1575151215
 GameObject:
   m_ObjectHideFlags: 0
@@ -17961,7 +18047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -19102,6 +19188,7 @@ GameObject:
   - component: {fileID: 1811768355}
   - component: {fileID: 1811768357}
   - component: {fileID: 1811768356}
+  - component: {fileID: 1811768358}
   m_Layer: 5
   m_Name: draggable word (4)
   m_TagString: Untagged
@@ -19168,6 +19255,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811768354}
   m_CullTransparentMesh: 1
+--- !u!114 &1811768358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811768354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e306d49b41d7971479c01a49b3c74616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 879632810}
+  constrainRect: {fileID: 2132048038}
+  speed: 0.12
+  floatingTurnTimeMin: 0.8
+  floatingTurnTimeMax: 2
+  floatingTurnAngleMin: 120
+  floatingTurnAngleMax: 240
+  correctThreshold: 22
 --- !u!1 &1812962692
 GameObject:
   m_ObjectHideFlags: 0
@@ -25433,7 +25540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -26282,8 +26389,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 429.4}
-  m_SizeDelta: {x: 696.45, y: 407.9}
+  m_AnchoredPosition: {x: 0, y: 432}
+  m_SizeDelta: {x: 560, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132048039
 MonoBehaviour:
