@@ -22,7 +22,6 @@ public class 有容器的拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
         SetToDragDropContrainer(_startDDC);
     }
 
-
     void SetToDragDropContrainer(DragDropContainer ddc)
     {
         _startDDC = ddc;
