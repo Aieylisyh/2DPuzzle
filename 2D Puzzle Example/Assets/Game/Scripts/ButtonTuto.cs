@@ -10,22 +10,22 @@ public class ButtonTuto : MonoBehaviour
     public AudioSource as_victory;
     public CanvasGroup cg_victory;
 
-    public void OnClick_Ã¨½Ð¶¯»­()
+    public void OnClick_çŒ«å«åŠ¨ç”»()
     {
         animator.SetTrigger("sound");
     }
 
-    public void OnClick_Ã¨½ÐÉùÒô()
+    public void OnClick_çŒ«å«å£°éŸ³()
     {
         as_catSound.Play();
     }
 
-    public void OnClick_Ê¤ÀûÉùÒô()
+    public void OnClick_èƒœåˆ©å£°éŸ³()
     {
         as_victory.Play();
     }
 
-    public void OnClick_Ê¤Àû»­Ãæ()
+    public void OnClick_èƒœåˆ©ç”»é¢()
     {
         cg_victory.DOFade(1, 2).SetEase(Ease.OutCubic).OnComplete(() =>
         {

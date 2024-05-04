@@ -19,10 +19,10 @@ public class 有容器的拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
     private void Awake()
     {
         _rectTrans = GetComponent<RectTransform>();
-        SetToDragDropContrainer(_startDDC);
+        SetToDragDropContainer(_startDDC);
     }
 
-    void SetToDragDropContrainer(DragDropContainer ddc)
+    void SetToDragDropContainer(DragDropContainer ddc)
     {
         _startDDC = ddc;
         if (ddc != null)
@@ -56,7 +56,7 @@ public class 有容器的拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
             }
         }
 
-        SetToDragDropContrainer(endContainer == null ? _startDDC : endContainer);
+        SetToDragDropContainer(endContainer == null ? _startDDC : endContainer);
 
         foreach (var ddc in containers)
         {
