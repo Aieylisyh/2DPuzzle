@@ -466,7 +466,6 @@ GameObject:
   - component: {fileID: 1957940984}
   - component: {fileID: 1957940986}
   - component: {fileID: 1957940985}
-  - component: {fileID: 1957940987}
   - component: {fileID: 1957940988}
   m_Layer: 5
   m_Name: item
@@ -533,25 +532,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957940983}
   m_CullTransparentMesh: 1
---- !u!114 &1957940987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957940983}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71ea2a5a24d9ff429d435d571713151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 248939243}
-  draggingParent: {fileID: 2068186608}
-  containers: []
-  _startDDC: {fileID: 0}
-  freeDrag: 1
-  endFeedback: 0
-  showup: 0
 --- !u!114 &1957940988
 MonoBehaviour:
   m_ObjectHideFlags: 0
