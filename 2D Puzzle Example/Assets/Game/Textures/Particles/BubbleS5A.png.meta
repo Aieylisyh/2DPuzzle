@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,7 +127,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BubbleS5A_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1005.3334
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84ed9989d7ca2a40819ce17d95c726a
+      internalID: 824548494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleS5A_1
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1005.3334
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bca0b1af4febf3468cd18a417c06f62
+      internalID: -1956319879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleS5A_2
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 1005.3334
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f1217fb649460438cd96d10c789951
+      internalID: 700726270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleS5A_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 503.33334
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3976245814bbfc546aa2541a5a8e4906
+      internalID: -393428221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleS5A_4
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 503.33334
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97c7d83be486fe4787d258c342979e5
+      internalID: -1850965561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleS5A_5
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 503.33334
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdcf15c23f492d643b18ecb5c1685ed9
+      internalID: 1342849438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleS5A_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333435
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeb1ba6deb3a9174ead2712ff8706e0e
+      internalID: -182758196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleS5A_7
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1.3333435
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a0b83fb290a7444838a929dd1e3ec7
+      internalID: 1000557162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleS5A_8
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 1.3333435
+        width: 502.66666
+        height: 502.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80bfc6a7c311ac4eb3e79915c278324
+      internalID: -1054290382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +327,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BubbleS5A_0: 824548494
+      BubbleS5A_1: -1956319879
+      BubbleS5A_2: 700726270
+      BubbleS5A_3: -393428221
+      BubbleS5A_4: -1850965561
+      BubbleS5A_5: 1342849438
+      BubbleS5A_6: -182758196
+      BubbleS5A_7: 1000557162
+      BubbleS5A_8: -1054290382
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
