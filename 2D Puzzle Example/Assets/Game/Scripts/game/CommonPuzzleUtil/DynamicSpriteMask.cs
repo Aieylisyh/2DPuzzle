@@ -10,6 +10,7 @@ namespace Assets.Game.Scripts.game.CommonPuzzleUtil
         Color[] Colors;
         int Width, Height;
         public Color drawColor;
+        public Color undrawColor;
         public int range;
         void Start()
         {
@@ -36,7 +37,7 @@ namespace Assets.Game.Scripts.game.CommonPuzzleUtil
         }
 
         //This function will draw a circle onto the texture at position cx, cy with radius r
-        public void DrawOnMask(int cx, int cy, int r)
+        public void DrawOnMask(int cx, int cy, int r, Color c)
         {
             if (cx >= Width || cy >= Height)
                 return;
@@ -57,13 +58,13 @@ namespace Assets.Game.Scripts.game.CommonPuzzleUtil
                     py = cy + y;
                     ny = cy - y;
                     if (px < Width && py < Height)
-                        SetColors(py * Width + px);//1/4 round TR
+                        SetColors(py * Width + px, c);//1/4 round TR
                     if (nx >= 0 && py < Height)
-                        SetColors(py * Width + nx);//1/4 round TL
+                        SetColors(py * Width + nx, c);//1/4 round TL
                     if (px < Width && ny >= 0)
-                        SetColors(ny * Height + px);//1/4 round BR
+                        SetColors(ny * Height + px, c);//1/4 round BR
                     if (nx >= 0 && ny >= 0)
-                        SetColors(ny * Height + nx);//1/4 round BL
+                        SetColors(ny * Height + nx, c);//1/4 round BL
                 }
             }
 
@@ -73,7 +74,7 @@ namespace Assets.Game.Scripts.game.CommonPuzzleUtil
 
         bool[] _appliedColorArray;
 
-        void SetColors(int i)
+        void SetColors(int i, Color c)
         {
             if (i >= Colors.Length || i < 0)
             {
@@ -83,7 +84,7 @@ namespace Assets.Game.Scripts.game.CommonPuzzleUtil
             {
                 return;
             }
-            Colors[i] = drawColor;
+            Colors[i] = c;
         }
 
         void Update()
@@ -104,8 +105,14 @@ namespace Assets.Game.Scripts.game.CommonPuzzleUtil
                 int x = (int)((0.5 - (Mask.transform.position - mousePosition).x) * Width);
 
                 //Draw onto the mask
-                DrawOnMask(x, y, range);
+                DrawOnMask(x, y, range, drawColor);
                 //   }
+            }
+            if (Input.GetMouseButton(1))
+            {
+                int y = (int)((0.5 - (Mask.transform.position - mousePosition).y) * Height);
+                int x = (int)((0.5 - (Mask.transform.position - mousePosition).x) * Width);
+                DrawOnMask(x, y, range, undrawColor);
             }
         }
     }
