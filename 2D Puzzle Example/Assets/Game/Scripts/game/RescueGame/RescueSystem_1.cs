@@ -25,7 +25,7 @@ namespace Rescue
         void ZoomInToShowMobile()
         {
             zoomParent.DOMove(zoomParentZoomInRectTrans.transform.position, zoomParentZoomInDuration).SetEase(Ease.InOutCubic);
-            zoomParent.DOScale(2, zoomParentZoomInDuration).SetEase(Ease.InOutCubic).OnComplete(
+            zoomParent.DOScale(1.5f, zoomParentZoomInDuration).SetEase(Ease.InOutCubic).OnComplete(
                 () =>
                 {
                     stage = GameStage.SceneGirlInBed_PendingMobileInteraction;
