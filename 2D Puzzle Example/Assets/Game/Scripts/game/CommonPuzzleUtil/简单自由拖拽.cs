@@ -15,17 +15,17 @@ public class 简单自由拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
         GetComponent<Image>().raycastTarget = true;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
         GetComponent<Image>().raycastTarget = false;
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         _rectTrans.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
         GetComponent<Image>().raycastTarget = true;
     }
