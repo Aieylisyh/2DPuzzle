@@ -75,6 +75,7 @@ namespace Rescue
             movableBody_OutsidePuzzle.DOPunchScale(Vector3.one * movableBody_OutsidePuzzle_shakeSize, 0.6f, 2);
         }
 
+        public GameObject[] OnPuzzleEnd_OutsidePuzzleHides;
         public void OnPuzzleEnd_OutsidePuzzle()
         {
             var allWordsDone = true;
@@ -91,15 +92,23 @@ namespace Rescue
             if (allWordsDone)
             {
                 Debug.Log("Puzzle end!!!");
-                endImage_OutsidePuzzle.DOFade(1, 1).SetDelay(0.5f).OnComplete(
+                foreach (var th in OnPuzzleEnd_OutsidePuzzleHides)
+                {
+                    th.SetActive(false);
+                }
+
+                endImage_OutsidePuzzle.DOFade(1, 3).SetDelay(0.5f).OnComplete(
                     () =>
                     {
-                        endImage_OutsidePuzzle.transform.DOPunchScale(Vector3.one * 0.03f, 0.5f, 2);
-
+                        endImage_OutsidePuzzle.transform.DOPunchScale(Vector3.one * 0.03f, 1f, 2).OnComplete(StartPuzzle_Stage2_1);
                     }
-
                     );
             }
+        }
+
+        public void StartPuzzle_Stage2_1()
+        {
+
         }
     }
 }
