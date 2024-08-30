@@ -45,10 +45,7 @@ namespace Rescue
                    {
                        s.DOFade(0, 1);
                    }
-
-                   sceneCg_girlInBed1.alpha = 0;
-                   sceneCg_girlInBed1.interactable = false;
-                   sceneCg_girlInBed1.blocksRaycasts = false;
+                   ToggleCg(sceneCg_girlInBed1, false);
                    sceneCg_washFace.alpha = 0;
                    sceneCg_washFace.interactable = true;
                    sceneCg_washFace.blocksRaycasts = true;
@@ -61,9 +58,7 @@ namespace Rescue
         {
             Debug.Log("SwitchToDressingScene");
             sceneCg_washFace.gameObject.SetActive(false);
-            sceneCg_dressing.alpha = 1;
-            sceneCg_dressing.interactable = true;
-            sceneCg_dressing.blocksRaycasts = true;
+            ToggleCg(sceneCg_dressing, true);
         }
 
         public void FocusViewOnPickedCloth(Vector2 localAnchoredPos)
@@ -72,7 +67,7 @@ namespace Rescue
             var rect = sceneCg_dressing.GetComponent<RectTransform>();
             rect.DOScale(1.4f, duration);
             rect.DOAnchorPos(-localAnchoredPos, duration);
+            StartCoroutine(StartScene_OutsidePuzzle(duration));
         }
     }
-
 }

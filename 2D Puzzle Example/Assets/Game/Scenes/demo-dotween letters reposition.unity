@@ -1437,7 +1437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0}
-  endPos: {x: -90, y: -315}
+  endPos: {x: 600, y: -250}
   duration: 2
   startEuler: {x: 0, y: 0, z: 0}
   delayTimeMax: 0.5

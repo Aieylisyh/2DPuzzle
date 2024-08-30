@@ -20,6 +20,7 @@ namespace Rescue
             Default,
             SceneWashFace,
             Dressing,
+            GoOutside,
         }
 
         public GameStartPhase gameStartPhase;
@@ -38,39 +39,41 @@ namespace Rescue
             }
         }
 
+        void ToggleCg(CanvasGroup cg, bool on)
+        {
+            cg.alpha = on ? 1 : 0;
+            cg.interactable = on;
+            cg.blocksRaycasts = on;
+        }
+
         private void Start()
         {
-            sceneCg_washFace.alpha = 0;
-            sceneCg_washFace.interactable = false;
-            sceneCg_washFace.blocksRaycasts = false;
-            sceneCg_washFace.alpha = 0;
-            sceneCg_washFace.interactable = false;
-            sceneCg_washFace.blocksRaycasts = false;
-            sceneCg_dressing.alpha = 0;
-            sceneCg_dressing.interactable = false;
-            sceneCg_dressing.blocksRaycasts = false;
+            ToggleCg(sceneCg_girlInBed1, false);
+            ToggleCg(sceneCg_washFace, false);
+            ToggleCg(sceneCg_dressing, false);
+            ToggleCg(sceneCg_OutsidePuzzle, false);
 
             switch (gameStartPhase)
             {
                 case GameStartPhase.Default:
-                    sceneCg_girlInBed1.alpha = 1;
-                    sceneCg_girlInBed1.interactable = true;
-                    sceneCg_girlInBed1.blocksRaycasts = true;
+                    ToggleCg(sceneCg_girlInBed1, true);
                     StartSceneGirlInBed();
                     break;
 
                 case GameStartPhase.SceneWashFace:
-                    sceneCg_washFace.alpha = 1;
-                    sceneCg_washFace.interactable = true;
-                    sceneCg_washFace.blocksRaycasts = true;
+                    ToggleCg(sceneCg_washFace, true);
                     stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
                     break;
 
                 case GameStartPhase.Dressing:
-                    sceneCg_dressing.alpha = 1;
-                    sceneCg_dressing.interactable = true;
-                    sceneCg_dressing.blocksRaycasts = true;
+                    ToggleCg(sceneCg_dressing, true);
                     stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
+                    break;
+
+                case GameStartPhase.GoOutside:
+                    ToggleCg(sceneCg_OutsidePuzzle, true);
+                    stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
+                    StartCoroutine(StartScene_OutsidePuzzle(0));
                     break;
             }
 

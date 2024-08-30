@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, ICancelHandler
 {
-    RectTransform rectTrans;
     bool _on;
     bool _in;
     public RectTransform minuteArrow;
@@ -16,15 +15,8 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
     private Vector2 _startPos;
     private float _lastRadian;
     private Vector2 _lastPos;
-    //public RectTransform center;
 
     public TimeflowScene[] timeflowScenes;
-
-    private void Awake()
-    {
-        rectTrans = GetComponent<RectTransform>();
-       
-    }
 
     void Start()
     {
@@ -56,7 +48,6 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
             _startPos = eventData.position;
             //Debug.Log(_startPos);
             //Debug.Log(minuteArrow.transform.position);
-            //RectTransformUtility.ScreenPointToLocalPointInRectangle(RectTransform rect, Vector2 screenPoint, Camera cam, out Vector2 localPoint)
             var deltaPos = new Vector2(_startPos.x - minuteArrow.transform.position.x, _startPos.y - minuteArrow.transform.position.y);
             var r = GetClockRadian(deltaPos.y, deltaPos.x);
             while (_lastRadian - Mathf.PI >= r)
@@ -106,13 +97,9 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
         //Debug.Log("last " + _lastRadian + " r " + r);
         var lastT = _lastRadian / (Mathf.PI * 2);
         while (_lastRadian - Mathf.PI >= r)
-        {
             r += Mathf.PI * 2;
-        }
         while (_lastRadian + Mathf.PI <= r)
-        {
             r -= Mathf.PI * 2;
-        }
 
         var t = r / (Mathf.PI * 2);
         _lastRadian = r;
