@@ -9,6 +9,7 @@ namespace Rescue
 {
     public partial class RescueSystem : MonoBehaviour
     {
+        public CanvasGroup sceneCg_WakeUpBoy;
         public CanvasGroup sceneCg_OutsidePuzzle;
         public CanvasGroup endImage_OutsidePuzzle;
         public CanvasGroup puzzleContainer_OutsidePuzzle;
@@ -108,7 +109,9 @@ namespace Rescue
 
         public void StartPuzzle_Stage2_1()
         {
-
+            ToggleCg(sceneCg_WakeUpBoy, true);
+            stage = GameStage.SceneBoyInBed_beforeMobileInteraction;
+            StartCoroutine(StartScene_WakeUpBoy());
         }
     }
 }

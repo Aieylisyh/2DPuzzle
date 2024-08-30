@@ -15,12 +15,14 @@ namespace Rescue
         public CanvasGroup sceneCg_girlInBed1;
         public CanvasGroup sceneCg_washFace;
         public CanvasGroup sceneCg_dressing;
+
         public enum GameStartPhase
         {
             Default,
             SceneWashFace,
             Dressing,
             GoOutside,
+            WakeUpBoy,
         }
 
         public GameStartPhase gameStartPhase;
@@ -75,6 +77,11 @@ namespace Rescue
                     stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
                     StartCoroutine(StartScene_OutsidePuzzle(0));
                     break;
+                case GameStartPhase.WakeUpBoy:
+                    ToggleCg(sceneCg_WakeUpBoy, true);
+                    stage = GameStage.SceneBoyInBed_beforeMobileInteraction;
+                    StartCoroutine(StartScene_WakeUpBoy());
+                    break;
             }
 
             zoomParentOrginalPos = zoomParent.position;
@@ -101,6 +108,9 @@ namespace Rescue
             SceneGirlInBed_beforeMobileInteraction = 1,
             SceneGirlInBed_PendingMobileInteraction = 2,
             SceneGirlInBed_AfterMobileInteraction = 3,
+            SceneBoyInBed_beforeMobileInteraction = 1,
+            SceneBoyInBed_PendingMobileInteraction = 2,
+            SceneBoyInBed_AfterMobileInteraction = 3,
         }
 
         IEnumerator DelayAction(float delay, Action action)
