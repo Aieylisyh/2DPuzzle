@@ -1,5 +1,7 @@
 using com;
+using DG.Tweening;
 using Rescue;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,7 +37,8 @@ public class WashFaceSwipeWoundBehaviour : MonoBehaviour
 
         if (allWoundsHealed)
         {
-            RescueSystem.instance.SwitchToDressingScene();
+              RescueSystem.instance.OnAllWoundHealed();
+           
         }
     }
 

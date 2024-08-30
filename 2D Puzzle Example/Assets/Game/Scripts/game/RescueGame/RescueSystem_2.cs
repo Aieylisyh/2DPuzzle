@@ -54,6 +54,29 @@ namespace Rescue
                }));
         }
 
+        public void OnAllWoundHealed()
+        {
+            if (_woundAllHealed)
+                return;
+            _woundAllHealed = true;
+            StartCoroutine(WoundHealedCoroutine());
+        }
+
+        public CanvasGroup girlWoundBefore;
+        public CanvasGroup girlWoundAfter;
+        private bool _woundAllHealed;
+
+        IEnumerator WoundHealedCoroutine()
+        {
+            girlWoundBefore.DOFade(0, 2);
+            yield return new WaitForSeconds(0.8f);
+            girlWoundAfter.gameObject.SetActive(true);
+            girlWoundAfter.alpha = 0;
+            girlWoundAfter.DOFade(1, 2);
+            yield return new WaitForSeconds(4.5f);
+            SwitchToDressingScene();
+        }
+
         public void SwitchToDressingScene()
         {
             Debug.Log("SwitchToDressingScene");
