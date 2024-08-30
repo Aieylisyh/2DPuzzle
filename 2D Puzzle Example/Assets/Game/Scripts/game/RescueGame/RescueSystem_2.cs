@@ -19,6 +19,11 @@ namespace Rescue
 
         void SwitchToWashScene()
         {
+            SwitchToWashScene(false);
+        }
+
+        void SwitchToWashScene(bool isBoy = false)
+        {
             foreach (var s in sfxsSwitching)
             {
                 s.Play();
@@ -45,12 +50,25 @@ namespace Rescue
                    {
                        s.DOFade(0, 1);
                    }
-                   ToggleCg(sceneCg_girlInBed1, false);
-                   sceneCg_washFace.alpha = 0;
-                   sceneCg_washFace.interactable = true;
-                   sceneCg_washFace.blocksRaycasts = true;
-                   sceneCg_washFace.DOKill();
-                   sceneCg_washFace.DOFade(1, 2);
+
+                   if (isBoy)
+                   {
+                       ToggleCg(sceneCg_WakeUpBoy, false);
+                       sceneCg_WashBoy.alpha = 0;
+                       sceneCg_WashBoy.interactable = true;
+                       sceneCg_WashBoy.blocksRaycasts = true;
+                       sceneCg_WashBoy.DOKill();
+                       sceneCg_WashBoy.DOFade(1, 2);
+                   }
+                   else
+                   {
+                       ToggleCg(sceneCg_girlInBed1, false);
+                       sceneCg_washFace.alpha = 0;
+                       sceneCg_washFace.interactable = true;
+                       sceneCg_washFace.blocksRaycasts = true;
+                       sceneCg_washFace.DOKill();
+                       sceneCg_washFace.DOFade(1, 2);
+                   }
                }));
         }
 

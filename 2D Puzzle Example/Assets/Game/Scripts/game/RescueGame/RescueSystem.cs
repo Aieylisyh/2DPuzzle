@@ -23,6 +23,7 @@ namespace Rescue
             Dressing,
             GoOutside,
             WakeUpBoy,
+            WashBoy,
         }
 
         public GameStartPhase gameStartPhase;
@@ -55,6 +56,7 @@ namespace Rescue
             ToggleCg(sceneCg_dressing, false);
             ToggleCg(sceneCg_OutsidePuzzle, false);
             ToggleCg(sceneCg_WakeUpBoy, false);
+            ToggleCg(sceneCg_WashBoy, false);
 
             switch (gameStartPhase)
             {
@@ -82,6 +84,11 @@ namespace Rescue
                     ToggleCg(sceneCg_WakeUpBoy, true);
                     stage = GameStage.SceneBoyInBed_beforeMobileInteraction;
                     StartCoroutine(StartScene_WakeUpBoy());
+                    break;
+
+                case GameStartPhase.WashBoy:
+                    ToggleCg(sceneCg_WashBoy, true);
+                    stage = GameStage.SceneBoyInBed_AfterMobileInteraction;
                     break;
             }
 

@@ -82,13 +82,13 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         _startPos = rectTrans.anchoredPosition;
         GetComponent<Image>().raycastTarget = false;
         rectTrans.SetParent(draggingParent.transform);
-        //Debug.Log("OnBeginDrag ");
+        Debug.Log("OnBeginDrag ");
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         rectTrans.anchoredPosition += eventData.delta / canvas.scaleFactor;
-
+        Debug.Log("OnDrag ");
         var wfswb = GetComponent<WashFaceSwipeWoundBehaviour>();
         if (wfswb != null)
             wfswb.OnSwiping(rectTrans.anchoredPosition);

@@ -11,6 +11,7 @@ namespace Rescue
     {
         public CanvasGroup sceneCg_WakeUpBoy;
         public CanvasGroup sceneCg_OutsidePuzzle;
+        public CanvasGroup sceneCg_WashBoy;
         public CanvasGroup endImage_OutsidePuzzle;
         public CanvasGroup puzzleContainer_OutsidePuzzle;
         public CanvasGroup chatFrame_OutsidePuzzle;

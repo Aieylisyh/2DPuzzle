@@ -61,7 +61,7 @@ namespace Rescue
                 () =>
                 {
                     SwitchInBedImage_boy();
-                    StartCoroutine(DelayAction(2.0f, SwitchToWashScene));
+                    StartCoroutine(DelayAction(2.0f, SwitchToWashScene_boy));
                 }
                 );
         }
@@ -89,6 +89,11 @@ namespace Rescue
             mobile_boy.DOKill();
             stage = GameStage.SceneBoyInBed_AfterMobileInteraction;
             ZoomOutToShowBed_boy();
+        }
+
+        void SwitchToWashScene_boy()
+        {
+           SwitchToWashScene(true);
         }
     }
 }
