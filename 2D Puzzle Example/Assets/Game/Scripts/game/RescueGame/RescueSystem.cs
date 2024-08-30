@@ -54,6 +54,7 @@ namespace Rescue
             ToggleCg(sceneCg_washFace, false);
             ToggleCg(sceneCg_dressing, false);
             ToggleCg(sceneCg_OutsidePuzzle, false);
+            ToggleCg(sceneCg_WakeUpBoy, false);
 
             switch (gameStartPhase)
             {

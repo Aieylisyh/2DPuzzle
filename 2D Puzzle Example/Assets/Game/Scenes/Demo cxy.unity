@@ -11226,7 +11226,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1235483286}
         m_TargetAssemblyTypeName: Rescue.RescueSystem, Assembly-CSharp
-        m_MethodName: OnClickMobile
+        m_MethodName: OnClickMobile_boy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12557,6 +12557,7 @@ RectTransform:
   - {fileID: 1017691148}
   - {fileID: 118464132}
   - {fileID: 1247448564}
+  - {fileID: 1274005974}
   m_Father: {fileID: 993673016}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15792,7 +15793,7 @@ MonoBehaviour:
   sceneCg_girlInBed1: {fileID: 752132580}
   sceneCg_washFace: {fileID: 1124961483}
   sceneCg_dressing: {fileID: 1017691149}
-  gameStartPhase: 3
+  gameStartPhase: 4
   mobile: {fileID: 297650862}
   zoomParent: {fileID: 752132577}
   stage: 0
@@ -15810,7 +15811,7 @@ MonoBehaviour:
   - {fileID: 1235483287}
   girlWoundBefore: {fileID: 1407500380}
   girlWoundAfter: {fileID: 234671474}
-  sceneCg_WakeUpBoy: {fileID: 0}
+  sceneCg_WakeUpBoy: {fileID: 1247448565}
   sceneCg_OutsidePuzzle: {fileID: 118464133}
   endImage_OutsidePuzzle: {fileID: 1668751369}
   puzzleContainer_OutsidePuzzle: {fileID: 2132048041}
@@ -15822,8 +15823,10 @@ MonoBehaviour:
   - {fileID: 939451280}
   - {fileID: 1978321985}
   mobile_boy: {fileID: 1547824586}
+  zoomParent_boy: {fileID: 1247448564}
+  zoomParentZoomInRectTrans_boy: {fileID: 1274005974}
   boyInBed_1: {fileID: 1920974613}
-  boyInBed_2: {fileID: 1292823076}
+  boyInBed_2: {fileID: 1209672696}
 --- !u!82 &1235483287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16699,6 +16702,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272052647}
+  m_CullTransparentMesh: 1
+--- !u!1 &1274005973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274005974}
+  - component: {fileID: 1274005976}
+  - component: {fileID: 1274005975}
+  m_Layer: 5
+  m_Name: raw trans zoomin (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1274005974
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274005973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 976580990}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -250, y: -901.73}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1274005975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274005973}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1274005976
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274005973}
   m_CullTransparentMesh: 1
 --- !u!1 &1274160434
 GameObject:

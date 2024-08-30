@@ -109,6 +109,7 @@ namespace Rescue
 
         public void StartPuzzle_Stage2_1()
         {
+            ToggleCg(sceneCg_OutsidePuzzle, false);
             ToggleCg(sceneCg_WakeUpBoy, true);
             stage = GameStage.SceneBoyInBed_beforeMobileInteraction;
             StartCoroutine(StartScene_WakeUpBoy());

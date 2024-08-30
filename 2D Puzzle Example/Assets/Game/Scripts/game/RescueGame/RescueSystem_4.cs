@@ -28,7 +28,7 @@ namespace Rescue
                 ||
                 stage == GameStage.SceneBoyInBed_beforeMobileInteraction)
             {
-                MobileVibrate();
+                MobileVibrate_boy();
                 yield return new WaitForSeconds(4);
             }
         }
@@ -41,10 +41,12 @@ namespace Rescue
             ToggleOffMobileAlarm_boy();
         }
 
+        [SerializeField] Transform zoomParent_boy;
+        [SerializeField] Transform zoomParentZoomInRectTrans_boy;
         void ZoomInToShowMobile_boy()
         {
-            zoomParent.DOMove(zoomParentZoomInRectTrans.transform.position, zoomParentZoomInDuration).SetEase(Ease.InOutCubic);
-            zoomParent.DOScale(1.5f, zoomParentZoomInDuration).SetEase(Ease.InOutCubic).OnComplete(
+            zoomParent_boy.DOMove(zoomParentZoomInRectTrans_boy.transform.position, zoomParentZoomInDuration).SetEase(Ease.InOutCubic);
+            zoomParent_boy.DOScale(1.5f, zoomParentZoomInDuration).SetEase(Ease.InOutCubic).OnComplete(
                 () =>
                 {
                     stage = GameStage.SceneBoyInBed_PendingMobileInteraction;
@@ -54,8 +56,8 @@ namespace Rescue
 
         void ZoomOutToShowBed_boy()
         {
-            zoomParent.DOMove(zoomParentOrginalPos, zoomParentZoomInDuration).SetEase(Ease.InOutCubic);
-            zoomParent.DOScale(1, zoomParentZoomInDuration).SetEase(Ease.InOutCubic).OnComplete(
+            zoomParent_boy.DOMove(zoomParentOrginalPos, zoomParentZoomInDuration).SetEase(Ease.InOutCubic);
+            zoomParent_boy.DOScale(1, zoomParentZoomInDuration).SetEase(Ease.InOutCubic).OnComplete(
                 () =>
                 {
                     SwitchInBedImage_boy();
@@ -71,6 +73,7 @@ namespace Rescue
         {
             boyInBed_1.SetActive(false);
             boyInBed_2.SetActive(true);
+            boyInBed_2.GetComponent<UiImageAnimation>().Play(0);
         }
 
         void MobileVibrate_boy()
