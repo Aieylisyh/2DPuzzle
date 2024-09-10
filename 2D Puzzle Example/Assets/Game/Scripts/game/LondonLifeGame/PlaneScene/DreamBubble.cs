@@ -78,7 +78,7 @@ public class DreamBubble : MonoBehaviour
         btn.enabled = false;
 
         rect.DOPunchScale(Vector3.one * 0.3f, 0.6f, 4, 1);
-
+        PlaneSceneGameSystem.instance.OnClickBubble();
         cg.DOFade(0, 1.0f).OnComplete(() =>
         {
             Destroy(this.gameObject);

@@ -9,6 +9,7 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
     {
         public static PlaneSceneGameSystem instance;
 
+        GoToPlaneBehaviour _goToPlane;
 
         public DreamBubble.气泡参数[] 气泡们;
         List<DreamBubble.气泡参数> _待生成的气泡们 = new List<DreamBubble.气泡参数>();
@@ -21,15 +22,18 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
         private void Awake()
         {
             instance = this;
+            _goToPlane = GetComponent<GoToPlaneBehaviour>();
+
+            foreach (var p in 气泡们)
+                _待生成的气泡们.Add(p);
+            foreach (var p in 气泡们)
+                _待生成的气泡们.Add(p);
+            foreach (var p in 气泡们)
+                _待生成的气泡们.Add(p);
         }
 
-        void Start()
+        public void StartGenerateBubbles()
         {
-            foreach (var p in 气泡们)
-            {
-                _待生成的气泡们.Add(p);
-            }
-
             StartCoroutine(生成气泡循环());
         }
 
@@ -61,6 +65,11 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
         {
             var b = Instantiate(bubblePrefab, bubbleParent);
             b.Init(p);
+        }
+
+        public void OnClickBubble()
+        {
+            _goToPlane.OnClickBubble();
         }
     }
 }
