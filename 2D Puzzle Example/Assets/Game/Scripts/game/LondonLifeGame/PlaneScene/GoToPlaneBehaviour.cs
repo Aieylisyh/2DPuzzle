@@ -32,13 +32,7 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
             me.gameObject.SetActive(false);
             me_run.gameObject.SetActive(false);
         }
-
-        void Start()
-        {
-            ShowStartAnimation();
-        }
-
-        void ShowStartAnimation()
+        public void ShowStartAnimation()
         {
             me_run.gameObject.SetActive(true);
             me_run.localScale = meFrom.localScale;
@@ -73,10 +67,14 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
             if (_step > steps.Length)
             {
                 _step = steps.Length;
+                PlaneSceneGameSystem.instance.OnGoToPlaneEnd();
+
             }
 
             SyncStep();
         }
+
+
 
         public void OnClickBubble()
         {

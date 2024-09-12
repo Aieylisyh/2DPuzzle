@@ -9,15 +9,19 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
     {
         public static PlaneSceneGameSystem instance;
 
+        [SerializeField] PanelCanvasGroupSwitcher _pcgs;
+
         GoToPlaneBehaviour _goToPlane;
 
         public DreamBubble.气泡参数[] 气泡们;
         List<DreamBubble.气泡参数> _待生成的气泡们 = new List<DreamBubble.气泡参数>();
-
+        List<DreamBubble> _bubbles = new List<DreamBubble>();
 
         public float bubbleInterval;
         public DreamBubble bubblePrefab;
         public Transform bubbleParent;
+
+        Coroutine _生成气泡循环Co;
 
         private void Awake()
         {
@@ -32,9 +36,14 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
                 _待生成的气泡们.Add(p);
         }
 
+        private void Start()
+        {
+            _pcgs.Show(true, true);
+            _goToPlane.ShowStartAnimation();
+        }
         public void StartGenerateBubbles()
         {
-            StartCoroutine(生成气泡循环());
+            _生成气泡循环Co = StartCoroutine(生成气泡循环());
         }
 
         public void AddTo待生成的气泡们(DreamBubble.气泡参数 p)
@@ -70,6 +79,31 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
         public void OnClickBubble()
         {
             _goToPlane.OnClickBubble();
+        }
+
+        public void OnGoToPlaneEnd()
+        {
+            if (_生成气泡循环Co != null)
+                StopCoroutine(_生成气泡循环Co);
+
+            ClearBubbles();
+            StartCoroutine(ShowNextPanel());
+        }
+
+        void ClearBubbles()
+        {
+            foreach (var b in _bubbles)
+            {
+                Destroy(b.gameObject);
+            }
+
+            _bubbles = new List<DreamBubble>();
+        }
+
+        IEnumerator ShowNextPanel()
+        {
+            yield return new WaitForSeconds(1);
+            _pcgs.Show(false, false);
         }
     }
 }
