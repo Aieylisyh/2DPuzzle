@@ -8,6 +8,7 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
     public class GoToPlaneBehaviour : MonoBehaviour
     {
         [SerializeField] RectTransform me;
+        [SerializeField] RectTransform me_run;
         [SerializeField] float jumpHeightStepRatio = 2f;
         [SerializeField] float stepDuration = 0.6f;
         [SerializeField] float startAnimationDuration = 2.5f;
@@ -29,6 +30,7 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
         private void Awake()
         {
             me.gameObject.SetActive(false);
+            me_run.gameObject.SetActive(false);
         }
 
         void Start()
@@ -38,11 +40,11 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
 
         void ShowStartAnimation()
         {
-            me.gameObject.SetActive(true);
-            me.localScale = meFrom.localScale;
-            me.anchoredPosition = meFrom.anchoredPosition;
-            me.DOAnchorPos(meTo.anchoredPosition, startAnimationDuration);
-            me.DOScale(meTo.localScale, startAnimationDuration).OnComplete(
+            me_run.gameObject.SetActive(true);
+            me_run.localScale = meFrom.localScale;
+            me_run.anchoredPosition = meFrom.anchoredPosition;
+            me_run.DOAnchorPos(meTo.anchoredPosition, startAnimationDuration);
+            me_run.DOScale(meTo.localScale, startAnimationDuration).OnComplete(
                 () =>
                 {
                     evtFinishStartAnimation?.Invoke();
@@ -53,6 +55,8 @@ namespace Assets.Game.Scripts.game.LondonLifeGame.PlaneScene
 
         void SyncStep()
         {
+            me.gameObject.SetActive(true);
+            me_run.gameObject.SetActive(false);
             me.DOKill();
             var info = steps[_step - 1];
             var r = _step / (float)steps.Length;
