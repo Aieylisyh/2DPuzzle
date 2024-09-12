@@ -1,5 +1,4 @@
-﻿using Assets.Game.Scripts.game.LondonLifeGame.PlaneScene;
-using com;
+﻿using com;
 using DG.Tweening;
 using System;
 using System.Collections;

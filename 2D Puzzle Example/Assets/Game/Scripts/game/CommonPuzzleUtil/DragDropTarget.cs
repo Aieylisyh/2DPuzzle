@@ -71,7 +71,7 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         if (ddc != null)
         {
             rectTrans.SetParent(ddc.transform);
-            rectTrans.anchoredPosition = ddc.goodPlaceRef.anchoredPosition;
+            rectTrans.anchoredPosition = ddc.place.anchoredPosition;
         }
 
         GetComponent<Image>().raycastTarget = true;

@@ -5,16 +5,16 @@ using UnityEngine.UI;
 public class 有容器的拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField]
-    Canvas canvas;
+    protected Canvas canvas;
 
-    RectTransform _rectTrans;
+    protected RectTransform _rectTrans;
 
     [SerializeField]
-    RectTransform draggingParent;
+    protected RectTransform draggingParent;
 
     public DragDropContainer[] containers;
     [SerializeField]
-    DragDropContainer _startDDC;
+    protected DragDropContainer _startDDC;
 
     private void Awake()
     {
@@ -22,17 +22,18 @@ public class 有容器的拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
         SetToDragDropContainer(_startDDC);
     }
 
-    void SetToDragDropContainer(DragDropContainer ddc)
+    protected virtual void SetToDragDropContainer(DragDropContainer ddc)
     {
         _startDDC = ddc;
         if (ddc != null)
         {
             _rectTrans.SetParent(ddc.transform);
-            _rectTrans.anchoredPosition = ddc.goodPlaceRef.anchoredPosition;
+            _rectTrans.anchoredPosition = ddc.place.anchoredPosition;
         }
 
         GetComponent<Image>().raycastTarget = true;
     }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         GetComponent<Image>().raycastTarget = false;
