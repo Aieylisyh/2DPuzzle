@@ -3150,7 +3150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cg: {fileID: 1438874785}
   _cgNext: {fileID: 0}
-  duration: 1
+  duration: 2
   others:
   - {fileID: 0}
   - {fileID: 0}
