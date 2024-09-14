@@ -1,8 +1,9 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public partial class RLSystem : MonoBehaviour
 {
     public static RLSystem instance;
@@ -25,33 +26,52 @@ public partial class RLSystem : MonoBehaviour
     }
     void Start()
     {
+        //admission letter scene
+        ToggleOff_AdmissionLetterScene();
+
+        DisplayEnvelope();
+
+        //roof scene
+        nextBtn_RoofScene.gameObject.SetActive(false);
+
+    }
+
+    void ToggleOff_AdmissionLetterScene()
+    {
         envelopeClose.SetActive(false);
         envelopeOpen.SetActive(false);
         admissionFold.SetActive(false);
         envelopeHalf.SetActive(false);
         admission.SetActive(false);
         envelopeCloseButton.SetActive(false);
-
-        DisplayEnvelope();
     }
-
     // Update is called once per frame
     void Update()
     {
 
     }
 
+    IEnumerator DelayAction(float delay, Action action)
+    {
+        yield return new WaitForSeconds(delay);
+        action?.Invoke();
+    }
+
     public void CheckDagEndPlace(float distance)
     {
-        if(envelopeDragDistanceThreshold > distance)
+        if (envelopeDragDistanceThreshold > distance)
         {
             admission.SetActive(true);
+            var img = admission.GetComponent<Image>();
+            img.color = new Color(1, 1, 1, 0);
+            img.DOColor(Color.white, 2f);
             envelopeOpen.SetActive(false);
             admissionFold.SetActive(false);
             envelopeHalf.SetActive(false);
+            OnAdmissionLetterSceneEnd();
         }
     }
-   void DisplayEnvelope ()
+    void DisplayEnvelope()
     {
         var endpos = envelopeClose.transform.position;
         envelopeClose.SetActive(true);
@@ -60,7 +80,7 @@ public partial class RLSystem : MonoBehaviour
 
     }
 
-    public void OnClickEnvelopeClose ()
+    public void OnClickEnvelopeClose()
     {
         envelopeClose.SetActive(false);
         envelopeOpen.SetActive(true);
@@ -72,5 +92,5 @@ public partial class RLSystem : MonoBehaviour
     {
         envelopeCloseButton.SetActive(true);
     }
-    
+
 }
