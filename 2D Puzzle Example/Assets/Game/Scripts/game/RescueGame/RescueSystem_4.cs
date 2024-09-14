@@ -10,6 +10,8 @@ namespace Rescue
     public partial class RescueSystem : MonoBehaviour
     {
         [SerializeField] Transform mobile_boy;
+        [SerializeField] Image boy_before;
+        [SerializeField] Image boy_after;
 
         IEnumerator StartScene_WakeUpBoy()
         {
@@ -94,6 +96,9 @@ namespace Rescue
         void SwitchToWashScene_boy()
         {
             SwitchToWashScene(true);
+            boy_before.gameObject.SetActive(true);
+            boy_before.color = Color.white;
+            boy_after.gameObject.SetActive(false);
         }
 
         [SerializeField] int _needEatTime = 3;
@@ -104,6 +109,16 @@ namespace Rescue
             if (_needEatTime == 0)
             {
                 //todo
+                boy_before.DOColor(new Color(1, 1, 1, 0), 2).OnComplete(() => { boy_before.gameObject.SetActive(false); });
+
+                boy_after.gameObject.SetActive(true);
+                boy_after.color = new Color(1, 1, 1, 0);
+                boy_after.DOColor(new Color(1, 1, 1, 1), 2).OnComplete(() =>
+                {
+                    ToggleCg(sceneCg_WashBoy, false);
+                    ToggleCg(sceneCg_FoodBoy, true);
+                    ShowBoyFoodScene();
+                });
             }
         }
     }

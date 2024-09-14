@@ -77,7 +77,7 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         GetComponent<Image>().raycastTarget = true;
 
     }
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
         _startPos = rectTrans.anchoredPosition;
         GetComponent<Image>().raycastTarget = false;
