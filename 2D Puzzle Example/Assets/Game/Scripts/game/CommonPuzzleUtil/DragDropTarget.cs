@@ -19,7 +19,7 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
     [SerializeField]
     DragDropContainer _startDDC;
     Vector3 _startPos;
-
+    public bool freeDrag;
     public enum EndFeedback
     {
         None,
@@ -65,12 +65,15 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         }
     }
 
-
     void SetToDragDropContrainer(DragDropContainer ddc)
     {
         _startDDC = ddc;
-        rectTrans.SetParent(ddc.transform);
-        rectTrans.anchoredPosition = ddc.goodPlaceRef.anchoredPosition;
+        if (ddc != null)
+        {
+            rectTrans.SetParent(ddc.transform);
+            rectTrans.anchoredPosition = ddc.goodPlaceRef.anchoredPosition;
+        }
+
         GetComponent<Image>().raycastTarget = true;
 
     }
@@ -87,12 +90,18 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         rectTrans.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
         var wfswb = GetComponent<WashFaceSwipeWoundBehaviour>();
-        if(wfswb!=null)
+        if (wfswb != null)
             wfswb.OnSwiping(rectTrans.anchoredPosition);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (freeDrag)
+        {
+            GetComponent<Image>().raycastTarget = true;
+            return;
+        }
+
         DragDropContainer endContainer = null;
         foreach (var ddc in containers)
         {

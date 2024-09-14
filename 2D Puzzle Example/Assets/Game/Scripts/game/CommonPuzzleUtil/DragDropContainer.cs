@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,7 +19,7 @@ public class DragDropContainer : MonoBehaviour, IPointerDownHandler, IPointerEnt
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("OnPointerEnter " + this);
+        //Debug.Log("OnPointerEnter " + this);
         inside = true;
     }
 
