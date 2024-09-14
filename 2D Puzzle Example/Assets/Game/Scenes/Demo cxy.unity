@@ -7967,6 +7967,8 @@ MonoBehaviour:
   freeDrag: 0
   endFeedback: 0
   showup: 2
+  mouthContainer: {fileID: 1913282152}
+  fromContainer: {fileID: 313495120}
 --- !u!1 &560823024
 GameObject:
   m_ObjectHideFlags: 0
@@ -16357,6 +16359,7 @@ MonoBehaviour:
   zoomParentZoomInRectTrans_boy: {fileID: 1274005974}
   boyInBed_1: {fileID: 1920974613}
   boyInBed_2: {fileID: 1209672696}
+  _needEatTime: 3
 --- !u!82 &1235483287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20585,7 +20588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.7, y: -77.3}
+  m_AnchoredPosition: {x: 72.5, y: -77.3}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473014927

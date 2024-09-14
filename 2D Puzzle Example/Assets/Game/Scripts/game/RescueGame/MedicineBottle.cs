@@ -63,16 +63,21 @@ namespace Assets.Game.Scripts.game.RescueGame
         {
             GetComponent<Image>().raycastTarget = false;
             SoundSystem.instance.Play("pill");
-            transform.DORotate(new Vector3(0, 0, 90), 2.5f).SetEase(Ease.OutBack);
-            yield return new WaitForSeconds(2.7f);
+            transform.DORotate(new Vector3(0, 0, 90), 2.0f).SetEase(Ease.OutBounce);
+            yield return new WaitForSeconds(2.0f);
             SoundSystem.instance.Play("eat");
-            transform.DORotate(new Vector3(0, 0, 0), 2.5f).SetEase(Ease.InOutCubic);
-            yield return new WaitForSeconds(2.5f);
-            transform.DOMove(fromContainer.goodPlaceRef.position, 1.7f).SetEase(Ease.InOutCubic);
-            yield return new WaitForSeconds(1.8f);
+            transform.DORotate(new Vector3(0, 0, 0), 2.0f).SetEase(Ease.InOutCubic);
+            yield return new WaitForSeconds(2.0f);
+            transform.DOMove(fromContainer.goodPlaceRef.position, 1.2f).SetEase(Ease.InOutCubic);
+            yield return new WaitForSeconds(1.2f);
 
             GetComponent<Image>().raycastTarget = true;
             RescueSystem.instance.OnEatPill();
+
+            _startDDC = fromContainer;
+            SetToDragDropContrainer(_startDDC);
+            fromContainer.inside = true;
+            mouthContainer.inside = false;
         }
     }
 }
