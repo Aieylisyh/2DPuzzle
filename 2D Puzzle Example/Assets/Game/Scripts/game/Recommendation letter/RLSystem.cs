@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public partial class RLSystem : MonoBehaviour
 {
     public static RLSystem instance;
@@ -18,7 +19,19 @@ public partial class RLSystem : MonoBehaviour
     public Ease envelopeStartMoveEase;
     public GameObject envelopeCloseButton;
     public float envelopeDragDistanceThreshold;
+    [SerializeField] Image nextBtn_RoofScene;
 
+    [SerializeField] GameObject _scene_admission;
+    [SerializeField] GameObject _scene_roof;
+
+    public enum Phase
+    {
+        None,
+        Admission, //admission letter scene
+        Roof,
+    }
+
+    [SerializeField] Phase _phase;
 
     private void Awake()
     {
@@ -26,30 +39,38 @@ public partial class RLSystem : MonoBehaviour
     }
     void Start()
     {
-        //admission letter scene
-        ToggleOff_AdmissionLetterScene();
-
-        DisplayEnvelope();
-
-        //roof scene
-        nextBtn_RoofScene.gameObject.SetActive(false);
-
+        SetPhase(_phase);
     }
 
-    void ToggleOff_AdmissionLetterScene()
+    void SetPhase(Phase p)
     {
-        envelopeClose.SetActive(false);
-        envelopeOpen.SetActive(false);
-        admissionFold.SetActive(false);
-        envelopeHalf.SetActive(false);
-        admission.SetActive(false);
-        envelopeCloseButton.SetActive(false);
-    }
-    // Update is called once per frame
-    void Update()
-    {
+        _phase = p;
+        _scene_admission.SetActive(false);
+        _scene_roof.SetActive(false);
 
+        switch (_phase)
+        {
+            case Phase.None:
+                break;
+            case Phase.Admission:
+                envelopeClose.SetActive(false);
+                envelopeOpen.SetActive(false);
+                admissionFold.SetActive(false);
+                envelopeHalf.SetActive(false);
+                admission.SetActive(false);
+                envelopeCloseButton.SetActive(false);
+                nextBtn_RoofScene.gameObject.SetActive(false);
+                _scene_admission.SetActive(true);
+                DisplayEnvelope();
+                break;
+            case Phase.Roof:
+                _scene_roof.SetActive(true);
+                eb.ToggleShow(true);
+                eb.ToggleEyeBlink(true);
+                break;
+        }
     }
+
 
     IEnumerator DelayAction(float delay, Action action)
     {
@@ -92,5 +113,4 @@ public partial class RLSystem : MonoBehaviour
     {
         envelopeCloseButton.SetActive(true);
     }
-
 }

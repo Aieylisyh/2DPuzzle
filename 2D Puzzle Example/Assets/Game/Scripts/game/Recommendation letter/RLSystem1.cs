@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public partial class RLSystem : MonoBehaviour
 {
-    [SerializeField] Image nextBtn_RoofScene;
+    [SerializeField] EyeBehaviour eb;
+
+
     // Start is called before the first frame update
     void OnAdmissionLetterSceneEnd()
     {
@@ -25,11 +27,6 @@ public partial class RLSystem : MonoBehaviour
 
     public void OnClickBtn_ShowRoofScene()
     {
-        ToggleOff_AdmissionLetterScene();
-    }
-
-    void ToggleOff_RoofScene()
-    {
-
+        SetPhase(Phase.Roof);
     }
 }
