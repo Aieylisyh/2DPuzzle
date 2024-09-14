@@ -93,7 +93,18 @@ namespace Rescue
 
         void SwitchToWashScene_boy()
         {
-           SwitchToWashScene(true);
+            SwitchToWashScene(true);
+        }
+
+        [SerializeField] int _needEatTime = 3;
+        public void OnEatPill()
+        {
+            _needEatTime -= 1;
+            Debug.Log("OnEatPill _needEatTime " + _needEatTime);
+            if (_needEatTime == 0)
+            {
+                //todo
+            }
         }
     }
 }

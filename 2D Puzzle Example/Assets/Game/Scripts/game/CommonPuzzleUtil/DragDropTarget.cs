@@ -8,17 +8,17 @@ using UnityEngine.UI;
 public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField]
-    Canvas canvas;
+    protected Canvas canvas;
 
-    RectTransform rectTrans;
+    protected RectTransform rectTrans;
 
     [SerializeField]
-    RectTransform draggingParent;
+    protected RectTransform draggingParent;
 
     public DragDropContainer[] containers;
     [SerializeField]
-    DragDropContainer _startDDC;
-    Vector3 _startPos;
+    protected DragDropContainer _startDDC;
+    protected Vector3 _startPos;
     public bool freeDrag;
     public enum EndFeedback
     {
@@ -38,12 +38,12 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
     }
     public Showup showup;
 
-    private void Awake()
+    protected void Awake()
     {
         rectTrans = GetComponent<RectTransform>();
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         SetToDragDropContrainer(_startDDC);
         switch (showup)
@@ -65,7 +65,7 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         }
     }
 
-    void SetToDragDropContrainer(DragDropContainer ddc)
+    protected void SetToDragDropContrainer(DragDropContainer ddc)
     {
         _startDDC = ddc;
         if (ddc != null)
@@ -94,7 +94,7 @@ public class DragDropTarget : MonoBehaviour, IPointerDownHandler, IBeginDragHand
             wfswb.OnSwiping(rectTrans.anchoredPosition);
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
         if (freeDrag)
         {
