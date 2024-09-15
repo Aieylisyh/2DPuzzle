@@ -31,8 +31,9 @@ namespace Rescue
             rect_BoyFood.DOScale(0.8f, 1f).OnComplete(() =>
             {
 
-                // ToggleCg(???, true);
-                // ToggleCg(sceneCg_FoodBoy, false);
+                ToggleCg(sceneCg_OutsidePuzzle_boy, false);
+                ToggleCg(sceneCg_FoodBoy, false);
+                StartCoroutine(StartScene_OutsidePuzzle_boy(0));
             });
             Debug.Log("FoodSceneEnd!");
         }

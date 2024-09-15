@@ -25,6 +25,7 @@ namespace Rescue
             WakeUpBoy,
             WashBoy,
             FoodBoy,
+            GoOutsideBoy,
         }
 
         public GameStartPhase gameStartPhase;
@@ -59,6 +60,7 @@ namespace Rescue
             ToggleCg(sceneCg_WakeUpBoy, false);
             ToggleCg(sceneCg_WashBoy, false);
             ToggleCg(sceneCg_FoodBoy, false);
+            ToggleCg(sceneCg_OutsidePuzzle_boy, false);
 
             switch (gameStartPhase)
             {
@@ -97,6 +99,12 @@ namespace Rescue
                     ToggleCg(sceneCg_FoodBoy, true);
                     stage = GameStage.SceneBoyInBed_AfterMobileInteraction;
                     ShowBoyFoodScene();
+                    break;
+
+                case GameStartPhase.GoOutsideBoy:
+                    ToggleCg(sceneCg_OutsidePuzzle_boy, false);
+                    stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
+                    StartCoroutine(StartScene_OutsidePuzzle_boy(0));
                     break;
             }
 

@@ -107,16 +107,26 @@ public class FloatingDraggableWord : MonoBehaviour, IBeginDragHandler, IEndDragH
     public float correctThreshold = 1f;
     public void OnEndDrag(PointerEventData eventData)
     {
-        RescueSystem.instance.OnEndDrag_OutsidePuzzle();
+        if (RescueSystem.instance.puzzleStarting_boy)
+            RescueSystem.instance.OnEndDrag_OutsidePuzzle_boy();
+        else
+            RescueSystem.instance.OnEndDrag_OutsidePuzzle();
+
         var deltaPos = _rectTrans.anchoredPosition - _goodAnchoredPos;
         var dist = deltaPos.magnitude;
         //Debug.Log("距离 " + dist);
+
         if (dist <= correctThreshold)
         {
             SoundSystem.instance.Play("cloth picked");
             this.enabled = false;
             GetComponent<Image>().raycastTarget = false;
-            RescueSystem.instance.OnPuzzleEnd_OutsidePuzzle();
+
+            if (RescueSystem.instance.puzzleStarting_boy)
+                RescueSystem.instance.OnPuzzleEnd_OutsidePuzzle_boy();
+            else
+                RescueSystem.instance.OnPuzzleEnd_OutsidePuzzle();
+
             return;
         }
 
