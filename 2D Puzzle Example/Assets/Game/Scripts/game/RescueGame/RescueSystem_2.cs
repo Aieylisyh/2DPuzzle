@@ -36,6 +36,7 @@ namespace Rescue
         {
             foreach (var s in sfxsSwitching)
             {
+                s.Stop();
                 s.Play();
                 var v = s.volume;
                 s.volume = 0;
@@ -47,10 +48,9 @@ namespace Rescue
             {
                 var delay = i * dotInterval + 0.3f;
                 var c = dotParent.GetChild(i);
-                StartCoroutine(DelayAction(delay, () =>
-                    {
-                        c.gameObject.SetActive(true);
-                    }));
+                StartCoroutine(
+                    DelayAction(delay, () => { c.gameObject.SetActive(true); }
+                ));
             }
 
             var waitedTime = childCount * dotInterval;
@@ -58,7 +58,8 @@ namespace Rescue
                {
                    foreach (var s in sfxsSwitching)
                    {
-                       s.DOFade(0, 1);
+                       var v = s.volume;
+                       s.DOFade(0, 1).OnComplete(() => { s.volume = v; });
                    }
 
                    if (isBoy)

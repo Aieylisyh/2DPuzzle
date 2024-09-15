@@ -1477,7 +1477,7 @@ RectTransform:
   - {fileID: 1978321986}
   - {fileID: 2132048038}
   m_Father: {fileID: 976580990}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13582,11 +13582,11 @@ RectTransform:
   - {fileID: 1601636651}
   - {fileID: 1274005974}
   - {fileID: 752132577}
-  - {fileID: 1124961480}
   - {fileID: 1017691148}
   - {fileID: 118464132}
   - {fileID: 1247448564}
   - {fileID: 2111322892}
+  - {fileID: 1124961480}
   - {fileID: 1141121383}
   - {fileID: 2035311863}
   - {fileID: 1311771937}
@@ -14586,7 +14586,7 @@ RectTransform:
   - {fileID: 441060838}
   - {fileID: 1384834499}
   m_Father: {fileID: 976580990}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15829,7 +15829,7 @@ RectTransform:
   - {fileID: 167777909}
   - {fileID: 473231012}
   m_Father: {fileID: 976580990}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17462,7 +17462,7 @@ MonoBehaviour:
   sceneCg_girlInBed1: {fileID: 752132580}
   sceneCg_washFace: {fileID: 1124961483}
   sceneCg_dressing: {fileID: 1017691149}
-  gameStartPhase: 6
+  gameStartPhase: 0
   mobile: {fileID: 297650862}
   zoomParent: {fileID: 752132577}
   stage: 0
@@ -17897,7 +17897,7 @@ RectTransform:
   - {fileID: 1547824586}
   - {fileID: 1292823077}
   m_Father: {fileID: 976580990}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -35574,7 +35574,7 @@ RectTransform:
   - {fileID: 175141232}
   - {fileID: 60542846}
   m_Father: {fileID: 976580990}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
