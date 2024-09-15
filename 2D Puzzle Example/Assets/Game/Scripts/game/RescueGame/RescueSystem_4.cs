@@ -99,6 +99,7 @@ namespace Rescue
             boy_before.gameObject.SetActive(true);
             boy_before.color = Color.white;
             boy_after.gameObject.SetActive(false);
+            ClearWhiteDots();
         }
 
         [SerializeField] int _needEatTime = 3;

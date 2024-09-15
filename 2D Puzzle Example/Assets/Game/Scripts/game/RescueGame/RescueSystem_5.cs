@@ -14,7 +14,7 @@ namespace Rescue
 
         public void Eat(RectTransform rt)
         {
-            SoundSystem.instance.Play("ding");
+            SoundSystem.instance.Play("eat");
             rt.DOKill();
             rt.DOScale(0.5f, 0.5f).SetEase(Ease.InBack).OnComplete(() => { rt.gameObject.SetActive(false); FoodSceneEnd(); });
         }

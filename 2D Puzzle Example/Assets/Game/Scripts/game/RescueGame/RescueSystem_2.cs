@@ -22,6 +22,16 @@ namespace Rescue
             SwitchToWashScene(false);
         }
 
+        void ClearWhiteDots()
+        {
+            var childCount = dotParent.childCount;
+            for (var i = 0; i < childCount; i++)
+            {
+                var c = dotParent.GetChild(i);
+                c.gameObject.SetActive(false);
+            }
+        }
+
         void SwitchToWashScene(bool isBoy = false)
         {
             foreach (var s in sfxsSwitching)
@@ -100,6 +110,7 @@ namespace Rescue
             Debug.Log("SwitchToDressingScene");
             sceneCg_washFace.gameObject.SetActive(false);
             ToggleCg(sceneCg_dressing, true);
+            ClearWhiteDots();
         }
 
         public void FocusViewOnPickedCloth(Vector2 localAnchoredPos)
