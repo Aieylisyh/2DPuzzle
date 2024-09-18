@@ -16,7 +16,7 @@ public class 有容器的拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
     [SerializeField]
     protected DragDropContainer _startDDC;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _rectTrans = GetComponent<RectTransform>();
         SetToDragDropContainer(_startDDC);
@@ -34,7 +34,7 @@ public class 有容器的拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
         GetComponent<Image>().raycastTarget = true;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
         GetComponent<Image>().raycastTarget = false;
         _rectTrans.SetParent(draggingParent.transform);

@@ -16,7 +16,7 @@ public class OpponentItem : MonoBehaviour
         _rect = GetComponent<RectTransform>();
         var p = _dropTarget.position;
         _rect.position = p;
-        _rect.anchoredPosition += new Vector2(0, _heightToDrop);
+        _rect.anchoredPosition += new Vector2(Random.Range(-50, 50), _heightToDrop);
         gameObject.SetActive(true);
         _stopped = false;
         _v = 0;
