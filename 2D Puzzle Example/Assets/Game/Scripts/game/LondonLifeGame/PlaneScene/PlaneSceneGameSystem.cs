@@ -99,5 +99,6 @@ public class PlaneSceneGameSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         _pcgs.Show(false, false);
+        BalanceSceneSystem.instance.Reinit();
     }
 }
