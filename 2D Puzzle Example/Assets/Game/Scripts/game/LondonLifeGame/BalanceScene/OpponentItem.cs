@@ -19,6 +19,7 @@ public class OpponentItem : MonoBehaviour
         _rect.anchoredPosition += new Vector2(0, _heightToDrop);
         gameObject.SetActive(true);
         _stopped = false;
+        _v = 0;
     }
 
     private void Update()

@@ -13,44 +13,40 @@ public class BalanceSceneSystem : MonoBehaviour
     float _leftWeight;
     float _rightWeight;
 
-    [SerializeField] OpponentItem[] ois;
-    int _oisIndex;
+    [SerializeField] OpponentItemData[] oids;
+    [SerializeField] int myItemsCount;
+    int _totalOnBalanceCount;
+
+    [System.Serializable]
+    public class OpponentItemData
+    {
+        public OpponentItem oi;
+        public float delay;
+
+    }
 
     private void Awake()
     {
         instance = this;
     }
-    // Use this for initialization
-    void Start()
-    {
 
-    }
     public void Reinit()
     {
         _pcgs.Show(true, true);
         _rightWeight = 0;
         _leftWeight = 0;
+        _totalOnBalanceCount = 0;
+
         balanceHorizontal.localEulerAngles = Vector3.zero;
+
         StopAllCoroutines();
-        StartCoroutine(LondonLifeGameSystem.instance.DelayAction(1, AddOpponentItem));
-        StartCoroutine(LondonLifeGameSystem.instance.DelayAction(3, AddOpponentItem));
-    }
-
-    void AddOpponentItem()
-    {
-        if (_oisIndex >= ois.Length)
+        foreach (var oid in oids)
         {
-            return;
+            StartCoroutine(LondonLifeGameSystem.instance.DelayAction(oid.delay, () =>
+            {
+                oid.oi.Init();
+            }));
         }
-
-        var oi = ois[_oisIndex++];
-        oi.Init();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void OnReceiveItem(float weight, bool rightOrLeft)
@@ -63,7 +59,9 @@ public class BalanceSceneSystem : MonoBehaviour
         {
             _leftWeight += weight;
         }
+        _totalOnBalanceCount++;
         SyncBalance();
+        CheckEnd();
     }
 
     void SyncBalance()
@@ -71,5 +69,22 @@ public class BalanceSceneSystem : MonoBehaviour
         var w = weightAngleRatio * (_rightWeight - _leftWeight);
         balanceHorizontal.DOKill();
         balanceHorizontal.DORotate(new Vector3(0, 0, w), 1).SetEase(Ease.OutElastic);
+    }
+
+    void CheckEnd()
+    {
+        var total = oids.Length + myItemsCount;
+        if (_totalOnBalanceCount >= total)
+        {
+            StartCoroutine(EndBalanceScene());
+        }
+    }
+
+    IEnumerator EndBalanceScene()
+    {
+        Debug.Log("EndBalanceScene");
+        yield return new WaitForSeconds(2);
+        _pcgs.Show(false, false);
+        //BalanceSceneSystem.instance.Reinit();
     }
 }
