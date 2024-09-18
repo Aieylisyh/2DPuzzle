@@ -29,10 +29,6 @@ public class PlaneSceneGameSystem : MonoBehaviour
 
         foreach (var p in 气泡们)
             _待生成的气泡们.Add(p);
-        foreach (var p in 气泡们)
-            _待生成的气泡们.Add(p);
-        foreach (var p in 气泡们)
-            _待生成的气泡们.Add(p);
     }
 
     private void Start()

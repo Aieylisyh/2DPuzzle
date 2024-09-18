@@ -322,60 +322,100 @@ MonoBehaviour:
   _pcgs: {fileID: 13005343}
   "\u6C14\u6CE1\u4EEC":
   - faceRight: 0
-    deamSp: {fileID: 112195955, guid: 2bee05bc5c097744ebf3b6ccc68283b2, type: 3}
-    color: {r: 0.6509433, g: 0.9964027, b: 1, a: 1}
+    deamSp: {fileID: 21300000, guid: 82610845fc7c1aa42b1177686a668e51, type: 3}
+    color: {r: 1, g: 0.7781573, b: 0.34901965, a: 1}
     duration: 3
     pos: {x: -300, y: 450}
     floatingSpeed: 50
-    size: 1
+    size: 1.5
     feedbackSfx: 
   - faceRight: 1
-    deamSp: {fileID: 2140397827, guid: 9af1dacb9434a8b45ac0060fde915831, type: 3}
-    color: {r: 0.6509804, g: 1, b: 0.8773924, a: 1}
+    deamSp: {fileID: 21300000, guid: abd4f3e741865654a980ec5c7ade3967, type: 3}
+    color: {r: 0.98878765, g: 1, b: 0.6509804, a: 1}
     duration: 3
     pos: {x: 400, y: 300}
     floatingSpeed: 60
-    size: 1.2
+    size: 1.3
     feedbackSfx: 
   - faceRight: 0
-    deamSp: {fileID: 21300000, guid: 4ee2bf1447335c944a6add1dcaef0852, type: 3}
-    color: {r: 0.9028016, g: 0.7327044, b: 1, a: 1}
+    deamSp: {fileID: 21300000, guid: bf63c1a9a1b53ba47bab1da85414ed2f, type: 3}
+    color: {r: 1, g: 0, b: 0.07557678, a: 1}
     duration: 3
     pos: {x: 44, y: 600}
     floatingSpeed: 50
-    size: 0.8
+    size: 1.5
     feedbackSfx: 
   - faceRight: 1
-    deamSp: {fileID: -1367152249, guid: 2bee05bc5c097744ebf3b6ccc68283b2, type: 3}
+    deamSp: {fileID: 21300000, guid: 4bd15f6e639b92146819d42b9e1297b3, type: 3}
     color: {r: 1, g: 0.98850995, b: 0.58176094, a: 1}
     duration: 3
-    pos: {x: -410, y: 330}
+    pos: {x: -310, y: 250}
     floatingSpeed: 50
-    size: 0.8
+    size: 1.4
     feedbackSfx: 
   - faceRight: 0
-    deamSp: {fileID: 21300000, guid: 2ee6da8dd1786a041bbef583f68e6d74, type: 3}
+    deamSp: {fileID: 21300000, guid: 8d9d687caaef7ab4098d817d1698eb61, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     duration: 3
     pos: {x: 200, y: 500}
     floatingSpeed: 50
-    size: 1
+    size: 1.3
     feedbackSfx: 
   - faceRight: 1
-    deamSp: {fileID: 21300000, guid: 88926ce52d96fa24f95489206dca0c36, type: 3}
-    color: {r: 1, g: 0.7961154, b: 0.47484267, a: 1}
+    deamSp: {fileID: 21300000, guid: fadf6fb496f9d2546b2a49170208e343, type: 3}
+    color: {r: 0.6176431, g: 0.25471687, b: 1, a: 1}
     duration: 3
-    pos: {x: -100, y: 550}
+    pos: {x: -120, y: 230}
     floatingSpeed: 50
-    size: 1
+    size: 1.5
     feedbackSfx: 
   - faceRight: 0
-    deamSp: {fileID: 21300000, guid: 01dc4e49cb7a01148b3e46db764deb1e, type: 3}
-    color: {r: 0.7012578, g: 0.8879717, b: 1, a: 1}
+    deamSp: {fileID: 21300000, guid: 09e22c4c62a9b6746ae765f406a62c9f, type: 3}
+    color: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 1}
     duration: 3
-    pos: {x: 0, y: 360}
+    pos: {x: -290, y: 400}
     floatingSpeed: 50
-    size: 1.1
+    size: 1.3
+    feedbackSfx: 
+  - faceRight: 1
+    deamSp: {fileID: 21300000, guid: dc05f42fb2672ec4084bd496f3a885e3, type: 3}
+    color: {r: 1, g: 0.85357726, b: 0.6761006, a: 1}
+    duration: 3
+    pos: {x: 333, y: 300}
+    floatingSpeed: 50
+    size: 1.3
+    feedbackSfx: 
+  - faceRight: 0
+    deamSp: {fileID: 21300000, guid: 1f2c0442909a17b4c941178d73575ae5, type: 3}
+    color: {r: 0.48742133, g: 0.8109235, b: 1, a: 1}
+    duration: 3
+    pos: {x: -460, y: 480}
+    floatingSpeed: 50
+    size: 1.4
+    feedbackSfx: 
+  - faceRight: 1
+    deamSp: {fileID: 21300000, guid: 193a56aa424ad4540af60309c38831c7, type: 3}
+    color: {r: 1, g: 0.72641504, b: 0.8673527, a: 1}
+    duration: 3
+    pos: {x: 200, y: 300}
+    floatingSpeed: 50
+    size: 1.3
+    feedbackSfx: 
+  - faceRight: 0
+    deamSp: {fileID: 21300000, guid: 83e80d7127980da4c9710fc28dac77ea, type: 3}
+    color: {r: 1, g: 0.23091367, b: 0.15408784, a: 1}
+    duration: 3
+    pos: {x: -350, y: 360}
+    floatingSpeed: 50
+    size: 1.4
+    feedbackSfx: 
+  - faceRight: 1
+    deamSp: {fileID: 21300000, guid: 14f2bbe27cba57341897484aee9793b0, type: 3}
+    color: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 1}
+    duration: 3
+    pos: {x: 250, y: 600}
+    floatingSpeed: 50
+    size: 1.5
     feedbackSfx: 
   bubbleInterval: 1
   bubblePrefab: {fileID: 2158260443859333876, guid: 000d91e46e1153a468c8be96a71e4f4b, type: 3}
@@ -4648,7 +4688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b012def731484982050f24757d06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStage: 2
+  startStage: 1
 --- !u!1 &1278274997
 GameObject:
   m_ObjectHideFlags: 0
