@@ -6,7 +6,25 @@ public class DragDropContainer : MonoBehaviour, IPointerDownHandler, IPointerEnt
     [HideInInspector]
     public bool inside;
 
-    public RectTransform goodPlaceRef;
+    public RectTransform place
+    {
+        get
+        {
+            if (_goodPlaceRefs != null && _goodPlaceRefs.Length > 0)
+            {
+                while (_goodPlaceRefsIndex >= _goodPlaceRefs.Length)
+                {
+                    _goodPlaceRefsIndex -= _goodPlaceRefs.Length;
+                }
+
+                return _goodPlaceRefs[_goodPlaceRefsIndex++];
+            }
+            return _goodPlaceRef;
+        }
+    }
+    [SerializeField] RectTransform _goodPlaceRef;
+    [SerializeField] RectTransform[] _goodPlaceRefs;
+    int _goodPlaceRefsIndex;
     public void OnCancel(BaseEventData eventData)
     {
         inside = false;
