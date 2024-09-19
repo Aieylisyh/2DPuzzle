@@ -7,19 +7,20 @@ public class 固定方向拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
     [SerializeField]
     Canvas canvas;
 
-    RectTransform _rectTrans;
-
+    protected RectTransform _rectTrans;
+    protected Image _img;
     public RectTransform end1;
     public RectTransform end2;
     private void Awake()
     {
         _rectTrans = GetComponent<RectTransform>();
+        _img = GetComponent<Image>();
         GetComponent<Image>().raycastTarget = true;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        GetComponent<Image>().raycastTarget = false;
+        _img.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -29,9 +30,9 @@ public class 固定方向拖拽 : MonoBehaviour, IBeginDragHandler, IEndDragHand
         _rectTrans.anchoredPosition = idealPos;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
-        GetComponent<Image>().raycastTarget = true;
+        _img.raycastTarget = true;
     }
 
     public static Vector2 NearestPointOnLine(Vector2 A, Vector2 B, Vector2 C)
