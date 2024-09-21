@@ -18,6 +18,32 @@ public partial class RLSystem : MonoBehaviour
 
     [SerializeField] CanvasGroup map;
 
+    [SerializeField] Transform[] onDeskItems;
+
+    public void InitCalenderScene()
+    {
+        /*
+        fade in black, wear clother sound
+        fade out show desk
+        user click on papers
+        all papers clicked, then focus on calender
+
+        user click calender, then show big calender
+        show dialogs
+        show continue button, user click continue button
+
+        show check list
+        user click first item
+        show checkmark
+        show continue button, user click continue button
+
+        fade in black, walk sound
+        fade out show map
+        show dialogs Which room should I go?...
+        user click on a room in map.
+
+         */
+    }
     public void OnClickPaperOnDesk()
     {
 
@@ -33,7 +59,7 @@ public partial class RLSystem : MonoBehaviour
         //Show check list
     }
 
-    public void OnClickChecklistItem()
+    public void OnClickChecklistItem(Transform t)
     {
         //check the 1st item
         //todo add some words
