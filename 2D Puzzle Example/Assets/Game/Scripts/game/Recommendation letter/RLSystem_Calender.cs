@@ -1,6 +1,8 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +12,7 @@ public partial class RLSystem : MonoBehaviour
 
     [SerializeField] CanvasGroup calendar;
 
-    [SerializeField] Transform[] onDeskItems;
+    [SerializeField] RectTransform[] onDeskItems;
 
     public void InitCalenderScene()
     {
@@ -36,20 +38,34 @@ public partial class RLSystem : MonoBehaviour
         user click on a room in map.
 
          */
+
+        foreach (var f in onDeskItems)
+        {
+            f.gameObject.SetActive(true);
+        }
     }
 
     IEnumerator CalenderScene_Start()
     {
         yield return new WaitForSeconds(1);
     }
-    public void OnClickPaperOnDesk()
-    {
 
+    public void OnClickPaperOnDesk(RectTransform rt)
+    {
+        SoundSystem.instance.Play("eat");
+        rt.DOKill();
+        rt.DOScale(0.5f, 0.5f).SetEase(Ease.InBack).OnComplete(() => { rt.gameObject.SetActive(false); CheckDeskSceneEnd(); });
     }
 
-    public void OnCalender()
+    void CheckDeskSceneEnd()
     {
+        foreach (var f in onDeskItems)
+        {
+            if (f.gameObject.activeSelf)
+                return;
+        }
 
+        ToggleContinueButton(true);
     }
 
     public void OnClickExitCalender()

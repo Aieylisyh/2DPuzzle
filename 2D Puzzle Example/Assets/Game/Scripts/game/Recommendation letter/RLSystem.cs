@@ -52,6 +52,7 @@ public partial class RLSystem : MonoBehaviour
                 eb.ToggleEyeBlink(true);
                 break;
             case SceneId.Calender:
+                InitCalenderScene();
                 break;
             case SceneId.Checklist:
                 break;
@@ -85,7 +86,7 @@ public partial class RLSystem : MonoBehaviour
         ToggleContinueButton(false);
     }
 
-    void ToggleContinueButton(bool b)
+    public void ToggleContinueButton(bool b)
     {
         _continueBtn.gameObject.SetActive(b);
         if (b)

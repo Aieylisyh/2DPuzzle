@@ -35,7 +35,7 @@ public class EyeBehaviour : MonoBehaviour
     IEnumerator EyeLoop()
     {
         SetClose();
-        int i = 4;
+        int i = 3;
         while (i >= 0)
         {
             i--;
@@ -44,8 +44,8 @@ public class EyeBehaviour : MonoBehaviour
             DoClose();
             yield return new WaitForSeconds(duration + 0.2f);
         }
-
-        RLSystem.instance.sceneSwitcher.Set(SceneId.Calender);
+        RLSystem.instance.ToggleContinueButton(true);
+        //RLSystem.instance.sceneSwitcher.Set(SceneId.Calender);
     }
 
     void SetOpen()
