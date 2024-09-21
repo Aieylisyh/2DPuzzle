@@ -24,7 +24,7 @@ public class EyeBehaviour : MonoBehaviour
             return;
         }
 
-        SetOpen();
+        SetClose();
     }
 
     public void ToggleShow(bool b)
@@ -34,17 +34,16 @@ public class EyeBehaviour : MonoBehaviour
 
     IEnumerator EyeLoop()
     {
-        SetOpen();
+        SetClose();
         int i = 4;
         while (i >= 0)
         {
             i--;
-            DoClose();
-            yield return new WaitForSeconds(duration + 0.2f);
             DoOpen();
             yield return new WaitForSeconds(duration + 0.2f);
+            DoClose();
+            yield return new WaitForSeconds(duration + 0.2f);
         }
-
     }
 
     void SetOpen()
