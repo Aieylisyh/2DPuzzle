@@ -6,23 +6,16 @@ using UnityEngine.UI;
 
 public partial class RLSystem : MonoBehaviour
 {
-    [SerializeField] Image _blackScreen;
-
     [SerializeField] CanvasGroup desk;
 
     [SerializeField] CanvasGroup calendar;
-
-    // [SerializeField] 
-
-    [SerializeField] CanvasGroup checkedList;
-
-    [SerializeField] CanvasGroup map;
 
     [SerializeField] Transform[] onDeskItems;
 
     public void InitCalenderScene()
     {
         /*
+        //stage1;
         fade in black, wear clother sound
         fade out show desk
         user click on papers
@@ -44,6 +37,11 @@ public partial class RLSystem : MonoBehaviour
 
          */
     }
+
+    IEnumerator CalenderScene_Start()
+    {
+        yield return new WaitForSeconds(1);
+    }
     public void OnClickPaperOnDesk()
     {
 
@@ -57,22 +55,5 @@ public partial class RLSystem : MonoBehaviour
     public void OnClickExitCalender()
     {
         //Show check list
-    }
-
-    public void OnClickChecklistItem(Transform t)
-    {
-        //check the 1st item
-        //todo add some words
-    }
-
-    public void OnClickExitChecklist()
-    {
-        //black screen walk sound
-        //show map to choose go where
-    }
-
-    public void OnClickDestination()
-    {
-
     }
 }

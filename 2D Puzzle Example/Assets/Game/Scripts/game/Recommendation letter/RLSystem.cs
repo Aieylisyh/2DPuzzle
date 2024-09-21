@@ -5,72 +5,98 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum SceneId
+{
+    None,
+    Admission,
+    Roof,
+    Calender,
+    Checklist,
+    Corridor,
+}
+
 public partial class RLSystem : MonoBehaviour
 {
     public static RLSystem instance;
-    public GameObject envelopeClose;
-    public GameObject envelopeOpen;
-    public GameObject admissionFold;
-    public GameObject envelopeHalf;
-    public GameObject admission;
-    public GameObject envelopeStartPos;
 
-    public float evenlopeStartMoveDuration;
-    public Ease envelopeStartMoveEase;
-    public GameObject envelopeCloseButton;
-    public float envelopeDragDistanceThreshold;
-    [SerializeField] Image nextBtn_RoofScene;
+    [SerializeField] Image _continueBtn;
+    public ScreenFader screenFader;
+    public SceneSwitcher sceneSwitcher;
 
-    [SerializeField] GameObject _scene_admission;
-    [SerializeField] GameObject _scene_roof;
-
-    public enum Phase
-    {
-        None,
-        Admission, //admission letter scene
-        Roof,
-    }
-
-    [SerializeField] Phase _phase;
 
     private void Awake()
     {
         instance = this;
     }
-    void Start()
-    {
-        SetPhase(_phase);
-    }
 
-    void SetPhase(Phase p)
+    public void StartScene(SceneId s)
     {
-        _phase = p;
-        _scene_admission.SetActive(false);
-        _scene_roof.SetActive(false);
+        ToggleContinueButton(false);
 
-        switch (_phase)
+        switch (s)
         {
-            case Phase.None:
+            case SceneId.None:
                 break;
-            case Phase.Admission:
+            case SceneId.Admission:
                 envelopeClose.SetActive(false);
                 envelopeOpen.SetActive(false);
                 admissionFold.SetActive(false);
                 envelopeHalf.SetActive(false);
                 admission.SetActive(false);
                 envelopeCloseButton.SetActive(false);
-                nextBtn_RoofScene.gameObject.SetActive(false);
-                _scene_admission.SetActive(true);
+                ToggleContinueButton(false);
                 DisplayEnvelope();
                 break;
-            case Phase.Roof:
-                _scene_roof.SetActive(true);
+            case SceneId.Roof:
                 eb.ToggleShow(true);
                 eb.ToggleEyeBlink(true);
+                break;
+            case SceneId.Calender:
+                break;
+            case SceneId.Checklist:
+                break;
+            case SceneId.Corridor:
                 break;
         }
     }
 
+    public void OnClickContinueButton()
+    {
+        switch (sceneSwitcher.crtId)
+        {
+            case SceneId.None:
+                break;
+            case SceneId.Admission:
+                sceneSwitcher.Set(SceneId.Roof);
+                break;
+            case SceneId.Roof:
+                sceneSwitcher.Set(SceneId.Calender);
+                break;
+            case SceneId.Calender:
+                sceneSwitcher.Set(SceneId.Checklist);
+                break;
+            case SceneId.Checklist:
+                sceneSwitcher.Set(SceneId.Corridor);
+                break;
+            case SceneId.Corridor:
+                //TODO
+                break;
+        }
+        ToggleContinueButton(false);
+    }
+
+    void ToggleContinueButton(bool b)
+    {
+        _continueBtn.gameObject.SetActive(b);
+        if (b)
+        {
+            var c = _continueBtn.color;
+            c.a = 0;
+            _continueBtn.color = c;
+            c.a = 1;
+            _continueBtn.DOColor(c, 1f);
+        }
+    }
 
     IEnumerator DelayAction(float delay, Action action)
     {
@@ -98,7 +124,6 @@ public partial class RLSystem : MonoBehaviour
         envelopeClose.SetActive(true);
         envelopeClose.transform.position = envelopeStartPos.transform.position;
         envelopeClose.transform.DOMove(endpos, evenlopeStartMoveDuration).SetEase(envelopeStartMoveEase).OnComplete(OnEnvelopeMoveAnmationEnd);
-
     }
 
     public void OnClickEnvelopeClose()

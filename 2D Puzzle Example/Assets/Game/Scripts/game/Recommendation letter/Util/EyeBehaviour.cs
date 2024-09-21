@@ -44,6 +44,8 @@ public class EyeBehaviour : MonoBehaviour
             DoClose();
             yield return new WaitForSeconds(duration + 0.2f);
         }
+
+        RLSystem.instance.sceneSwitcher.Set(SceneId.Calender);
     }
 
     void SetOpen()
