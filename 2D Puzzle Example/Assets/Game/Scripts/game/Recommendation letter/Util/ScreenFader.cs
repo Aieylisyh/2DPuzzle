@@ -7,7 +7,7 @@ using DG.Tweening;
 public class ScreenFader : MonoBehaviour
 {
     [SerializeField] float _inDuration = 1.6f;
-    [SerializeField] float _outDuration = 1.2f;
+    [SerializeField] float _outDuration = 1.5f;
     [SerializeField] Image _blackScreen;
     [SerializeField] Image _whiteScreen;
 

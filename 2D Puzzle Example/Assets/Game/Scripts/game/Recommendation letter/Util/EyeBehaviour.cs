@@ -35,7 +35,7 @@ public class EyeBehaviour : MonoBehaviour
     IEnumerator EyeLoop()
     {
         SetClose();
-        int i = 3;
+        int i = 2;
         while (i >= 0)
         {
             i--;

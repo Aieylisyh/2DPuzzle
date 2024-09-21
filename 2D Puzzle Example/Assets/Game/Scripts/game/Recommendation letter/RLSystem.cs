@@ -1,3 +1,4 @@
+using com;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -71,7 +72,16 @@ public partial class RLSystem : MonoBehaviour
                 sceneSwitcher.Set(SceneId.Roof);
                 break;
             case SceneId.Roof:
-                sceneSwitcher.Set(SceneId.Calender);
+                var tt = screenFader.FadeInBlack(null);
+                StartCoroutine(DelayAction(tt, () =>
+                {
+                    SoundSystem.instance.Play("put on clothes");
+                    sceneSwitcher.Set(SceneId.Calender);
+                    StartCoroutine(DelayAction(2, () =>
+                    {
+                        screenFader.FadeOutBlack(null);
+                    }));
+                }));
                 break;
             case SceneId.Calender:
                 sceneSwitcher.Set(SceneId.Checklist);
@@ -103,40 +113,5 @@ public partial class RLSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         action?.Invoke();
-    }
-
-    public void CheckDagEndPlace(float distance)
-    {
-        if (envelopeDragDistanceThreshold > distance)
-        {
-            admission.SetActive(true);
-            var img = admission.GetComponent<Image>();
-            img.color = new Color(1, 1, 1, 0);
-            img.DOColor(Color.white, 2f);
-            envelopeOpen.SetActive(false);
-            admissionFold.SetActive(false);
-            envelopeHalf.SetActive(false);
-            OnAdmissionLetterSceneEnd();
-        }
-    }
-    void DisplayEnvelope()
-    {
-        var endpos = envelopeClose.transform.position;
-        envelopeClose.SetActive(true);
-        envelopeClose.transform.position = envelopeStartPos.transform.position;
-        envelopeClose.transform.DOMove(endpos, evenlopeStartMoveDuration).SetEase(envelopeStartMoveEase).OnComplete(OnEnvelopeMoveAnmationEnd);
-    }
-
-    public void OnClickEnvelopeClose()
-    {
-        envelopeClose.SetActive(false);
-        envelopeOpen.SetActive(true);
-        admissionFold.SetActive(true);
-        envelopeHalf.SetActive(true);
-    }
-
-    void OnEnvelopeMoveAnmationEnd()
-    {
-        envelopeCloseButton.SetActive(true);
     }
 }

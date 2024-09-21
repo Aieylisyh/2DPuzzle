@@ -8,10 +8,8 @@ using UnityEngine.UI;
 
 public partial class RLSystem : MonoBehaviour
 {
-    [SerializeField] CanvasGroup desk;
-
-    [SerializeField] CanvasGroup calendar;
-
+    [SerializeField] RectTransform deskScene;
+    [SerializeField] RectTransform bigCalender;
     [SerializeField] RectTransform[] onDeskItems;
 
     public void InitCalenderScene()
@@ -43,6 +41,7 @@ public partial class RLSystem : MonoBehaviour
         {
             f.gameObject.SetActive(true);
         }
+        bigCalender.gameObject.SetActive(false);
     }
 
     IEnumerator CalenderScene_Start()
@@ -65,11 +64,24 @@ public partial class RLSystem : MonoBehaviour
                 return;
         }
 
-        ToggleContinueButton(true);
+        FocusOnCalender();
+        //ToggleContinueButton(true);
     }
 
-    public void OnClickExitCalender()
+    [SerializeField] Button _calenderButton;
+    [SerializeField] RectTransform _calenderFocus;
+    [SerializeField] float _calenderFocusSize = 1.5f;
+    void FocusOnCalender()
     {
-        //Show check list
+        var ac = _calenderFocus.anchoredPosition;
+        deskScene.DOAnchorPos(-ac, 1);
+        deskScene.DOScale(_calenderFocusSize, 1).OnComplete(() =>
+        {
+            _calenderButton.enabled = true;
+        });
+    }
+    public void OnClickEnterCalender()
+    {
+        bigCalender.gameObject.SetActive(true);
     }
 }
