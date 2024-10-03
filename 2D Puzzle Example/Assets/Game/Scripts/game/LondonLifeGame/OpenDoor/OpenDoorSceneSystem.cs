@@ -16,6 +16,7 @@ public class OpenDoorSceneSystem : MonoBehaviour
     public float scaleRatio;
     public CanvasGroup innerCg;
 
+    [SerializeField] PanelCanvasGroupSwitcher _pcgs;
     private void Awake()
     {
         instance = this;
@@ -23,6 +24,7 @@ public class OpenDoorSceneSystem : MonoBehaviour
 
     public void Reinit()
     {
+        _pcgs.Show(true, true);
         StopAllCoroutines();
         doorDraggable.ToCloseEnd(false);
     }
@@ -65,5 +67,11 @@ public class OpenDoorSceneSystem : MonoBehaviour
         toFocusRect.DOAnchorPos(-focus.anchoredPosition, duration);
         yield return new WaitForSeconds(3);
         //TODO next scene
+
+        Debug.Log("EndDoorScene");
+        _pcgs.Show(false, false);
+        yield return new WaitForSeconds(2);
+        InRoomClockScene.instance.Reinit();
+
     }
 }

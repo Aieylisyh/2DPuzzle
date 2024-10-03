@@ -11,6 +11,7 @@ public class LondonLifeGameSystem : MonoBehaviour
         GoToPlane,
         Balance,
         OpenDoor,
+        Clock,
     }
     public Stage startStage;
     Stage _crtStage;
@@ -40,8 +41,11 @@ public class LondonLifeGameSystem : MonoBehaviour
             case Stage.Balance:
                 BalanceSceneSystem.instance.Reinit();
                 break;
-                 case Stage.OpenDoor:
+            case Stage.OpenDoor:
                 OpenDoorSceneSystem.instance.Reinit();
+                break;
+            case Stage.Clock:
+                InRoomClockScene.instance.Reinit();
                 break;
         }
     }
