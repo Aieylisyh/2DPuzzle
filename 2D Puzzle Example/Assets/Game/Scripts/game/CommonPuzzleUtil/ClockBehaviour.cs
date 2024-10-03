@@ -40,6 +40,7 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
         SetTime(_timeInHour);
     }
 
+    [SerializeField] Camera cam;
     public void OnPointerDown(PointerEventData eventData)
     {
         if (_in)
@@ -47,17 +48,7 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
             _on = true;
             _startPos = eventData.position;
             //Debug.Log(_startPos);
-            //Debug.Log(minuteArrow.transform.position);
-            var deltaPos = new Vector2(_startPos.x - minuteArrow.transform.position.x, _startPos.y - minuteArrow.transform.position.y);
-            var r = GetClockRadian(deltaPos.y, deltaPos.x);
-            while (_lastRadian - Mathf.PI >= r)
-            {
-                r += Mathf.PI * 2;
-            }
-            while (_lastRadian + Mathf.PI <= r)
-            {
-                r -= Mathf.PI * 2;
-            }
+            var r = GetClockRadian(_startPos);
             _lastRadian = r;
             //Debug.Log("_startRadian " + _lastRadian);
             //Debug.Log(PointerDataToRelativePos(eventData));
@@ -92,15 +83,8 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
             return;
 
         _lastPos = pos;
-        var deltaPos = new Vector2(pos.x - minuteArrow.transform.position.x, pos.y - minuteArrow.transform.position.y);
-        var r = GetClockRadian(deltaPos.y, deltaPos.x);
-        //Debug.Log("last " + _lastRadian + " r " + r);
+        var r = GetClockRadian(_lastPos);
         var lastT = _lastRadian / (Mathf.PI * 2);
-        while (_lastRadian - Mathf.PI >= r)
-            r += Mathf.PI * 2;
-        while (_lastRadian + Mathf.PI <= r)
-            r -= Mathf.PI * 2;
-
         var t = r / (Mathf.PI * 2);
         _lastRadian = r;
         //Debug.Log("r " + r);
@@ -109,6 +93,19 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
         AddTime(t - lastT);
 
     }
+
+    float GetClockRadian(Vector3 screenPointerPos)
+    {
+        var centerScreenPos = cam.WorldToScreenPoint(minuteArrow.transform.position);
+        var deltaPos = new Vector2(screenPointerPos.x - centerScreenPos.x, screenPointerPos.y - centerScreenPos.y);
+        var r = GetClockRadian(deltaPos.y, deltaPos.x);
+        while (_lastRadian - Mathf.PI >= r)
+            r += Mathf.PI * 2;
+        while (_lastRadian + Mathf.PI <= r)
+            r -= Mathf.PI * 2;
+        return r;
+    }
+
     public void OnPointerMove(PointerEventData eventData)
     {
 
