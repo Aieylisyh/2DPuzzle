@@ -61,17 +61,13 @@ public class OpenDoorSceneSystem : MonoBehaviour
         yield return new WaitForSeconds(doorDraggable.durationOpen);
         doorDraggable.enabled = false;
         innerCg.DOFade(1, 2);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         var duration = 3.5f;
-        toFocusRect.DOScale(1.4f, duration);
+        toFocusRect.DOScale(scaleRatio, duration);
         toFocusRect.DOAnchorPos(-focus.anchoredPosition, duration);
-        yield return new WaitForSeconds(3);
-        //TODO next scene
-
-        Debug.Log("EndDoorScene");
+        yield return new WaitForSeconds(2.5f);
         _pcgs.Show(false, false);
         yield return new WaitForSeconds(2);
         InRoomClockScene.instance.Reinit();
-
     }
 }

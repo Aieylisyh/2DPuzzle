@@ -1558,7 +1558,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -1838280464, guid: 9af1dacb9434a8b45ac0060fde915831, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2532,7 +2532,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278510006}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -4064,6 +4064,7 @@ MonoBehaviour:
   timeInHourMax: 25
   timeflowScenes:
   - {fileID: 766301383}
+  cam: {fileID: 1568327709}
 --- !u!114 &766301385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6889,7 +6890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b012def731484982050f24757d06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStage: 1
+  startStage: 4
 --- !u!1 &1278274997
 GameObject:
   m_ObjectHideFlags: 0
@@ -7475,9 +7476,9 @@ MonoBehaviour:
   doorDraggable: {fileID: 1373526271}
   focus: {fileID: 1601636651}
   toFocusRect: {fileID: 278510007}
-  scaleRatio: 2.5
+  scaleRatio: 2.1
   innerCg: {fileID: 593406364}
-  _pcgs: {fileID: 0}
+  _pcgs: {fileID: 1395010609}
 --- !u!1 &1433862102
 GameObject:
   m_ObjectHideFlags: 0
@@ -14881,7 +14882,7 @@ MonoBehaviour:
   image2: {fileID: 1700545223}
   image3: {fileID: 126676275}
   clockCg: {fileID: 766301387}
-  _pcgs: {fileID: 0}
+  _pcgs: {fileID: 1845539843}
 --- !u!1 &1876928850
 GameObject:
   m_ObjectHideFlags: 0

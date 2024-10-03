@@ -49,6 +49,10 @@ public class GoToPlaneBehaviour : MonoBehaviour
 
     void SyncStep()
     {
+        if (_step > steps.Length)
+            return;
+        if (_step < 1)
+            return;
         me.DOKill();
 
         var info = steps[_step - 1];

@@ -85,6 +85,7 @@ public class BalanceSceneSystem : MonoBehaviour
         Debug.Log("EndBalanceScene");
         yield return new WaitForSeconds(2);
         _pcgs.Show(false, false);
-        //BalanceSceneSystem.instance.Reinit();
+        yield return new WaitForSeconds(1.5f);
+        OpenDoorSceneSystem.instance.Reinit();
     }
 }
