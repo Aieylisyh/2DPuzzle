@@ -31,10 +31,16 @@ public class DialogBehaviour : MonoBehaviour
         }
         else
         {
+            cg.blocksRaycasts = true;
+            cg.interactable = true;
             cg.DOKill();
-            cg.DOFade(0, 1);
-            cg.blocksRaycasts = false;
-            cg.interactable = false;
+            cg.DOFade(0, 0.7f).OnComplete(
+                () =>
+                {
+                    cg.blocksRaycasts = false;
+                    cg.interactable = false;
+                }
+                );
         }
 
         if (_cb != null)

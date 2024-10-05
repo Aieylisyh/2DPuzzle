@@ -23,7 +23,7 @@ public partial class RLSystem : MonoBehaviour
         {
             ShowCheckMark(checkmark[0]);
 
-            StartCoroutine(DelayAction(4, () =>
+            StartCoroutine(DelayAction(3, () =>
             {
                 ToggleContinueButton(true);
             }));

@@ -21,8 +21,8 @@ public partial class RLSystem : MonoBehaviour
     public static RLSystem instance;
 
     [SerializeField] Image _continueBtn;
-    public SceneSwitcher sceneSwitcher;
 
+    public SceneSwitcher sceneSwitcher;
 
     private void Awake()
     {
@@ -32,6 +32,7 @@ public partial class RLSystem : MonoBehaviour
     public void StartScene(SceneId s)
     {
         ToggleContinueButton(false);
+        btnBackToCorrider.SetActive(false);
 
         switch (s)
         {
@@ -51,6 +52,7 @@ public partial class RLSystem : MonoBehaviour
                 InitCheckListScene();
                 break;
             case SceneId.Corridor:
+                InitCorridorScene();
                 break;
         }
     }
@@ -97,7 +99,7 @@ public partial class RLSystem : MonoBehaviour
                 sceneSwitcher.Set(SceneId.Corridor);
                 break;
             case SceneId.Corridor:
-                //TODO
+                //sceneSwitcher.Set(SceneId.);
                 break;
         }
         ToggleContinueButton(false);
@@ -105,14 +107,15 @@ public partial class RLSystem : MonoBehaviour
 
     public void ToggleContinueButton(bool b)
     {
-        _continueBtn.gameObject.SetActive(b);
+        var btn = _continueBtn;
+        btn.gameObject.SetActive(b);
         if (b)
         {
-            var c = _continueBtn.color;
+            var c = btn.color;
             c.a = 0;
-            _continueBtn.color = c;
+            btn.color = c;
             c.a = 1;
-            _continueBtn.DOColor(c, 1f);
+            btn.DOColor(c, 1f);
         }
     }
 
