@@ -65,8 +65,14 @@ public partial class RLSystem : MonoBehaviour
     () => { door.SetActive(true); },
     0.35f, 0.35f, 0.1f
     );
-
-        StartCoroutine(DelayAction(2, () => { btnBackToCorrider.SetActive(true); }));
+        if (door == door_spanish)
+        {
+            StartCoroutine(DelayAction(2, () => { ToggleContinueButton(true); }));
+        }
+        else
+        {
+            StartCoroutine(DelayAction(2, () => { btnBackToCorrider.SetActive(true); }));
+        }
     }
 
     [SerializeField] GameObject btnBackToCorrider;
