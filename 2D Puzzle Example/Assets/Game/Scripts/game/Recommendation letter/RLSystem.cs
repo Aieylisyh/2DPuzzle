@@ -21,7 +21,6 @@ public partial class RLSystem : MonoBehaviour
     public static RLSystem instance;
 
     [SerializeField] Image _continueBtn;
-    public ScreenFader screenFader;
     public SceneSwitcher sceneSwitcher;
 
 
@@ -39,14 +38,7 @@ public partial class RLSystem : MonoBehaviour
             case SceneId.None:
                 break;
             case SceneId.Admission:
-                envelopeClose.SetActive(false);
-                envelopeOpen.SetActive(false);
-                admissionFold.SetActive(false);
-                envelopeHalf.SetActive(false);
-                admission.SetActive(false);
-                envelopeCloseButton.SetActive(false);
-                ToggleContinueButton(false);
-                DisplayEnvelope();
+                InitDreamAdmissionScene();
                 break;
             case SceneId.Roof:
                 eb.ToggleShow(true);
@@ -56,10 +48,24 @@ public partial class RLSystem : MonoBehaviour
                 InitCalenderScene();
                 break;
             case SceneId.Checklist:
+                InitCheckListScene();
                 break;
             case SceneId.Corridor:
                 break;
         }
+    }
+
+    void InitDreamAdmissionScene()
+    {
+        envelopeClose.SetActive(false);
+        envelopeOpen.SetActive(false);
+        admissionFold.SetActive(false);
+        envelopeHalf.SetActive(false);
+        admission.SetActive(false);
+        envelopeCloseButton.SetActive(false);
+        ToggleContinueButton(false);
+        DisplayEnvelope();
+        ScreenEffectToggle.instance.ToggleDreamReality(true);
     }
 
     public void OnClickContinueButton()
@@ -72,14 +78,15 @@ public partial class RLSystem : MonoBehaviour
                 sceneSwitcher.Set(SceneId.Roof);
                 break;
             case SceneId.Roof:
-                var tt = screenFader.FadeInBlack(null);
+                var tt = 1.2f;
+                UiImageScreenFader.instance.FadeInBlack(null, tt);
                 StartCoroutine(DelayAction(tt, () =>
                 {
                     SoundSystem.instance.Play("put on clothes");
                     sceneSwitcher.Set(SceneId.Calender);
                     StartCoroutine(DelayAction(2, () =>
                     {
-                        screenFader.FadeOutBlack(null);
+                        UiImageScreenFader.instance.FadeOutBlack(null);
                     }));
                 }));
                 break;

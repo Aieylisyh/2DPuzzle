@@ -36,12 +36,19 @@ public partial class RLSystem : MonoBehaviour
         user click on a room in map.
 
          */
-
+        ScreenEffectToggle.instance.ToggleDreamReality(false);
         foreach (var f in onDeskItems)
         {
             f.gameObject.SetActive(true);
         }
         bigCalender.gameObject.SetActive(false);
+
+        var s = new List<string>();
+        s.Add("All right");
+        s.Add("just remember to bring all the latest version of the university application list.");
+        s.Add("I am goanna need them today.");
+        DialogBehaviour.instance.SetDialog(s);
+        DialogBehaviour.instance.Show();
     }
 
     IEnumerator CalenderScene_Start()
@@ -82,6 +89,29 @@ public partial class RLSystem : MonoBehaviour
     }
     public void OnClickEnterCalender()
     {
-        bigCalender.gameObject.SetActive(true);
+        UiImageScreenFader.instance.FadeWhite(
+            () => { bigCalender.gameObject.SetActive(true); },
+            0.4f, 0.4f, 0.1f
+            );
+
+        var s = new List<string>();
+        s.Add("Today is the last day to apply.");
+        s.Add("I really need to as Mrs.Fernandes for reference letter.");
+        s.Add("I don't know what I was afraid of these days.");
+        s.Add("Maybe it's just procrastination.");
+        s.Add("Come on, you know she is nice, you did well on her Spanish Class...");
+        s.Add("Let’s do it.");
+        DialogBehaviour.instance.SetDialog(s);
+        DialogBehaviour.instance.SetCallback(
+         () =>
+         {
+             StartCoroutine(DelayAction(1.1f, () =>
+             {
+                 ToggleContinueButton(true);
+             }));
+         }
+         );
+        DialogBehaviour.instance.Show();
+
     }
 }
