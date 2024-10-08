@@ -15470,7 +15470,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008744252}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -25922,6 +25922,15 @@ GameObject:
   - component: {fileID: 1568327708}
   - component: {fileID: 1568327712}
   - component: {fileID: 1568327711}
+  - component: {fileID: 1568327722}
+  - component: {fileID: 1568327721}
+  - component: {fileID: 1568327720}
+  - component: {fileID: 1568327719}
+  - component: {fileID: 1568327718}
+  - component: {fileID: 1568327717}
+  - component: {fileID: 1568327716}
+  - component: {fileID: 1568327715}
+  - component: {fileID: 1568327714}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -26072,6 +26081,160 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &1568327714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573604d13001e92428f59b1dea134a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: ac773c6af6fb7954b9472db9ac8b0673, type: 3}
+  Twist: 1
+  Speed: 1
+  Color: {r: 0.16, g: 0.57, b: 0.19, a: 1}
+  PosX: 0.5
+  PosY: 0.5
+--- !u!114 &1568327715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee70812b48ef71148b91407e49a89435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: a9e586cba094f5546b5ecf203298a814, type: 3}
+  Intensity: 0.4
+  Speed: 1
+--- !u!114 &1568327716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228fa974ba122dd4d8f725745575cf31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: c8563bb8f35543e4199e8bd64a32eeef, type: 3}
+  CenterX: 0
+  CenterY: 0
+  WaveIntensity: 1
+  NumberOfWaves: 5
+--- !u!114 &1568327717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad205fe945d2fb4c9538acd2cd4ee4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: 7f8be424aaf1faa40bc704f73202e1d6, type: 3}
+  PosX: 0.5
+  PosY: 0.5
+  Speed: 1
+--- !u!114 &1568327718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c6f98eb41251f4aa0bfc61b0873092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: 1ace800f36a74434eb032633c1dddd4e, type: 3}
+  Distortion: 6
+  Speed: 5
+--- !u!114 &1568327719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65b9068721190c4b8d3c78d0bfea715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: 62b2b192554c80b4c8d94dffaff0584e, type: 3}
+  Radius: 0.1
+  Quality: 0.75
+--- !u!114 &1568327720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1e4d59ebe060444a7995be089755f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: 99860c2f557dc344dbc80db6863627c5, type: 3}
+  Fade: 1
+  Intensity: 0.5
+  DirectionX: 0.12
+  Size: 1.5
+  Speed: 0.275
+  Distortion: 0.025
+  StormFlashOnOff: 1
+  DropOnOff: 1
+--- !u!114 &1568327721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01876c58507bd9542b2870c478d419a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: 7c49efe6c1b735a4eb25143b92bda37f, type: 3}
+  Fade: 1
+  Intensity: 0.5
+  DirectionX: 0.12
+  Size: 1.5
+  Speed: 0.275
+  Distortion: 0.05
+  StormFlashOnOff: 1
+--- !u!114 &1568327722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568327707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf111f2847ccfd43ac5bf0413f7e30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: 5922b81d29a44c54bb8b9861a8e6c7e2, type: 3}
+  Distortion: 8
+  SizeX: 1
+  SizeY: 0.5
+  Speed: 1
 --- !u!1 &1569402823
 GameObject:
   m_ObjectHideFlags: 0
@@ -35217,7 +35380,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839406799}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -36917,7 +37080,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945316199}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -37085,7 +37248,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948316809}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
