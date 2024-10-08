@@ -33,14 +33,14 @@ namespace Rescue
             foreach (var bg in girlClockAfterActiveGroup)
                 bg.SetActive(false);
 
-
             yield return new WaitForSeconds(delay);
             cg.DOFade(1, 2f);
         }
 
         public void OnPuzzleEnd_ClockNarrative()
         {
-
+            waterLoopSound.Stop();
+            StartPuzzle_Rescue();
         }
 
         public void StartPuzzle_ClockNarrative()
@@ -54,6 +54,9 @@ namespace Rescue
         [SerializeField] GameObject[] boyClockAfterActiveGroup;
         [SerializeField] GameObject[] girlClockBeforeActiveGroup;
         [SerializeField] GameObject[] girlClockAfterActiveGroup;
+        [SerializeField] AudioSource waterLoopSound;
+
+
         public void ReachBoyClockEnd()
         {
             boyClock.enabled = false;
@@ -87,6 +90,7 @@ namespace Rescue
 
         IEnumerator ShowGirlManga()
         {
+            waterLoopSound.Play();
             yield return new WaitForSeconds(1);
 
             float fadeTime = 2.6f;
@@ -100,6 +104,8 @@ namespace Rescue
 
                 yield return new WaitForSeconds(fadeTime + 0.6f);
             }
+            yield return new WaitForSeconds(1);
+            OnPuzzleEnd_ClockNarrative();
         }
 
         public void OnDragToPoolPuzzleFinished()
@@ -123,6 +129,14 @@ namespace Rescue
                 bg.SetActive(true);
             foreach (var bg in girlClockAfterActiveGroup)
                 bg.SetActive(false);
+        }
+
+        public void StartPuzzle_Rescue()
+        {
+            ToggleCg(sceneCg_ClockNarrative, false);
+            ToggleCg(sceneCg_Rescue, true);
+            stage = GameStage.SceneBoyInBed_AfterMobileInteraction;
+            StartCoroutine(StartScene_Rescue(0.6f));
         }
     }
 }

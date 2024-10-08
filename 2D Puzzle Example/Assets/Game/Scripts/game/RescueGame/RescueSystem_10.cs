@@ -21,7 +21,7 @@ namespace Rescue
 
         }
 
-        public void StartPuzzle_FinalOfRescue()
+        public void EndGame()
         {
             ToggleCg(sceneCg_FinalOfRescue, false);
         }

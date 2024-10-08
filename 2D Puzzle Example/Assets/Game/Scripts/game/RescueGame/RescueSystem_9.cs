@@ -21,7 +21,7 @@ namespace Rescue
 
         }
 
-        public void StartPuzzle_DialogTwoPerson()
+        public void StartPuzzle_FinalOfRescue()
         {
             ToggleCg(sceneCg_DialogTwoPerson, false);
         }
