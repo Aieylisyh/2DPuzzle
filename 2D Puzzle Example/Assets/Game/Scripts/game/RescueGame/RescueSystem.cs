@@ -31,6 +31,8 @@ namespace Rescue
             Rescue,
             DialogTwoPerson,
             FinalOfRescue,
+
+            StartLogo,
         }
 
         public GameStartPhase gameStartPhase;
@@ -70,6 +72,7 @@ namespace Rescue
             ToggleCg(sceneCg_Rescue, false);
             ToggleCg(sceneCg_DialogTwoPerson, false);
             ToggleCg(sceneCg_FinalOfRescue, false);
+            ToggleCg(logoCg, false);
 
             switch (gameStartPhase)
             {
@@ -135,6 +138,13 @@ namespace Rescue
                     stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
                     StartCoroutine(StartScene_FinalOfRescue(0));
                     break;
+
+                case GameStartPhase.StartLogo:
+                    ToggleCg(logoCg, false);
+                    logoCg.interactable = true;
+                    logoCg.blocksRaycasts = true;
+                    logoCg.DOFade(1, 1);
+                    break;
             }
 
             zoomParentOrginalPos = zoomParent.position;
@@ -154,6 +164,7 @@ namespace Rescue
         public Image girlInbedImg_openEye;
 
         public AudioSource mobileVibSound;
+
 
         public enum GameStage
         {
