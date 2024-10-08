@@ -1,6 +1,7 @@
 ﻿using com;
 using Rescue;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -22,7 +23,8 @@ public class FloatingDraggableWord : MonoBehaviour, IBeginDragHandler, IEndDragH
     public float floatingTurnAngleMax = 240f;
     float _floatingAngle;
     Vector2 _goodAnchoredPos;
-
+    public UnityEvent endDragCallback;
+    public UnityEvent endPuzzleCallback;
     private void Awake()
     {
         _rectTrans = GetComponent<RectTransform>();
@@ -40,7 +42,6 @@ public class FloatingDraggableWord : MonoBehaviour, IBeginDragHandler, IEndDragH
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        RescueSystem.instance.OnStartDrag_OutsidePuzzle();
         SoundSystem.instance.Play("click");
         GetComponent<Image>().raycastTarget = false;
         _floating = false;
@@ -107,10 +108,7 @@ public class FloatingDraggableWord : MonoBehaviour, IBeginDragHandler, IEndDragH
     public float correctThreshold = 1f;
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (RescueSystem.instance.puzzleStarting_boy)
-            RescueSystem.instance.OnEndDrag_OutsidePuzzle_boy();
-        else
-            RescueSystem.instance.OnEndDrag_OutsidePuzzle();
+        endDragCallback?.Invoke();
 
         var deltaPos = _rectTrans.anchoredPosition - _goodAnchoredPos;
         var dist = deltaPos.magnitude;
@@ -122,11 +120,7 @@ public class FloatingDraggableWord : MonoBehaviour, IBeginDragHandler, IEndDragH
             this.enabled = false;
             GetComponent<Image>().raycastTarget = false;
 
-            if (RescueSystem.instance.puzzleStarting_boy)
-                RescueSystem.instance.OnPuzzleEnd_OutsidePuzzle_boy();
-            else
-                RescueSystem.instance.OnPuzzleEnd_OutsidePuzzle();
-
+            endPuzzleCallback?.Invoke();
             return;
         }
 

@@ -13,7 +13,7 @@ namespace Rescue
 
         IEnumerator StartScene_FinalOfRescue(float delay)
         {
-            yield return new WaitForSeconds(delay + 0.8f);
+            yield return new WaitForSeconds(delay);
         }
 
         public void OnPuzzleEnd_FinalOfRescue()

@@ -63,11 +63,6 @@ namespace Rescue
             puzzleContainer_OutsidePuzzle.alpha = 1;
         }
 
-        public void OnStartDrag_OutsidePuzzle()
-        {
-            // AnimateMovableBody_OutsidePuzzle();
-        }
-
         public void OnEndDrag_OutsidePuzzle()
         {
             AnimateMovableBody_OutsidePuzzle();
