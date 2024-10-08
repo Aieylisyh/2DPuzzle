@@ -23,7 +23,7 @@ namespace Rescue
                 bg.SetActive(false);
 
             yield return new WaitForSeconds(delay);
-            cg.DOFade(1, 1);
+            cg.DOFade(1, 2f);
         }
 
         public void OnPuzzleEnd_ClockNarrative()
@@ -40,8 +40,6 @@ namespace Rescue
         [SerializeField] ClockBehaviour girlClock;
         [SerializeField] GameObject[] boyClockBeforeActiveGroup;
         [SerializeField] GameObject[] boyClockAfterActiveGroup;
-        [SerializeField] RectTransform boyPoolDragTarget;
-        [SerializeField] float boyPoolDragDistanceThreshold;
 
         public void ReachBoyClockEnd()
         {

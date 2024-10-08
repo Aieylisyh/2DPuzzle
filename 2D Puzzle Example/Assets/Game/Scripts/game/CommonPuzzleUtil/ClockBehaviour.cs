@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, ICancelHandler
@@ -18,6 +19,7 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
 
     public TimeflowScene[] timeflowScenes;
 
+    public UnityEvent evtEndTime;
     void Start()
     {
         SetTime(0);
@@ -31,6 +33,10 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
         foreach (var s in timeflowScenes)
         {
             s.Tick(_timeInHour);
+        }
+        if (_timeInHour == timeInHourMax)
+        {
+            evtEndTime?.Invoke();
         }
     }
 

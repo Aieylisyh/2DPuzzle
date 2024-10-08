@@ -11284,6 +11284,9 @@ MonoBehaviour:
   timeInHourMax: 24
   timeflowScenes:
   - {fileID: 737364982}
+  evtEndTime:
+    m_PersistentCalls:
+      m_Calls: []
   cam: {fileID: 1568327709}
 --- !u!114 &737364984
 MonoBehaviour:
@@ -18207,11 +18210,11 @@ MonoBehaviour:
   TimeflowObjects: []
   timeflowOpatiqueFadeImages:
   - startTime: 1
-    showTime1: 4
+    showTime1: 5
     showTime2: 7
     endTime: 9
     img: {fileID: 248605650}
-  - startTime: 5
+  - startTime: 4
     showTime1: 8
     showTime2: 10
     endTime: 12
@@ -18234,6 +18237,21 @@ MonoBehaviour:
   timeInHourMax: 12
   timeflowScenes:
   - {fileID: 1202529262}
+  evtEndTime:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1235483286}
+        m_TargetAssemblyTypeName: Rescue.RescueSystem, Assembly-CSharp
+        m_MethodName: ReachBoyClockEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   cam: {fileID: 1568327709}
 --- !u!114 &1202529264
 MonoBehaviour:
@@ -19099,6 +19117,12 @@ MonoBehaviour:
       ac: {fileID: 8300000, guid: ef6e4e094c0bfdd42abb0a3baaf11f05, type: 3}
     - name: cloth picked
       ac: {fileID: 8300000, guid: 3e2147572fccf2a49900f6ec8fb6e110, type: 3}
+  - tag: pool dialog
+    siList:
+    - name: pool fail
+      ac: {fileID: 8300000, guid: ade769037fa163743a4cc4b07a9b94bd, type: 3}
+    - name: pool suc
+      ac: {fileID: 8300000, guid: 3e2147572fccf2a49900f6ec8fb6e110, type: 3}
 --- !u!4 &1235483281
 Transform:
   m_ObjectHideFlags: 0
@@ -19246,8 +19270,6 @@ MonoBehaviour:
   boyClockAfterActiveGroup:
   - {fileID: 1761904402}
   - {fileID: 1365665664}
-  boyPoolDragTarget: {fileID: 542836118}
-  boyPoolDragDistanceThreshold: 40
   sceneCg_Rescue: {fileID: 1948316811}
   sceneCg_DialogTwoPerson: {fileID: 1839406801}
 --- !u!82 &1235483287
@@ -29967,6 +29989,7 @@ GameObject:
   - component: {fileID: 1761904403}
   - component: {fileID: 1761904406}
   - component: {fileID: 1761904405}
+  - component: {fileID: 1761904407}
   m_Layer: 5
   m_Name: jump pool man
   m_TagString: Untagged
@@ -30032,6 +30055,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761904402}
   m_CullTransparentMesh: 1
+--- !u!114 &1761904407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761904402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12dc43e3a265dcc4d80aabd0d19f0f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 879632810}
+  boyPoolDragTarget: {fileID: 542836118}
+  boyPoolDragDistanceThreshold: 40
 --- !u!1 &1768625102
 GameObject:
   m_ObjectHideFlags: 0
