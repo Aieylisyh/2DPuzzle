@@ -12,7 +12,6 @@ public class FloatingDraggableWord : MonoBehaviour, IBeginDragHandler, IEndDragH
 
     RectTransform _rectTrans;
     public RectTransform constrainRect;
-
     bool _floating;
     public float speed;
 

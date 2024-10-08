@@ -10,6 +10,7 @@ namespace Rescue
     public partial class RescueSystem : MonoBehaviour
     {
         public CanvasGroup sceneCg_DialogTwoPerson;
+        [SerializeField] AudioSource drippingSound;
 
         [SerializeField] CanvasGroup dialogTwoPersonCg_1;
         [SerializeField] CanvasGroup dialogTwoPersonCg_2;
@@ -30,12 +31,16 @@ namespace Rescue
             {
                 word.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
             }
+
             var words2 = dialogTwoPersonCg_2.GetComponentsInChildren<FloatingDraggableWord>();
             foreach (var word in words2)
             {
                 word.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
             }
-            yield return new WaitForSeconds(1);
+            drippingSound.Play();
+            SoundSystem.instance.Play("breathing");
+            yield return new WaitForSeconds(1.5f);
+            //SoundSystem.instance.Play("cough", 0.3f);
             yield return new WaitForSeconds(delay);
             dialogTwoPersonCg_1.DOFade(1, 2);
 
@@ -61,6 +66,8 @@ namespace Rescue
         public void OnClickDialogTwoPerson_lastDialogs1()
         {
             dialogTwoPersonCg_3.DOFade(0, 1);
+            dialogTwoPersonCg_3.interactable = false;
+            dialogTwoPersonCg_3.blocksRaycasts = false;
             StartCoroutine(DelayAction(1.5f, () =>
               {
                   dialogTwoPersonCg_4.DOFade(1, 2).OnComplete(() => { dialogTwoPersonCg_4.blocksRaycasts = true; dialogTwoPersonCg_4.interactable = true; });
@@ -70,6 +77,8 @@ namespace Rescue
         public void OnClickDialogTwoPerson_lastDialogs2()
         {
             dialogTwoPersonCg_4.DOFade(0, 1);
+            dialogTwoPersonCg_4.interactable = false;
+            dialogTwoPersonCg_4.blocksRaycasts = false;
             StartCoroutine(DelayAction(1.5f, () =>
               {
                   dialogTwoPersonCg_5.DOFade(1, 2).OnComplete(() => { dialogTwoPersonCg_5.blocksRaycasts = true; dialogTwoPersonCg_5.interactable = true; });
@@ -79,6 +88,8 @@ namespace Rescue
         public void OnClickDialogTwoPerson_lastDialogs3()
         {
             dialogTwoPersonCg_5.DOFade(0, 1);
+            dialogTwoPersonCg_5.interactable = false;
+            dialogTwoPersonCg_5.blocksRaycasts = false;
             StartCoroutine(DelayAction(1.5f, () =>
               {
                   dialogTwoPersonCg_6.DOFade(1, 2).OnComplete(() => { dialogTwoPersonCg_6.blocksRaycasts = true; dialogTwoPersonCg_6.interactable = true; });
@@ -109,6 +120,7 @@ namespace Rescue
             }
             if (!allWordsDone)
                 return;
+
             dialogTwoPersonCg_1.DOFade(0, 2);
             dialogTwoPersonCg_1.interactable = false;
 
@@ -149,7 +161,8 @@ namespace Rescue
 
         public void OnPuzzleEnd_DialogTwoPerson()
         {
-            StartPuzzle_FinalOfRescue();
+            drippingSound.Stop();
+            StartCoroutine(DelayAction(1.0f, StartPuzzle_FinalOfRescue));
         }
 
         public void StartPuzzle_FinalOfRescue()
