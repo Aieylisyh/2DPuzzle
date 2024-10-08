@@ -15434,7 +15434,7 @@ GameObject:
   - component: {fileID: 1008744255}
   - component: {fileID: 1008744254}
   m_Layer: 5
-  m_Name: final
+  m_Name: scene final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19574,7 +19574,7 @@ GameObject:
   - component: {fileID: 1247448566}
   - component: {fileID: 1247448565}
   m_Layer: 5
-  m_Name: chapter2 wake up
+  m_Name: scene chapter2 wake up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35183,7 +35183,7 @@ GameObject:
   - component: {fileID: 1839406802}
   - component: {fileID: 1839406801}
   m_Layer: 5
-  m_Name: talk 2 person
+  m_Name: scene talk 2 person
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35198,7 +35198,7 @@ RectTransform:
   m_GameObject: {fileID: 1839406799}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 976580990}
@@ -36870,7 +36870,7 @@ GameObject:
   - component: {fileID: 1945316202}
   - component: {fileID: 1945316201}
   m_Layer: 5
-  m_Name: clock narrative
+  m_Name: scene clock narrative
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37048,7 +37048,7 @@ GameObject:
   - component: {fileID: 1948316812}
   - component: {fileID: 1948316811}
   m_Layer: 5
-  m_Name: rescue
+  m_Name: scene rescue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
