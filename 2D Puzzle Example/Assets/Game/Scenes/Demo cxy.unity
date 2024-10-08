@@ -11221,6 +11221,7 @@ GameObject:
   - component: {fileID: 737364984}
   - component: {fileID: 737364983}
   - component: {fileID: 737364982}
+  - component: {fileID: 737364986}
   m_Layer: 5
   m_Name: clock girl
   m_TagString: Untagged
@@ -11322,6 +11323,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737364980}
   m_CullTransparentMesh: 1
+--- !u!225 &737364986
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737364980}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &738534936
 GameObject:
   m_ObjectHideFlags: 0
@@ -18148,6 +18161,7 @@ GameObject:
   - component: {fileID: 1202529264}
   - component: {fileID: 1202529263}
   - component: {fileID: 1202529262}
+  - component: {fileID: 1202529266}
   m_Layer: 5
   m_Name: clock boy
   m_TagString: Untagged
@@ -18189,25 +18203,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
-  timeflowOpatiqueImages:
-  - startTime: 2
-    endTime: 5
+  timeflowOpatiqueImages: []
+  TimeflowObjects: []
+  timeflowOpatiqueFadeImages:
+  - startTime: 1
+    showTime1: 4
+    showTime2: 7
+    endTime: 9
     img: {fileID: 248605650}
-    isToShow: 1
   - startTime: 5
-    endTime: 8
-    img: {fileID: 645599103}
-    isToShow: 1
-  - startTime: 9
-    endTime: 11
-    img: {fileID: 248605650}
-    isToShow: 0
-  - startTime: 10
+    showTime1: 8
+    showTime2: 10
     endTime: 12
     img: {fileID: 645599103}
-    isToShow: 0
-  TimeflowObjects: []
-  timeflowOpatiqueFadeImages: []
 --- !u!114 &1202529263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18265,6 +18273,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202529260}
   m_CullTransparentMesh: 1
+--- !u!225 &1202529266
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202529260}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1207624877
 GameObject:
   m_ObjectHideFlags: 0
@@ -19218,6 +19238,16 @@ MonoBehaviour:
   OnPuzzleEnd_OutsidePuzzleHides_boy:
   - {fileID: 684123566}
   sceneCg_ClockNarrative: {fileID: 1945316201}
+  boyClock: {fileID: 1202529263}
+  girlClock: {fileID: 737364983}
+  boyClockBeforeActiveGroup:
+  - {fileID: 248605647}
+  - {fileID: 645599101}
+  boyClockAfterActiveGroup:
+  - {fileID: 1761904402}
+  - {fileID: 1365665664}
+  boyPoolDragTarget: {fileID: 542836118}
+  boyPoolDragDistanceThreshold: 40
   sceneCg_Rescue: {fileID: 1948316811}
   sceneCg_DialogTwoPerson: {fileID: 1839406801}
 --- !u!82 &1235483287
