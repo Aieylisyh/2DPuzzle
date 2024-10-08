@@ -1,4 +1,5 @@
 ﻿using com;
+using Rescue;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -47,6 +48,7 @@ public class DraggableToPool : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         else
         {
             SoundSystem.instance.Play("pool suc");
+            RescueSystem.instance.OnDragToPoolPuzzleFinished();
         }
     }
 }

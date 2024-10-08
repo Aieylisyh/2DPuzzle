@@ -17,10 +17,22 @@ namespace Rescue
             cg.blocksRaycasts = true;
             cg.interactable = true;
             cg.alpha = 0;
+
+            var cg2 = girlClock.GetComponent<CanvasGroup>();
+            cg2.blocksRaycasts = false;
+            cg2.interactable = false;
+            cg2.alpha = 0;
+
             foreach (var bg in boyClockBeforeActiveGroup)
                 bg.SetActive(true);
             foreach (var bg in boyClockAfterActiveGroup)
                 bg.SetActive(false);
+
+            foreach (var bg in girlClockBeforeActiveGroup)
+                bg.SetActive(false);
+            foreach (var bg in girlClockAfterActiveGroup)
+                bg.SetActive(false);
+
 
             yield return new WaitForSeconds(delay);
             cg.DOFade(1, 2f);
@@ -40,7 +52,8 @@ namespace Rescue
         [SerializeField] ClockBehaviour girlClock;
         [SerializeField] GameObject[] boyClockBeforeActiveGroup;
         [SerializeField] GameObject[] boyClockAfterActiveGroup;
-
+        [SerializeField] GameObject[] girlClockBeforeActiveGroup;
+        [SerializeField] GameObject[] girlClockAfterActiveGroup;
         public void ReachBoyClockEnd()
         {
             boyClock.enabled = false;
@@ -48,6 +61,15 @@ namespace Rescue
             cg.blocksRaycasts = false;
             cg.interactable = false;
             cg.DOFade(0, 2).OnComplete(ShowDragBoyToPool);
+        }
+
+        public void ReachGirlClockEnd()
+        {
+            girlClock.enabled = false;
+            var cg = girlClock.GetComponent<CanvasGroup>();
+            cg.blocksRaycasts = false;
+            cg.interactable = false;
+            cg.DOFade(0, 2).OnComplete(ShowAfterGirlClockPuzzle);
         }
 
         void ShowDragBoyToPool()
@@ -58,13 +80,49 @@ namespace Rescue
                 bg.SetActive(true);
         }
 
-        public void ReachGirlClockEnd()
+        void ShowAfterGirlClockPuzzle()
         {
-            girlClock.enabled = false;
-            var cg = girlClock.GetComponent<CanvasGroup>();
-            cg.blocksRaycasts = false;
-            cg.interactable = false;
-            cg.DOFade(0, 2);
+            StartCoroutine(ShowGirlManga());
+        }
+
+        IEnumerator ShowGirlManga()
+        {
+            yield return new WaitForSeconds(1);
+
+            float fadeTime = 2.6f;
+            foreach (var n in girlClockAfterActiveGroup)
+            {
+                n.SetActive(true);
+                var image = n.GetComponent<Image>();
+                image.color = new Color(1, 1, 1, 0);
+                image.DOKill();
+                image.DOFade(1, fadeTime);
+
+                yield return new WaitForSeconds(fadeTime + 0.6f);
+            }
+        }
+
+        public void OnDragToPoolPuzzleFinished()
+        {
+            StartCoroutine(DelayAction(2f, PrepareGirlClockPuzzle));
+        }
+
+        void PrepareGirlClockPuzzle()
+        {
+            var cg2 = girlClock.GetComponent<CanvasGroup>();
+            cg2.blocksRaycasts = true;
+            cg2.interactable = true;
+            cg2.alpha = 0;
+            cg2.DOFade(1, 2f);
+            foreach (var bg in boyClockBeforeActiveGroup)
+                bg.SetActive(false);
+            foreach (var bg in boyClockAfterActiveGroup)
+                bg.SetActive(false);
+
+            foreach (var bg in girlClockBeforeActiveGroup)
+                bg.SetActive(true);
+            foreach (var bg in girlClockAfterActiveGroup)
+                bg.SetActive(false);
         }
     }
 }
