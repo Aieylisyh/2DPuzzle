@@ -26,6 +26,11 @@ namespace Rescue
             WashBoy,
             FoodBoy,
             GoOutsideBoy,
+
+            ClockNarrative,
+            Rescue,
+            DialogTwoPerson,
+            FinalOfRescue,
         }
 
         public GameStartPhase gameStartPhase;
