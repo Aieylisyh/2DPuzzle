@@ -95,7 +95,7 @@ namespace Rescue
             }
             if (allWordsDone)
             {
-                Debug.Log("Puzzle end!!!");
+                Debug.Log("boy go Outside Puzzle end!!!");
                 foreach (var th in OnPuzzleEnd_OutsidePuzzleHides_boy)
                 {
                     th.SetActive(false);
@@ -115,9 +115,9 @@ namespace Rescue
         public void StartPuzzle_Stage3()
         {
             ToggleCg(sceneCg_OutsidePuzzle_boy, false);
-            //ToggleCg(sceneCg_WakeUpBoy, true);
-            //stage = GameStage.SceneBoyInBed_beforeMobileInteraction;
-            // StartCoroutine(StartScene_WakeUpBoy());
+            ToggleCg(sceneCg_ClockNarrative, true);
+            stage = GameStage.SceneBoyInBed_AfterMobileInteraction;
+            StartCoroutine(StartScene_ClockNarrative(0.6f));
         }
     }
 }

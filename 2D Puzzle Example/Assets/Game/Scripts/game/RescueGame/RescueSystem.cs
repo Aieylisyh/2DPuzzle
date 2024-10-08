@@ -66,6 +66,10 @@ namespace Rescue
             ToggleCg(sceneCg_WashBoy, false);
             ToggleCg(sceneCg_FoodBoy, false);
             ToggleCg(sceneCg_OutsidePuzzle_boy, false);
+            ToggleCg(sceneCg_ClockNarrative, false);
+            ToggleCg(sceneCg_Rescue, false);
+            ToggleCg(sceneCg_DialogTwoPerson, false);
+            ToggleCg(sceneCg_FinalOfRescue, false);
 
             switch (gameStartPhase)
             {
@@ -107,9 +111,29 @@ namespace Rescue
                     break;
 
                 case GameStartPhase.GoOutsideBoy:
-                    ToggleCg(sceneCg_OutsidePuzzle_boy, false);
+                    ToggleCg(sceneCg_OutsidePuzzle_boy, true);
                     stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
                     StartCoroutine(StartScene_OutsidePuzzle_boy(0));
+                    break;
+                case GameStartPhase.ClockNarrative:
+                    ToggleCg(sceneCg_ClockNarrative, true);
+                    stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
+                    StartCoroutine(StartScene_ClockNarrative(0));
+                    break;
+                case GameStartPhase.Rescue:
+                    ToggleCg(sceneCg_Rescue, true);
+                    stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
+                    StartCoroutine(StartScene_Rescue(0));
+                    break;
+                case GameStartPhase.DialogTwoPerson:
+                    ToggleCg(sceneCg_DialogTwoPerson, true);
+                    stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
+                    StartCoroutine(StartScene_DialogTwoPerson(0));
+                    break;
+                case GameStartPhase.FinalOfRescue:
+                    ToggleCg(sceneCg_FinalOfRescue, true);
+                    stage = GameStage.SceneGirlInBed_AfterMobileInteraction;
+                    StartCoroutine(StartScene_FinalOfRescue(0));
                     break;
             }
 
@@ -137,9 +161,10 @@ namespace Rescue
             SceneGirlInBed_beforeMobileInteraction = 1,
             SceneGirlInBed_PendingMobileInteraction = 2,
             SceneGirlInBed_AfterMobileInteraction = 3,
-            SceneBoyInBed_beforeMobileInteraction = 1,
-            SceneBoyInBed_PendingMobileInteraction = 2,
-            SceneBoyInBed_AfterMobileInteraction = 3,
+
+            SceneBoyInBed_beforeMobileInteraction = 4,
+            SceneBoyInBed_PendingMobileInteraction = 5,
+            SceneBoyInBed_AfterMobileInteraction = 6,
         }
 
         IEnumerator DelayAction(float delay, Action action)

@@ -1,4 +1,5 @@
-﻿using com;
+﻿using Assets.Game.Scripts.game.RescueGame;
+using com;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -103,20 +104,22 @@ namespace Rescue
         }
 
         [SerializeField] int _needEatTime = 3;
+        [SerializeField] MedicineBottle mb;
         public void OnEatPill()
         {
             _needEatTime -= 1;
             Debug.Log("OnEatPill _needEatTime " + _needEatTime);
             if (_needEatTime == 0)
             {
-                //todo
+                mb.enabled = false;
+                mb.GetComponent<Image>().DOFade(0, 2);
                 boy_before.DOColor(new Color(1, 1, 1, 0), 2).OnComplete(() => { boy_before.gameObject.SetActive(false); });
 
                 boy_after.gameObject.SetActive(true);
                 boy_after.color = new Color(1, 1, 1, 0);
                 boy_after.DOColor(new Color(1, 1, 1, 1), 2).OnComplete(() =>
                 {
-                    StartCoroutine(DelayAction(1.5f, SwitchToBoyEatScene));
+                    StartCoroutine(DelayAction(2.2f, SwitchToBoyEatScene));
                 });
             }
         }
