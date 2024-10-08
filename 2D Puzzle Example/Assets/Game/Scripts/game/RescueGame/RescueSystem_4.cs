@@ -116,11 +116,16 @@ namespace Rescue
                 boy_after.color = new Color(1, 1, 1, 0);
                 boy_after.DOColor(new Color(1, 1, 1, 1), 2).OnComplete(() =>
                 {
-                    ToggleCg(sceneCg_WashBoy, false);
-                    ToggleCg(sceneCg_FoodBoy, true);
-                    ShowBoyFoodScene();
+                    StartCoroutine(DelayAction(1.5f, SwitchToBoyEatScene));
                 });
             }
+        }
+
+        void SwitchToBoyEatScene()
+        {
+            ToggleCg(sceneCg_WashBoy, false);
+            ToggleCg(sceneCg_FoodBoy, true);
+            ShowBoyFoodScene();
         }
     }
 }
