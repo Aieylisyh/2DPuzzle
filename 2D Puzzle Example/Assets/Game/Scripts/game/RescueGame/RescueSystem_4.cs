@@ -119,7 +119,7 @@ namespace Rescue
                 boy_after.color = new Color(1, 1, 1, 0);
                 boy_after.DOColor(new Color(1, 1, 1, 1), 2).OnComplete(() =>
                 {
-                    StartCoroutine(DelayAction(2.2f, SwitchToBoyEatScene));
+                    StartCoroutine(DelayAction(4f, SwitchToBoyEatScene));
                 });
             }
         }
