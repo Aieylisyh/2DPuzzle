@@ -38,9 +38,10 @@ namespace Rescue
             {
                 s.Stop();
                 s.Play();
+                s.DOKill();
                 var v = s.volume;
                 s.volume = 0;
-                s.DOFade(v, 2);
+                s.DOFade(v, 1);
             }
 
             var childCount = dotParent.childCount;

@@ -20,6 +20,10 @@ namespace Rescue
         [SerializeField] CanvasGroup dialogTwoPersonCg_6;
         IEnumerator StartScene_DialogTwoPerson(float delay)
         {
+            var cf = CameraFilterSystem.instance.cfp_aura_distortion;
+            cf.enabled = true;
+            CameraFilterSystem.instance.Tween(cf, "Twist", 2, 0.13f, 6);
+
             dialogTwoPersonCg_1.alpha = 0;
             dialogTwoPersonCg_2.alpha = 0;
             dialogTwoPersonCg_3.alpha = 0;

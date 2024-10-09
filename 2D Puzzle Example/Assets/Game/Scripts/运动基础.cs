@@ -10,22 +10,6 @@ public class 运动基础 : MonoBehaviour
     public GameObject prefab;
 
     public List<GameObject> prefabs;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     bool _rightIsPressed;
     bool _leftIsPressed;
     bool _forwardIsPressed;

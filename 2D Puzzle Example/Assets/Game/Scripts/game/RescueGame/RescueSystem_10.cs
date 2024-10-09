@@ -19,9 +19,9 @@ namespace Rescue
             finalOfRescue_rebirthImage.color = new Color(1, 1, 1, 0);
             finalOfRescue_bgImage.color = new Color(1, 1, 1, 0);
             yield return new WaitForSeconds(delay);
-            finalOfRescue_bgImage.DOFade(1, 3);
-            yield return new WaitForSeconds(5);
-            finalOfRescue_bgImage.DOFade(0, 2);
+            finalOfRescue_bgImage.DOFade(1, 2);
+            yield return new WaitForSeconds(4);
+            finalOfRescue_bgImage.DOFade(0, 3);
             yield return new WaitForSeconds(1.5f);
             finalOfRescue_rebirthImage.DOFade(1, 2.5f);
             yield return new WaitForSeconds(3f);
