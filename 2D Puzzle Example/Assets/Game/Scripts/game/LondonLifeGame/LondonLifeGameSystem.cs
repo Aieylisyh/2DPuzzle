@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class LondonLifeGameSystem : MonoBehaviour
 {
@@ -56,6 +57,28 @@ public class LondonLifeGameSystem : MonoBehaviour
             case Stage.Clock:
                 InRoomClockScene.instance.Reinit();
                 break;
+            case Stage.MeetGirl:
+                MeetGirlSystem.instance.Reinit();
+                break;
+            case Stage.DialogWithGirl:
+              DialogWithGirlSystem.instance.Reinit();
+                break;
+            case Stage.自己做饭:
+                自己做饭System.instance.Reinit();
+                break;
+            case Stage.女邻居点赞:
+                女邻居点赞System.instance.Reinit();
+                break;
+            case Stage.一起做饭:
+                一起做饭System.instance.Reinit();
+                break;
+            case Stage.越来越多人加入:
+                越来越多人加入System.instance.Reinit();
+                break;
+            case Stage.结局:
+                结局System.instance.Reinit();
+                break;
+
         }
     }
 
