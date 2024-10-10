@@ -21,7 +21,7 @@ namespace com
             other.DOKill();
             foreach (var c in LondonLifeGameSystem.instance.allScenes)
             {
-                if (c != null && c != other && c != cg && c != current)
+                if (c != null && c != other && c != cg)
                 {
                     c.interactable = false;
                     c.blocksRaycasts = false;

@@ -4571,12 +4571,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0
   timeflowOpatiqueImages:
-  - startTime: 6
-    endTime: 12
+  - startTime: 3
+    endTime: 6
     img: {fileID: 1700545223}
     isToShow: 1
-  - startTime: 16
-    endTime: 22
+  - startTime: 9
+    endTime: 12
     img: {fileID: 126676275}
     isToShow: 1
   TimeflowObjects: []
@@ -4596,7 +4596,7 @@ MonoBehaviour:
   minuteArrow: {fileID: 1124251035}
   hourArrow: {fileID: 782396748}
   timeInHourMin: 0
-  timeInHourMax: 25
+  timeInHourMax: 12
   timeflowScenes:
   - {fileID: 766301383}
   cam: {fileID: 1568327709}
@@ -17514,7 +17514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b012def731484982050f24757d06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStage: 1
+  startStage: 3
   allScenes:
   - {fileID: 752132580}
   - {fileID: 1438874785}
