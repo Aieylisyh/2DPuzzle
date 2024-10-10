@@ -12,6 +12,9 @@ public class LondonLifeGameSystem : MonoBehaviour
         Balance,
         OpenDoor,
         Clock,
+        MeetGirl,
+        DialogWithGirl,
+
     }
     public Stage startStage;
     Stage _crtStage;

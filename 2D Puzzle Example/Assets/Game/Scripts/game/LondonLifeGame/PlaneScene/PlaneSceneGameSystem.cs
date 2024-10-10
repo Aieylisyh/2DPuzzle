@@ -40,6 +40,7 @@ public class PlaneSceneGameSystem : MonoBehaviour
     {
         _pcgs.Show(true, true);
         _goToPlane.ShowStartAnimation();
+        SceneTextSystem.instance.SetText(0, false);
     }
 
     public void StartGenerateBubbles()
