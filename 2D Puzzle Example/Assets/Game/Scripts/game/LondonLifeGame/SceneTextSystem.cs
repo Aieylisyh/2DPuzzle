@@ -46,10 +46,6 @@ public class SceneTextSystem : MonoBehaviour
             yield return new WaitForSeconds(interval);
             i++;
             txt.maxVisibleCharacters = i;
-            if (txt.text[i] == '\n')
-            {
-                yield return new WaitForSeconds(1);
-            }
         }
     }
 }

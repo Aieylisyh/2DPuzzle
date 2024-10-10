@@ -6447,7 +6447,7 @@ MonoBehaviour:
 
     
 
-    I embarked on a flight to <size=200%>London</size>
+    I embarked on a flight to <size=150%>London</size>
     with great anticipation.
 
     
@@ -9478,8 +9478,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1cbb590be340e5842912774d5072f24a, type: 2}
-  m_sharedMaterial: {fileID: -4316765726503495586, guid: 1cbb590be340e5842912774d5072f24a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a63d3b64c0cd1424ea8c0a859dd01fa1, type: 2}
+  m_sharedMaterial: {fileID: -49509654015312560, guid: a63d3b64c0cd1424ea8c0a859dd01fa1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
