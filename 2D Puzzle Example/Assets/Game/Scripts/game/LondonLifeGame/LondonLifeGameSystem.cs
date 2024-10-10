@@ -14,10 +14,16 @@ public class LondonLifeGameSystem : MonoBehaviour
         Clock,
         MeetGirl,
         DialogWithGirl,
-
+        自己做饭,
+        女邻居点赞,
+        一起做饭,
+        越来越多人加入,
+        结局,
     }
     public Stage startStage;
     Stage _crtStage;
+
+    public CanvasGroup[] allScenes;
 
     private void Awake()
     {

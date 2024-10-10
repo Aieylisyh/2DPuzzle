@@ -10,7 +10,7 @@ namespace com
         [SerializeField] CanvasGroup _cg;
         [SerializeField] CanvasGroup _cgNext;
         [SerializeField] float duration = 1;
-        [SerializeField] CanvasGroup[] others;
+
 
         public void Show(bool current, bool instant)
         {
@@ -19,9 +19,9 @@ namespace com
 
             cg.DOKill();
             other.DOKill();
-            foreach (var c in others)
+            foreach (var c in LondonLifeGameSystem.instance.allScenes)
             {
-                if (c != null && c != other && c != cg)
+                if (c != null && c != other && c != cg && c != current)
                 {
                     c.interactable = false;
                     c.blocksRaycasts = false;
