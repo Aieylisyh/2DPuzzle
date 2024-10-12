@@ -28,6 +28,15 @@ public partial class RLSystem : MonoBehaviour
                 ToggleContinueButton(true);
             }));
         }
+        else if (i == 1 && sceneSwitcher.crtId == SceneId.Classroom1 && !checkmark[1].gameObject.activeSelf)
+        {
+            ShowCheckMark(checkmark[1]);
+
+            StartCoroutine(DelayAction(3, () =>
+            {
+                OnTodoList2Checked();
+            }));
+        }
     }
 
     void ShowCheckMark(Image c)

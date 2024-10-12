@@ -117,12 +117,7 @@ public partial class RLSystem : MonoBehaviour
                 sceneSwitcher.Set(SceneId.Corridor);
                 break;
             case SceneId.Corridor:
-                var fadeToBlackTime = 1.2f;
-                UiImageScreenFader.instance.FadeInBlack(null, fadeToBlackTime);
-                StartCoroutine(DelayAction(fadeToBlackTime, () =>
-                {
-                    sceneSwitcher.Set(SceneId.Classroom1);
-                }));
+                sceneSwitcher.Set(SceneId.Classroom1);
                 break;
             case SceneId.Classroom1:
                 sceneSwitcher.Set(SceneId.VendingMachine);
