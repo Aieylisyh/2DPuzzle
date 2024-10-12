@@ -9,11 +9,17 @@ using UnityEngine.UI;
 public enum SceneId
 {
     None,
+
     Admission,
     Roof,
     Calender,
     Checklist,
     Corridor,
+
+    Classroom1,
+    VendingMachine,
+    Classroom2,
+    AdmissionEnding,
 }
 
 public partial class RLSystem : MonoBehaviour
@@ -53,6 +59,18 @@ public partial class RLSystem : MonoBehaviour
                 break;
             case SceneId.Corridor:
                 InitCorridorScene();
+                break;
+            case SceneId.Classroom1:
+                InitClassroom1Scene();
+                break;
+            case SceneId.VendingMachine:
+                InitVendingMachineScene();
+                break;
+            case SceneId.Classroom2:
+                InitClassroom2Scene();
+                break;
+            case SceneId.AdmissionEnding:
+                InitAdmissionEndingScene();
                 break;
         }
     }
@@ -99,7 +117,24 @@ public partial class RLSystem : MonoBehaviour
                 sceneSwitcher.Set(SceneId.Corridor);
                 break;
             case SceneId.Corridor:
-                //sceneSwitcher.Set(SceneId.);
+                var fadeToBlackTime = 1.2f;
+                UiImageScreenFader.instance.FadeInBlack(null, fadeToBlackTime);
+                StartCoroutine(DelayAction(fadeToBlackTime, () =>
+                {
+                    sceneSwitcher.Set(SceneId.Classroom1);
+                }));
+                break;
+            case SceneId.Classroom1:
+                sceneSwitcher.Set(SceneId.VendingMachine);
+                break;
+            case SceneId.VendingMachine:
+                sceneSwitcher.Set(SceneId.Classroom2);
+                break;
+            case SceneId.Classroom2:
+                sceneSwitcher.Set(SceneId.AdmissionEnding);
+                break;
+            case SceneId.AdmissionEnding:
+                //sceneSwitcher.Set(SceneId.AdmissionEnding);
                 break;
         }
         ToggleContinueButton(false);
