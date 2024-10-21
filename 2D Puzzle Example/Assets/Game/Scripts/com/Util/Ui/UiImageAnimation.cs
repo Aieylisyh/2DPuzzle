@@ -28,6 +28,8 @@ namespace com
         // Use this for initialization
         void Start()
         {
+            if (_img == null)
+                _img = GetComponent<Image>();
             if (_startPlay)
                 Play(0);
         }
