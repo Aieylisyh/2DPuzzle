@@ -24,16 +24,22 @@ namespace Rescue
         [SerializeField] float pullHandFallSpeed;
         [SerializeField] float pullHandBoost;
 
+        [SerializeField] CameraFilterPack_Atmosphere_Rain_Pro cfp_rainPro;
+
+        [SerializeField] CameraFilterPack_Atmosphere_Rain cfp_rain;
         IEnumerator StartScene_Rescue(float delay)
         {
             pullHand.gameObject.SetActive(false);
             pullHandWater.gameObject.SetActive(false);
             rescueBigImage.localScale = Vector3.one * rescueBigImageScale1;
+            cfp_rainPro.enabled = true;
             yield return new WaitForSeconds(delay);
+            SoundSystem.instance.Play("thunder");
             rescueBigImage.DOScale(rescueBigImageScale2, rescueBigImageScaleTime);
-            yield return new WaitForSeconds(rescueBigImageScaleTime + 1f);
+            yield return new WaitForSeconds(rescueBigImageScaleTime + 2f);
             rescueBigImage.GetComponent<Image>().DOFade(0, 2);
             yield return new WaitForSeconds(2);
+            cfp_rainPro.enabled = false;
             StartPullHandPuzzle();
         }
 
@@ -49,6 +55,7 @@ namespace Rescue
 
         IEnumerator PullHandPuzzleProcess()
         {
+            cfp_rain.enabled = true;
             while (pullHand.anchoredPosition.y < pullHandYMax)
             {
                 //not done
@@ -61,7 +68,7 @@ namespace Rescue
                 pullHand.anchoredPosition = pos;
                 yield return null;
             }
-
+            cfp_rain.enabled = false;
             SoundSystem.instance.Play("outwater");
 
             _isInPullHandPuzzle = false;

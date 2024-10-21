@@ -22,7 +22,7 @@ namespace Rescue
         {
             var cf = CameraFilterSystem.instance.cfp_aura_distortion;
             cf.enabled = true;
-            CameraFilterSystem.instance.Tween(cf, "Twist", 2, 0.13f, 6);
+            CameraFilterSystem.instance.Tween(cf, "Twist", 1.5f, 0.12f, 2);
 
             dialogTwoPersonCg_1.alpha = 0;
             dialogTwoPersonCg_2.alpha = 0;
