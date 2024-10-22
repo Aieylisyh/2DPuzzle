@@ -7820,6 +7820,7 @@ GameObject:
   - component: {fileID: 1118846259}
   - component: {fileID: 1118846261}
   - component: {fileID: 1118846260}
+  - component: {fileID: 1118846262}
   m_Layer: 5
   m_Name: character2
   m_TagString: Untagged
@@ -7844,8 +7845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 695.5, y: 248.1}
-  m_SizeDelta: {x: 375, y: 587}
+  m_AnchoredPosition: {x: 695.5, y: 289.6}
+  m_SizeDelta: {x: 418.5, y: 587}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1118846260
 MonoBehaviour:
@@ -7885,6 +7886,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118846258}
   m_CullTransparentMesh: 1
+--- !u!114 &1118846262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118846258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78148da28c4a7d9419955b3fb9f928de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freq: 1.4
+  trans: {fileID: 0}
+  amplitude: 12
+  baseSpeed: {x: 1, y: 0}
+  useUnscaledTime: 1
+  useRawTime: 1
 --- !u!1 &1119563975
 GameObject:
   m_ObjectHideFlags: 0
@@ -7948,54 +7967,20 @@ MonoBehaviour:
 
     Therefore, I thought that my study
     abroad trip in the UK would be full of fun!'
-  - 'In September 2022,
+  - "But when I discussed the idea of going out to play with my college classmates,
+    \r\n\r\nI found that I couldn't compare to the temptation of playing games on
+    their scales."
+  - "Long periods of solitude and language barriers have gradually caused me to become
+    depressed. \r\n\r\nI have closed myself off, staying in my room all the time
+    except for class.\r\n\r\nRelying solely on eating takeout to feed myself.\r\n\r\n\r\n\r\nSo,
+    the days of darkness and darkness accompanied me throughout my first year."
+  - 'Just when I thought these dark days would continue to accompany my entire college
+    life, things seemed to take a turn for the better.
 
+    
 
-
-    I embarked on a flight to <size=150%>London</size>
-    with great anticipation.
-
-
-
-    When I was a child, I had travelled to the UK
-    once and left a very good impression.
-
-
-
-    Therefore, I thought that my study
-    abroad trip in the UK would be full of fun!'
-  - 'In September 2022,
-
-
-
-    I embarked on a flight to <size=150%>London</size>
-    with great anticipation.
-
-
-
-    When I was a child, I had travelled to the UK
-    once and left a very good impression.
-
-
-
-    Therefore, I thought that my study
-    abroad trip in the UK would be full of fun!'
-  - 'In September 2022,
-
-
-
-    I embarked on a flight to <size=150%>London</size>
-    with great anticipation.
-
-
-
-    When I was a child, I had travelled to the UK
-    once and left a very good impression.
-
-
-
-    Therefore, I thought that my study
-    abroad trip in the UK would be full of fun!'
+    The next year,
+    I met a new neighbour who seemed very hungry when we first met...'
   - 'In September 2022,
 
 
@@ -9263,6 +9248,7 @@ GameObject:
   - component: {fileID: 1323903974}
   - component: {fileID: 1323903976}
   - component: {fileID: 1323903975}
+  - component: {fileID: 1323903977}
   m_Layer: 5
   m_Name: character1
   m_TagString: Untagged
@@ -9288,7 +9274,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -634.5, y: 228.4}
-  m_SizeDelta: {x: 324.5, y: 550}
+  m_SizeDelta: {x: 342.4, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1323903975
 MonoBehaviour:
@@ -9328,6 +9314,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323903973}
   m_CullTransparentMesh: 1
+--- !u!114 &1323903977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323903973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78148da28c4a7d9419955b3fb9f928de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freq: 1.4
+  trans: {fileID: 0}
+  amplitude: 12
+  baseSpeed: {x: 1, y: 0}
+  useUnscaledTime: 1
+  useRawTime: 1
 --- !u!1 &1329019519
 GameObject:
   m_ObjectHideFlags: 0
@@ -19078,7 +19082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b012def731484982050f24757d06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStage: 4
+  startStage: 3
   allScenes:
   - {fileID: 752132580}
   - {fileID: 1438874785}
