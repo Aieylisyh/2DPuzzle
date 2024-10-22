@@ -30,6 +30,7 @@ public class InRoomClockScene : MonoBehaviour
         _pcgs.Show(true, true);
         image1.DOFade(1, 1);
         clockCg.DOFade(1, 1).SetDelay(0.8f);
+        SceneTextSystem.instance.SetText(3, false);
     }
 
     IEnumerator EndClockScene()
@@ -37,6 +38,7 @@ public class InRoomClockScene : MonoBehaviour
         Debug.Log("EndClockScene");
         yield return new WaitForSeconds(2);
         _pcgs.Show(false, false);
+        MeetGirlSystem.instance.Reinit();
 
     }
 

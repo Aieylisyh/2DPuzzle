@@ -21,6 +21,7 @@ public class 越来越多人加入System : MonoBehaviour
         _pcgs.Show(true, true);
         // image1.DOFade(1, 1);
         //   clockCg.DOFade(1, 1).SetDelay(0.8f);
+         SceneTextSystem.instance.SetText(9, false);
     }
 
     IEnumerator EndScene()

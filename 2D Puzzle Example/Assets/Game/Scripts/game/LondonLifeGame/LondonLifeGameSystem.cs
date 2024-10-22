@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.VirtualTexturing;
 
 public class LondonLifeGameSystem : MonoBehaviour
 {
@@ -21,6 +20,7 @@ public class LondonLifeGameSystem : MonoBehaviour
         越来越多人加入,
         结局,
     }
+
     public Stage startStage;
     Stage _crtStage;
 
@@ -61,7 +61,7 @@ public class LondonLifeGameSystem : MonoBehaviour
                 MeetGirlSystem.instance.Reinit();
                 break;
             case Stage.DialogWithGirl:
-              DialogWithGirlSystem.instance.Reinit();
+                DialogWithGirlSystem.instance.Reinit();
                 break;
             case Stage.自己做饭:
                 自己做饭System.instance.Reinit();

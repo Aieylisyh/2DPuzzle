@@ -27,6 +27,7 @@ public class OpenDoorSceneSystem : MonoBehaviour
         _pcgs.Show(true, true);
         StopAllCoroutines();
         doorDraggable.ToCloseEnd(false);
+        SceneTextSystem.instance.SetText(2, false);
     }
 
     public void OnDoorOpen(float openDist)
