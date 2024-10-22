@@ -26,6 +26,7 @@ public class MeetGirlSystem : MonoBehaviour
     {
         _pcgs.Show(true, true);
         StartCoroutine(GrilScene());
+        SceneTextSystem.instance.SetText(4, false);
         // image1.DOFade(1, 1);
         //   clockCg.DOFade(1, 1).SetDelay(0.8f);
     }

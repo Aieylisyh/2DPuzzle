@@ -2,6 +2,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BalanceSceneSystem : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class BalanceSceneSystem : MonoBehaviour
     [SerializeField] OpponentItemData[] oids;
     [SerializeField] int myItemsCount;
     int _totalOnBalanceCount;
+    [SerializeField] GameObject[] myWords;
 
     [System.Serializable]
     public class OpponentItemData
@@ -38,6 +40,7 @@ public class BalanceSceneSystem : MonoBehaviour
         _totalOnBalanceCount = 0;
 
         balanceHorizontal.localEulerAngles = Vector3.zero;
+        SceneTextSystem.instance.SetText(1, false);
 
         StopAllCoroutines();
         foreach (var oid in oids)
@@ -47,6 +50,11 @@ public class BalanceSceneSystem : MonoBehaviour
                 oid.oi.Init();
             }));
         }
+        foreach (var w in myWords)
+        {
+            w.SetActive(false);
+        }
+        StartCoroutine(ShowMyWordsOneByOne());
     }
 
     public void OnReceiveItem(float weight, bool rightOrLeft)
@@ -59,6 +67,7 @@ public class BalanceSceneSystem : MonoBehaviour
         {
             _leftWeight += weight;
         }
+
         _totalOnBalanceCount++;
         SyncBalance();
         CheckEnd();
@@ -82,10 +91,29 @@ public class BalanceSceneSystem : MonoBehaviour
 
     IEnumerator EndBalanceScene()
     {
-        Debug.Log("EndBalanceScene");
-        yield return new WaitForSeconds(2);
+        //Debug.Log("EndBalanceScene");
+        yield return new WaitForSeconds(2.5f);
         _pcgs.Show(false, false);
         yield return new WaitForSeconds(1.5f);
         OpenDoorSceneSystem.instance.Reinit();
+    }
+
+    IEnumerator ShowMyWordsOneByOne()
+    {
+        //Debug.Log("ShowMyWordsOneByOne");
+        yield return new WaitForSeconds(2);
+
+        foreach (var w in myWords)
+        {
+            yield return new WaitForSeconds(1.5f);
+            w.SetActive(true);
+            var imgs = w.GetComponentsInChildren<Image>();
+            foreach (var img in imgs)
+            {
+                var c = img.color;
+                img.color = new Color(1, 1, 1, 0);
+                img.DOColor(c, 2);
+            }
+        }
     }
 }

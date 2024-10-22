@@ -21,6 +21,7 @@ public class 女邻居点赞System : MonoBehaviour
         _pcgs.Show(true, true);
         // image1.DOFade(1, 1);
         //   clockCg.DOFade(1, 1).SetDelay(0.8f);
+         SceneTextSystem.instance.SetText(7, false);
     }
 
     IEnumerator EndScene()
