@@ -77,6 +77,7 @@ public partial class RLSystem : MonoBehaviour
 
     void InitDreamAdmissionScene()
     {
+        _admissionFoldStartPos = admissionFold.GetComponent<RectTransform>().anchoredPosition;
         envelopeClose.SetActive(false);
         envelopeOpen.SetActive(false);
         admissionFold.SetActive(false);

@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public partial class RLSystem : MonoBehaviour
 {
-    public GameObject pp2;
-
     public void OnClick贩卖机()
     {
         var s = new List<string>();

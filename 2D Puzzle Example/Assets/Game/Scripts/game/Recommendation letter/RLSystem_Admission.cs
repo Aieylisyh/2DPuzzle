@@ -42,11 +42,13 @@ public partial class RLSystem : MonoBehaviour
         envelopeClose.transform.DOMove(endpos, evenlopeStartMoveDuration).SetEase(envelopeStartMoveEase).OnComplete(OnEnvelopeMoveAnmationEnd);
     }
 
+    private Vector2 _admissionFoldStartPos;
     public void OnClickEnvelopeClose()
     {
         envelopeClose.SetActive(false);
         envelopeOpen.SetActive(true);
         admissionFold.SetActive(true);
+        admissionFold.GetComponent<RectTransform>().anchoredPosition = _admissionFoldStartPos;
         envelopeHalf.SetActive(true);
         SoundSystem.instance.Play("paper out");
     }

@@ -35,14 +35,14 @@ public class EyeBehaviour : MonoBehaviour
     IEnumerator EyeLoop()
     {
         SetClose();
-        int i = 2;
-        while (i >= 0)
+        int i = 3;
+        while (i > 0)
         {
             i--;
             DoOpen();
-            yield return new WaitForSeconds(duration + 0.2f);
+            yield return new WaitForSeconds(duration + 0.15f);
             DoClose();
-            yield return new WaitForSeconds(duration + 0.2f);
+            yield return new WaitForSeconds(duration + 0.15f);
         }
         RLSystem.instance.ToggleContinueButton(true);
         //RLSystem.instance.sceneSwitcher.Set(SceneId.Calender);

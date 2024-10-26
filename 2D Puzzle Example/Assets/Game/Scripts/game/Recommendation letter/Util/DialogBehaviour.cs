@@ -33,9 +33,9 @@ public class DialogBehaviour : MonoBehaviour
         else
         {
             cg.blocksRaycasts = true;
-            cg.interactable = true;
+            cg.interactable = false;
             cg.DOKill();
-            cg.DOFade(0, 0.7f).OnComplete(
+            cg.DOFade(0, 0.6f).OnComplete(
                 () =>
                 {
                     cg.blocksRaycasts = false;

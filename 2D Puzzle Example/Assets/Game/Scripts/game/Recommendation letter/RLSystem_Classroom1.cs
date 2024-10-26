@@ -36,7 +36,6 @@ public partial class RLSystem : MonoBehaviour
        }
        );
 
-
         DialogBehaviour.instance.SetDialog(s);
         DialogBehaviour.instance.Show();
     }
@@ -76,7 +75,7 @@ public partial class RLSystem : MonoBehaviour
                     StartCoroutine(DelayAction(2f, () =>
                     {
                         UiImageScreenFader.instance.FadeOutBlack(null);
-                        classroom1DialogBubble.DOFade(1, 2).SetDelay(3.0f);
+                        classroom1DialogBubble.DOFade(1, 2).SetDelay(2.6f);
                     }));
                 }));
          }

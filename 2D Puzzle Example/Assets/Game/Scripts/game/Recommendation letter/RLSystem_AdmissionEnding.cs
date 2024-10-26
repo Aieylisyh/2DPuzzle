@@ -25,7 +25,6 @@ public partial class RLSystem : MonoBehaviour
                 UiImageScreenFader.instance.FadeOutWhite(ShowAdmissionSceneFinal, 1);
             }
             ));
-
     }
 
     IEnumerator AddIntertitleMaxVisibleCharacters(Action cb)
@@ -42,12 +41,12 @@ public partial class RLSystem : MonoBehaviour
         envelopeClose.SetActive(false);
         envelopeOpen.SetActive(false);
         admissionFold.SetActive(false);
+        admissionFold.GetComponent<RectTransform>().anchoredPosition = _admissionFoldStartPos;
         envelopeHalf.SetActive(false);
         admission.SetActive(false);
         envelopeCloseButton.SetActive(false);
         ToggleContinueButton(false);
         ScreenEffectToggle.instance.ToggleDreamReality(false);
-
 
         cb?.Invoke();
     }
@@ -89,7 +88,7 @@ public partial class RLSystem : MonoBehaviour
         yield return new WaitForSeconds(1);
         while (intertitle.maxVisibleCharacters < intertitle.text.Length + 20)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             intertitle.maxVisibleCharacters += 1;
         }
         yield return new WaitForSeconds(1);
