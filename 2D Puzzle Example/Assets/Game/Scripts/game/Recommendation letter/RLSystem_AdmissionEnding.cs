@@ -1,37 +1,61 @@
 ﻿using com;
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public partial class RLSystem : MonoBehaviour
 {
-    public GameObject pp11;
-
-    public void OnClick1213()
-    {
-        Debug.Log("OnClickOther");
-        var s = new List<string>();
-        s.Add("I should find Mrs.Fernandes' office...");
-        DialogBehaviour.instance.SetDialog(s);
-        DialogBehaviour.instance.Show();
-    }
-
+    public TextMeshProUGUI intertitle;
     public void InitAdmissionEndingScene()
     {
+        UiImageScreenFader.instance.FadeInWhite(ShowTimePassedByIntertitle, 0);
+    }
 
-        var s = new List<string>();
-        s.Add("It's been a while since I took Mrs.Fernandes' Spanish class.");
-        s.Add("Where's her classroom again?");
-        DialogBehaviour.instance.SetDialog(s);
-        DialogBehaviour.instance.SetCallback(
-         () =>
-         {
-             //
-         }
-         );
-        DialogBehaviour.instance.Show();
+    void ShowTimePassedByIntertitle()
+    {
+        intertitle.text = "Three Months Later...";
+        intertitle.maxVisibleCharacters = 0;
+        StartCoroutine(AddIntertitleMaxVisibleCharacters(
+            () =>
+            {
+                UiImageScreenFader.instance.FadeOutWhite(ShowAdmissionSceneFinal, 1);
+            }
+            ));
+
+    }
+
+    IEnumerator AddIntertitleMaxVisibleCharacters(Action cb)
+    {
+        yield return new WaitForSeconds(1);
+        while (intertitle.maxVisibleCharacters < intertitle.text.Length + 10)
+        {
+            yield return new WaitForSeconds(0.1f);
+            intertitle.maxVisibleCharacters += 1;
+        }
+        yield return new WaitForSeconds(1);
+        intertitle.text = "";
+
+        envelopeClose.SetActive(false);
+        envelopeOpen.SetActive(false);
+        admissionFold.SetActive(false);
+        envelopeHalf.SetActive(false);
+        admission.SetActive(false);
+        envelopeCloseButton.SetActive(false);
+        ToggleContinueButton(false);
+        ScreenEffectToggle.instance.ToggleDreamReality(false);
+
+
+        cb?.Invoke();
+    }
+
+    void ShowAdmissionSceneFinal()
+    {
+        DisplayEnvelope();
+        ScreenEffectToggle.instance.ToggleDrunk(true);
     }
 
     public void InitRoofScene()
@@ -51,5 +75,23 @@ public partial class RLSystem : MonoBehaviour
                 }));
             }
             , 0);
+    }
+
+    void ShowFinalWords()
+    {
+        intertitle.text = "This story is adapted from the author's real-life experiences.";
+        intertitle.maxVisibleCharacters = 0;
+        StartCoroutine(AddIntertitleMaxVisibleCharacters_FinalWords());
+    }
+
+    IEnumerator AddIntertitleMaxVisibleCharacters_FinalWords()
+    {
+        yield return new WaitForSeconds(1);
+        while (intertitle.maxVisibleCharacters < intertitle.text.Length + 20)
+        {
+            yield return new WaitForSeconds(0.1f);
+            intertitle.maxVisibleCharacters += 1;
+        }
+        yield return new WaitForSeconds(1);
     }
 }

@@ -19,7 +19,7 @@ I: Bye.
 
         */
 
-        ScreenEffectToggle.instance.ToggleDrunk(true);
+        //ScreenEffectToggle.instance.ToggleDrunk(true);
         var s = new List<string>();
         s.Add("<color=#AA2200><b>Mrs. Fernandes: </b></color>Hello again young man.");
         s.Add("<color=#AA2200><b>Mrs. Fernandes: </b></color>I remember you want to talk about your recommendation letter?");
@@ -48,7 +48,7 @@ I: Bye.
         DialogBehaviour.instance.SetCallback(
          () =>
          {
-             ScreenEffectToggle.instance.ToggleDrunk(false);
+             //ScreenEffectToggle.instance.ToggleDrunk(false);
              ToggleContinueButton(true);
          }
          );

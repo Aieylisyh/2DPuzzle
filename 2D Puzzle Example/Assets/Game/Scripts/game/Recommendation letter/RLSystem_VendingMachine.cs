@@ -45,12 +45,36 @@ public partial class RLSystem : MonoBehaviour
 
     public void InitVendingMachineScene()
     {
+        vendingMachineTodoListCg.blocksRaycasts = true;
+        vendingMachineTodoListCg.alpha = 1;
+        vendingMachineTodoListCross.gameObject.SetActive(false);
+        vendingMachineTodoListNotes.gameObject.SetActive(false);
+    }
 
-        var s = new List<string>();
-        s.Add("<color=#555555>(In front of Vending Machine)</color>");
-        s.Add("May be I should by some snacks for Mrs. Fernandes, what does she like to eat?");
-        DialogBehaviour.instance.SetDialog(s);
+    [SerializeField] CanvasGroup vendingMachineTodoListCg;
 
-        DialogBehaviour.instance.Show();
+    void OnVendingMachineTodoListFinished()
+    {
+        vendingMachineTodoListCg.DOFade(0, 1).OnComplete(() =>
+        {
+            {
+                vendingMachineTodoListCg.blocksRaycasts = false;
+                var s = new List<string>();
+                s.Add("<color=#555555>(In front of Vending Machine)</color>");
+                s.Add("May be I should by some snacks for Mrs. Fernandes, what does she like to eat?");
+                DialogBehaviour.instance.SetDialog(s);
+
+                DialogBehaviour.instance.Show();
+            }
+        });
+    }
+
+    [SerializeField] Image vendingMachineTodoListCross;
+    [SerializeField] Image vendingMachineTodoListNotes;
+    public void OnClickVendingMachineTodoListItem()
+    {
+        ShowCheckMark(vendingMachineTodoListCross);
+        StartCoroutine(DelayAction(2.5f, () => { ShowCheckMark(vendingMachineTodoListNotes); }));
+        StartCoroutine(DelayAction(6f, () => { OnVendingMachineTodoListFinished(); }));
     }
 }

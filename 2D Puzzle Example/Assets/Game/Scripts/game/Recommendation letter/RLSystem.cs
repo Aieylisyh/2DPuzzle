@@ -130,6 +130,7 @@ public partial class RLSystem : MonoBehaviour
                 break;
             case SceneId.AdmissionEnding:
                 //sceneSwitcher.Set(SceneId.AdmissionEnding);
+                UiImageScreenFader.instance.FadeInWhite(ShowFinalWords, 3);
                 break;
         }
         ToggleContinueButton(false);

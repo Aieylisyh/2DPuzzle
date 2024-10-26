@@ -49,13 +49,4 @@ public partial class RLSystem : MonoBehaviour
         c.transform.DOScale(1, 1.8f);
         SoundSystem.instance.Play("checkmark");
     }
-
-    public void OnClickExitChecklist()
-    {
-        //black screen walk sound
-        //black screen walk sound
-        //show map to choose go where
-    }
-
-
 }
