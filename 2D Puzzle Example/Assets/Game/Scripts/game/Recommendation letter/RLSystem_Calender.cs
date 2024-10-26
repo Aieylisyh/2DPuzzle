@@ -36,7 +36,7 @@ public partial class RLSystem : MonoBehaviour
         user click on a room in map.
 
          */
-        ScreenEffectToggle.instance.ToggleDreamReality(false);
+
         foreach (var f in onDeskItems)
         {
             f.gameObject.SetActive(true);
@@ -51,14 +51,9 @@ public partial class RLSystem : MonoBehaviour
         DialogBehaviour.instance.Show();
     }
 
-    IEnumerator CalenderScene_Start()
-    {
-        yield return new WaitForSeconds(1);
-    }
-
     public void OnClickPaperOnDesk(RectTransform rt)
     {
-        SoundSystem.instance.Play("eat");
+        SoundSystem.instance.Play("paper out");
         rt.DOKill();
         rt.DOScale(0.5f, 0.5f).SetEase(Ease.InBack).OnComplete(() => { rt.gameObject.SetActive(false); CheckDeskSceneEnd(); });
     }

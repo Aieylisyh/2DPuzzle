@@ -26,6 +26,7 @@ public partial class RLSystem : MonoBehaviour
         DialogBehaviour.instance.Show();
     }
 
+    [SerializeField] AudioSource streetWalkSound;
     public void InitCorridorScene()
     {
         door_chinese.SetActive(false);
@@ -36,17 +37,32 @@ public partial class RLSystem : MonoBehaviour
 
         corriderView.SetActive(false);
         //ToggleContinueButton(false);
-        var s = new List<string>();
-        s.Add("It's been a while since I took Mrs.Fernandes' Spanish class.");
-        s.Add("Where's her classroom again?");
-        DialogBehaviour.instance.SetDialog(s);
-        DialogBehaviour.instance.SetCallback(
-         () =>
-         {
-             //
-         }
-         );
-        DialogBehaviour.instance.Show();
+
+        UiImageScreenFader.instance.FadeInBlack(() =>
+        {
+            streetWalkSound.volume = 0;
+            streetWalkSound.Play();
+            streetWalkSound.DOFade(0.22f, 3);
+            StartCoroutine(DelayAction(4.0f, () =>
+            {
+                streetWalkSound.DOFade(0f, 1.2f);
+                UiImageScreenFader.instance.FadeOutBlack(
+                    () =>
+                    {
+                        var s = new List<string>();
+                        s.Add("It's been a while since I took Mrs.Fernandes' Spanish class.");
+                        s.Add("Where's her classroom again?");
+                        DialogBehaviour.instance.SetDialog(s);
+                        DialogBehaviour.instance.SetCallback(
+                          () =>
+                       {
+
+                       }
+                      );
+                        DialogBehaviour.instance.Show();
+                    }, 1.5f);
+            }));
+        }, 0);
     }
 
     public GameObject door_chinese;

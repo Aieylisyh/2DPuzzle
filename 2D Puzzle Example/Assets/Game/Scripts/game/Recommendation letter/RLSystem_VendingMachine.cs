@@ -24,6 +24,9 @@ public partial class RLSystem : MonoBehaviour
         DialogBehaviour.instance.SetDialog(s);
         DialogBehaviour.instance.Show();
     }
+
+    [SerializeField] RectTransform shakeMachineTrans;
+
     public void OnClick巧克力()
     {
         var s = new List<string>();
@@ -32,6 +35,8 @@ public partial class RLSystem : MonoBehaviour
        () =>
        {
            ToggleContinueButton(true);
+           SoundSystem.instance.Play("drop");
+           shakeMachineTrans.DOShakeAnchorPos(0.5f, 20, 12);
        }
        );
         DialogBehaviour.instance.SetDialog(s);

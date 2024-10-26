@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +48,7 @@ public partial class RLSystem : MonoBehaviour
         envelopeOpen.SetActive(true);
         admissionFold.SetActive(true);
         envelopeHalf.SetActive(true);
+        SoundSystem.instance.Play("paper out");
     }
 
     void OnEnvelopeMoveAnmationEnd()

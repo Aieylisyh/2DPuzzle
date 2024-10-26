@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -69,6 +70,7 @@ public class DialogBehaviour : MonoBehaviour
 
         var s = strings[_index];
         txt.text = s;
+        SoundSystem.instance.Play("dialogNext");
     }
 
     int _index;

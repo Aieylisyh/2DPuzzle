@@ -48,10 +48,10 @@ public partial class RLSystem : MonoBehaviour
                 InitDreamAdmissionScene();
                 break;
             case SceneId.Roof:
-                eb.ToggleShow(true);
-                eb.ToggleEyeBlink(true);
+                InitRoofScene();
                 break;
             case SceneId.Calender:
+                ScreenEffectToggle.instance.ToggleBlurry(false);
                 InitCalenderScene();
                 break;
             case SceneId.Checklist:
@@ -104,7 +104,7 @@ public partial class RLSystem : MonoBehaviour
                 {
                     SoundSystem.instance.Play("put on clothes");
                     sceneSwitcher.Set(SceneId.Calender);
-                    StartCoroutine(DelayAction(2, () =>
+                    StartCoroutine(DelayAction(2.5f, () =>
                     {
                         UiImageScreenFader.instance.FadeOutBlack(null);
                     }));

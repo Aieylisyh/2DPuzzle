@@ -10,7 +10,8 @@ public class ScreenEffectToggle : MonoBehaviour
     public static ScreenEffectToggle instance;
     public GameObject[] realityVfxs;
     public GameObject[] dreamVfxs;
-
+    public CameraFilterPack_Blur_Blurry _blurry;
+    public CameraFilterPack_FX_Drunk _drunk;
     private void Awake()
     {
         instance = this;
@@ -26,5 +27,15 @@ public class ScreenEffectToggle : MonoBehaviour
         {
             v.SetActive(b);
         }
+    }
+
+    public void ToggleBlurry(bool b)
+    {
+        _blurry.enabled = b;
+    }
+
+    public void ToggleDrunk(bool b)
+    {
+        _drunk.enabled = b;
     }
 }

@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,6 +47,7 @@ public partial class RLSystem : MonoBehaviour
         c.gameObject.SetActive(true);
         c.DOColor(Color.white, 1.8f);
         c.transform.DOScale(1, 1.8f);
+        SoundSystem.instance.Play("checkmark");
     }
 
     public void OnClickExitChecklist()

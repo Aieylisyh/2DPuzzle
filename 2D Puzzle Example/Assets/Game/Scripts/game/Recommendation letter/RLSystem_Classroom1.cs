@@ -70,10 +70,14 @@ public partial class RLSystem : MonoBehaviour
          () =>
          {
              SoundSystem.instance.Play("knock door");
-             StartCoroutine(DelayAction(2.5f, () =>
+             StartCoroutine(DelayAction(2.6f, () =>
                 {
-                    UiImageScreenFader.instance.FadeOutBlack(null);
-                    classroom1DialogBubble.DOFade(1, 2).SetDelay(3.0f);
+                    SoundSystem.instance.Play("open door");
+                    StartCoroutine(DelayAction(2f, () =>
+                    {
+                        UiImageScreenFader.instance.FadeOutBlack(null);
+                        classroom1DialogBubble.DOFade(1, 2).SetDelay(3.0f);
+                    }));
                 }));
          }
          );

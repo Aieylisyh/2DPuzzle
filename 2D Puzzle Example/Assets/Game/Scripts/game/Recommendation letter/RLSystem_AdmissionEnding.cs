@@ -33,4 +33,23 @@ public partial class RLSystem : MonoBehaviour
          );
         DialogBehaviour.instance.Show();
     }
+
+    public void InitRoofScene()
+    {
+        ScreenEffectToggle.instance.ToggleDreamReality(false);
+        ScreenEffectToggle.instance.ToggleBlurry(true);
+        UiImageScreenFader.instance.FadeInBlack(
+            () =>
+            {
+                SoundSystem.instance.Play("alarm");
+                StartCoroutine(DelayAction(3.5f, () =>
+                {
+                    UiImageScreenFader.instance.FadeOutBlack(null);
+
+                    eb.ToggleShow(true);
+                    eb.ToggleEyeBlink(true);
+                }));
+            }
+            , 0);
+    }
 }
