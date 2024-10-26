@@ -22,9 +22,17 @@ public class SceneSwitcher : MonoBehaviour
         foreach (var scene in _scenes)
         {
             bool b = scene.id == s;
-            scene.go.SetActive(b);
+            if (!b)
+            {
+                scene.go.SetActive(false);
+            }
+        }
+        foreach (var scene in _scenes)
+        {
+            bool b = scene.id == s;
             if (b)
             {
+                scene.go.SetActive(true);
                 RLSystem.instance.StartScene(s);
             }
         }
