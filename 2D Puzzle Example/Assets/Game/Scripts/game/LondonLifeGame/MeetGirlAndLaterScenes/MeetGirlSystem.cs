@@ -1,6 +1,7 @@
 ﻿using com;
 using DG.Tweening;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class MeetGirlSystem : MonoBehaviour
     [SerializeField] GameObject mythinkView;
 
     [SerializeField] CanvasGroup[] MyOptionsView;
-
+    [SerializeField] TextMeshProUGUI textGirlSay;
     private void Awake()
     {
         instance = this;
@@ -50,15 +51,16 @@ public class MeetGirlSystem : MonoBehaviour
             opv.DOFade(1, 1);
     }
 
-    IEnumerator EndScene()
+    public void EndGirlBegScene()
     {
-        yield return new WaitForSeconds(2);
-        _pcgs.Show(false, false);
-
+        StartCoroutine(EndGirlBegSceneCo());
     }
 
-    public void End()
+    IEnumerator EndGirlBegSceneCo()
     {
-        StartCoroutine(EndScene());
+        textGirlSay.text = "No, please consider my...";
+        yield return new WaitForSeconds(3.5f);
+        _pcgs.Show(false, false);
+        DialogWithGirlSystem.instance.Reinit();
     }
 }
