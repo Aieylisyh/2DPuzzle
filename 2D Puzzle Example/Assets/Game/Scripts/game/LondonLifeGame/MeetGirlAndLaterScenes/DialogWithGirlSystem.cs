@@ -54,6 +54,7 @@ public class DialogWithGirlSystem : MonoBehaviour
     {
         img.DOKill();
         img.raycastTarget = true;
+        SoundSystem.instance.Play("bubble");
         img.DOColor(new Color(1, 1, 1, 1), 1.2f).SetDelay(1);
     }
 
@@ -61,7 +62,7 @@ public class DialogWithGirlSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         _pcgs.Show(false, false);
-
+        自己做饭System.instance.Reinit();
     }
 
     public void End()

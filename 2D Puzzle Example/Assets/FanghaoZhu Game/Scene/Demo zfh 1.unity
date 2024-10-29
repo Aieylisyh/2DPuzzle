@@ -9641,6 +9641,8 @@ MonoBehaviour:
       ac: {fileID: 8300000, guid: 0425ddfecd3927a46aa8dcfbc484ba17, type: 3}
     - name: btn ok
       ac: {fileID: 8300000, guid: fecd6d81457fcd745836d11799ce8eee, type: 3}
+    - name: bubble
+      ac: {fileID: 8300000, guid: 4059ff931d4a5854ea57b371d88d921b, type: 3}
   - tag: scene
     siList:
     - name: ding

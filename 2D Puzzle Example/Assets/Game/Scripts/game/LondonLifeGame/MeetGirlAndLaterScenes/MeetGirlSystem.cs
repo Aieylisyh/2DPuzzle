@@ -46,9 +46,11 @@ public class MeetGirlSystem : MonoBehaviour
         girlRequestView.DOFade(1, 1.2f);
         yield return new WaitForSeconds(1.5f);
         mythinkView.SetActive(true);
+        //SoundSystem.instance.Play("bubble");
         yield return new WaitForSeconds(2);
         foreach (var opv in MyOptionsView)
             opv.DOFade(1, 1);
+        SoundSystem.instance.Play("bubble");
     }
 
     public void EndGirlBegScene()
@@ -58,7 +60,9 @@ public class MeetGirlSystem : MonoBehaviour
 
     IEnumerator EndGirlBegSceneCo()
     {
+        SoundSystem.instance.Play("bubble");
         textGirlSay.text = "No, please consider my...";
+        textGirlSay.rectTransform.DOShakeScale(1.5f, 1, 8);
         yield return new WaitForSeconds(3.5f);
         _pcgs.Show(false, false);
         DialogWithGirlSystem.instance.Reinit();
