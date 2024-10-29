@@ -28,7 +28,6 @@ public class 自己做饭System : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         _pcgs.Show(false, false);
-
     }
 
     public void End()
