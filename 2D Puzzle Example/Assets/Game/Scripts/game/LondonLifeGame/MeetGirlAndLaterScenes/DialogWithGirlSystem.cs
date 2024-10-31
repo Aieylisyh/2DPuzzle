@@ -15,7 +15,9 @@ public class DialogWithGirlSystem : MonoBehaviour
     [SerializeField] Image b3;
     [SerializeField] Image g1;
     [SerializeField] Image g2;
-    [SerializeField] Image g3;
+    [SerializeField] Image g3_1;
+    [SerializeField] Image g3_2;
+    [SerializeField] Image g3_3;
 
     private void Awake()
     {
@@ -31,8 +33,12 @@ public class DialogWithGirlSystem : MonoBehaviour
         HideInstant(b3);
         HideInstant(g1);
         HideInstant(g2);
-        HideInstant(g3);
-        Show(b1);
+        HideInstant(g3_1);
+        HideInstant(g3_2);
+        HideInstant(g3_3);
+
+        Show(g1);
+
         SceneTextSystem.instance.SetText(5, false);
     }
 
