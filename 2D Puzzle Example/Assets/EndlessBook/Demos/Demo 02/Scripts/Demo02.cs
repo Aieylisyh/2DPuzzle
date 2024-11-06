@@ -5,6 +5,7 @@
     using System.Linq;
     using UnityEngine;
     using echo17.EndlessBook;
+    using Assets.Game.Scripts.game.Diary;
 
     /// <summary>
     /// The type of action to occur from a page view
@@ -224,19 +225,15 @@
         protected virtual void TogglePageView(int pageNumber, bool on)
         {
             var pageView = GetPageView(pageNumber);
-
             if (pageView != null)
             {
-                if (pageView != null)
+                if (on)
                 {
-                    if (on)
-                    {
-                        pageView.Activate();
-                    }
-                    else
-                    {
-                        pageView.Deactivate();
-                    }
+                    pageView.Activate();
+                }
+                else
+                {
+                    pageView.Deactivate();
                 }
             }
         }
@@ -347,6 +344,7 @@
                         {
                             // call touchdown on the page view
                             pageView.TouchDown();
+                            pageView.HandleTouchDown(hitPointNormalized);
                         }
 
                         break;
@@ -360,6 +358,7 @@
                         {
                             // call the touchdown on the page view
                             pageView.TouchDown();
+                            pageView.HandleTouchDown(hitPointNormalized);
                         }
 
                         break;
@@ -517,8 +516,15 @@
                     }
                     else
                     {
-                        // not on the first page, so just turn back one page
-                        book.TurnBackward(singlePageTurnTime, onCompleted: OnBookStateChanged, onPageTurnStart: OnPageTurnStart, onPageTurnEnd: OnPageTurnEnd);
+                        if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnToLastPage)
+                        {
+                            Debug.Log("lock canTurnToLastPage");
+                        }
+                        else
+                        {
+                            // not on the first page, so just turn back one page
+                            book.TurnBackward(singlePageTurnTime, onCompleted: OnBookStateChanged, onPageTurnStart: OnPageTurnStart, onPageTurnEnd: OnPageTurnEnd);
+                        }
                     }
 
                     break;
@@ -532,13 +538,21 @@
                     }
                     else
                     {
-                        // not on the last page, so just turn forward a page
-                        book.TurnForward(singlePageTurnTime, onCompleted: OnBookStateChanged, onPageTurnStart: OnPageTurnStart, onPageTurnEnd: OnPageTurnEnd);
+                        if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnToNextPage)
+                        {
+                            Debug.Log("lock canTurnToNextPage");
+                        }
+                        else
+                        {
+                            // not on the last page, so just turn forward a page
+                            book.TurnForward(singlePageTurnTime, onCompleted: OnBookStateChanged, onPageTurnStart: OnPageTurnStart, onPageTurnEnd: OnPageTurnEnd);
+                        }
                     }
 
                     break;
             }
         }
+
 
         /// <summary>
         /// Handles the drag event from the touchpad

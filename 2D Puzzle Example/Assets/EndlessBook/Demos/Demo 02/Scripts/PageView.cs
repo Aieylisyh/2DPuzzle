@@ -88,5 +88,10 @@
         {
             return false;
         }
+
+        public virtual bool HandleTouchDown(Vector2 hitPointNormalized)
+        {
+            return false;
+        }
     }
 }
