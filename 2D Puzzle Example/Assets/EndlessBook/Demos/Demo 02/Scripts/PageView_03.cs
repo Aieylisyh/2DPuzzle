@@ -75,6 +75,7 @@
             Debug.Log("HandleTouchDown");
             if (pageViewCamera == null) return false;
 
+            _draggingBtn1 = false;
             // cast a ray
             RaycastHit hit;
             if (Physics.Raycast(pageViewCamera.ViewportPointToRay(hitPointNormalized), out hit, maxRayCastDistance, raycastLayerMask))
