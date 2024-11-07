@@ -13,5 +13,19 @@
     /// </summary>
     public class PageView_train_right : PageView_Map
     {
+        public GameObject[] hittables;
+
+        protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
+        {
+            foreach (var h in hittables)
+            {
+                if (h == hit.collider.gameObject)
+                {
+                    Debug.Log("hit " + h.gameObject.name);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

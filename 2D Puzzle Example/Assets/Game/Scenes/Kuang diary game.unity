@@ -382,6 +382,104 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13635003}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &28484614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28484615}
+  - component: {fileID: 28484617}
+  - component: {fileID: 28484616}
+  m_Layer: 5
+  m_Name: btn1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28484615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28484614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0179, y: 0.055, z: 0}
+  m_LocalScale: {x: 0.023200812, y: 0.038685516, z: 6.8395996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 772518772}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &28484616
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28484614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!212 &28484617
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28484614}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &49065202
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 91300416}
   - component: {fileID: 91300417}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Background Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,7 +984,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 12288
+    m_Bits: 12320
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: e03e428a70328234fb15b482f086fa04, type: 2}
   m_TargetDisplay: 0
@@ -1034,13 +1132,13 @@ GameObject:
   m_Component:
   - component: {fileID: 108909998}
   - component: {fileID: 108909999}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: PageView_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &108909998
 Transform:
   m_ObjectHideFlags: 0
@@ -1395,6 +1493,104 @@ SkinnedMeshRenderer:
     m_Center: {x: -4.656613e-10, y: 0.0042453483, z: -0.004919456}
     m_Extent: {x: 0.009797649, y: 0.004245351, z: 0.0049208566}
   m_DirtyAABB: 0
+--- !u!1 &157878792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 157878793}
+  - component: {fileID: 157878795}
+  - component: {fileID: 157878794}
+  m_Layer: 5
+  m_Name: btn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &157878793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157878792}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.023200812, y: 0.038685516, z: 6.8395996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 772518772}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &157878794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157878792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!212 &157878795
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157878792}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &166305818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 222837188}
   - component: {fileID: 222837189}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: Asia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2599,7 +2795,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 6202ff505aa176d43865035aa7073aa8, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6202ff505aa176d43865035aa7073aa8, type: 3}
       propertyPath: m_RootOrder
@@ -2790,7 +2986,7 @@ GameObject:
   - component: {fileID: 384949126}
   - component: {fileID: 384949125}
   - component: {fileID: 384949124}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2963,7 +3159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 396819492}
   - component: {fileID: 396819493}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4174,7 +4370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594512370}
   - component: {fileID: 594512371}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: North America
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4368,7 +4564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 605734763}
   - component: {fileID: 605734764}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Background Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4421,7 +4617,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 1568
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 9aac86d4af85aa24da95476ae934aa22, type: 2}
   m_TargetDisplay: 0
@@ -5372,7 +5568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 656643886}
   - component: {fileID: 656643887}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6049,7 +6245,7 @@ GameObject:
   - component: {fileID: 772518772}
   - component: {fileID: 772518774}
   - component: {fileID: 772518773}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6075,6 +6271,9 @@ Transform:
   - {fileID: 963841644}
   - {fileID: 995783645}
   - {fileID: 594512370}
+  - {fileID: 157878793}
+  - {fileID: 1610645777}
+  - {fileID: 28484615}
   m_Father: {fileID: 1226817113}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6716,7 +6915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 856364181}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: ContinentDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6994,7 +7193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 872654752}
   - component: {fileID: 872654753}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Map Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7047,7 +7246,7 @@ Camera:
   m_Depth: 50
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 65568
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 4d76e2fdff02f584dafa750f616ca993, type: 2}
   m_TargetDisplay: 0
@@ -7726,7 +7925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963841644}
   - component: {fileID: 963841645}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: Antarctica
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8175,7 +8374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 995783645}
   - component: {fileID: 995783646}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: South America
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8526,7 +8725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063758238}
   - component: {fileID: 1063758239}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: Banner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9264,7 +9463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1153775013}
   - component: {fileID: 1153775014}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: Africa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9800,13 +9999,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1226817113}
   - component: {fileID: 1226817114}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: PageView_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1226817113
 Transform:
   m_ObjectHideFlags: 0
@@ -9841,7 +10040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 32
   maxRayCastDistance: 1000
   continentText: {fileID: 384949124}
   mapTransform: {fileID: 772518772}
@@ -9890,7 +10089,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 83911544a1384224f8c63969b343fe12, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 83911544a1384224f8c63969b343fe12, type: 3}
       propertyPath: m_RootOrder
@@ -11103,7 +11302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1387725414}
   - component: {fileID: 1387725415}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: Australia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11295,7 +11494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1410623113}
   - component: {fileID: 1410623114}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: PageView_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12936,6 +13135,104 @@ Transform:
   m_Father: {fileID: 590749834}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1610645776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1610645777}
+  - component: {fileID: 1610645779}
+  - component: {fileID: 1610645778}
+  m_Layer: 5
+  m_Name: btn1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1610645777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610645776}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0908, y: 0.025, z: 0}
+  m_LocalScale: {x: 0.023200812, y: 0.038685516, z: 6.8395996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 772518772}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1610645778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610645776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!212 &1610645779
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610645776}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1616267920
 GameObject:
   m_ObjectHideFlags: 0
@@ -13260,7 +13557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656820049}
   - component: {fileID: 1656820050}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Map Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13313,7 +13610,7 @@ Camera:
   m_Depth: 50
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 65568
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 948ff8e6fc649cd408c690efb11934b8, type: 2}
   m_TargetDisplay: 0
@@ -13809,7 +14106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1709469478}
   - component: {fileID: 1709469479}
-  m_Layer: 16
+  m_Layer: 5
   m_Name: Europe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14047,13 +14344,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1766799212}
   - component: {fileID: 1766799213}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: PageView_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1766799212
 Transform:
   m_ObjectHideFlags: 0
@@ -14086,9 +14383,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 32
   maxRayCastDistance: 1000
   continentText: {fileID: 384949124}
+  hittables:
+  - {fileID: 157878792}
+  - {fileID: 1610645776}
+  - {fileID: 28484614}
 --- !u!1 &1793030731
 GameObject:
   m_ObjectHideFlags: 0

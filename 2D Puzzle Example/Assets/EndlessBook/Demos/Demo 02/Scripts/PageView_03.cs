@@ -39,10 +39,17 @@
                 DiaryGameSystem.instance.ToggleLockTurnNextPage(true);
             }
         }
+
+        public override void TouchDown()
+        {
+            base.TouchDown();
+            Debug.Log("TouchDown");
+        }
+
         protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
         {
             _draggingBtn1 = false;
-
+            Debug.Log("HandleHit");
             // no action, just return
             if (btn1 == hit.collider.gameObject)
             {
