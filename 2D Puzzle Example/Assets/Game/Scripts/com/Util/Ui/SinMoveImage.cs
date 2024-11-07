@@ -14,7 +14,7 @@ namespace com
 
         private Vector2 _anchoredPos;
 
-        private void Start()
+        private void OnEnable()
         {
             if (trans == null)
                 trans = GetComponent<RectTransform>();
