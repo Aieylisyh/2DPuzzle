@@ -568,8 +568,6 @@
             {
                 // get the page view if available
                 var pageView = GetPageView(book.CurrentLeftPageNumber);
-                  Debug.Log(pageView);
-                 Debug.Log(pageView.gameObject.name);
                 if (pageView != null)
                 {
                     // drag

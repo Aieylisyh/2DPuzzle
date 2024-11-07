@@ -74,21 +74,29 @@
         /// </summary>
         /// <param name="increment">Amount of offset since last frame</param>
         /// <param name="useInertia">Use inertia or not</param>
-      // public override void Drag(Vector2 increment, bool useInertia)
-      // {
-      //     if (useInertia)
-      //     {
-      //         // using inertia, so we set the timer
-      //         inertiaTimeRemaining = inertiaTime;
-      //     }
-      //     else
-      //     {
-      //         // no inertia, just move the map
-      //         scrollerDirection = increment;
-      //         inertiaTimeRemaining = 0;
-      //       //  IncrementPosition(new Vector3(scrollerDirection.x * dragMoveFactor.x, scrollerDirection.y * dragMoveFactor.y, 0));
-      //     }
-      // }
+        public override void Drag(Vector2 increment, bool useInertia)
+        {
+            if (_draggingTrain)
+            {
+                //Debug.Log("Drag increment " + increment + " useInertia " + useInertia);
+                _posStartDrag += (Vector3)increment * dragFactor;
+                train.transform.position = _posStartDrag;
+                return;
+            }
+
+            if (useInertia)
+            {
+                // using inertia, so we set the timer
+                inertiaTimeRemaining = inertiaTime;
+            }
+            else
+            {
+                // no inertia, just move the map
+                scrollerDirection = increment;
+                inertiaTimeRemaining = 0;
+                IncrementPosition(new Vector3(scrollerDirection.x * dragMoveFactor.x, scrollerDirection.y * dragMoveFactor.y, 0));
+            }
+        }
 
         /// <summary>
         /// Moves the map
@@ -104,6 +112,40 @@
             if (position.y > mapBounds.w) position.y = mapBounds.w;
 
             mapTransform.localPosition = position;
+        }
+
+        public GameObject train;
+        public float dragFactor = 100;
+        bool _draggingTrain;
+        Vector3 _posStartDrag;
+
+        protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
+        {
+            _draggingTrain = false;//because this is triggered on released
+            return false;
+        }
+
+        public override bool HandleTouchDown(Vector2 hitPointNormalized)
+        {
+            //Debug.Log("HandleTouchDown");
+            if (pageViewCamera == null) return false;
+
+            _draggingTrain = false;
+            // cast a ray
+            RaycastHit hit;
+            if (Physics.Raycast(pageViewCamera.ViewportPointToRay(hitPointNormalized), out hit, maxRayCastDistance, raycastLayerMask))
+            {
+                Debug.Log(hit.collider.gameObject);
+                if (hit.collider.gameObject == train)
+                {
+                    Debug.Log("start drag");
+                    _posStartDrag = train.transform.position;
+                    _draggingTrain = true;
+                }
+                return true;
+            }
+
+            return false;
         }
     }
 }
