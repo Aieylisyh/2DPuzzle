@@ -74,21 +74,21 @@
         /// </summary>
         /// <param name="increment">Amount of offset since last frame</param>
         /// <param name="useInertia">Use inertia or not</param>
-        public override void Drag(Vector2 increment, bool useInertia)
-        {
-            if (useInertia)
-            {
-                // using inertia, so we set the timer
-                inertiaTimeRemaining = inertiaTime;
-            }
-            else
-            {
-                // no inertia, just move the map
-                scrollerDirection = increment;
-                inertiaTimeRemaining = 0;
-                IncrementPosition(new Vector3(scrollerDirection.x * dragMoveFactor.x, scrollerDirection.y * dragMoveFactor.y, 0));
-            }
-        }
+      // public override void Drag(Vector2 increment, bool useInertia)
+      // {
+      //     if (useInertia)
+      //     {
+      //         // using inertia, so we set the timer
+      //         inertiaTimeRemaining = inertiaTime;
+      //     }
+      //     else
+      //     {
+      //         // no inertia, just move the map
+      //         scrollerDirection = increment;
+      //         inertiaTimeRemaining = 0;
+      //       //  IncrementPosition(new Vector3(scrollerDirection.x * dragMoveFactor.x, scrollerDirection.y * dragMoveFactor.y, 0));
+      //     }
+      // }
 
         /// <summary>
         /// Moves the map

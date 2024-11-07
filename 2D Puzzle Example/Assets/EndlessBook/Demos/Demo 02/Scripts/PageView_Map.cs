@@ -14,11 +14,11 @@
     {
         public TextMesh continentText;
 
-        protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
-        {
-            continentText.text = hit.collider.gameObject.name;
-
-            return true;
-        }
+     // protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
+     // {
+     //     continentText.text = hit.collider.gameObject.name;
+     //
+     //     return true;
+     // }
     }
 }

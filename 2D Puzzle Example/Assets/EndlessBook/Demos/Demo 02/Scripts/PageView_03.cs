@@ -15,7 +15,7 @@
 
         int btn1HitCount;
         int btn2HitCount;
-        public float dragFactor;
+        public float dragFactor=100;
 
         public override void Activate()
         {
@@ -43,13 +43,13 @@
         public override void TouchDown()
         {
             base.TouchDown();
-            Debug.Log("TouchDown");
+            //Debug.Log("TouchDown");
         }
 
         protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
         {
             _draggingBtn1 = false;
-            Debug.Log("HandleHit");
+            //Debug.Log("HandleHit");
             // no action, just return
             if (btn1 == hit.collider.gameObject)
             {
@@ -72,7 +72,7 @@
         Vector3 _posStartDrag;
         public override bool HandleTouchDown(Vector2 hitPointNormalized)
         {
-            Debug.Log("HandleTouchDown");
+            //Debug.Log("HandleTouchDown");
             if (pageViewCamera == null) return false;
 
             _draggingBtn1 = false;
@@ -99,7 +99,7 @@
         {
             if (_draggingBtn1)
             {
-                Debug.Log("Drag increment " + increment + " useInertia " + useInertia);
+                //Debug.Log("Drag increment " + increment + " useInertia " + useInertia);
                 _posStartDrag += (Vector3)increment * dragFactor;
                 btn1.transform.position = _posStartDrag;
             }
