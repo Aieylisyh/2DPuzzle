@@ -13,9 +13,11 @@
         public override void Activate()
         {
             base.Activate();
-            CheckLock();
+            
             diaryViewItems.Init();
             diaryViewItems.Play();
+
+            CheckLock();
         }
 
         public override void Deactivate()
@@ -26,7 +28,7 @@
 
         void CheckLock()
         {
-            if (!diaryViewItems.completed)
+            if (diaryViewItems.completed)
             {
                 DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
             }
