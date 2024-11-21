@@ -296,6 +296,7 @@ public class 自己做饭System : MonoBehaviour
 
         seq.Play();
     }
+
     public void OnClick_CurryPot()
     {
         End();
