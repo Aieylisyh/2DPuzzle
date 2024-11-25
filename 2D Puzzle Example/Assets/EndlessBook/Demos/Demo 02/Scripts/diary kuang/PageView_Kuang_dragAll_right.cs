@@ -13,9 +13,12 @@
         public override void Activate()
         {
             base.Activate();
-            
-            diaryViewItems.Init();
-            diaryViewItems.Play();
+
+            if (diaryViewItems != null && diaryViewItems.items.Length > 0)
+            {
+                diaryViewItems.Init();
+                diaryViewItems.Play();
+            }
         }
 
         public override void Deactivate()
