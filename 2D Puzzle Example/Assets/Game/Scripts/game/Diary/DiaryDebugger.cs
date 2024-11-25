@@ -78,12 +78,14 @@ namespace Assets.Game.Scripts.game.Diary
 
         void Test9()
         {
-            DiaryGameSystem.instance.cameraController.TurnTo(-1, -1);
+            //fireworks view
+            //DiaryGameSystem.instance.cameraController.TurnTo(-1, -1);
         }
 
         void Test0()
         {
-            DiaryGameSystem.instance.cameraController.TurnTo(0, 0);
+            //focus view
+            //DiaryGameSystem.instance.cameraController.TurnTo(0, 0);
         }
     }
 }

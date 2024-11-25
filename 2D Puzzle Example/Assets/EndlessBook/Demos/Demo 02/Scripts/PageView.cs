@@ -93,5 +93,10 @@
         {
             return false;
         }
+
+        public virtual void HandleTouchUp(Vector2 hitPointNormalized)
+        {
+
+        }
     }
 }

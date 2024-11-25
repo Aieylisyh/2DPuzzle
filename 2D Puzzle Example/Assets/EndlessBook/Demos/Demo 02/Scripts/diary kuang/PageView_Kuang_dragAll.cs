@@ -80,4 +80,10 @@ public class PageView_Kuang_dragAll : PageView
         foreach (var d in diaryDraggables)
             d.OnDrag(increment);
     }
+
+    public override void HandleTouchUp(Vector2 hitPointNormalized)
+    {
+        foreach (var d in diaryDraggables)
+            d.EndDrag();
+    }
 }

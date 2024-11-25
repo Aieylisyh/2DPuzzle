@@ -426,6 +426,7 @@
                         {
                             // call the drag method on the page view
                             pageView.Drag(Vector2.zero, true);
+                            pageView.HandleTouchUp(hitPointNormalized);
                         }
 
                         return;
@@ -456,6 +457,7 @@
 
                             if (pageView != null)
                             {
+                                pageView.HandleTouchUp(hitPointNormalized);
                                 // cast a ray into the page and exit if we hit something (don't turn the page)
                                 if (pageView.RayCast(hitPointNormalized, BookAction))
                                 {
