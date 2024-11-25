@@ -16,6 +16,9 @@ namespace Assets.Game.Scripts.game.Diary
         public Transform ref_y_p;
         public Transform ref_y_n;
 
+        public Transform ref_comedy;
+        public Transform ref_focus;
+
         public float duration_long;
         public float duration_short;
 
@@ -39,6 +42,19 @@ namespace Assets.Game.Scripts.game.Diary
             var d = longDuration ? duration_long : duration_short;
             camTrans.DOMove(t.Item1, d);
             camTrans.DORotateQuaternion(t.Item2, d).OnComplete(() =>
+            {
+                _callback?.Invoke();
+                _callback = null;
+            });
+        }
+
+        public void TurnTo(Transform t, bool longDuration = true)
+        {
+            camTrans.DOKill();
+
+            var d = longDuration ? duration_long : duration_short;
+            camTrans.DOMove(t.position, d);
+            camTrans.DORotateQuaternion(t.rotation, d).OnComplete(() =>
             {
                 _callback?.Invoke();
                 _callback = null;
