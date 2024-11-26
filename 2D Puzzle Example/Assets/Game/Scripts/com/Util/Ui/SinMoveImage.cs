@@ -11,7 +11,7 @@ namespace com
 
         public bool useUnscaledTime = true;
         public bool useRawTime = true;
-
+        public float offset;
         private Vector2 _anchoredPos;
 
         private void OnEnable()
@@ -25,6 +25,7 @@ namespace com
         private void Update()
         {
             var t = useUnscaledTime ? Time.unscaledTime : (useRawTime ? Time.time : com.GameTime.time);
+            t+=offset;
             trans.anchoredPosition = _anchoredPos + baseSpeed * amplitude * Mathf.Sin(t * freq);
         }
     }
