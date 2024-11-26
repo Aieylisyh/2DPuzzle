@@ -66,7 +66,7 @@ public class 女邻居点赞System : MonoBehaviour
 
     void ShowSpoon()
     {
-        var t = 1.4f;
+        var t = 1.1f;
 
         spoon.gameObject.SetActive(true);
         spoon.DOKill();
@@ -137,5 +137,12 @@ public class 女邻居点赞System : MonoBehaviour
 
         beggerScene.SetActive(false);
         chaseScene.SetActive(true);
+    }
+
+    public void OnClickRawFood(GameObject cookedFood)
+    {
+        cookedFood.SetActive(true);
+        cookedFood.transform.DOPunchScale(Vector3.one * 0.3f, 0.6f,4,0.5f);
+        SoundSystem.instance.Play("clk");
     }
 }
