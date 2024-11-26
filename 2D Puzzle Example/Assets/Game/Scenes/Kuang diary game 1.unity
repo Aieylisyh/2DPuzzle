@@ -637,7 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 38518688}
   - component: {fileID: 38518689}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Background Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -917,7 +917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59460149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2800293, y: 8.94, z: 50}
+  m_LocalPosition: {x: 2.2800293, y: -14.1, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -941,7 +941,19 @@ MonoBehaviour:
   center: {fileID: 0}
   OnReceiveDragEvt:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 266155957}
+        m_TargetAssemblyTypeName: PageView_Kuang_LuggageChecklist_1, Assembly-CSharp
+        m_MethodName: CheckLock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   receiveHandleMethod: 1
 --- !u!65 &59460152
 BoxCollider:
@@ -2702,7 +2714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181511095}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.400024, y: 8.6, z: 50}
+  m_LocalPosition: {x: 51.7, y: 8.6, z: 50}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3650,7 +3662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 266155955}
   - component: {fileID: 266155957}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: PageView_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3697,6 +3709,11 @@ MonoBehaviour:
   - {fileID: 1297750645}
   - {fileID: 1251067023}
   - {fileID: 562190857}
+  checkListItems:
+  - {fileID: 1221079925}
+  - {fileID: 989507585}
+  - {fileID: 1359405077}
+  - {fileID: 1277881104}
 --- !u!1 &286223166
 GameObject:
   m_ObjectHideFlags: 0
@@ -6707,7 +6724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479196838}
   - component: {fileID: 479196839}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Map Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6760,7 +6777,7 @@ Camera:
   m_Depth: 50
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 65568
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: bf04bddac86fae94abaad3f89409d1cb, type: 2}
   m_TargetDisplay: 0
@@ -18864,7 +18881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1309633856}
   - component: {fileID: 1309633857}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Map Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18917,7 +18934,7 @@ Camera:
   m_Depth: 50
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 65568
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 6a01d7ec1d306fe489eef046d969f80a, type: 2}
   m_TargetDisplay: 0
@@ -20461,7 +20478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1418323038}
   - component: {fileID: 1418323039}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: PageView_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21036,7 +21053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1459730843}
   - component: {fileID: 1459730844}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Background Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21590,7 +21607,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 83911544a1384224f8c63969b343fe12, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 83911544a1384224f8c63969b343fe12, type: 3}
       propertyPath: m_IsActive
@@ -23853,7 +23870,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 6202ff505aa176d43865035aa7073aa8, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6202ff505aa176d43865035aa7073aa8, type: 3}
       propertyPath: m_IsActive

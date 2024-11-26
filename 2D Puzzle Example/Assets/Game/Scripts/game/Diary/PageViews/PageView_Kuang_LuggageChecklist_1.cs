@@ -8,7 +8,7 @@ using UnityEngine;
 public class PageView_Kuang_LuggageChecklist_1 : PageView
 {
     public DiaryDraggable[] diaryDraggables;
-
+    public DiaryBagCheckListItem[] checkListItems;
     public override void Activate()
     {
         base.Activate();
@@ -20,9 +20,17 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
         DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
     }
 
-    void CheckLock()
+    public void CheckLock()
     {
-        var allChecked = false;
+        var allChecked = true;
+        foreach (var c in checkListItems)
+        {
+            if (!c.isChecked)
+            {
+                allChecked = false;
+                break;
+            }
+        }
 
         if (allChecked)
         {
