@@ -40,7 +40,6 @@ namespace Assets.Game.Scripts.game.Diary.PageViews
         public override void Deactivate()
         {
             base.Deactivate();
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
         }
 
         void CheckLock()

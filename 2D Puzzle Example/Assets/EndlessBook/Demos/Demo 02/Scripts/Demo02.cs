@@ -520,7 +520,7 @@
                     {
                         if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnToLastPage)
                         {
-                            Debug.Log("lock canTurnToLastPage");
+                              Debug.Log("canTurnToNextPage is false");
                         }
                         else
                         {
@@ -542,7 +542,7 @@
                     {
                         if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnToNextPage)
                         {
-                            Debug.Log("lock canTurnToNextPage");
+                            Debug.Log("canTurnToNextPage is false");
                         }
                         else
                         {

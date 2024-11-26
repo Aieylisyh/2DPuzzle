@@ -22,7 +22,6 @@ public class PageView_Kuang_Calender_1 : PageView
     {
         Debug.Log("Deactivate");
         base.Deactivate();
-        //DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
     }
 
     public void CheckLock()
