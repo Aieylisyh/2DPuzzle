@@ -6,7 +6,7 @@
     using UnityEngine;
     using Assets.Game.Scripts.game.Diary;
 
-    public class PageView_Kuang_dragAll_right : PageView
+    public class PageView_SimpleItemViews : PageView
     {
         public DiaryViewItems diaryViewItems;
 

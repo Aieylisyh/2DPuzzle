@@ -50,9 +50,12 @@ namespace Assets.Game.Scripts.game.Diary
 
         public void TurnTo(Transform t, bool longDuration = true)
         {
-            camTrans.DOKill();
+            TurnTo(t, longDuration ? duration_long : duration_short);
+        }
 
-            var d = longDuration ? duration_long : duration_short;
+        public void TurnTo(Transform t, float d)
+        {
+            camTrans.DOKill();
             camTrans.DOMove(t.position, d);
             camTrans.DORotateQuaternion(t.rotation, d).OnComplete(() =>
             {
@@ -60,7 +63,6 @@ namespace Assets.Game.Scripts.game.Diary
                 _callback = null;
             });
         }
-
         public (Vector3, Quaternion) GetTransform(int zPositive, int yPositive)
         {
             if (zPositive == 1 && yPositive == 1)
