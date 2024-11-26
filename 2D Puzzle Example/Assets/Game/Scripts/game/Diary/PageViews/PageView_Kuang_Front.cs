@@ -21,14 +21,14 @@ namespace Assets.Game.Scripts.game.Diary.PageViews
         {
             DiaryGameFlowSystem.instance.ShowFriendTalk(
                 false, new string[2] { "animalese 1", "animalese 2" },
-                0.5f, 1.0f, ShowFriendTalkRight);
+                0.9f, 1.2f, 1.2f, ShowFriendTalkRight);
         }
 
         void ShowFriendTalkRight()
         {
             DiaryGameFlowSystem.instance.ShowFriendTalk(
-               true, new string[2] { "animalese 1", "animalese 2" },
-               0.5f, 1.0f, TalkEnd);
+               true, new string[2] { "animalese 3", "animalese 4" },
+               0.9f, 1.6f, 0.2f, TalkEnd);
         }
 
         void TalkEnd()

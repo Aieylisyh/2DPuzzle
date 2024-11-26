@@ -42,13 +42,14 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
     }
 
-    public void ShowFriendTalk(bool rightOrLeft, string[] soundIds, float extraDuration, float interval, Action callback)
+    public void ShowFriendTalk(bool rightOrLeft, string[] soundIds, float extraDuration, float interval, float delay, Action callback)
     {
-        StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, soundIds, extraDuration, interval, callback));
+        StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, soundIds, extraDuration, interval, delay, callback));
     }
 
-    IEnumerator ShowFriendTalkCoroutine(bool rightOrLeft, string[] soundIds, float extraDuration, float interval, Action callback)
+    IEnumerator ShowFriendTalkCoroutine(bool rightOrLeft, string[] soundIds, float extraDuration, float interval, float delay, Action callback)
     {
+        yield return new WaitForSeconds(delay);
         var cc = DiaryGameSystem.instance.cameraController;
         cc.TurnTo(0, rightOrLeft ? 1 : -1, true);
         yield return new WaitForSeconds(cc.duration_long);
