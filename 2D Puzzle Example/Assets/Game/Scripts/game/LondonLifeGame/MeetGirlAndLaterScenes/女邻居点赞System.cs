@@ -24,6 +24,7 @@ public class 女邻居点赞System : MonoBehaviour
         SceneTextSystem.instance.SetText(7, false);
         beggerScene.SetActive(true);
         chaseScene.SetActive(false);
+        cookTogetherScene.SetActive(false);
 
         spoon.gameObject.SetActive(false);
         food1.gameObject.SetActive(false);
@@ -51,6 +52,8 @@ public class 女邻居点赞System : MonoBehaviour
 
     public GameObject beggerScene;
     public GameObject chaseScene;
+    public GameObject cookTogetherScene;
+
     public Transform spoon;
     public Transform food1;
     public Transform food2;
@@ -137,12 +140,44 @@ public class 女邻居点赞System : MonoBehaviour
 
         beggerScene.SetActive(false);
         chaseScene.SetActive(true);
+        cookTogetherScene.SetActive(false);
     }
 
     public void OnClickRawFood(GameObject cookedFood)
     {
         cookedFood.SetActive(true);
-        cookedFood.transform.DOPunchScale(Vector3.one * 0.3f, 0.6f,4,0.5f);
-        SoundSystem.instance.Play("clk");
+        cookedFood.transform.DOPunchScale(Vector3.one * 0.3f, 0.6f, 4, 0.5f);
+        SoundSystem.instance.Play("tap");
+    }
+
+    public void OnClickChase()
+    {
+
+    }
+
+    void OnChaseEnd()
+    {
+        beggerScene.SetActive(false);
+        chaseScene.SetActive(false);
+        cookTogetherScene.SetActive(true);
+    }
+
+    public GameObject[] cookTogetherCookeditems;
+    public void OnCheckCookTogetherEnd()
+    {
+        bool allDone = true;
+        foreach (var c in cookTogetherCookeditems)
+        {
+            if (!c.activeSelf)
+            {
+                allDone = false;
+                break;
+            }
+        }
+
+        if (allDone)
+        {
+            End();
+        }
     }
 }

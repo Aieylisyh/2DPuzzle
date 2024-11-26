@@ -1,4 +1,4 @@
-﻿using com;
+using com;
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
@@ -34,5 +34,12 @@ public class 越来越多人加入System : MonoBehaviour
     public void End()
     {
         StartCoroutine(EndScene());
+    }
+
+    public GameObject[] dishes;
+    public GameObject[] peoples;
+    public void 干杯(int dishesId, int peopleNum)
+    {
+
     }
 }

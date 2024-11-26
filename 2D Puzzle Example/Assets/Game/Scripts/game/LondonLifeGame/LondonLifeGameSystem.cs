@@ -15,8 +15,7 @@ public class LondonLifeGameSystem : MonoBehaviour
         MeetGirl,
         DialogWithGirl,
         自己做饭,
-        女邻居点赞,
-        一起做饭,
+        女邻居点赞_一起做饭,
         越来越多人加入,
         结局,
     }
@@ -66,11 +65,8 @@ public class LondonLifeGameSystem : MonoBehaviour
             case Stage.自己做饭:
                 自己做饭System.instance.Reinit();
                 break;
-            case Stage.女邻居点赞:
+            case Stage.女邻居点赞_一起做饭:
                 女邻居点赞System.instance.Reinit();
-                break;
-            case Stage.一起做饭:
-                一起做饭System.instance.Reinit();
                 break;
             case Stage.越来越多人加入:
                 越来越多人加入System.instance.Reinit();
