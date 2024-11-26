@@ -141,6 +141,7 @@ public class 女邻居点赞System : MonoBehaviour
         beggerScene.SetActive(false);
         chaseScene.SetActive(true);
         cookTogetherScene.SetActive(false);
+        chaseItemIndex = -1;
     }
 
     public void OnClickRawFood(GameObject cookedFood)
@@ -148,11 +149,24 @@ public class 女邻居点赞System : MonoBehaviour
         cookedFood.SetActive(true);
         cookedFood.transform.DOPunchScale(Vector3.one * 0.3f, 0.6f, 4, 0.5f);
         SoundSystem.instance.Play("tap");
+        OnCheckCookTogetherEnd();
     }
 
+    public int chaseItemIndex;
+    public GameObject[] chaseItems;
     public void OnClickChase()
     {
-
+        //process chase!
+        chaseItemIndex++;
+        if (chaseItemIndex < chaseItems.Length)
+        {
+            chaseItems[chaseItemIndex].SetActive(true);
+            SoundSystem.instance.Play("tap");
+        }
+        else
+        {
+            OnChaseEnd();
+        }
     }
 
     void OnChaseEnd()
