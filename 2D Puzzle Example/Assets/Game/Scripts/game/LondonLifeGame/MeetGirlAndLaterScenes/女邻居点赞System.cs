@@ -85,8 +85,8 @@ public class 女邻居点赞System : MonoBehaviour
         if (!_canClickOnBowl)
             return;
 
-        var t = 1.5f;
-        var t_color = 0.8f;
+        var t = 1.2f;
+        var t_color = 0.7f;
         if (!_food1Done)
         {
             _food1Done = true;
