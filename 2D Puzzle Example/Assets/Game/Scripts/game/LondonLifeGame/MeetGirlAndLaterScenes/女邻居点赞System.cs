@@ -42,7 +42,7 @@ public class 女邻居点赞System : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         _pcgs.Show(false, false);
-
+        越来越多人加入System.instance.Reinit();
     }
 
     public void End()
@@ -161,14 +161,14 @@ public class 女邻居点赞System : MonoBehaviour
         if (chaseItemIndex < chaseItems.Length)
         {
             chaseItems[chaseItemIndex].SetActive(true);
-          
-            if (chaseItemIndex==5)
+
+            if (chaseItemIndex == 5)
             {
-                 SoundSystem.instance.Play("ding");
+                SoundSystem.instance.Play("ding");
             }
             else
             {
-                  SoundSystem.instance.Play("item");
+                SoundSystem.instance.Play("item");
             }
         }
         else

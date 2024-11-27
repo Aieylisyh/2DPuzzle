@@ -17,10 +17,10 @@ public class MeetGirlSystem : MonoBehaviour
 
     [SerializeField] CanvasGroup[] MyOptionsView;
     [SerializeField] TextMeshProUGUI textGirlSay;
+
     private void Awake()
     {
         instance = this;
-
     }
 
     public void Reinit()
@@ -42,7 +42,7 @@ public class MeetGirlSystem : MonoBehaviour
         mythinkView.SetActive(false);
         yield return new WaitForSeconds(1);
         girlView.DOFade(1, 1.2f);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.5f);
         girlRequestView.DOFade(1, 1.2f);
         yield return new WaitForSeconds(1.5f);
         mythinkView.SetActive(true);
@@ -62,8 +62,8 @@ public class MeetGirlSystem : MonoBehaviour
     {
         SoundSystem.instance.Play("bubble");
         textGirlSay.text = "No, please consider my...";
-        textGirlSay.rectTransform.DOShakeScale(1.5f, 1, 8);
-        yield return new WaitForSeconds(3.5f);
+        textGirlSay.rectTransform.DOShakeScale(1.6f, 1, 8);
+        yield return new WaitForSeconds(4f);
         _pcgs.Show(false, false);
         DialogWithGirlSystem.instance.Reinit();
     }

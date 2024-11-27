@@ -38,7 +38,8 @@ public class BalanceSceneSystem : MonoBehaviour
         _rightWeight = 0;
         _leftWeight = 0;
         _totalOnBalanceCount = 0;
-
+        foreach (var w in myWords)
+            w.SetActive(false);
         balanceHorizontal.localEulerAngles = Vector3.zero;
         SceneTextSystem.instance.SetText(1, false);
 
@@ -50,10 +51,7 @@ public class BalanceSceneSystem : MonoBehaviour
                 oid.oi.Init();
             }));
         }
-        foreach (var w in myWords)
-        {
-            w.SetActive(false);
-        }
+
         StartCoroutine(ShowMyWordsOneByOne());
     }
 

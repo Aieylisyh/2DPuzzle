@@ -35,7 +35,7 @@ public class InRoomClockScene : MonoBehaviour
 
     IEnumerator EndClockScene()
     {
-        Debug.Log("EndClockScene");
+        //Debug.Log("EndClockScene");
         yield return new WaitForSeconds(2);
         _pcgs.Show(false, false);
         MeetGirlSystem.instance.Reinit();

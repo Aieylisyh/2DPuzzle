@@ -44,10 +44,12 @@ public class 自己做饭System : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         _pcgs.Show(false, false);
+        女邻居点赞System.instance.Reinit();
     }
 
     public void End()
     {
+        Debug.Log("end");
         StartCoroutine(EndScene());
     }
 
@@ -85,7 +87,7 @@ public class 自己做饭System : MonoBehaviour
         cuttingKnife.gameObject.SetActive(true);
 
         var seq = DOTween.Sequence();
-        seq.AppendInterval(1.5f);
+        seq.AppendInterval(1.2f);
         seq.AppendCallback(() => { toHide.DOFade(0, 1); });
         seq.AppendInterval(1);
         seq.AppendCallback(() =>
@@ -297,8 +299,13 @@ public class 自己做饭System : MonoBehaviour
         seq.Play();
     }
 
+    bool ending;
     public void OnClick_CurryPot()
     {
+        if (ending)
+            return;
+
         End();
+        ending = true;
     }
 }

@@ -20,6 +20,7 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
     public TimeflowScene[] timeflowScenes;
 
     public UnityEvent evtEndTime;
+
     void Start()
     {
         SetTime(0);
@@ -34,9 +35,11 @@ public class ClockBehaviour : MonoBehaviour, IPointerDownHandler, IPointerMoveHa
         {
             s.Tick(_timeInHour);
         }
+
         if (_timeInHour == timeInHourMax)
         {
             evtEndTime?.Invoke();
+            this.enabled = false;
         }
     }
 

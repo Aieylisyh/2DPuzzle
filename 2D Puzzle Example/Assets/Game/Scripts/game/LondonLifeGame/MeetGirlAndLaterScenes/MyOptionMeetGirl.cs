@@ -49,7 +49,7 @@ public class MyOptionMeetGirl : MonoBehaviour, IBeginDragHandler, IEndDragHandle
     {
         _rectTrans.DOKill();
         var dir = target.anchoredPosition - _rectTrans.anchoredPosition;
-        Debug.Log(dir.magnitude);
+        //Debug.Log(dir.magnitude);
         if (dir.magnitude < distanceThreshold)
         {
             //拖到了
