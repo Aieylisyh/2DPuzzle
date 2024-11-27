@@ -148,7 +148,7 @@ public class 女邻居点赞System : MonoBehaviour
     {
         cookedFood.SetActive(true);
         cookedFood.transform.DOPunchScale(Vector3.one * 0.3f, 0.6f, 4, 0.5f);
-        SoundSystem.instance.Play("tap");
+        SoundSystem.instance.Play("ding");
         OnCheckCookTogetherEnd();
     }
 
@@ -161,7 +161,15 @@ public class 女邻居点赞System : MonoBehaviour
         if (chaseItemIndex < chaseItems.Length)
         {
             chaseItems[chaseItemIndex].SetActive(true);
-            SoundSystem.instance.Play("tap");
+          
+            if (chaseItemIndex==5)
+            {
+                 SoundSystem.instance.Play("ding");
+            }
+            else
+            {
+                  SoundSystem.instance.Play("item");
+            }
         }
         else
         {

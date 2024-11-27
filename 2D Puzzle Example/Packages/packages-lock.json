@@ -162,7 +162,7 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.recorder": {
-      "version": "4.0.3",
+      "version": "3.0.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -191,7 +191,7 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.timeline": {
-      "version": "1.7.6",
+      "version": "1.6.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
