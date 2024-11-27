@@ -52,7 +52,7 @@ public class PageView_Kuang_Trains1 : PageView
     public override void TouchDown()
     {
         base.TouchDown();
-        Debug.Log("TouchDown");
+        Debug.Log("TouchDown");//earlier than handleHit
     }
 
     protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
