@@ -32,13 +32,15 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         gameLogo.SetActive(true);
 
-        gameLogo.transform.DORotate(Vector3.zero, 3.3f).SetEase(Ease.InOutCubic);
-        yield return new WaitForSeconds(3.6f);
-        gameLogo.transform.DORotate(new Vector3(0, 270, 0), 2.5f).SetEase(Ease.InOutCubic);
-        yield return new WaitForSeconds(2.5f + 0.1f);
+        float t1 = 3.3f;
+        gameLogo.transform.DORotate(Vector3.zero, t1).SetEase(Ease.InOutCubic);
+        yield return new WaitForSeconds(t1 + 0.9f);
+        float t2 = 2.5f;
+        gameLogo.transform.DORotate(new Vector3(0, 270, 0), t2).SetEase(Ease.InOutCubic);
+        yield return new WaitForSeconds(t2);
         gameLogo.SetActive(false);
 
-        cc.TurnTo(cc.ref_default, 1.5f);
+        cc.TurnTo(cc.ref_default, 1.6f);
         yield return new WaitForSeconds(1.5f);
     }
 

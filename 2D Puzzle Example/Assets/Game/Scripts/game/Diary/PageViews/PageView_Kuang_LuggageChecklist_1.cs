@@ -9,9 +9,13 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
 {
     public DiaryDraggable[] diaryDraggables;
     public DiaryBagCheckListItem[] checkListItems;
+    public static PageView_Kuang_LuggageChecklist_1 instance;
+
+
     public override void Activate()
     {
         base.Activate();
+         instance=this;
         CheckLock();
     }
     public override void Deactivate()
@@ -72,7 +76,7 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
         RaycastHit hit;
         if (Physics.Raycast(pageViewCamera.ViewportPointToRay(hitPointNormalized), out hit, maxRayCastDistance, raycastLayerMask))
         {
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
             foreach (var d in diaryDraggables)
             {
                 if (hit.collider.gameObject == d.gameObject)

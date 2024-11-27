@@ -15,13 +15,17 @@ public class DiaryBagCheckListItem : MonoBehaviour
     {
         if (isChecked)
             return;
+
         isChecked = true;
         checkmark.SetActive(true);
         checkmark.transform.DOKill();
+        //Debug.Log("Check");
         if (withAnime)
         {
             checkmark.transform.DOPunchScale(Vector3.one * 0.35f, 0.8f, 5, 0.7f);
         }
+
+        PageView_Kuang_LuggageChecklist_1.instance.CheckLock();
     }
 
     public void UnCheck()

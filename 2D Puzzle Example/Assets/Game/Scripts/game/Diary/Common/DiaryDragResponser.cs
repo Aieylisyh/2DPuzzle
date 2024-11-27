@@ -28,7 +28,6 @@ public class DiaryDragResponser : MonoBehaviour
         var distance = GetDistance(d.transform);
         if (distance < range)
         {
-            d.EndEvt?.Invoke();
             switch (receiveHandleMethod)
             {
                 case ReceiveHandleMethod.None:
@@ -39,6 +38,7 @@ public class DiaryDragResponser : MonoBehaviour
                 case ReceiveHandleMethod.Other:
                     break;
             }
+            d.EndEvt?.Invoke();
             return true;
         }
 
