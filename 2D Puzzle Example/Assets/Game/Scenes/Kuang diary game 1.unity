@@ -7670,15 +7670,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 528639554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7fb0715cc5b8c845983d113d808a03b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3786ece41995d7044889f25e54e61c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 32
   maxRayCastDistance: 1000
-  diaryViewItems:
-    items: []
 --- !u!1 &532209490
 GameObject:
   m_ObjectHideFlags: 0
@@ -27048,18 +27046,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1856406972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb7b777e51a3d5945812436238880235, type: 3}
+  m_Script: {fileID: 11500000, guid: ceea237a775025f4885e71e8be1feb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 32
   maxRayCastDistance: 1000
-  continentText: {fileID: 384949124}
-  hittables:
-  - {fileID: 157878792}
-  - {fileID: 1610645776}
-  - {fileID: 28484614}
+  mimicPanelObjects:
+  - method: 0
+    delay: 0
+    duration: 0
+    offset: {x: 0, y: 0, z: 0}
+  - method: 0
+    delay: 0
+    duration: 0
+    offset: {x: 0, y: 0, z: 0}
+  - method: 0
+    delay: 0
+    duration: 0
+    offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1868246790
 GameObject:
   m_ObjectHideFlags: 0

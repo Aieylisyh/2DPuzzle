@@ -4,49 +4,8 @@ using echo17.EndlessBook.Demo02;
 using System.Collections;
 using UnityEngine;
 
-public class PageView_Kuang_Trains1 : PageView
+public class PageView_Kuang_Trains2 : PageView
 {
-    [System.Serializable]
-    public class MimicPanelObject
-    {
-        public enum Method
-        {
-            Up,
-            Down,
-            Drag,
-        }
-        public Method method;
-        public float delay;
-        public float duration;
-        public Vector3 offset;
-    }
-
-    public MimicPanelObject[] mimicPanelObjects;
-
-    public override void Activate()
-    {
-        base.Activate();
-        CheckLock();
-    }
-    public override void Deactivate()
-    {
-        base.Deactivate();
-        DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
-    }
-
-    public void CheckLock()
-    {
-        var allPassed = false;
-
-        if (allPassed)
-        {
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
-        }
-        else
-        {
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(true);
-        }
-    }
 
 
     public override void TouchDown()
