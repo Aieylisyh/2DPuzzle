@@ -23,18 +23,17 @@
         public override void Deactivate()
         {
             base.Deactivate();
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
         }
 
         void CheckLock()
         {
             if (diaryViewItems.completed)
             {
-                DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
+                DiaryGameSystem.instance.ToggleLockTurnPage(false);
             }
             else
             {
-                DiaryGameSystem.instance.ToggleLockTurnNextPage(true);
+                DiaryGameSystem.instance.ToggleLockTurnPage(true);
             }
         }
     }

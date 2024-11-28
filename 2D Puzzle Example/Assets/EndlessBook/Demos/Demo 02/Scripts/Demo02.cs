@@ -397,15 +397,15 @@
                         case TouchPad.PageEnum.Left:
 
                             // transition from the OpenFront to the ClosedFront states
-                            ClosedFront();
+                            // ClosedFront();
 
                             break;
 
                         case TouchPad.PageEnum.Right:
 
                             // transition from the OpenFront to the OpenMiddle states
-                            OpenMiddle();
 
+                            OpenMiddle();
                             break;
                     }
 
@@ -514,13 +514,21 @@
                     if (book.CurrentLeftPageNumber == 1)
                     {
                         // if on the first page, transition from the OpenMiddle to the OpenFront states
-                        OpenFront();
+
+                        if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnPage)
+                        {
+                            Debug.Log("canTurnToNextPage is false");
+                        }
+                        else
+                        {
+                            OpenFront();
+                        }
                     }
                     else
                     {
-                        if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnToLastPage)
+                        if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnPage)
                         {
-                              Debug.Log("canTurnToNextPage is false");
+                            Debug.Log("canTurnToNextPage is false");
                         }
                         else
                         {
@@ -536,11 +544,19 @@
                     if (book.CurrentRightPageNumber == book.LastPageNumber)
                     {
                         // if on the last page, transition from the OpenMiddle to the OpenBack states
-                        OpenBack();
+
+                        if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnPage)
+                        {
+                            Debug.Log("canTurnToNextPage is false");
+                        }
+                        else
+                        {
+                            OpenBack();
+                        }
                     }
                     else
                     {
-                        if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnToNextPage)
+                        if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnPage)
                         {
                             Debug.Log("canTurnToNextPage is false");
                         }

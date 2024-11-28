@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class DiaryBagCheckListItem : MonoBehaviour
         if (isChecked)
             return;
 
+        SoundSystem.instance.Play("done");
         isChecked = true;
         checkmark.SetActive(true);
         checkmark.transform.DOKill();

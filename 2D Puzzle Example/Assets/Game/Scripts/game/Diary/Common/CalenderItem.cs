@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
                 return true;
 
             revealed = true;
+            SoundSystem.instance.Play("done");
             toReveal.DOFade(1, 1);
             return true;
         }

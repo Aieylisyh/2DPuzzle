@@ -46,11 +46,11 @@ public class PageView_Kuang_Calender_1 : PageView
 
         if (allRevealed)
         {
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
+            DiaryGameSystem.instance.ToggleLockTurnPage(false);
         }
         else
         {
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(true);
+            DiaryGameSystem.instance.ToggleLockTurnPage(true);
         }
     }
 

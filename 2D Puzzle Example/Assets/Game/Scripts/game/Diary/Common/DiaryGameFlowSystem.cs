@@ -28,20 +28,20 @@ public class DiaryGameFlowSystem : MonoBehaviour
         gameLogo.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         var cc = DiaryGameSystem.instance.cameraController;
-        cc.TurnTo(cc.ref_comedy, 3.5f);
-        yield return new WaitForSeconds(3.5f);
+        cc.TurnTo(cc.ref_comedy, 3.0f);
+        yield return new WaitForSeconds(2.8f);
         gameLogo.SetActive(true);
 
-        float t1 = 3.3f;
+        float t1 = 1.2f;
         gameLogo.transform.DORotate(Vector3.zero, t1).SetEase(Ease.InOutCubic);
-        yield return new WaitForSeconds(t1 + 0.9f);
-        float t2 = 2.5f;
+        yield return new WaitForSeconds(t1 + 2.8f);
+        float t2 = 1.2f;
         gameLogo.transform.DORotate(new Vector3(0, 270, 0), t2).SetEase(Ease.InOutCubic);
         yield return new WaitForSeconds(t2);
         gameLogo.SetActive(false);
 
-        cc.TurnTo(cc.ref_default, 1.6f);
-        yield return new WaitForSeconds(1.5f);
+        cc.TurnTo(cc.ref_default, 1.5f);
+        //yield return new WaitForSeconds(1.2f);
     }
 
     public void ShowFriendTalk(bool rightOrLeft, string[] soundIds, float extraDuration, float interval, float delay, Action callback)

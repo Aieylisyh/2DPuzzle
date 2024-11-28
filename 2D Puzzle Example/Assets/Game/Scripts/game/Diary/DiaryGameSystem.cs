@@ -17,8 +17,7 @@ namespace Assets.Game.Scripts.game.Diary
         public Transform lock_leaveEnd;
         public Transform locker;
 
-        public bool canTurnToNextPage;
-        public bool canTurnToLastPage;
+        public bool canTurnPage;
 
         private void Awake()
         {
@@ -31,16 +30,16 @@ namespace Assets.Game.Scripts.game.Diary
             locker.rotation = lock_enterStart.rotation;
         }
 
-        public void ToggleLockTurnNextPage(bool b)
+        public void ToggleLockTurnPage(bool b)
         {
-            //Debug.Log("ToggleLockTurnNextPage " + b);
-            if (canTurnToNextPage == !b)
+            //Debug.Log("ToggleLockTurnPage " + b);
+            if (canTurnPage == !b)
             {
                 return;
             }
 
             locker.DOKill();
-            if (canTurnToNextPage)
+            if (canTurnPage)
             {
                 locker.position = lock_enterStart.position;
                 locker.rotation = lock_enterStart.rotation;
@@ -52,7 +51,7 @@ namespace Assets.Game.Scripts.game.Diary
                 locker.DOMove(lock_leaveEnd.position, 1.5f).SetEase(Ease.InCubic);
                 locker.DORotate(lock_leaveEnd.eulerAngles, 1.5f).SetEase(Ease.Linear);
             }
-            canTurnToNextPage = !b;
+            canTurnPage = !b;
         }
 
         public bool testLockNext;
@@ -63,13 +62,13 @@ namespace Assets.Game.Scripts.game.Diary
             if (testLockNext)
             {
                 testLockNext = false;
-                ToggleLockTurnNextPage(true);
+                ToggleLockTurnPage(true);
             }
 
             if (testUnlockNext)
             {
                 testUnlockNext = false;
-                ToggleLockTurnNextPage(false);
+                ToggleLockTurnPage(false);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Assets.EndlessBook.Demos.Demo_02.Scripts;
 using Assets.Game.Scripts.game.Diary;
+using com;
 using echo17.EndlessBook.Demo02;
 using System.Collections;
 using UnityEngine;
@@ -12,11 +13,15 @@ public class PageView_Kuang_Trains1 : PageView
     {
         base.Activate();
         CheckLock();
+        foreach (var mpo in mimicPanelObjects)
+        {
+            mpo.ResetAnim();
+        }
     }
+
     public override void Deactivate()
     {
         base.Deactivate();
-        DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
     }
 
     public void CheckLock()
@@ -25,11 +30,11 @@ public class PageView_Kuang_Trains1 : PageView
 
         if (allPassed)
         {
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
+            DiaryGameSystem.instance.ToggleLockTurnPage(false);
         }
         else
         {
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(true);
+            DiaryGameSystem.instance.ToggleLockTurnPage(true);
         }
     }
 
@@ -38,6 +43,18 @@ public class PageView_Kuang_Trains1 : PageView
     {
         base.TouchDown();
         Debug.Log("TouchDown");//earlier than handleHit
+
+        OnTap();
+    }
+
+    public void OnTap()
+    {
+        SoundSystem.instance.Play("done");
+        foreach (var mpo in mimicPanelObjects)
+        {
+            mpo.ResetAnim();
+            mpo.StartAnim();
+        }
     }
 
     protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)

@@ -46,11 +46,11 @@ namespace Assets.Game.Scripts.game.Diary.PageViews
         {
             if (friendTalksDone)
             {
-                DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
+                DiaryGameSystem.instance.ToggleLockTurnPage(false);
             }
             else
             {
-                DiaryGameSystem.instance.ToggleLockTurnNextPage(true);
+                DiaryGameSystem.instance.ToggleLockTurnPage(true);
             }
         }
     }

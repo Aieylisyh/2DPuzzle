@@ -21,7 +21,6 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
     public override void Deactivate()
     {
         base.Deactivate();
-        DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
     }
 
     public void CheckLock()
@@ -38,11 +37,11 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
 
         if (allChecked)
         {
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(false);
+            DiaryGameSystem.instance.ToggleLockTurnPage(false);
         }
         else
         {
-            DiaryGameSystem.instance.ToggleLockTurnNextPage(true);
+            DiaryGameSystem.instance.ToggleLockTurnPage(true);
         }
     }
 

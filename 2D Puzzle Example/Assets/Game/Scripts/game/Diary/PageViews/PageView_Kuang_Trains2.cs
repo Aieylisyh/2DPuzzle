@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class PageView_Kuang_Trains2 : PageView
 {
+    public PageView_Kuang_Trains1 pageView_Kuang_Trains1;
     public override void TouchDown()
     {
         base.TouchDown();
         Debug.Log("TouchDown");
+        pageView_Kuang_Trains1.OnTap();
     }
 
     protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
