@@ -6,21 +6,6 @@ using UnityEngine;
 
 public class PageView_Kuang_Trains1 : PageView
 {
-    [System.Serializable]
-    public class MimicPanelObject
-    {
-        public enum Method
-        {
-            Up,
-            Down,
-            Drag,
-        }
-        public Method method;
-        public float delay;
-        public float duration;
-        public Vector3 offset;
-    }
-
     public MimicPanelObject[] mimicPanelObjects;
 
     public override void Activate()

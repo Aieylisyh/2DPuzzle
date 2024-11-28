@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class PageView_Kuang_Trains2 : PageView
 {
-
-
     public override void TouchDown()
     {
         base.TouchDown();
