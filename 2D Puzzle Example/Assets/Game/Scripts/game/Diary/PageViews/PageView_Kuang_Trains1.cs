@@ -7,16 +7,20 @@ using UnityEngine;
 
 public class PageView_Kuang_Trains1 : PageView
 {
-    public Transform mimicPanelObjectParent;
-    public MimicPanelObject[] mimicPanelObjects { get; private set; }
+    public TinyStageOfMimicPanels[] tinyStages;
 
+    private int _tinyStageIndex;
     public override void Activate()
     {
         base.Activate();
+        _tinyStageIndex = -1;
+        foreach (var ts in tinyStages)
+        {
+            ts.Init();
+            ts.gameObject.SetActive(false);
+        }
+
         CheckLock();
-        mimicPanelObjects = mimicPanelObjectParent.GetComponentsInChildren<MimicPanelObject>();
-        foreach (var mpo in mimicPanelObjects)
-            mpo.ResetAnim();
     }
 
     public override void Deactivate()
@@ -26,7 +30,7 @@ public class PageView_Kuang_Trains1 : PageView
 
     public void CheckLock()
     {
-        var allPassed = false;
+        var allPassed = _tinyStageIndex >= tinyStages.Length;
 
         if (allPassed)
         {
@@ -50,11 +54,29 @@ public class PageView_Kuang_Trains1 : PageView
     public void OnTap()
     {
         SoundSystem.instance.Play("done");
-        foreach (var mpo in mimicPanelObjects)
+        if (_tinyStageIndex < 0)
+            _tinyStageIndex = 0;
+
+        if (_tinyStageIndex >= tinyStages.Length)
         {
-            mpo.ResetAnim();
-            mpo.StartAnim();
+            CheckLock();
+            return;
         }
+
+        foreach (var ts in tinyStages)
+        {
+            if (ts.playing)
+                return;
+        }
+
+        var crtStage = tinyStages[_tinyStageIndex];
+        foreach (var ts in tinyStages)
+        {
+            ts.gameObject.SetActive(ts == crtStage);
+        }
+
+        crtStage.StartPlay();
+        _tinyStageIndex++;
     }
 
     protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
@@ -76,7 +98,6 @@ public class PageView_Kuang_Trains1 : PageView
         if (Physics.Raycast(pageViewCamera.ViewportPointToRay(hitPointNormalized), out hit, maxRayCastDistance, raycastLayerMask))
         {
             //Debug.Log(hit.collider.gameObject);
-
             return true;
         }
 

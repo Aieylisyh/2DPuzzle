@@ -33,6 +33,15 @@ namespace Assets.Game.Scripts.game.Diary
 
         public void ToggleLockTurnPage(bool b)
         {
+            if (neverLock)
+            {
+                canTurnPage = true;
+                locker.position = lock_enterStart.position;
+                locker.rotation = lock_enterStart.rotation;
+                return;
+            }
+
+
             //Debug.Log("ToggleLockTurnPage " + b);
             if (canTurnPage == !b)
                 return;
@@ -50,11 +59,13 @@ namespace Assets.Game.Scripts.game.Diary
                 locker.DOMove(lock_leaveEnd.position, 1.5f).SetEase(Ease.InCubic);
                 locker.DORotate(lock_leaveEnd.eulerAngles, 1.5f).SetEase(Ease.Linear);
             }
+
             canTurnPage = !b;
         }
 
         public bool testLockNext;
         public bool testUnlockNext;
+        public bool neverLock;
 
         private void Update()
         {
