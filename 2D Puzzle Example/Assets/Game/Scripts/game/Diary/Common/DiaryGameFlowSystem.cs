@@ -3,6 +3,7 @@ using com;
 using DG.Tweening;
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 
@@ -13,6 +14,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
     public GameObject gameLogo;
     public GameObject fireworks;
 
+    public TextMeshProUGUI subtitle;
     private void Awake()
     {
         instance = this;
@@ -20,6 +22,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
     private void Start()
     {
+        subtitle.gameObject.SetActive(false);
         StartCoroutine(StartGameCoroutine());
     }
 
@@ -27,6 +30,8 @@ public class DiaryGameFlowSystem : MonoBehaviour
     {
         gameLogo.SetActive(false);
         yield return new WaitForSeconds(0.5f);
+        DiaryGameSystem.instance.ToggleLockTurnPage(true);
+
         var cc = DiaryGameSystem.instance.cameraController;
         cc.TurnTo(cc.ref_comedy, 3.0f);
         yield return new WaitForSeconds(2.8f);
@@ -41,25 +46,30 @@ public class DiaryGameFlowSystem : MonoBehaviour
         gameLogo.SetActive(false);
 
         cc.TurnTo(cc.ref_default, 1.5f);
-        //yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.2f);
+        DiaryGameSystem.instance.ToggleLockTurnPage(false);
     }
 
-    public void ShowFriendTalk(bool rightOrLeft, string[] soundIds, float extraDuration, float interval, float delay, Action callback)
+    public void ShowFriendTalk(bool rightOrLeft, DialogData[] dialogs, float extraDuration, float delay, Action callback)
     {
-        StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, soundIds, extraDuration, interval, delay, callback));
+        StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, extraDuration, delay, callback));
     }
 
-    IEnumerator ShowFriendTalkCoroutine(bool rightOrLeft, string[] soundIds, float extraDuration, float interval, float delay, Action callback)
+    IEnumerator ShowFriendTalkCoroutine(bool rightOrLeft, DialogData[] dialogs, float extraDuration, float delay, Action callback)
     {
         yield return new WaitForSeconds(delay);
         var cc = DiaryGameSystem.instance.cameraController;
         cc.TurnTo(0, rightOrLeft ? 1 : -1, true);
         yield return new WaitForSeconds(cc.duration_long);
 
-        foreach (var s in soundIds)
+        foreach (var d in dialogs)
         {
-            SoundSystem.instance.Play(s);
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSeconds(0.1f);
+            SoundSystem.instance.Play(d.soundId);
+            subtitle.gameObject.SetActive(true);
+            subtitle.text = d.text;
+            yield return new WaitForSeconds(d.time);
+            subtitle.gameObject.SetActive(false);
         }
 
         yield return new WaitForSeconds(extraDuration);
@@ -67,5 +77,13 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(cc.duration_short);
 
         callback?.Invoke();
+    }
+
+    [System.Serializable]
+    public class DialogData
+    {
+        public string soundId;
+        public string text;
+        public float time;
     }
 }

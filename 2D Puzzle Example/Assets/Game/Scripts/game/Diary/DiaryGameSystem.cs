@@ -21,6 +21,7 @@ namespace Assets.Game.Scripts.game.Diary
 
         private void Awake()
         {
+            canTurnPage = true;
             instance = this;
         }
 
@@ -34,9 +35,7 @@ namespace Assets.Game.Scripts.game.Diary
         {
             //Debug.Log("ToggleLockTurnPage " + b);
             if (canTurnPage == !b)
-            {
                 return;
-            }
 
             locker.DOKill();
             if (canTurnPage)

@@ -19,16 +19,31 @@ namespace Assets.Game.Scripts.game.Diary.PageViews
 
         void ShowFriendTalkLeft()
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(
-                false, new string[2] { "animalese 1", "animalese 2" },
-                0.9f, 1.2f, 1.2f, ShowFriendTalkRight);
+            var datas = new DiaryGameFlowSystem.DialogData[2];
+            datas[0] = new DiaryGameFlowSystem.DialogData();
+            datas[0].soundId = "animalese 1";
+            datas[0].text = "Alice: I love my house I like my socks I hate eggs.";
+            datas[0].time = 1.0f;
+            datas[1] = new DiaryGameFlowSystem.DialogData();
+            datas[1].soundId = "animalese 2";
+            datas[1].text = "Jack: I made my biggest mistake by creating my company.";
+            datas[1].time = 1.0f;
+            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 1.2f, ShowFriendTalkRight);
         }
 
         void ShowFriendTalkRight()
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(
-               true, new string[2] { "animalese 3", "animalese 4" },
-               0.9f, 1.6f, 0.2f, TalkEnd);
+            var datas = new DiaryGameFlowSystem.DialogData[2];
+            datas[0] = new DiaryGameFlowSystem.DialogData();
+            datas[0].soundId = "animalese 3";
+            datas[0].text = "Kaka: I love my house I like my socks I hate eggs.";
+            datas[0].time = 1.0f;
+            datas[1] = new DiaryGameFlowSystem.DialogData();
+            datas[1].soundId = "animalese 4";
+            datas[1].text = "Kaku: I made my biggest mistake by creating my company.";
+            datas[1].time = 1.0f;
+
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.6f, 0.2f, TalkEnd);
         }
 
         void TalkEnd()
