@@ -7,16 +7,16 @@ using UnityEngine;
 
 public class PageView_Kuang_Trains1 : PageView
 {
-    public MimicPanelObject[] mimicPanelObjects;
+    public Transform mimicPanelObjectParent;
+    public MimicPanelObject[] mimicPanelObjects { get; private set; }
 
     public override void Activate()
     {
         base.Activate();
         CheckLock();
+        mimicPanelObjects = mimicPanelObjectParent.GetComponentsInChildren<MimicPanelObject>();
         foreach (var mpo in mimicPanelObjects)
-        {
             mpo.ResetAnim();
-        }
     }
 
     public override void Deactivate()
