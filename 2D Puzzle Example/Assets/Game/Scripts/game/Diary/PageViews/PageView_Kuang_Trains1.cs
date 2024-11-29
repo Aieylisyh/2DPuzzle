@@ -53,20 +53,19 @@ public class PageView_Kuang_Trains1 : PageView
 
     public void OnTap()
     {
-        SoundSystem.instance.Play("done");
-        if (_tinyStageIndex < 0)
+        foreach (var ts in tinyStages)
+        {
+            if (ts.playing)
+                return;
+        }
+          SoundSystem.instance.Play("done");
+          if (_tinyStageIndex < 0)
             _tinyStageIndex = 0;
 
         if (_tinyStageIndex >= tinyStages.Length)
         {
             CheckLock();
             return;
-        }
-
-        foreach (var ts in tinyStages)
-        {
-            if (ts.playing)
-                return;
         }
 
         var crtStage = tinyStages[_tinyStageIndex];

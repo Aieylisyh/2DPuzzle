@@ -10963,7 +10963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mimicPanelObjectParent: {fileID: 0}
-  stageDuration: 10
+  stageDuration: 11
 --- !u!1 &709488354
 GameObject:
   m_ObjectHideFlags: 0
@@ -14461,7 +14461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mimicPanelObjectParent: {fileID: 0}
-  stageDuration: 10
+  stageDuration: 11
 --- !u!1 &963841643
 GameObject:
   m_ObjectHideFlags: 0
