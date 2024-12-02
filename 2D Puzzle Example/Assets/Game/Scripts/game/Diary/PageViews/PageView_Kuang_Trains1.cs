@@ -10,6 +10,7 @@ public class PageView_Kuang_Trains1 : PageView
     public TinyStageOfMimicPanels[] tinyStages;
 
     private int _tinyStageIndex;
+    bool friendTalksDone = false;
     public override void Activate()
     {
         base.Activate();
@@ -58,14 +59,23 @@ public class PageView_Kuang_Trains1 : PageView
             if (ts.playing)
                 return;
         }
-          SoundSystem.instance.Play("done");
-          if (_tinyStageIndex < 0)
+        SoundSystem.instance.Play("done");
+        if (_tinyStageIndex < 0)
             _tinyStageIndex = 0;
 
         if (_tinyStageIndex >= tinyStages.Length)
         {
             CheckLock();
             return;
+        }
+
+        if (_tinyStageIndex == 1)
+        {
+            if (!friendTalksDone)
+            {
+                ShowFriendTalkLeft();
+                return;
+            }
         }
 
         var crtStage = tinyStages[_tinyStageIndex];
@@ -76,6 +86,33 @@ public class PageView_Kuang_Trains1 : PageView
 
         crtStage.StartPlay();
         _tinyStageIndex++;
+    }
+
+    void ShowFriendTalkLeft()
+    {
+        var datas = new DiaryGameFlowSystem.DialogData[1];
+        datas[0] = new DiaryGameFlowSystem.DialogData();
+        datas[0].soundId = "animalese 1";
+        datas[0].text = "Alice: I love my house I like my socks I hate eggs.";
+        datas[0].time = 1.0f;
+        DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 1.2f, ShowFriendTalkRight);
+    }
+
+    void ShowFriendTalkRight()
+    {
+        var datas = new DiaryGameFlowSystem.DialogData[1];
+        datas[0] = new DiaryGameFlowSystem.DialogData();
+        datas[0].soundId = "animalese 3";
+        datas[0].text = "Kaka: I love my house I like my socks I hate eggs.";
+        datas[0].time = 1.0f;
+
+        DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.6f, 0.2f, TalkEnd);
+    }
+
+    void TalkEnd()
+    {
+        friendTalksDone = true;
+        CheckLock();
     }
 
     protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)

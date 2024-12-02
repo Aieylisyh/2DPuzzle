@@ -30,28 +30,38 @@ public class DiaryGameFlowSystem : MonoBehaviour
     {
         gameLogo.SetActive(false);
         yield return new WaitForSeconds(0.5f);
-        DiaryGameSystem.instance.ToggleLockTurnPage(true);
 
-        var cc = DiaryGameSystem.instance.cameraController;
-        cc.TurnTo(cc.ref_comedy, 3.0f);
-        yield return new WaitForSeconds(2.8f);
-        gameLogo.SetActive(true);
 
-        float t1 = 1.2f;
-        gameLogo.transform.DORotate(Vector3.zero, t1).SetEase(Ease.InOutCubic);
-        yield return new WaitForSeconds(t1 + 2.8f);
-        float t2 = 1.2f;
-        gameLogo.transform.DORotate(new Vector3(0, 270, 0), t2).SetEase(Ease.InOutCubic);
-        yield return new WaitForSeconds(t2);
-        gameLogo.SetActive(false);
+        if (!DiaryGameSystem.instance.skipDialogsAndLogo)
+        {
+            DiaryGameSystem.instance.ToggleLockTurnPage(true);
+            var cc = DiaryGameSystem.instance.cameraController;
+            cc.TurnTo(cc.ref_comedy, 3.0f);
+            yield return new WaitForSeconds(2.8f);
+            gameLogo.SetActive(true);
 
-        cc.TurnTo(cc.ref_default, 1.5f);
-        yield return new WaitForSeconds(1.2f);
+            float t1 = 1.2f;
+            gameLogo.transform.DORotate(Vector3.zero, t1).SetEase(Ease.InOutCubic);
+            yield return new WaitForSeconds(t1 + 2.8f);
+            float t2 = 1.2f;
+            gameLogo.transform.DORotate(new Vector3(0, 270, 0), t2).SetEase(Ease.InOutCubic);
+            yield return new WaitForSeconds(t2);
+            gameLogo.SetActive(false);
+
+            cc.TurnTo(cc.ref_default, 1.5f);
+            yield return new WaitForSeconds(1.2f);
+        }
+
         DiaryGameSystem.instance.ToggleLockTurnPage(false);
     }
 
     public void ShowFriendTalk(bool rightOrLeft, DialogData[] dialogs, float extraDuration, float delay, Action callback)
     {
+        if (DiaryGameSystem.instance.skipDialogsAndLogo)
+        {
+            callback?.Invoke();
+            return;
+        }
         StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, extraDuration, delay, callback));
     }
 

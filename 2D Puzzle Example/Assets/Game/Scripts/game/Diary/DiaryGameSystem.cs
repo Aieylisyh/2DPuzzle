@@ -66,7 +66,7 @@ namespace Assets.Game.Scripts.game.Diary
         public bool testLockNext;
         public bool testUnlockNext;
         public bool neverLock;
-
+        public bool skipDialogsAndLogo;
         private void Update()
         {
             if (testLockNext)
