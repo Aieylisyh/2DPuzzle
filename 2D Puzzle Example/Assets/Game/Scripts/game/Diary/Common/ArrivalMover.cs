@@ -13,6 +13,12 @@ namespace Assets.Game.Scripts.game.Diary.Common
 
         public ArrivalFollower myFellow;
 
+        private Vector3 localScale;
+
+        private void Start()
+        {
+            localScale = transform.localScale;
+        }
         private void Update()
         {
             ReadInput();
@@ -39,21 +45,25 @@ namespace Assets.Game.Scripts.game.Diary.Common
         void MoveUp()
         {
             rb.velocity = new Vector2(0, speed);
+            transform.localScale = localScale;
         }
 
         void MoveDown()
         {
             rb.velocity = new Vector2(0, -speed);
+            transform.localScale = localScale;
         }
 
         void MoveRight()
         {
             rb.velocity = new Vector2(speed, 0);
+            transform.localScale = localScale;
         }
 
         void MoveLeft()
         {
             rb.velocity = new Vector2(-speed, 0);
+            transform.localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
         }
         void Stop()
         {
@@ -76,7 +86,11 @@ namespace Assets.Game.Scripts.game.Diary.Common
             var f = collision.transform.GetComponent<ArrivalFollower>();
             if (f != null && f.followingTarget == null)
             {
-                f.followingTarget = GetMyLastFellow();
+                var lastFellow = GetMyLastFellow();
+                Debug.Log("lastFellow " + lastFellow.gameObject.name);
+                if (lastFellow.transform == transform)
+                    myFellow = f;
+                f.followingTarget = lastFellow;
             }
         }
 
@@ -87,7 +101,12 @@ namespace Assets.Game.Scripts.game.Diary.Common
                 ArrivalFollower af = myFellow;
                 while (af.followingTarget != null)
                 {
-                    af = af.followingTarget.GetComponent<ArrivalFollower>();
+                    var newAf = af.followingTarget.GetComponent<ArrivalFollower>();
+
+                    if (newAf == null)
+                        return af.transform;
+                    else
+                        af = newAf;
                 }
                 return af.transform;
             }
