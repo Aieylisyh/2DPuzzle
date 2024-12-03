@@ -1,23 +1,47 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.game.Diary.Common
 {
     public class ArrivalFollower : MonoBehaviour
     {
-        public Transform followingTarget;
+        public ArrivalMover host;
+        public int myIndex = -1;
+
         public float goodDistance;
         public Rigidbody2D rb;
         public float speed;
-
+        public GameObject meetPrefeb;
         void Update()
         {
-            if (followingTarget != null) Follow();
+            if (myIndex >= 0) Follow();
+        }
+
+        public void FollowMePlease(ArrivalMover am)
+        {
+            myIndex = am.myFellows.Count;
+            host = am;
+            am.myFellows.Add(this);
+
+            Debug.Log("FollowMePlease " + gameObject.name + " myIndex:" + myIndex);
+
+            var m = Instantiate(meetPrefeb, transform.position + new Vector3(1.3f, 1.5f, 0), Quaternion.identity, this.transform);
+            m.transform.localScale = Vector3.zero;
+            m.transform.DOScale(1.5f, 1).SetEase(Ease.OutBounce);
+            Destroy(m, 2);
         }
 
         void Follow()
         {
-            var dist = followingTarget.position - transform.position;
+            Transform t = host.transform;
+            if (myIndex >= 1)
+            {
+                t = host.myFellows[myIndex - 1].transform;
+            }
+
+            var dist = t.position - transform.position;
             dist.z = 0;
             var d = dist.magnitude;
             if (d < goodDistance)
@@ -26,6 +50,9 @@ namespace Assets.Game.Scripts.game.Diary.Common
             }
             else
             {
+
+                rb.velocity = dist.normalized * speed;
+                return;
                 var ax = Mathf.Abs(dist.x);
                 var ay = Mathf.Abs(dist.y);
                 if (ay >= ax)

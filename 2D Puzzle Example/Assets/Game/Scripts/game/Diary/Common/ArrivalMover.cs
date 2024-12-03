@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
         public Rigidbody2D rb;
         public float speed;
 
-        public ArrivalFollower myFellow;
+        public List<ArrivalFollower> myFellows = new List<ArrivalFollower>();
 
         private Vector3 localScale;
 
@@ -30,6 +31,11 @@ namespace Assets.Game.Scripts.game.Diary.Common
 
             var h = Input.GetAxis("Horizontal");
             var v = Input.GetAxis("Vertical");
+            if (Mathf.Abs(h) + Mathf.Abs(v) > 0.1f)
+            {
+                rb.velocity = (new Vector2(h, v)).normalized * speed;
+                return;
+            }
             if (h > 0.5f)
                 MoveRight();
             else if (h < -0.5f)
@@ -72,45 +78,17 @@ namespace Assets.Game.Scripts.game.Diary.Common
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("arrival mover OnTriggerEnter2D");
-            var f = collision.GetComponent<ArrivalFollower>();
-            if (f != null && f.followingTarget == null)
-            {
-                f.followingTarget = GetMyLastFellow();
-            }
+
         }
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log("arrival mover OnCollisionEnter2D");
+            //Debug.Log("arrival mover OnCollisionEnter2D");
             var f = collision.transform.GetComponent<ArrivalFollower>();
-            if (f != null && f.followingTarget == null)
+            if (f != null && myFellows.IndexOf(f) < 0)
             {
-                var lastFellow = GetMyLastFellow();
-                Debug.Log("lastFellow " + lastFellow.gameObject.name);
-                if (lastFellow.transform == transform)
-                    myFellow = f;
-                f.followingTarget = lastFellow;
+                f.FollowMePlease(this);
             }
-        }
-
-        Transform GetMyLastFellow()
-        {
-            if (myFellow != null)
-            {
-                ArrivalFollower af = myFellow;
-                while (af.followingTarget != null)
-                {
-                    var newAf = af.followingTarget.GetComponent<ArrivalFollower>();
-
-                    if (newAf == null)
-                        return af.transform;
-                    else
-                        af = newAf;
-                }
-                return af.transform;
-            }
-            return transform;
         }
     }
 }
