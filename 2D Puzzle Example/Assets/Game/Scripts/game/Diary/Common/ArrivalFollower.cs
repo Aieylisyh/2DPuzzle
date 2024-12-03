@@ -14,6 +14,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
         public Rigidbody2D rb;
         public float speed;
         public GameObject meetPrefeb;
+
         void Update()
         {
             if (myIndex >= 0) Follow();

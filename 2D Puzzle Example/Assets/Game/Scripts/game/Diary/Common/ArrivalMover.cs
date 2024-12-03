@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Assets.Game.Scripts.game.Diary.Common
 {
@@ -13,6 +15,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
         public float speed;
 
         public List<ArrivalFollower> myFellows = new List<ArrivalFollower>();
+        public PageView_Kuang_Arrival_1 pageView_Kuang_Arrival_1;
 
         private Vector3 localScale;
 
@@ -24,6 +27,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
         {
             ReadInput();
         }
+
         void ReadInput()
         {
             if (!controlEnabled)
@@ -78,7 +82,35 @@ namespace Assets.Game.Scripts.game.Diary.Common
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-
+            var ab = collision.GetComponent<ArrivalBus>();
+            if (ab != null)
+            {
+                if (myFellows.Count >= pageView_Kuang_Arrival_1.afs.Length)
+                {
+                    Debug.Log("all af reached!");
+                    controlEnabled = false;
+                    var delay = 0.2f;
+                    var offset = 0f;
+                    foreach (var f in myFellows)
+                    {
+                        f.transform.SetParent(ab.transform);
+                        f.myIndex = -1;
+                        offset += 1f;
+                        f.transform.DOMove(ab.door.position - Vector3.right * offset, 1).SetDelay(delay);
+                        delay += 0.35f;
+                    }
+                    GetComponent<Collider2D>().enabled = false;
+                    transform.SetParent(ab.transform);
+                    transform.DOMove(ab.door.position, 1).SetDelay(delay).OnComplete(
+                   () =>
+                   {
+                       pageView_Kuang_Arrival_1.puzzleDone = true;
+                       pageView_Kuang_Arrival_1.CheckLock();
+                   }
+                        );
+                    ab.StartJourney(delay + 0.5f);
+                }
+            }
         }
 
         void OnCollisionEnter2D(Collision2D collision)

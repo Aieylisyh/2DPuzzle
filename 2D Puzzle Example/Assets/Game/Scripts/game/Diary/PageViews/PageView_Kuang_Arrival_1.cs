@@ -10,14 +10,15 @@ using echo17.EndlessBook.Demo02;
 
 public class PageView_Kuang_Arrival_1 : PageView
 {
-    bool _puzzleDone;
+    public bool puzzleDone;
 
     public ArrivalMover arrivalMover;
     public ArrivalFollower[] afs;
+
     public override void Activate()
     {
         base.Activate();
-        _puzzleDone = false;
+        puzzleDone = false;
 
         int i = 0;
         foreach (var af in afs)
@@ -34,7 +35,7 @@ public class PageView_Kuang_Arrival_1 : PageView
 
     public void CheckLock()
     {
-        if (_puzzleDone)
+        if (puzzleDone)
         {
             DiaryGameSystem.instance.ToggleLockTurnPage(false);
         }
