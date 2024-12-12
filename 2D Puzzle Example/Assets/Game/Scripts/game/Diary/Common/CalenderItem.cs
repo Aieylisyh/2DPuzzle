@@ -10,11 +10,12 @@ namespace Assets.Game.Scripts.game.Diary.Common
     {
         public GameObject col;
         public Image toReveal;
-
+        public Image toHide;
         public bool revealed;
 
         private void OnEnable()
         {
+            toHide.DOKill();
             toReveal.DOKill();
             if (revealed)
             {
@@ -36,7 +37,8 @@ namespace Assets.Game.Scripts.game.Diary.Common
 
             revealed = true;
             SoundSystem.instance.Play("done");
-            toReveal.DOFade(1, 1);
+            toReveal.DOFade(1, 1).SetDelay(0.7f);
+            toHide.DOFade(0, 1);
             return true;
         }
     }
