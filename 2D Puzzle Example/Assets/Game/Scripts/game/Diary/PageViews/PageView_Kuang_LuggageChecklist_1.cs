@@ -15,6 +15,8 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
     public Transform luggage;
     public Transform luggageStartPos;
     public Transform luggageEndPos;
+    public Sprite bagClosed;
+    public SpriteRenderer bagSr;
 
     public override void Activate()
     {
@@ -43,8 +45,9 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
 
         if (allChecked)
         {
+            bagSr.sprite = bagClosed;
             luggage.DOKill();
-            luggage.DOMove(luggageEndPos.position, 2);
+            luggage.DOMove(luggageEndPos.position, 3.4f).SetDelay(0.25f);
             DiaryGameSystem.instance.ToggleLockTurnPage(false);
         }
         else
