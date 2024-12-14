@@ -14,7 +14,7 @@ public class MimicPanelObject : MonoBehaviour
     public Vector3 endPos;//local
     public Vector3 endEular;//local
     public DG.Tweening.Ease ease;
-
+    public bool ignoreReset;
     private void Awake()
     {
         var mr = GetComponent<MeshRenderer>();
@@ -27,9 +27,11 @@ public class MimicPanelObject : MonoBehaviour
         }
     }
 
-
     public void ResetAnim()
     {
+        Debug.Log(gameObject.name);
+        if (ignoreReset)
+            return;
         transform.DOKill();
         transform.localPosition = startPos;
         transform.localEulerAngles = startEular;
@@ -37,7 +39,7 @@ public class MimicPanelObject : MonoBehaviour
 
     public void StartAnim()
     {
-        transform.DOKill();
+        // transform.DOKill();
         transform.DOLocalMove(endPos, duration).SetEase(ease).SetDelay(delay);
         transform.DOLocalRotate(endEular, duration).SetEase(ease).SetDelay(delay);
     }

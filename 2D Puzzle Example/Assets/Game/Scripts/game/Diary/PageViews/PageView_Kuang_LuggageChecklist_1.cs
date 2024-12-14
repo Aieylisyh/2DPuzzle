@@ -47,7 +47,7 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
         {
             bagSr.sprite = bagClosed;
             luggage.DOKill();
-            luggage.DOMove(luggageEndPos.position, 3.4f).SetDelay(0.25f);
+            luggage.DOMove(luggageEndPos.position, 3.4f ).SetDelay(0.25f);
             DiaryGameSystem.instance.ToggleLockTurnPage(false);
         }
         else

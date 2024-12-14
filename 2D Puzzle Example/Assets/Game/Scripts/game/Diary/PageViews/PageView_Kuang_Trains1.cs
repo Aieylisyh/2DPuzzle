@@ -2,7 +2,6 @@
 using Assets.Game.Scripts.game.Diary;
 using com;
 using echo17.EndlessBook.Demo02;
-using System.Collections;
 using UnityEngine;
 
 public class PageView_Kuang_Trains1 : PageView
@@ -11,6 +10,7 @@ public class PageView_Kuang_Trains1 : PageView
 
     private int _tinyStageIndex;
     bool friendTalksDone = false;
+
     public override void Activate()
     {
         base.Activate();
@@ -21,6 +21,7 @@ public class PageView_Kuang_Trains1 : PageView
             ts.gameObject.SetActive(false);
         }
 
+        tinyStages[0].gameObject.SetActive(true);
         CheckLock();
     }
 
