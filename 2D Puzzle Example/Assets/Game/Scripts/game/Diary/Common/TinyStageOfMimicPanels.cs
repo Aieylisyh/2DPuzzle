@@ -16,7 +16,7 @@ public class TinyStageOfMimicPanels : MonoBehaviour
         playing = false;
         mimicPanelObjects = mimicPanelObjectParent.GetComponentsInChildren<MimicPanelObject>();
         foreach (var mpo in mimicPanelObjects)
-            mpo.ResetAnim();
+            mpo.Init();
     }
 
     public void StartPlay()
@@ -28,7 +28,7 @@ public class TinyStageOfMimicPanels : MonoBehaviour
         playing = true;
         foreach (var mpo in mimicPanelObjects)
         {
-            mpo.ResetAnim();
+            mpo.Init();
             mpo.StartAnim();
         }
 

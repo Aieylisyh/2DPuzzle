@@ -15,9 +15,11 @@ public class MimicPanelObject : MonoBehaviour
     public Vector3 endEular;//local
     public DG.Tweening.Ease ease;
     public bool ignoreReset;
-    private void Awake()
+
+    public void Init()
     {
-        var mr = GetComponent<MeshRenderer>();
+        //Debug.Log(gameObject.name);
+         var mr = GetComponent<MeshRenderer>();
         if (mr != null) mr.enabled = false;
 
         if (useCrtLocalPos)
@@ -25,11 +27,7 @@ public class MimicPanelObject : MonoBehaviour
             startPos = transform.localPosition;
             endPos = transform.localPosition;
         }
-    }
 
-    public void ResetAnim()
-    {
-        Debug.Log(gameObject.name);
         if (ignoreReset)
             return;
         transform.DOKill();

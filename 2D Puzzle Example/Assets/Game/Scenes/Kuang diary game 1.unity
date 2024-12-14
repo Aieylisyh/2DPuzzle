@@ -22439,7 +22439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mimicPanelObjectParent: {fileID: 927336590}
-  stageDuration: 11
+  stageDuration: 10
 --- !u!1 &931096013
 GameObject:
   m_ObjectHideFlags: 0
@@ -23122,7 +23122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mimicPanelObjectParent: {fileID: 4704663443879275971}
-  stageDuration: 11
+  stageDuration: 10
 --- !u!1 &963841643
 GameObject:
   m_ObjectHideFlags: 0
@@ -28267,7 +28267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mimicPanelObjectParent: {fileID: 1183035560}
-  stageDuration: 11
+  stageDuration: 10
 --- !u!1 &1186160357
 GameObject:
   m_ObjectHideFlags: 0
@@ -52066,8 +52066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 6
-  duration: 10
+  delay: 5.5
+  duration: 8
   useCrtLocalPos: 0
   startPos: {x: 73.5, y: -15.52, z: 0}
   startEular: {x: 0, y: 0, z: 0}
@@ -52132,8 +52132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1.8
-  duration: 4
+  delay: 1.9
+  duration: 3.4
   useCrtLocalPos: 0
   startPos: {x: -9.9, y: -15.52, z: 0}
   startEular: {x: 0, y: 0, z: 0}
@@ -53185,7 +53185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4704663443879275971
 Transform:
   m_ObjectHideFlags: 0
