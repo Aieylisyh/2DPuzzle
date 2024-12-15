@@ -4,24 +4,23 @@ using echo17.EndlessBook.Demo02;
 using System.Collections;
 using UnityEngine;
 
-public class PageView_Kuang_Trains2 : PageView
+public class PageView_Kuang_Trains1_2 : PageView
 {
-    public PageView_Kuang_Trains1 pageView_Kuang_Trains1;
+    public PageView_Kuang_Trains1_1 pageView_Kuang_Trains1;
     public override void TouchDown()
     {
         base.TouchDown();
-        Debug.Log("TouchDown");
+        //Debug.Log("TouchDown");
         pageView_Kuang_Trains1.OnTap();
     }
 
     protected override bool HandleHit(RaycastHit hit, BookActionDelegate action)
     {
-        Debug.Log("HandleHit");
+        //Debug.Log("HandleHit");
         var blockClickOnClickOnItems = false;
         if (blockClickOnClickOnItems)
-        {
             return true;
-        }
+
         return false;
     }
 

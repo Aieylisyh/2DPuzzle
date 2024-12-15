@@ -30,6 +30,7 @@ public class MimicPanelObject : MonoBehaviour
 
         if (ignoreReset)
             return;
+
         transform.DOKill();
         transform.localPosition = startPos;
         transform.localEulerAngles = startEular;

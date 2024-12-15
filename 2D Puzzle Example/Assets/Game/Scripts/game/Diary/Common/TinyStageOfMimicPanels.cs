@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class TinyStageOfMimicPanels : MonoBehaviour
@@ -19,11 +20,14 @@ public class TinyStageOfMimicPanels : MonoBehaviour
             mpo.Init();
     }
 
-    public void StartPlay()
+    Action _endCallback;
+
+    public void StartPlay(Action endCallback)
     {
         if (playing)
             return;
 
+        _endCallback = endCallback;
         Debug.Log("StartPlay");
         playing = true;
         foreach (var mpo in mimicPanelObjects)
@@ -51,5 +55,7 @@ public class TinyStageOfMimicPanels : MonoBehaviour
     {
         yield return new WaitForSeconds(stageDuration);
         playing = false;
+        _endCallback?.Invoke();
+        _endCallback = null;
     }
 }
