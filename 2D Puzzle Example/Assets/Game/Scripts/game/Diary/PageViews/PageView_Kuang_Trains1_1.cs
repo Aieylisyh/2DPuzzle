@@ -3,21 +3,23 @@ using Assets.Game.Scripts.game.Diary;
 using com;
 using echo17.EndlessBook.Demo02;
 using UnityEngine;
-using static DiaryGameFlowSystem;
-
 public class PageView_Kuang_Trains1_1 : PageView
 {
     public TinyStageOfMimicPanels tinyStage;
 
     bool friendTalksDone = false;
 
-    public DialogData[] dialogDatas_Left;
-    public DialogData[] dialogDatas_Right;
+    public DiaryGameFlowSystem.DialogData[] dialogDatas_Left;
+    public DiaryGameFlowSystem.DialogData[] dialogDatas_Right;
+    bool _activated = false;
 
     public override void Activate()
     {
         base.Activate();
+        if (_activated)
+            return;
 
+        _activated = true;
         tinyStage.Init();
         tinyStage.gameObject.SetActive(true);
         CheckLock();
@@ -44,7 +46,7 @@ public class PageView_Kuang_Trains1_1 : PageView
     public override void TouchDown()
     {
         base.TouchDown();
-        Debug.Log("TouchDown");//earlier than handleHit
+        //Debug.Log("TouchDown");//earlier than handleHit
 
         OnTap();
     }
@@ -52,6 +54,8 @@ public class PageView_Kuang_Trains1_1 : PageView
     public void OnTap()
     {
         if (tinyStage.playing)
+            return;
+        if (DiaryGameFlowSystem.instance.isTalking)
             return;
 
         SoundSystem.instance.Play("done");

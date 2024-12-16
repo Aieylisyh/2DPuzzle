@@ -26,6 +26,7 @@ public class PageView_Kuang_LuggageChecklist_1 : PageView
         luggage.DOKill();
         luggage.position = luggageStartPos.position;
     }
+
     public override void Deactivate()
     {
         base.Deactivate();

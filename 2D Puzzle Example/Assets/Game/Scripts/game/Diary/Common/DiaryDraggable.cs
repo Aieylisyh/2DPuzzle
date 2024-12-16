@@ -9,9 +9,16 @@ namespace Assets.EndlessBook.Demos.Demo_02.Scripts
         public float dragFactor = 100;
         bool _dragging;
         Vector3 _posStartDrag;
-         public UnityEvent EndEvt;
+        Vector3 _posStart;
+        public UnityEvent EndEvt;
 
         public DiaryDragResponser[] responsers;
+
+        private void Start()
+        {
+             _posStart = transform.position;
+        }
+
         public void StartDrag()
         {
             _dragging = true;
@@ -25,9 +32,11 @@ namespace Assets.EndlessBook.Demos.Demo_02.Scripts
             {
                 if (r.CheckDragEnd(this))
                 {
-                    break;
+                    return;
                 }
             }
+
+            transform.position = _posStart;
         }
 
         public void OnDrag(Vector2 increment)

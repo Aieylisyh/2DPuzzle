@@ -15,6 +15,9 @@ public class DiaryGameFlowSystem : MonoBehaviour
     public GameObject fireworks;
 
     public TextMeshProUGUI subtitle;
+
+    public bool isTalking { get; private set; }
+
     private void Awake()
     {
         instance = this;
@@ -62,11 +65,13 @@ public class DiaryGameFlowSystem : MonoBehaviour
             callback?.Invoke();
             return;
         }
+
         StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, extraDuration, delay, callback));
     }
 
     IEnumerator ShowFriendTalkCoroutine(bool rightOrLeft, DialogData[] dialogs, float extraDuration, float delay, Action callback)
     {
+        isTalking = true;
         yield return new WaitForSeconds(delay);
         var cc = DiaryGameSystem.instance.cameraController;
         cc.TurnTo(0, rightOrLeft ? 1 : -1, true);
@@ -85,7 +90,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(extraDuration);
         cc.TurnTo(0, 0, false);
         yield return new WaitForSeconds(cc.duration_short);
-
+        isTalking = false;
         callback?.Invoke();
     }
 

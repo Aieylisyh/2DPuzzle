@@ -67,6 +67,7 @@ namespace Assets.Game.Scripts.game.Diary
         public bool testUnlockNext;
         public bool neverLock;
         public bool skipDialogsAndLogo;
+
         private void Update()
         {
             if (testLockNext)
@@ -79,6 +80,16 @@ namespace Assets.Game.Scripts.game.Diary
             {
                 testUnlockNext = false;
                 ToggleLockTurnPage(false);
+            }
+
+            if (Input.GetKeyDown("p"))
+            {
+                ToggleLockTurnPage(false);
+            }
+
+            if (Input.GetKeyDown("o"))
+            {
+                ToggleLockTurnPage(true);
             }
         }
     }
