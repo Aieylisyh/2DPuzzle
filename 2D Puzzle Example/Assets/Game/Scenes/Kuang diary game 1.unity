@@ -3129,7 +3129,7 @@ Transform:
   - {fileID: 891004991}
   - {fileID: 120572012}
   m_Father: {fileID: 1268876850}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &126918459
 MonoBehaviour:
@@ -7412,7 +7412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.3
+  delay: 0.25
   duration: 1
   useCrtLocalPos: 1
   startPos: {x: 0, y: 0, z: 0}
@@ -12005,7 +12005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  duration: 2.3
+  duration: 1
   useCrtLocalPos: 0
   startPos: {x: -0.1699944, y: 30, z: 0}
   startEular: {x: 0, y: 0, z: 0}
@@ -12018,7 +12018,19 @@ MonoBehaviour:
       m_Calls: []
   tweenEndAction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2006106059}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &563400728
 GameObject:
   m_ObjectHideFlags: 0
@@ -15954,11 +15966,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  duration: 2.3
+  duration: 1
   useCrtLocalPos: 0
-  startPos: {x: 3, y: 30, z: 0}
+  startPos: {x: 0.2599983, y: 30, z: 0}
   startEular: {x: 0, y: 0, z: 0}
-  endPos: {x: 3, y: 1.909999, z: 0}
+  endPos: {x: 0.2599983, y: 1.909999, z: 0}
   endEular: {x: 0, y: 0, z: 0}
   ease: 14
   ignoreReset: 0
@@ -16298,7 +16310,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1268876850}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &758173138
 MonoBehaviour:
@@ -16504,8 +16516,8 @@ MonoBehaviour:
   startEular: {x: 0, y: 0, z: 0}
   endPos: {x: 193.8, y: -15.52, z: 0}
   endEular: {x: 0, y: 0, z: 0}
-  ease: 1
-  ignoreReset: 1
+  ease: 15
+  ignoreReset: 0
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -16605,7 +16617,7 @@ MonoBehaviour:
   startEular: {x: 0, y: 0, z: 0}
   endPos: {x: 530, y: -15.52, z: 0}
   endEular: {x: 0, y: 0, z: 0}
-  ease: 1
+  ease: 8
   ignoreReset: 1
   tweenStartAction:
     m_PersistentCalls:
@@ -19380,7 +19392,7 @@ MonoBehaviour:
   - {fileID: 57465985}
   - {fileID: 532854804}
   sfxMuyu: muyu
-  sfxShow: meet
+  sfxShow: bo1
   muyuAnim: {fileID: 319407005}
   monkAnim: {fileID: 1152681407}
   prefabDong: {fileID: 850328114}
@@ -19959,9 +19971,7 @@ MonoBehaviour:
       ac: {fileID: 8300000, guid: 06dd129080490e340bacd42864e05a3f, type: 3}
   - tag: temple station
     siList:
-    - name: dong small
-      ac: {fileID: 8300000, guid: 76fb36c382f35ce4097c99fd81332c79, type: 3}
-    - name: dong big
+    - name: muyu
       ac: {fileID: 8300000, guid: b6d9d6e6858caac4383fa5384c82e1bb, type: 3}
     - name: meet
       ac: {fileID: 8300000, guid: bb7ecaeff223259428422dd4630f3965, type: 3}
@@ -19971,10 +19981,10 @@ MonoBehaviour:
     siList:
     - name: train station
       ac: {fileID: 8300000, guid: 56e964477f167144d9d4da949f907cdf, type: 3}
-    - name: animalese 2
-      ac: {fileID: 8300000, guid: 08f7192e6eef7dd4993b894ccae42d42, type: 3}
-    - name: animalese 3
-      ac: {fileID: 8300000, guid: 613879eafe6b4504aadaf079f94afad9, type: 3}
+    - name: pop
+      ac: {fileID: 8300000, guid: 9b3567255b1beb74eadebc4e305ad096, type: 3}
+    - name: kaca
+      ac: {fileID: 8300000, guid: c83864731aee4b14b99be9dd1eeac26e, type: 3}
 --- !u!1 &914629910
 GameObject:
   m_ObjectHideFlags: 0
@@ -25160,7 +25170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  duration: 0.4
+  duration: 0.35
   useCrtLocalPos: 0
   startPos: {x: 10, y: -4.7, z: 0}
   startEular: {x: 0, y: 0, z: 0}
@@ -27419,7 +27429,6 @@ Transform:
   - {fileID: 1194805572}
   - {fileID: 1605688819}
   - {fileID: 911084864}
-  - {fileID: 1702772171}
   - {fileID: 126918458}
   - {fileID: 758173137}
   - {fileID: 1981853818}
@@ -36731,134 +36740,6 @@ Transform:
   m_Father: {fileID: 1691886141}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1702772170
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1702772171}
-  - component: {fileID: 1702772172}
-  m_Layer: 0
-  m_Name: music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1702772171
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702772170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1268876850}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1702772172
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702772170}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1715799896
 GameObject:
   m_ObjectHideFlags: 0
@@ -39832,7 +39713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  duration: 2.3
+  duration: 1
   useCrtLocalPos: 0
   startPos: {x: 0.3199959, y: 30, z: 0}
   startEular: {x: 0, y: 0, z: 0}
@@ -42493,7 +42374,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1268876850}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1981853819
 AudioSource:
@@ -42513,7 +42394,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 95
+  Priority: 144
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -43033,14 +42914,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006106057}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b3846bf66003cd49a11edd109385576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freq: 0.5
-  offset: 0
-  amplitude: 2
+  freq: 1
+  offset: 1.57
+  amplitude: 1.8
   xAxis: 1
   yAxis: 0
   zAxis: 0
@@ -45877,6 +45758,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1535406487}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   tweenEndAction:
     m_PersistentCalls:
       m_Calls: []
@@ -45907,8 +45800,8 @@ GameObject:
   - component: {fileID: 351014714859460757}
   - component: {fileID: 351014714859460754}
   - component: {fileID: 351014714859460755}
-  - component: {fileID: 351014714859460756}
   - component: {fileID: 351014714859460759}
+  - component: {fileID: 351014714859460756}
   m_Layer: 5
   m_Name: mpo train
   m_TagString: Untagged
@@ -45928,15 +45821,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 2
-  duration: 3.4
+  delay: 1.8
+  duration: 3.5
   useCrtLocalPos: 0
   startPos: {x: -9.9, y: -15.52, z: 0}
   startEular: {x: 0, y: 0, z: 0}
   endPos: {x: 73.5, y: -15.52, z: 0}
   endEular: {x: 0, y: 0, z: 0}
   ease: 9
-  ignoreReset: 1
+  ignoreReset: 0
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -45954,7 +45847,19 @@ MonoBehaviour:
         m_CallState: 2
   tweenEndAction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1535406487}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &860623604811631064
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -96,7 +96,7 @@ namespace Assets.Game.Scripts.game.Diary
 
             if (Input.GetMouseButtonDown(0))
             {
-                SoundSystem.instance.Play("click");
+                SoundSystem.instance.Play("click",0.4f);
             }
         }
     }

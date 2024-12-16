@@ -42,14 +42,21 @@ public class MimicPanelObject : MonoBehaviour
 
     public void StartAnim()
     {
-        tweenStartAction?.Invoke();
-        // transform.DOKill();
-        transform.DOLocalMove(endPos, duration).SetEase(ease).SetDelay(delay);
-        transform.DOLocalRotate(endEular, duration).SetEase(ease).SetDelay(delay).OnComplete(EndCb);
+        StartCoroutine(Co());
     }
 
     void EndCb()
     {
         tweenEndAction?.Invoke();
+    }
+
+
+    IEnumerator Co()
+    {
+        yield return new WaitForSeconds(delay);
+        tweenStartAction?.Invoke();
+        transform.DOKill();
+        transform.DOLocalMove(endPos, duration).SetEase(ease);
+        transform.DOLocalRotate(endEular, duration).SetEase(ease).OnComplete(EndCb);
     }
 }
