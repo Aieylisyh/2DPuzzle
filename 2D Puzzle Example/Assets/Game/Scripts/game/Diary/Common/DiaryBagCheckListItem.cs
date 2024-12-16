@@ -17,7 +17,7 @@ public class DiaryBagCheckListItem : MonoBehaviour
         if (isChecked)
             return;
 
-        SoundSystem.instance.Play("done");
+        SoundSystem.instance.Play(new string[] { "s1", "s2" });
         isChecked = true;
         checkmark.SetActive(true);
         checkmark.transform.DOKill();

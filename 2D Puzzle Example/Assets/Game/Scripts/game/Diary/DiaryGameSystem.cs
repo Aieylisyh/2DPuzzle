@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -91,6 +92,11 @@ namespace Assets.Game.Scripts.game.Diary
             if (Input.GetKeyDown("o"))
             {
                 ToggleLockTurnPage(true);
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                SoundSystem.instance.Play("click");
             }
         }
     }

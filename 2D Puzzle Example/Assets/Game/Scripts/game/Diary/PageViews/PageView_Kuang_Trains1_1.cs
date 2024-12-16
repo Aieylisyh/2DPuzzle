@@ -82,7 +82,7 @@ public class PageView_Kuang_Trains1_1 : PageView
         var datas = dialogDatas_Right;
         if (datas != null && datas.Length > 0)
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.6f, 0.3f, TalkEnd);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.6f, 0.3f, TalkEnd);
             return;
         }
 
@@ -117,5 +117,10 @@ public class PageView_Kuang_Trains1_1 : PageView
         }
 
         return false;
+    }
+
+    public void PlayTrainStationSfx()
+    {
+        SoundSystem.instance.Play("train station");
     }
 }

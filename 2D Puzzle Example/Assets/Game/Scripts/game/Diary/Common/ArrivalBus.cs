@@ -15,13 +15,14 @@ namespace Assets.Game.Scripts.game.Diary.Common
         public void StartJourney(float delay)
         {
             msb.enabled = true;
-
+            SoundSystem.instance.Play("bus go");
             var x = transform.position.x;
             transform.DOMoveX(x - distanceBack, 2.4f).SetDelay(delay).SetEase(Ease.InOutCubic).OnComplete(Go); ;
         }
 
         void Go()
         {
+            SoundSystem.instance.Play("bus go");
             var x = transform.position.x;
             transform.DOMoveX(x + distance + distanceBack, 4.8f).SetEase(Ease.InQuad).OnComplete(
                () =>

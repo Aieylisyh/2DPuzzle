@@ -6,6 +6,7 @@ using UnityEngine;
 using Assets.Game.Scripts.game.Diary;
 using Assets.Game.Scripts.game.Diary.Common;
 using echo17.EndlessBook.Demo02;
+using com;
 
 public class PageView_Kuang_Arrival_1 : PageView
 {
@@ -55,4 +56,6 @@ public class PageView_Kuang_Arrival_1 : PageView
             DiaryGameSystem.instance.ToggleLockTurnPage(true);
         }
     }
+
+  
 }

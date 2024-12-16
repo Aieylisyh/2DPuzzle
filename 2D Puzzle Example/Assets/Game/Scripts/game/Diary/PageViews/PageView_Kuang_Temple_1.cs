@@ -14,8 +14,8 @@ public class PageView_Kuang_Temple_1 : PageView
     public Transform[] toReveals;
     private int nextIndex;
 
-    public string sfxMuyuBig;
-    public string sfxMuyuSmall;
+    public string sfxMuyu;
+    public string sfxShow;
     public MimicPanelObject muyuAnim;
     public MimicPanelObject monkAnim;
     public GameObject prefabDong;
@@ -62,14 +62,14 @@ public class PageView_Kuang_Temple_1 : PageView
             Random.Range(-dongSpawnOffset, dongSpawnOffset) * 0.5f, 0);
         dong.SetActive(true);
         Destroy(dong.gameObject, 1);
-        SoundSystem.instance.Play(sfxMuyuBig);
+        SoundSystem.instance.Play(sfxMuyu);
         if (_isMuyuBusy)
         {
             //  SoundSystem.instance.Play(sfxMuyuSmall);
             return;
         }
 
-        SoundSystem.instance.Play(sfxMuyuSmall);
+        SoundSystem.instance.Play(sfxShow);
 
         StartCoroutine(MuyuCoroutine());
     }

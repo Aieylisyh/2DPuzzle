@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Assets.Game.Scripts.game.Diary.Common
 {
@@ -76,6 +75,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
             rb.velocity = new Vector2(-speed, 0);
             transform.localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
         }
+
         void Stop()
         {
             rb.velocity = new Vector2(0, 0);
@@ -101,6 +101,8 @@ namespace Assets.Game.Scripts.game.Diary.Common
                         delay += 0.35f;
                         f.GetComponent<Collider2D>().enabled = false;
                     }
+
+                    SoundSystem.instance.Play("meet");
                     GetComponent<Collider2D>().enabled = false;
                     transform.SetParent(ab.transform);
                     transform.DOMove(ab.door.position, 1).SetDelay(delay);
@@ -115,7 +117,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
             var f = collision.transform.GetComponent<ArrivalFollower>();
             if (f != null && myFellows.IndexOf(f) < 0)
             {
-                SoundSystem.instance.Play("meet");
+                SoundSystem.instance.Play(new string[] { "bo1", "bo2" });
                 f.FollowMePlease(this);
             }
 

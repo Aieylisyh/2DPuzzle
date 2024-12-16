@@ -3342,14 +3342,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134932886}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.14895442, w: 0.9888441}
   m_LocalPosition: {x: 39.41, y: -15.74, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 17.133}
 --- !u!114 &134932888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5917,14 +5917,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271129521}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.30525798, w: 0.9522697}
   m_LocalPosition: {x: 34.49, y: -12.22, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.547}
 --- !u!114 &271129523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7934,14 +7934,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341388047}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.075193174, w: 0.997169}
   m_LocalPosition: {x: 37.38, y: -4.65, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.625}
 --- !u!114 &341388049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9245,14 +9245,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413912036}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.43, y: -7.79, z: 50}
+  m_LocalRotation: {x: -0, y: -0, z: -0.3030511, w: 0.9529744}
+  m_LocalPosition: {x: 41.71, y: -8.51, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -35.282}
 --- !u!114 &413912038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10825,14 +10825,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531952605}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.12, y: -4.71, z: 50}
+  m_LocalRotation: {x: -0, y: -0, z: -0.060512558, w: 0.99816746}
+  m_LocalPosition: {x: 21, y: -4.71, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.938}
 --- !u!114 &531952607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12007,9 +12007,9 @@ MonoBehaviour:
   delay: 0
   duration: 2.3
   useCrtLocalPos: 0
-  startPos: {x: 47.13, y: 28, z: 0}
+  startPos: {x: -0.1699944, y: 30, z: 0}
   startEular: {x: 0, y: 0, z: 0}
-  endPos: {x: 47.13, y: 6.55, z: 0}
+  endPos: {x: -0.1699944, y: 5.249999, z: 0}
   endEular: {x: 0, y: 0, z: 0}
   ease: 14
   ignoreReset: 0
@@ -15956,9 +15956,9 @@ MonoBehaviour:
   delay: 0
   duration: 2.3
   useCrtLocalPos: 0
-  startPos: {x: 47.56, y: 28, z: 0}
+  startPos: {x: 3, y: 30, z: 0}
   startEular: {x: 0, y: 0, z: 0}
-  endPos: {x: 47.56, y: 3.21, z: 0}
+  endPos: {x: 3, y: 1.909999, z: 0}
   endEular: {x: 0, y: 0, z: 0}
   ease: 14
   ignoreReset: 0
@@ -16461,6 +16461,7 @@ GameObject:
   - component: {fileID: 777705698}
   - component: {fileID: 777705697}
   - component: {fileID: 777705696}
+  - component: {fileID: 777705699}
   m_Layer: 5
   m_Name: mpo train
   m_TagString: Untagged
@@ -16476,7 +16477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777705694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 492, y: -15.52, z: 0}
+  m_LocalPosition: {x: 498.7, y: -15.52, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16496,12 +16497,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 3
-  duration: 11
+  delay: 2.5
+  duration: 5.4
   useCrtLocalPos: 0
   startPos: {x: -22, y: -15.52, z: 0}
   startEular: {x: 0, y: 0, z: 0}
-  endPos: {x: 530, y: -15.52, z: 0}
+  endPos: {x: 193.8, y: -15.52, z: 0}
   endEular: {x: 0, y: 0, z: 0}
   ease: 1
   ignoreReset: 0
@@ -16510,7 +16511,31 @@ MonoBehaviour:
       m_Calls: []
   tweenEndAction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 41257889}
+        m_TargetAssemblyTypeName: PageView_Kuang_Trains1_1, Assembly-CSharp
+        m_MethodName: PlayTrainStationSfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 685552798}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!33 &777705697
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16561,6 +16586,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &777705699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777705694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 8
+  duration: 5
+  useCrtLocalPos: 0
+  startPos: {x: 193.8, y: -15.52, z: 0}
+  startEular: {x: 0, y: 0, z: 0}
+  endPos: {x: 530, y: -15.52, z: 0}
+  endEular: {x: 0, y: 0, z: 0}
+  ease: 1
+  ignoreReset: 0
+  tweenStartAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 685552798}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  tweenEndAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &779171556
 GameObject:
   m_ObjectHideFlags: 0
@@ -16911,6 +16975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 792005427}
   - component: {fileID: 792005428}
+  - component: {fileID: 792005429}
   m_Layer: 5
   m_Name: text1
   m_TagString: Untagged
@@ -16985,6 +17050,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &792005429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792005426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  duration: 1
+  useCrtLocalPos: 1
+  startPos: {x: 0, y: 0, z: 0}
+  startEular: {x: 0, y: 90, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  endEular: {x: 0, y: 0, z: 0}
+  ease: 18
+  ignoreReset: 0
+  tweenStartAction:
+    m_PersistentCalls:
+      m_Calls: []
+  tweenEndAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &793304172
 GameObject:
   m_ObjectHideFlags: 0
@@ -19287,8 +19379,8 @@ MonoBehaviour:
   - {fileID: 1036081332}
   - {fileID: 57465985}
   - {fileID: 532854804}
-  sfxMuyuBig: dong big
-  sfxMuyuSmall: dong small
+  sfxMuyu: muyu
+  sfxShow: meet
   muyuAnim: {fileID: 319407005}
   monkAnim: {fileID: 1152681407}
   prefabDong: {fileID: 850328114}
@@ -19841,12 +19933,18 @@ MonoBehaviour:
       ac: {fileID: 8300000, guid: fe17e903155870e4d8da61c494a8eb92, type: 3}
     - name: s2
       ac: {fileID: 8300000, guid: 706313138714dcb47a0f60671fa4e0b3, type: 3}
+    - name: click
+      ac: {fileID: 8300000, guid: 283bcda5e30be4a45ba87754e886c3a1, type: 3}
   - tag: gameplay book
     siList:
     - name: done
       ac: {fileID: 8300000, guid: 0425ddfecd3927a46aa8dcfbc484ba17, type: 3}
-    - name: unlock
+    - name: bling
       ac: {fileID: 8300000, guid: 76fb36c382f35ce4097c99fd81332c79, type: 3}
+    - name: bo1
+      ac: {fileID: 8300000, guid: bb7ecaeff223259428422dd4630f3965, type: 3}
+    - name: bo2
+      ac: {fileID: 8300000, guid: fc9557313be73da408ce3cd213a63587, type: 3}
   - tag: friend
     siList:
     - name: animalese 1
@@ -19869,8 +19967,8 @@ MonoBehaviour:
       ac: {fileID: 8300000, guid: 0aee274f65002d44e8933c2510b823d9, type: 3}
   - tag: calender checklist train
     siList:
-    - name: animalese 1
-      ac: {fileID: 8300000, guid: 0755e4909c903f240a393d62e5aa8898, type: 3}
+    - name: train station
+      ac: {fileID: 8300000, guid: 56e964477f167144d9d4da949f907cdf, type: 3}
     - name: animalese 2
       ac: {fileID: 8300000, guid: 08f7192e6eef7dd4993b894ccae42d42, type: 3}
     - name: animalese 3
@@ -22484,6 +22582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036081332}
   - component: {fileID: 1036081333}
+  - component: {fileID: 1036081334}
   m_Layer: 5
   m_Name: text2
   m_TagString: Untagged
@@ -22558,6 +22657,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1036081334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036081331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  duration: 1
+  useCrtLocalPos: 1
+  startPos: {x: 0, y: 0, z: 0}
+  startEular: {x: 0, y: 90, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  endEular: {x: 0, y: 0, z: 0}
+  ease: 18
+  ignoreReset: 0
+  tweenStartAction:
+    m_PersistentCalls:
+      m_Calls: []
+  tweenEndAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1038400036
 GameObject:
   m_ObjectHideFlags: 0
@@ -22836,14 +22962,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050158122}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.66, y: -16, z: 50}
+  m_LocalRotation: {x: -0, y: -0, z: -0.48531315, w: 0.8743405}
+  m_LocalPosition: {x: 51.22, y: -16.48, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -58.066}
 --- !u!114 &1050158124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24520,6 +24646,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 408079971}
+        m_TargetAssemblyTypeName: PageView_Kuang_Trains1_1, Assembly-CSharp
+        m_MethodName: PlayTrainStationSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -27308,8 +27446,8 @@ MonoBehaviour:
   testUnlockNext: 0
   neverLock: 0
   skipDialogs: 0
-  skipLogo: 1
-  fastDialogs: 1
+  skipLogo: 0
+  fastDialogs: 0
 --- !u!114 &1268876852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28615,14 +28753,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320742734}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.24878888, w: 0.9685578}
   m_LocalPosition: {x: 50.9, y: -6.05, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28.812}
 --- !u!114 &1320742736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37650,14 +37788,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743386344}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.10491396, w: 0.9944813}
   m_LocalPosition: {x: 21.91, y: -13.36, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.044}
 --- !u!114 &1743386346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39694,9 +39832,9 @@ MonoBehaviour:
   delay: 0
   duration: 2.3
   useCrtLocalPos: 0
-  startPos: {x: 47.62, y: 26, z: 0}
+  startPos: {x: 0.3199959, y: 30, z: 0}
   startEular: {x: 0, y: 0, z: 0}
-  endPos: {x: 47.62, y: -0.72, z: 0}
+  endPos: {x: 0.3199959, y: -2.020001, z: 0}
   endEular: {x: 0, y: 0, z: 0}
   ease: 14
   ignoreReset: 0
@@ -41850,14 +41988,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965118362}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.14, y: -6.84, z: 50}
+  m_LocalRotation: {x: -0, y: -0, z: 0.21588117, w: 0.9764196}
+  m_LocalPosition: {x: 25.7, y: -8.16, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 24.934}
 --- !u!114 &1965118364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42590,8 +42728,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985518200}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.28, y: -14.43, z: 50}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 28.64, y: -14.75, z: 50}
+  m_LocalScale: {x: 5, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657983970}
@@ -45727,7 +45865,19 @@ MonoBehaviour:
       m_Calls: []
   tweenEndAction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1856406974}
+        m_TargetAssemblyTypeName: PageView_Kuang_Trains1_1, Assembly-CSharp
+        m_MethodName: PlayTrainStationSfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &351014714859460757
 Transform:
   m_ObjectHideFlags: 0
