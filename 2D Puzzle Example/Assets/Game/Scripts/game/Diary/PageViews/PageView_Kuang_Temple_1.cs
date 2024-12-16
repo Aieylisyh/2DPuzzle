@@ -5,6 +5,7 @@ using Assets.Game.Scripts.game.Diary.Common;
 using echo17.EndlessBook.Demo02;
 using System.Collections;
 using com;
+using DG.Tweening;
 
 public class PageView_Kuang_Temple_1 : PageView
 {
@@ -60,15 +61,16 @@ public class PageView_Kuang_Temple_1 : PageView
         dong.transform.position += new Vector3(Random.Range(-dongSpawnOffset, dongSpawnOffset),
             Random.Range(-dongSpawnOffset, dongSpawnOffset) * 0.5f, 0);
         dong.SetActive(true);
-        Destroy(dong.gameObject, 2);
-
+        Destroy(dong.gameObject, 1);
+        SoundSystem.instance.Play(sfxMuyuBig);
         if (_isMuyuBusy)
         {
-            SoundSystem.instance.Play(sfxMuyuSmall);
+            //  SoundSystem.instance.Play(sfxMuyuSmall);
             return;
         }
 
-        SoundSystem.instance.Play(sfxMuyuBig);
+        SoundSystem.instance.Play(sfxMuyuSmall);
+
         StartCoroutine(MuyuCoroutine());
     }
 
@@ -79,8 +81,12 @@ public class PageView_Kuang_Temple_1 : PageView
         _isMuyuBusy = true;
         ShowNextItem();
         monkAnim.gameObject.SetActive(true);
+        monkAnim.Init();
+        monkAnim.StartAnim();
+
+        muyuAnim.Init();
         muyuAnim.StartAnim();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.2f);
         monkAnim.gameObject.SetActive(false);
         _isMuyuBusy = false;
     }
@@ -97,12 +103,19 @@ public class PageView_Kuang_Temple_1 : PageView
 
         var item = toReveals[nextIndex];
         item.gameObject.SetActive(true);
+        var sr = item.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.color = new Color(1, 1, 1, 0);
+            sr.DOFade(1, 0.4f);
+        }
         var mpo = item.GetComponent<MimicPanelObject>();
         if (mpo != null)
         {
             mpo.Init();
             mpo.StartAnim();
         }
+
         nextIndex++;
     }
 }

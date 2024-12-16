@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -114,8 +115,10 @@ namespace Assets.Game.Scripts.game.Diary.Common
             var f = collision.transform.GetComponent<ArrivalFollower>();
             if (f != null && myFellows.IndexOf(f) < 0)
             {
+                SoundSystem.instance.Play("meet");
                 f.FollowMePlease(this);
             }
+
             if (myFellows.Count >= pageView_Kuang_Arrival_1.afs.Length)
                 pageView_Kuang_Arrival_1.SetSign(false, true, false);
         }
