@@ -14,6 +14,9 @@ public class PageView_Kuang_Arrival_1 : PageView
     public ArrivalMover arrivalMover;
     public ArrivalFollower[] afs;
 
+    public GameObject sign1;
+    public GameObject sign2;
+    public GameObject sign3;
     public override void Activate()
     {
         base.Activate();
@@ -25,7 +28,15 @@ public class PageView_Kuang_Arrival_1 : PageView
             var sp = af.GetComponent<SpriteRenderer>();
             sp.sortingOrder = 100 + (i++);
         }
+        SetSign(true, false, false);
         CheckLock();
+    }
+
+    public void SetSign(bool b1, bool b2, bool b3)
+    {
+        sign1.SetActive(b1);
+        sign2.SetActive(b2);
+        sign3.SetActive(b3);
     }
 
     public override void Deactivate()

@@ -116,6 +116,8 @@ namespace Assets.Game.Scripts.game.Diary.Common
             {
                 f.FollowMePlease(this);
             }
+            if (myFellows.Count >= pageView_Kuang_Arrival_1.afs.Length)
+                pageView_Kuang_Arrival_1.SetSign(false, true, false);
         }
     }
 }

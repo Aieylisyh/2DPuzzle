@@ -17,17 +17,18 @@ namespace Assets.Game.Scripts.game.Diary.Common
             msb.enabled = true;
 
             var x = transform.position.x;
-            transform.DOMoveX(x - distanceBack, 3).SetDelay(delay).SetEase(Ease.InOutCubic).OnComplete(Go); ;
+            transform.DOMoveX(x - distanceBack, 2.4f).SetDelay(delay).SetEase(Ease.InOutCubic).OnComplete(Go); ;
         }
 
         void Go()
         {
             var x = transform.position.x;
-            transform.DOMoveX(x + distance + distanceBack, 5).SetEase(Ease.InQuad).OnComplete(
+            transform.DOMoveX(x + distance + distanceBack, 4.8f).SetEase(Ease.InQuad).OnComplete(
                () =>
                {
                    pageView_Kuang_Arrival_1.puzzleDone = true;
                    pageView_Kuang_Arrival_1.CheckLock();
+                   pageView_Kuang_Arrival_1.SetSign(false, false, true);
                });
         }
     }
