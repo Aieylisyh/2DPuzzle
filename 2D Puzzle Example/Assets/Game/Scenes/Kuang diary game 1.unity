@@ -16505,7 +16505,7 @@ MonoBehaviour:
   endPos: {x: 193.8, y: -15.52, z: 0}
   endEular: {x: 0, y: 0, z: 0}
   ease: 1
-  ignoreReset: 0
+  ignoreReset: 1
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -16606,7 +16606,7 @@ MonoBehaviour:
   endPos: {x: 530, y: -15.52, z: 0}
   endEular: {x: 0, y: 0, z: 0}
   ease: 1
-  ignoreReset: 0
+  ignoreReset: 1
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -19945,6 +19945,8 @@ MonoBehaviour:
       ac: {fileID: 8300000, guid: bb7ecaeff223259428422dd4630f3965, type: 3}
     - name: bo2
       ac: {fileID: 8300000, guid: fc9557313be73da408ce3cd213a63587, type: 3}
+    - name: luggage roll
+      ac: {fileID: 8300000, guid: a320bbaf6f46aca4ba47d15a787eacc2, type: 3}
   - tag: friend
     siList:
     - name: animalese 1
@@ -27446,8 +27448,8 @@ MonoBehaviour:
   testUnlockNext: 0
   neverLock: 0
   skipDialogs: 0
-  skipLogo: 0
-  fastDialogs: 0
+  skipLogo: 1
+  fastDialogs: 1
 --- !u!114 &1268876852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45862,9 +45864,6 @@ MonoBehaviour:
   ignoreReset: 1
   tweenStartAction:
     m_PersistentCalls:
-      m_Calls: []
-  tweenEndAction:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1856406974}
         m_TargetAssemblyTypeName: PageView_Kuang_Trains1_1, Assembly-CSharp
@@ -45878,6 +45877,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  tweenEndAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &351014714859460757
 Transform:
   m_ObjectHideFlags: 0

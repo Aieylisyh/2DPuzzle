@@ -36,7 +36,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
                 return true;
 
             revealed = true;
-            SoundSystem.instance.Play(new string[] { "bling", "bo1", "bo2" });
+            SoundSystem.instance.Play(new string[] { "bling", "bo2" });
             toReveal.DOFade(1, 1).SetDelay(0.7f);
             toHide.DOFade(0, 1);
             return true;
