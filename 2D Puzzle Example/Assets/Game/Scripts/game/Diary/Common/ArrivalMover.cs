@@ -98,16 +98,11 @@ namespace Assets.Game.Scripts.game.Diary.Common
                         offset += 1f;
                         f.transform.DOMove(ab.door.position - Vector3.right * offset, 1).SetDelay(delay);
                         delay += 0.35f;
+                        f.GetComponent<Collider2D>().enabled = false;
                     }
                     GetComponent<Collider2D>().enabled = false;
                     transform.SetParent(ab.transform);
-                    transform.DOMove(ab.door.position, 1).SetDelay(delay).OnComplete(
-                   () =>
-                   {
-                       pageView_Kuang_Arrival_1.puzzleDone = true;
-                       pageView_Kuang_Arrival_1.CheckLock();
-                   }
-                        );
+                    transform.DOMove(ab.door.position, 1).SetDelay(delay);
                     ab.StartJourney(delay + 0.5f);
                 }
             }

@@ -26,11 +26,10 @@ namespace Assets.Game.Scripts.game.Diary.Common
             host = am;
             am.myFellows.Add(this);
 
-            Debug.Log("FollowMePlease " + gameObject.name + " myIndex:" + myIndex);
-
+            //Debug.Log("FollowMePlease " + gameObject.name + " myIndex:" + myIndex);
             var m = Instantiate(meetPrefeb, transform.position + new Vector3(1.3f, 1.5f, 0), Quaternion.identity, this.transform);
             m.transform.localScale = Vector3.zero;
-            m.transform.DOScale(1.5f, 1).SetEase(Ease.OutBounce);
+            m.transform.DOScale(1f, 1).SetEase(Ease.OutBounce);
             Destroy(m, 2);
         }
 

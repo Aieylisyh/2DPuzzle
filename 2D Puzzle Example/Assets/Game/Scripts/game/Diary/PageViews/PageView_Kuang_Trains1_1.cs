@@ -15,10 +15,12 @@ public class PageView_Kuang_Trains1_1 : PageView
 
     public override void Activate()
     {
+        Debug.Log(gameObject.name + " Activate1");
         base.Activate();
         if (_activated)
             return;
 
+        Debug.Log(gameObject.name + " Activate2");
         _activated = true;
         tinyStage.Init();
         tinyStage.gameObject.SetActive(true);
@@ -57,7 +59,8 @@ public class PageView_Kuang_Trains1_1 : PageView
             return;
         if (DiaryGameFlowSystem.instance.isTalking)
             return;
-
+        if (friendTalksDone)
+            return;
         SoundSystem.instance.Play("done");
         tinyStage.StartPlay(ShowFriendTalkLeft);
     }

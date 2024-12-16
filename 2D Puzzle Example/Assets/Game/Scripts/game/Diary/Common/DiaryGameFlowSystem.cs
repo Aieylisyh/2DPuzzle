@@ -35,7 +35,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
 
-        if (!DiaryGameSystem.instance.skipDialogsAndLogo)
+        if (!DiaryGameSystem.instance.skipLogo)
         {
             DiaryGameSystem.instance.ToggleLockTurnPage(true);
             var cc = DiaryGameSystem.instance.cameraController;
@@ -60,13 +60,16 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
     public void ShowFriendTalk(bool rightOrLeft, DialogData[] dialogs, float extraDuration, float delay, Action callback)
     {
-        if (DiaryGameSystem.instance.skipDialogsAndLogo)
+        if (DiaryGameSystem.instance.skipDialogs)
         {
             callback?.Invoke();
             return;
         }
 
-        StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, extraDuration, delay, callback));
+        if (DiaryGameSystem.instance.fastDialogs)
+            StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, 0, 0, callback));
+        else
+            StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, extraDuration, delay, callback));
     }
 
     IEnumerator ShowFriendTalkCoroutine(bool rightOrLeft, DialogData[] dialogs, float extraDuration, float delay, Action callback)
@@ -75,7 +78,11 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(delay);
         var cc = DiaryGameSystem.instance.cameraController;
         cc.TurnTo(0, rightOrLeft ? 1 : -1, true);
-        yield return new WaitForSeconds(cc.duration_long);
+
+        if (DiaryGameSystem.instance.fastDialogs)
+            yield return new WaitForSeconds(0.1f);
+        else
+            yield return new WaitForSeconds(cc.duration_long);
 
         foreach (var d in dialogs)
         {
@@ -83,13 +90,19 @@ public class DiaryGameFlowSystem : MonoBehaviour
             SoundSystem.instance.Play(d.soundId);
             subtitle.gameObject.SetActive(true);
             subtitle.text = d.text;
-            yield return new WaitForSeconds(d.time);
+
+            if (DiaryGameSystem.instance.fastDialogs)
+                yield return new WaitForSeconds(0.1f);
+            else
+                yield return new WaitForSeconds(d.time);
+
             subtitle.gameObject.SetActive(false);
         }
 
         yield return new WaitForSeconds(extraDuration);
         cc.TurnTo(0, 0, false);
         yield return new WaitForSeconds(cc.duration_short);
+
         isTalking = false;
         callback?.Invoke();
     }
