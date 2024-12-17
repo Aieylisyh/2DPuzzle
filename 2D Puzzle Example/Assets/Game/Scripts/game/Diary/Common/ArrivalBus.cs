@@ -24,7 +24,7 @@ namespace Assets.Game.Scripts.game.Diary.Common
         {
             SoundSystem.instance.Play("bus go");
             var x = transform.position.x;
-            transform.DOMoveX(x + distance + distanceBack, 4.8f).SetEase(Ease.InQuad).OnComplete(
+            transform.DOMoveX(x + distance + distanceBack, 4.8f).SetDelay(1.2f).SetEase(Ease.InQuad).OnComplete(
                () =>
                {
                    pageView_Kuang_Arrival_1.puzzleDone = true;
