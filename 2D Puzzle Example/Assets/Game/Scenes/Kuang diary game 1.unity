@@ -15578,6 +15578,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChecked: 0
   checkmark: {fileID: 1278307869}
+--- !u!1 &725411193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 725411194}
+  - component: {fileID: 725411195}
+  m_Layer: 5
+  m_Name: dialogInitializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &725411194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725411193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004535780}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &725411195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725411193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  duration: 10
+  useCrtLocalPos: 0
+  startPos: {x: 0, y: 0, z: 0}
+  startEular: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  endEular: {x: 0, y: 0, z: 0}
+  ease: 0
+  ignoreReset: 0
+  tweenStartAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 883796688}
+        m_TargetAssemblyTypeName: PageView_Kuang_Temple_1, Assembly-CSharp
+        m_MethodName: "ShowFriendTalkLeft_\u5F00\u573A"
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tweenEndAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &732054249
 GameObject:
   m_ObjectHideFlags: 0
@@ -19224,6 +19295,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876462752}
   m_CullTransparentMesh: 1
+--- !u!1 &879317624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 879317625}
+  - component: {fileID: 879317626}
+  m_Layer: 5
+  m_Name: dialogInitializer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &879317625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879317624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004535780}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &879317626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879317624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  duration: 5
+  useCrtLocalPos: 0
+  startPos: {x: 0, y: 0, z: 0}
+  startEular: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  endEular: {x: 0, y: 0, z: 0}
+  ease: 0
+  ignoreReset: 0
+  tweenStartAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 883796688}
+        m_TargetAssemblyTypeName: PageView_Kuang_Temple_1, Assembly-CSharp
+        m_MethodName: "ShowFriendTalkLeft_\u4E4C\u9F9F"
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tweenEndAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &883256854
 GameObject:
   m_ObjectHideFlags: 0
@@ -19380,16 +19522,19 @@ MonoBehaviour:
   maxRayCastDistance: 1000
   muyuCol: {fileID: 1612583105}
   toReveals:
+  - {fileID: 725411194}
   - {fileID: 792005427}
   - {fileID: 1625727287}
   - {fileID: 945781263}
   - {fileID: 425643947}
   - {fileID: 1957034234}
   - {fileID: 1860960077}
+  - {fileID: 879317625}
   - {fileID: 735182703}
   - {fileID: 559536503}
   - {fileID: 1036081332}
   - {fileID: 57465985}
+  - {fileID: 1727161787}
   - {fileID: 532854804}
   sfxMuyu: muyu
   sfxShow: bo1
@@ -19397,6 +19542,30 @@ MonoBehaviour:
   monkAnim: {fileID: 1152681407}
   prefabDong: {fileID: 850328114}
   dongSpawnOffset: 4
+  "dialogDatas_Left_\u5F00\u573A":
+  - soundId: temple 1 q
+    text: 123123213213213123123
+    time: 3
+  "dialogDatas_Right_\u5F00\u573A":
+  - soundId: temple 2 m
+    text: 123123213213213123123
+    time: 3
+  - soundId: temple 3 y
+    text: 123123213213213123123
+    time: 3
+  "dialogDatas_Left_\u4E4C\u9F9F":
+  - soundId: temple 4 k
+    text: 123123213213213123123
+    time: 3
+  "dialogDatas_Right_\u4E4C\u9F9F": []
+  "dialogDatas_Left_\u6536\u5C3E": []
+  "dialogDatas_Right_\u6536\u5C3E":
+  - soundId: temple 5 m
+    text: 123123213213213123123
+    time: 3
+  - soundId: temple 6 y
+    text: 123123213213213123123
+    time: 3
 --- !u!1 &885573394
 GameObject:
   m_ObjectHideFlags: 0
@@ -19969,6 +20138,46 @@ MonoBehaviour:
       ac: {fileID: 8300000, guid: 613879eafe6b4504aadaf079f94afad9, type: 3}
     - name: animalese 4
       ac: {fileID: 8300000, guid: 06dd129080490e340bacd42864e05a3f, type: 3}
+    - name: cover 1 k
+      ac: {fileID: 8300000, guid: daeeb382e3e24964cae9d4567e347c17, type: 3}
+    - name: cover 2 y
+      ac: {fileID: 8300000, guid: 4fb0196e8d95cc74784035c4b9a9bb53, type: 3}
+    - name: cover 3 m
+      ac: {fileID: 8300000, guid: 38b5865f3e454944f9fe67b0c062489b, type: 3}
+    - name: train 1 m
+      ac: {fileID: 8300000, guid: 5495610ed2d10a748850be245e484d79, type: 3}
+    - name: train 2 k
+      ac: {fileID: 8300000, guid: a6c43ca5ae18cbf45b872f571ad1d296, type: 3}
+    - name: train 3 q
+      ac: {fileID: 8300000, guid: 8a1242f3e3d2ea14ebd4b6a7e12a292d, type: 3}
+    - name: train 4 y
+      ac: {fileID: 8300000, guid: 6a5b9eeae25fdfb42a57c409a5204fdb, type: 3}
+    - name: temple 1 q
+      ac: {fileID: 8300000, guid: ca1a05203f9f6f247bfc1ef7f05f7957, type: 3}
+    - name: temple 2 m
+      ac: {fileID: 8300000, guid: 3ce207752169e3e47b49430365ea6ea8, type: 3}
+    - name: temple 3 y
+      ac: {fileID: 8300000, guid: b7a6e85f68d223e4db7ca103c7b4734a, type: 3}
+    - name: temple 4 k
+      ac: {fileID: 8300000, guid: e432e9f9c18f90e44bf8380e964b226d, type: 3}
+    - name: temple 5 m
+      ac: {fileID: 8300000, guid: 5afe15b85f6e81b4a9ce4e532151270f, type: 3}
+    - name: temple 6 y
+      ac: {fileID: 8300000, guid: 02e7b9596470ccd4ebf81fa8ec6cbfe8, type: 3}
+    - name: beach 1 q
+      ac: {fileID: 8300000, guid: 633208454eed4964abadaf0347b5b770, type: 3}
+    - name: beach 2 k
+      ac: {fileID: 8300000, guid: 8cf8aaef06f10624ea9a693ed15711f0, type: 3}
+    - name: ending 1 y
+      ac: {fileID: 8300000, guid: 5415202b7332c9448b169e7fa1d25c43, type: 3}
+    - name: ending 2 q
+      ac: {fileID: 8300000, guid: 4efe9830ee034d848a0a940fe65742b9, type: 3}
+    - name: ending 3 k
+      ac: {fileID: 8300000, guid: 76c29760cd21a36408b0ba65693041be, type: 3}
+    - name: ending 4 m
+      ac: {fileID: 8300000, guid: bd77a610586845a41b493ea200cfb0a9, type: 3}
+    - name: ending 5 y
+      ac: {fileID: 8300000, guid: acb6f4780a03d45489ff06aec5478ea1, type: 3}
   - tag: temple station
     siList:
     - name: muyu
@@ -22057,6 +22266,9 @@ Transform:
   - {fileID: 792005427}
   - {fileID: 1036081332}
   - {fileID: 2006106058}
+  - {fileID: 725411194}
+  - {fileID: 879317625}
+  - {fileID: 1727161787}
   m_Father: {fileID: 883796687}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37120,6 +37332,77 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1727161786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727161787}
+  - component: {fileID: 1727161788}
+  m_Layer: 5
+  m_Name: dialogInitializer (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1727161787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727161786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004535780}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1727161788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727161786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  duration: 8
+  useCrtLocalPos: 0
+  startPos: {x: 0, y: 0, z: 0}
+  startEular: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  endEular: {x: 0, y: 0, z: 0}
+  ease: 0
+  ignoreReset: 0
+  tweenStartAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 883796688}
+        m_TargetAssemblyTypeName: PageView_Kuang_Temple_1, Assembly-CSharp
+        m_MethodName: "ShowFriendTalkLeft_\u6536\u5C3E"
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tweenEndAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1727661351
 GameObject:
   m_ObjectHideFlags: 0

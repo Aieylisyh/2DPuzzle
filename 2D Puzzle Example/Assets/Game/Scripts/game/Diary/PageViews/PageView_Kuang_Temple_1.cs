@@ -1,7 +1,6 @@
 ﻿
 using UnityEngine;
 using Assets.Game.Scripts.game.Diary;
-using Assets.Game.Scripts.game.Diary.Common;
 using echo17.EndlessBook.Demo02;
 using System.Collections;
 using com;
@@ -20,6 +19,15 @@ public class PageView_Kuang_Temple_1 : PageView
     public MimicPanelObject monkAnim;
     public GameObject prefabDong;
     public float dongSpawnOffset;
+
+    public DiaryGameFlowSystem.DialogData[] dialogDatas_Left_开场;
+    public DiaryGameFlowSystem.DialogData[] dialogDatas_Right_开场;
+
+    public DiaryGameFlowSystem.DialogData[] dialogDatas_Left_乌龟;
+    public DiaryGameFlowSystem.DialogData[] dialogDatas_Right_乌龟;
+
+    public DiaryGameFlowSystem.DialogData[] dialogDatas_Left_收尾;
+    public DiaryGameFlowSystem.DialogData[] dialogDatas_Right_收尾;
 
     public override void Activate()
     {
@@ -79,26 +87,29 @@ public class PageView_Kuang_Temple_1 : PageView
     IEnumerator MuyuCoroutine()
     {
         _isMuyuBusy = true;
-        ShowNextItem();
+        var extraDelay = ShowNextItem();
         monkAnim.gameObject.SetActive(true);
         monkAnim.Init();
         monkAnim.StartAnim();
 
         muyuAnim.Init();
         muyuAnim.StartAnim();
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.1f);
         monkAnim.gameObject.SetActive(false);
+        yield return new WaitForSeconds(extraDelay);
         _isMuyuBusy = false;
     }
 
-    void ShowNextItem()
+    float ShowNextItem()
     {
+        float extraDelay = 0;
+
         var allRevealed = nextIndex >= toReveals.Length;
 
         if (allRevealed)
         {
             CheckLock();
-            return;
+            return extraDelay;
         }
 
         var item = toReveals[nextIndex];
@@ -114,8 +125,76 @@ public class PageView_Kuang_Temple_1 : PageView
         {
             mpo.Init();
             mpo.StartAnim();
+            extraDelay = mpo.duration;
         }
 
         nextIndex++;
+        return extraDelay;
+    }
+
+    public void ShowFriendTalkLeft_开场()
+    {
+        var datas = dialogDatas_Left_开场;
+        if (datas != null && datas.Length > 0)
+        {
+            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 1.2f, ShowFriendTalkRight_开场);
+            return;
+        }
+
+        ShowFriendTalkRight_开场();
+    }
+
+    void ShowFriendTalkRight_开场()
+    {
+        var datas = dialogDatas_Right_开场;
+        if (datas != null && datas.Length > 0)
+        {
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.6f, 0.3f, null);
+            return;
+        }
+    }
+
+    public void ShowFriendTalkLeft_乌龟()
+    {
+        var datas = dialogDatas_Left_乌龟;
+        if (datas != null && datas.Length > 0)
+        {
+            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 1.2f, ShowFriendTalkRight_乌龟);
+            return;
+        }
+
+        ShowFriendTalkRight_乌龟();
+    }
+
+    void ShowFriendTalkRight_乌龟()
+    {
+        var datas = dialogDatas_Right_乌龟;
+        if (datas != null && datas.Length > 0)
+        {
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.6f, 0.3f, null);
+            return;
+        }
+    }
+
+    public void ShowFriendTalkLeft_收尾()
+    {
+        var datas = dialogDatas_Left_收尾;
+        if (datas != null && datas.Length > 0)
+        {
+            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 1.2f, ShowFriendTalkRight_收尾);
+            return;
+        }
+
+        ShowFriendTalkRight_收尾();
+    }
+
+    void ShowFriendTalkRight_收尾()
+    {
+        var datas = dialogDatas_Right_收尾;
+        if (datas != null && datas.Length > 0)
+        {
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.6f, 0.3f, null);
+            return;
+        }
     }
 }
