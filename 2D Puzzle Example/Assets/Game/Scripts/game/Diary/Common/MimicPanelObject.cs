@@ -19,12 +19,16 @@ public class MimicPanelObject : MonoBehaviour
 
     public UnityEvent tweenStartAction;
     public UnityEvent tweenEndAction;
+    public bool noHideMesh;
 
     public void Init()
     {
         //Debug.Log(gameObject.name);
-        var mr = GetComponent<MeshRenderer>();
-        if (mr != null) mr.enabled = false;
+        if (!noHideMesh)
+        {
+            var mr = GetComponent<MeshRenderer>();
+            if (mr != null) mr.enabled = false;
+        }
 
         if (useCrtLocalPos)
         {

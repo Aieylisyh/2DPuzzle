@@ -20,6 +20,9 @@ namespace Assets.Game.Scripts.game.Diary
 
         public bool canTurnPage;
 
+        public MimicPanelObject[] startingMpos;
+
+
         private void Awake()
         {
             canTurnPage = true;
@@ -30,6 +33,12 @@ namespace Assets.Game.Scripts.game.Diary
         {
             locker.position = lock_enterStart.position;
             locker.rotation = lock_enterStart.rotation;
+
+            foreach(var mpo in startingMpos)
+            {
+                mpo.Init();
+                mpo.StartAnim();
+            }
         }
 
         public void ToggleLockTurnPage(bool b)
