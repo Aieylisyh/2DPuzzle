@@ -9165,13 +9165,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  duration: 3
+  duration: 2.2
   useCrtLocalPos: 0
   startPos: {x: 792.165, y: -3.744, z: -3.42}
   startEular: {x: 88.64781, y: 267.2703, z: 349.301}
   endPos: {x: 792.9, y: -3.3084, z: -3.6004}
   endEular: {x: 312.1, y: 358.9999, z: 260.8}
-  ease: 0
+  ease: 2
   ignoreReset: 0
   tweenStartAction:
     m_PersistentCalls:
@@ -34855,13 +34855,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.625
-  duration: 3
+  duration: 2
   useCrtLocalPos: 0
   startPos: {x: 791.9118, y: -3.744, z: -3.508}
   startEular: {x: 88.64766, y: 28.70074, z: 349.3014}
   endPos: {x: 792.9, y: -3.649, z: -3.187}
   endEular: {x: 0, y: 0, z: 0}
-  ease: 0
+  ease: 2
   ignoreReset: 0
   tweenStartAction:
     m_PersistentCalls:
@@ -39020,13 +39020,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.5
-  duration: 3
+  duration: 2
   useCrtLocalPos: 0
   startPos: {x: 791.895, y: -3.744, z: -3.442}
   startEular: {x: 88.64781, y: 70.84309, z: 349.3017}
   endPos: {x: 792.9, y: -3.3084, z: -3.6004}
   endEular: {x: 290, y: 300, z: 250}
-  ease: 0
+  ease: 2
   ignoreReset: 0
   tweenStartAction:
     m_PersistentCalls:
