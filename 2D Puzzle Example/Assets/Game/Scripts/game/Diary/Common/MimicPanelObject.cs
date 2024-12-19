@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class MimicPanelObject : MonoBehaviour
     public Vector3 endEular;//local
     public DG.Tweening.Ease ease;
     public bool ignoreReset;
-
+    public string sfxString;
     public UnityEvent tweenStartAction;
     public UnityEvent tweenEndAction;
     public bool noHideMesh;
@@ -54,10 +55,11 @@ public class MimicPanelObject : MonoBehaviour
         tweenEndAction?.Invoke();
     }
 
-
     IEnumerator Co()
     {
         yield return new WaitForSeconds(delay);
+        if (sfxString != "")
+            SoundSystem.instance.Play(sfxString);
         tweenStartAction?.Invoke();
         transform.DOKill();
         transform.DOLocalMove(endPos, duration).SetEase(ease);

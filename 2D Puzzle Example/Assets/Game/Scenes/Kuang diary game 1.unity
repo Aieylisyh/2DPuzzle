@@ -496,6 +496,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -662,11 +663,14 @@ MonoBehaviour:
     m_Bits: 32
   maxRayCastDistance: 1000
   tinyStage: {fileID: 49735795}
-  dialogDatas_Left: []
-  dialogDatas_Right:
-  - soundId: animalese 3
+  dialogDatas_Left:
+  - soundId: train 3 q
     text: 'Kaka: I love my house I like my socks I hate eggs.'
-    time: 1
+    time: 3
+  dialogDatas_Right:
+  - soundId: train 4 y
+    text: 'Kaka: I love my house I like my socks I hate eggs.'
+    time: 3
 --- !u!4 &41257890
 Transform:
   m_ObjectHideFlags: 0
@@ -3001,6 +3005,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -3243,6 +3248,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -3356,6 +3362,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -3695,6 +3702,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -4168,6 +4176,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -5581,6 +5590,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -6508,6 +6518,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -6811,6 +6822,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -6924,6 +6936,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -7171,6 +7184,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 30, z: 0}
   ease: 24
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -7473,6 +7487,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -8112,6 +8127,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -8642,6 +8658,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -8733,10 +8750,7 @@ MonoBehaviour:
     m_Bits: 32
   maxRayCastDistance: 1000
   tinyStage: {fileID: 819303159}
-  dialogDatas_Left:
-  - soundId: animalese 3
-    text: 'Kaka: I love my house I like my socks I hate eggs.'
-    time: 1
+  dialogDatas_Left: []
   dialogDatas_Right: []
 --- !u!4 &408079972
 Transform:
@@ -8877,6 +8891,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -9039,6 +9054,7 @@ MonoBehaviour:
   endEular: {x: 312.1, y: 358.9999, z: 260.8}
   ease: 2
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -9638,6 +9654,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -10011,6 +10028,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -10333,6 +10351,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -10984,6 +11003,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 26
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -11940,6 +11960,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 14
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -12015,6 +12036,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -12265,6 +12287,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -13111,6 +13134,7 @@ MonoBehaviour:
   endEular: {x: 290, y: 300, z: 250}
   ease: 2
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -13877,6 +13901,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -14456,6 +14481,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -15260,6 +15286,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 0
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -15675,6 +15702,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 14
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -15758,6 +15786,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743084958}
   m_CullTransparentMesh: 1
+--- !u!1 &749429325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749429326}
+  - component: {fileID: 749429328}
+  - component: {fileID: 749429327}
+  m_Layer: 0
+  m_Name: SM_PostitNote_Stack_LOD0 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &749429326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749429325}
+  m_LocalRotation: {x: -0, y: -0.7844018, z: -0, w: -0.62025315}
+  m_LocalPosition: {x: 0.386, y: -0.331, z: -0.653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7159987313761195888}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -256.669, z: 0}
+--- !u!23 &749429327
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749429325}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3599acb63d46deb4e8d67a09c7404947, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &749429328
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749429325}
+  m_Mesh: {fileID: 1689303893506203206, guid: 968cc98c22435b945950a60faf08ba2c, type: 3}
 --- !u!1 &750347620
 GameObject:
   m_ObjectHideFlags: 0
@@ -15814,6 +15925,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -15927,6 +16039,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -16222,6 +16335,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: luggage roll
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -16324,6 +16438,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 8
   ignoreReset: 1
+  sfxString: luggage roll
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -16515,6 +16630,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -16628,6 +16744,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -16791,6 +16908,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 18
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -16854,6 +16972,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -16967,6 +17086,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -17080,6 +17200,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -17255,6 +17376,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -18773,6 +18895,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -18991,6 +19114,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 0
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -20491,6 +20615,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s1
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -20848,6 +20973,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -21045,6 +21171,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -22549,6 +22676,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 18
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -22720,6 +22848,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -24509,6 +24638,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 12
   ignoreReset: 0
+  sfxString: luggage roll
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -24677,6 +24807,7 @@ MonoBehaviour:
   endEular: {x: 290, y: 300, z: 250}
   ease: 2
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -24958,6 +25089,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -25153,6 +25285,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 10
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -26022,6 +26155,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -26326,6 +26460,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 180}
   ease: 9
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -26861,6 +26996,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 180}
   ease: 9
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -27058,6 +27194,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -27255,6 +27392,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -30339,6 +30477,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -30452,6 +30591,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -30689,6 +30829,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -31457,6 +31598,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -31738,6 +31880,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -32042,6 +32185,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 180}
   ease: 9
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -39259,6 +39403,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -39613,6 +39758,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 2
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -39920,6 +40066,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -41045,6 +41192,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -41192,6 +41340,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -41830,6 +41979,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -41940,6 +42090,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 0
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -42015,6 +42166,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -42225,6 +42377,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -43790,6 +43943,7 @@ MonoBehaviour:
   endEular: {x: 290, y: 300, z: 250}
   ease: 2
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -44035,6 +44189,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s1
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -44363,13 +44518,13 @@ MonoBehaviour:
   maxRayCastDistance: 1000
   tinyStage: {fileID: 958373715}
   dialogDatas_Left:
-  - soundId: animalese 1
+  - soundId: train 1 m
     text: 'Alice: I love my house I like my socks I hate eggs.'
-    time: 1
+    time: 3
   dialogDatas_Right:
-  - soundId: animalese 3
-    text: 'Kaka: I love my house I like my socks I hate eggs.'
-    time: 1
+  - soundId: train 2 k
+    text: 'Alice: I love my house I like my socks I hate eggs.'
+    time: 3
 --- !u!1 &1860960076
 GameObject:
   m_ObjectHideFlags: 0
@@ -44476,6 +44631,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 14
   ignoreReset: 0
+  sfxString: 
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -45938,6 +46094,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -46892,6 +47049,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -47005,6 +47163,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -47392,6 +47551,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -47720,7 +47880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995882230}
   m_LocalRotation: {x: -0, y: 0.9993799, z: -0, w: -0.035214543}
-  m_LocalPosition: {x: 1.461, y: 0, z: -0.091}
+  m_LocalPosition: {x: 1.531, y: 0, z: -0.083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48915,6 +49075,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -50249,6 +50410,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -50362,6 +50524,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -50475,6 +50638,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -50744,6 +50908,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 11
   ignoreReset: 1
+  sfxString: luggage roll
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -50832,6 +50997,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 9
   ignoreReset: 0
+  sfxString: luggage roll
   tweenStartAction:
     m_PersistentCalls:
       m_Calls:
@@ -51972,6 +52138,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -52085,6 +52252,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s1
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -52450,6 +52618,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -52563,6 +52732,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -52734,6 +52904,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -52882,6 +53053,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 30
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -52984,6 +53156,7 @@ MonoBehaviour:
   endEular: {x: 0, y: 0, z: 0}
   ease: 15
   ignoreReset: 0
+  sfxString: s2
   tweenStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -53416,7 +53589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8294938588031591920}
   m_LocalRotation: {x: -0, y: -0.20146284, z: 0, w: 0.97949624}
-  m_LocalPosition: {x: 1.42, y: -1.453, z: 3.218}
+  m_LocalPosition: {x: 1.456, y: -1.453, z: 3.234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53570,6 +53743,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8499187883104217829}
+  - {fileID: 749429326}
   m_Father: {fileID: 369820161}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56264,7 +56438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2876190549488156072}
   m_LocalRotation: {x: -0, y: -0.8372757, z: 0, w: 0.546781}
-  m_LocalPosition: {x: -0.5942, y: -0.331, z: -0.5999}
+  m_LocalPosition: {x: -0.597, y: -0.331, z: -0.603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

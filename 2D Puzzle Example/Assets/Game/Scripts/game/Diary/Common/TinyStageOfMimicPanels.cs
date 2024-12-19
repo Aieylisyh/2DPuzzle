@@ -17,7 +17,7 @@ public class TinyStageOfMimicPanels : MonoBehaviour
     {
         if (mimicPanelObjectParent == null)
             mimicPanelObjectParent = this.transform;
-        Debug.Log("Init");
+        //Debug.Log("Init");
         playing = false;
 
         //用这个复杂的方式，避免同一个sorting layer的对象出现
