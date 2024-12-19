@@ -59,7 +59,7 @@ public class MimicPanelObject : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         if (sfxString != "")
-            SoundSystem.instance.Play(sfxString);
+            SoundSystem.instance.Play(sfxString,0.5f);
         tweenStartAction?.Invoke();
         transform.DOKill();
         transform.DOLocalMove(endPos, duration).SetEase(ease);
