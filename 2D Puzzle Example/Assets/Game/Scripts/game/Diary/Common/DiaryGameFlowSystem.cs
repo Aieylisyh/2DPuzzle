@@ -32,27 +32,29 @@ public class DiaryGameFlowSystem : MonoBehaviour
     IEnumerator StartGameCoroutine()
     {
         gameLogo.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
 
 
         if (!DiaryGameSystem.instance.skipLogo)
         {
             DiaryGameSystem.instance.ToggleLockTurnPage(true);
             var cc = DiaryGameSystem.instance.cameraController;
-            cc.TurnTo(cc.ref_comedy, 3.0f);
-            yield return new WaitForSeconds(2.8f);
+            float showLogoCamMoveTime = 3.2f;
+            cc.TurnTo(cc.ref_comedy, showLogoCamMoveTime);
+            yield return new WaitForSeconds(showLogoCamMoveTime * 0.88f);
             gameLogo.SetActive(true);
 
-            float t1 = 1.2f;
+            float t1 = 1.0f;
             gameLogo.transform.DORotate(Vector3.zero, t1).SetEase(Ease.InOutCubic);
             yield return new WaitForSeconds(t1 + 2.8f);
-            float t2 = 1.2f;
+            float t2 = 0.7f;
             gameLogo.transform.DORotate(new Vector3(0, 270, 0), t2).SetEase(Ease.InOutCubic);
             yield return new WaitForSeconds(t2);
             gameLogo.SetActive(false);
 
-            cc.TurnTo(cc.ref_default, 1.5f);
-            yield return new WaitForSeconds(1.2f);
+            float backTime = 2.8f;
+            cc.TurnTo(cc.ref_default, backTime);
+            yield return new WaitForSeconds(backTime);
         }
 
         DiaryGameSystem.instance.ToggleLockTurnPage(false);
