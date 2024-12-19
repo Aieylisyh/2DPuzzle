@@ -33,7 +33,7 @@ namespace Assets.Game.Scripts.game.Diary
         {
             locker.position = lock_enterStart.position;
             locker.rotation = lock_enterStart.rotation;
-
+            ToggleLockTurnPage(true);
             foreach(var mpo in startingMpos)
             {
                 mpo.Init();
@@ -52,13 +52,14 @@ namespace Assets.Game.Scripts.game.Diary
             }
 
 
-            //Debug.Log("ToggleLockTurnPage " + b);
+            Debug.Log("ToggleLockTurnPage " + b);
             if (canTurnPage == !b)
                 return;
 
             locker.DOKill();
             if (canTurnPage)
             {
+                //lock
                 locker.position = lock_enterStart.position;
                 locker.rotation = lock_enterStart.rotation;
                 locker.DOMove(lock_end.position, 1.5f).SetEase(Ease.OutCubic);
@@ -66,6 +67,8 @@ namespace Assets.Game.Scripts.game.Diary
             }
             else
             {
+                //unlock
+                SoundSystem.instance.Play("bling");
                 locker.DOMove(lock_leaveEnd.position, 1.5f).SetEase(Ease.InCubic);
                 locker.DORotate(lock_leaveEnd.eulerAngles, 1.5f).SetEase(Ease.Linear);
             }

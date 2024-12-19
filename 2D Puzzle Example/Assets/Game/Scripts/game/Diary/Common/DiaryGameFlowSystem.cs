@@ -37,7 +37,6 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
         if (!DiaryGameSystem.instance.skipLogo)
         {
-            DiaryGameSystem.instance.ToggleLockTurnPage(true);
             var cc = DiaryGameSystem.instance.cameraController;
             float showLogoCamMoveTime = 3.2f;
             cc.TurnTo(cc.ref_comedy, showLogoCamMoveTime);
