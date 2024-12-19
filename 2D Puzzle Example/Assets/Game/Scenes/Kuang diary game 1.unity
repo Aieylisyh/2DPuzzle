@@ -19317,10 +19317,10 @@ MonoBehaviour:
   "dialogDatas_Right_\u5F00\u573A":
   - soundId: temple 2 m
     text: 123123213213213123123
-    time: 3
+    time: 2.9
   - soundId: temple 3 y
     text: 123123213213213123123
-    time: 3
+    time: 3.1
   "dialogDatas_Left_\u4E4C\u9F9F":
   - soundId: temple 4 k
     text: 123123213213213123123
@@ -19330,10 +19330,10 @@ MonoBehaviour:
   "dialogDatas_Right_\u6536\u5C3E":
   - soundId: temple 5 m
     text: 123123213213213123123
-    time: 3
+    time: 4.5
   - soundId: temple 6 y
     text: 123123213213213123123
-    time: 3
+    time: 2.7
 --- !u!1 &885573394
 GameObject:
   m_ObjectHideFlags: 0
@@ -34624,7 +34624,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.32
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -34740,8 +34740,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.13
-      minScalar: 0.05
+      scalar: 0.12
+      minScalar: 0.07
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -35322,7 +35322,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 11
+      scalar: 10
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -51753,7 +51753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6827018766416180226}
   m_LocalRotation: {x: -0, y: -0.7032254, z: -0, w: 0.71096706}
-  m_LocalPosition: {x: -0.094, y: 0, z: -0.152}
+  m_LocalPosition: {x: -0.116, y: 0, z: -0.195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53485,7 +53485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4365416853705336105}
   m_LocalRotation: {x: -0, y: -0.28186616, z: -0, w: 0.95945376}
-  m_LocalPosition: {x: -0.0143, y: 0, z: -0.1256}
+  m_LocalPosition: {x: -0.038, y: 0, z: -0.104}
   m_LocalScale: {x: 1.0648, y: 1.0648, z: 1.0648}
   m_ConstrainProportionsScale: 0
   m_Children: []

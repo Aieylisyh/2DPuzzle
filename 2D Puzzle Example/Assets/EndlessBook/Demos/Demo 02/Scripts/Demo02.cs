@@ -383,7 +383,14 @@
                         case TouchPad.PageEnum.Right:
 
                             // transition from the ClosedFront to the OpenFront states
-                            OpenFront();
+                            if (DiaryGameSystem.instance != null && !DiaryGameSystem.instance.canTurnPage)
+                            {
+                                Debug.Log("canTurnToNextPage is false");
+                            }
+                            else
+                            {
+                                OpenFront();
+                            }
 
                             break;
                     }

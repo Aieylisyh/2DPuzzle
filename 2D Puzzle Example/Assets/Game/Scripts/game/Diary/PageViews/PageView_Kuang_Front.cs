@@ -10,14 +10,18 @@ namespace Assets.Game.Scripts.game.Diary.PageViews
         public DiaryGameFlowSystem.DialogData[] dialogDataRight;
 
         bool friendTalksDone = false;
+
         public override void Activate()
         {
             base.Activate();
-            CheckLock();
+
             if (!friendTalksDone)
             {
                 ShowFriendTalkLeft();
+                return;
             }
+
+            CheckLock();
         }
 
         void ShowFriendTalkLeft()
