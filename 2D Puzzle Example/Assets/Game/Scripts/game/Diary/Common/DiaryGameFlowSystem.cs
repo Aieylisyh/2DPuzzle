@@ -51,7 +51,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
             gameLogo.transform.DORotate(new Vector3(0, 270, 0), t2).SetEase(Ease.InOutCubic);
             yield return new WaitForSeconds(t2);
             gameLogo.SetActive(false);
-
+             yield return new WaitForSeconds(0.3f);
             float backTime = 2.8f;
             cc.TurnTo(cc.ref_default, backTime);
             yield return new WaitForSeconds(backTime);
