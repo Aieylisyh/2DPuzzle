@@ -61,7 +61,7 @@ public class PageView_Kuang_Trains1_1 : PageView
             return;
         if (friendTalksDone)
             return;
-        SoundSystem.instance.Play("done");
+        SoundSystem.instance.Play("s2");
         tinyStage.StartPlay(ShowFriendTalkLeft);
     }
 
