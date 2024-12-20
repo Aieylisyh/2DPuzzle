@@ -5,6 +5,7 @@ using echo17.EndlessBook.Demo02;
 using System.Collections;
 using com;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class PageView_Kuang_Beach_1 : PageView
 {
@@ -38,6 +39,8 @@ public class PageView_Kuang_Beach_1 : PageView
 
     public Transform[] viewQtes;
 
+    public SpriteRenderer bgStart;
+    public Transform bgStartEnd;
     public override void Activate()
     {
         base.Activate();
@@ -52,7 +55,17 @@ public class PageView_Kuang_Beach_1 : PageView
         shovelView.gameObject.SetActive(false);
         shovelAnim.gameObject.SetActive(false);
 
-        ShowPendingQte();
+        var t = 2f;
+        bgStart.transform.DOMove(bgStartEnd.position, t).SetDelay(1);
+        bgStart.transform.DOScale(bgStartEnd.localScale, t).SetDelay(1);
+        bgStart.DOFade(0, t - 1f).SetDelay(2.2f).OnComplete(
+            () =>
+            {
+                ShowPendingQte();
+                bgStart.gameObject.SetActive(false);
+            }
+            );
+        SoundSystem.instance.Play("tide");
     }
 
     public override void Deactivate()
@@ -172,16 +185,20 @@ public class PageView_Kuang_Beach_1 : PageView
         Debug.Log("ProcessQteCoroutine crt " + qteArrayIndex + "/" + qteArraySubIndex);
         _blockInput = true;
 
+        foreach (var vqte in viewQtes)
+        {
+            vqte.gameObject.SetActive(false);
+        }
+
         var crtA = qteArrays[qteArrayIndex];
         qteArraySubIndex++;
         bool finishCurrentA = qteArraySubIndex == crtA.stageQte.Length;
 
         shovelView.gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.3f);
 
         shovelAnim.gameObject.SetActive(true);
         shovelAnim.DOKill();
-        var t = 0.7f;
+        var t = 0.5f;
         shovelAnim.transform.parent.position = crtA.pos.position;
         shovelAnim.localScale = shovelAnimTrans1.localScale;
         shovelAnim.position = shovelAnimTrans1.position;
@@ -209,7 +226,7 @@ public class PageView_Kuang_Beach_1 : PageView
         var v = ValidateQteIndex();
         if (v)
         {
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(0.1f);
             ShowPendingQte();
         }
         _blockInput = false;
@@ -224,13 +241,14 @@ public class PageView_Kuang_Beach_1 : PageView
 
     IEnumerator FinishQteCo()
     {
-        SoundSystem.instance.Play("bling");
-        var t = 2f;
+        SoundSystem.instance.Play("tide");
+        //SoundSystem.instance.Play("bling");
+        var t = 2.1f;
         cam1.transform.DOMove(cam1TransTarget.transform.position, t);
         cam1.DOOrthoSize(cam1TransTarget.orthographicSize, t);
         cam2.transform.DOMove(cam2TransTarget.transform.position, t);
         cam2.DOOrthoSize(cam2TransTarget.orthographicSize, t);
-        yield return new WaitForSeconds(t + 1.5f);
+        yield return new WaitForSeconds(t + 0.5f);
         DiaryGameFlowSystem.instance.StartFireworks();
     }
 }

@@ -12,7 +12,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
     public static DiaryGameFlowSystem instance;
 
     public GameObject gameLogo;
-    public GameObject fireworks;
+
     public Light[] lights;
 
     public TextMeshProUGUI subtitle;
@@ -27,6 +27,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
     private void Start()
     {
         subtitle.gameObject.SetActive(false);
+        //DiaryGameFlowSystem.instance.StartFireworks();
         StartCoroutine(StartGameCoroutine());
     }
 
@@ -118,22 +119,52 @@ public class DiaryGameFlowSystem : MonoBehaviour
         StartCoroutine(FireworksCoroutine());
     }
 
+    public GameObject fireworksFirst;
+    public ParticleSystem[] fireworks;
+    public CameraFilterPack_Glow_Glow_Color filter;
+
     IEnumerator FireworksCoroutine()
     {
         gameLogo.SetActive(false);
-        yield return new WaitForSeconds(0.7f);
-
 
         var cc = DiaryGameSystem.instance.cameraController;
         float showLogoCamMoveTime = 3.2f;
         cc.TurnTo(cc.ref_comedy, showLogoCamMoveTime);
+        yield return new WaitForSeconds(showLogoCamMoveTime - 0.2f);
 
-        fireworks.SetActive(true);
+        PlayFireworkSound();
+        fireworksFirst.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        foreach (var f in fireworks)
+        {
+            StartCoroutine(FireworksCo(f));
+        }
         foreach (var l in lights)
         {
-            l.DOIntensity(0.1f, 2);
+            l.DOIntensity(0.1f, 0.2f);
         }
-        //end talk
+        yield return new WaitForSeconds(0.2f);
+        filter.enabled = true;
+        RenderSettings.fog = true;
+        yield return new WaitForSeconds(3f);
+        DiaryGameFlowSystem.instance.ShowFriendTalk(false, endDialogDatas, 1.2f, 0.4f, null);
+    }
+
+    public DialogData[] endDialogDatas;
+
+    IEnumerator FireworksCo(ParticleSystem ps)
+    {
+        while (true)
+        {
+            ps.Play();
+            PlayFireworkSound();
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3));
+        }
+    }
+
+    public void PlayFireworkSound()
+    {
+        SoundSystem.instance.Play("firework");
     }
 
     [System.Serializable]
