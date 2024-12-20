@@ -26,7 +26,7 @@ namespace Assets.Game.Scripts.game.Diary.PageViews
 
         void ShowFriendTalkLeft()
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(true, dialogDataLeft, 1.2f, 1.2f, ShowFriendTalkRight);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, dialogDataLeft, 1.2f, 0.4f, ShowFriendTalkRight);
         }
 
         void ShowFriendTalkRight()

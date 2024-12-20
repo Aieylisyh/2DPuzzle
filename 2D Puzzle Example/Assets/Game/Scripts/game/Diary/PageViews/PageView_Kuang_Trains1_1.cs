@@ -70,7 +70,7 @@ public class PageView_Kuang_Trains1_1 : PageView
         var datas = dialogDatas_Left;
         if (datas != null && datas.Length > 0)
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 1.2f, ShowFriendTalkRight);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 0.4f, ShowFriendTalkRight);
             return;
         }
 
@@ -82,7 +82,7 @@ public class PageView_Kuang_Trains1_1 : PageView
         var datas = dialogDatas_Right;
         if (datas != null && datas.Length > 0)
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.6f, 0.3f, TalkEnd);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.5f, 0.3f, TalkEnd);
             return;
         }
 

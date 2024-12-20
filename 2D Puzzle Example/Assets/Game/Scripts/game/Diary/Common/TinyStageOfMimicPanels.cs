@@ -10,6 +10,8 @@ public class TinyStageOfMimicPanels : MonoBehaviour
     public MimicPanelObject[] mimicPanelObjects { get; private set; }
     public float stageDuration;
     Coroutine crtStagePlayCoroutine;
+    public float speedRatio = 1;
+
     public bool playing { get; private set; }
 
     private List<(int, int)> existingSortingLayerAndObjectCount = new List<(int, int)>();
@@ -30,7 +32,7 @@ public class TinyStageOfMimicPanels : MonoBehaviour
 
             int existedIndex = -1;
             int existedCount = 0;
-
+            mpo.duration /= speedRatio;
             for (int i = 0; i < existingSortingLayerAndObjectCount.Count; i++)
             {
                 var e = existingSortingLayerAndObjectCount[i];

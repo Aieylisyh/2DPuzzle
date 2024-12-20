@@ -68,7 +68,7 @@ namespace Assets.Game.Scripts.game.Diary
             else
             {
                 //unlock
-                SoundSystem.instance.Play("bling", 0.3f);
+                SoundSystem.instance.Play("s2", 0.3f);
                 locker.DOMove(lock_leaveEnd.position, 1.5f).SetEase(Ease.InCubic);
                 locker.DORotate(lock_leaveEnd.eulerAngles, 1.5f).SetEase(Ease.Linear);
             }

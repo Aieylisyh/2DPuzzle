@@ -13,6 +13,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
     public GameObject gameLogo;
     public GameObject fireworks;
+    public Light[] lights;
 
     public TextMeshProUGUI subtitle;
 
@@ -110,6 +111,29 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
         isTalking = false;
         callback?.Invoke();
+    }
+
+    public void StartFireworks()
+    {
+        StartCoroutine(FireworksCoroutine());
+    }
+
+    IEnumerator FireworksCoroutine()
+    {
+        gameLogo.SetActive(false);
+        yield return new WaitForSeconds(0.7f);
+
+
+        var cc = DiaryGameSystem.instance.cameraController;
+        float showLogoCamMoveTime = 3.2f;
+        cc.TurnTo(cc.ref_comedy, showLogoCamMoveTime);
+
+        fireworks.SetActive(true);
+        foreach (var l in lights)
+        {
+            l.DOIntensity(0, 2);
+        }
+        //end talk
     }
 
     [System.Serializable]
