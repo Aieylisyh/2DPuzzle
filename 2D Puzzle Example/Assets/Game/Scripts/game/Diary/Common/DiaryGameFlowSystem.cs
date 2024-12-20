@@ -131,7 +131,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
         fireworks.SetActive(true);
         foreach (var l in lights)
         {
-            l.DOIntensity(0, 2);
+            l.DOIntensity(0.1f, 2);
         }
         //end talk
     }
