@@ -130,6 +130,10 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         DiaryGameFlowSystem.instance.ShowFriendTalk(false, endDialogDatas, 1.2f, 0.5f, null);
+        //TODO callback later content
+        yield return new WaitForSeconds(4.5f);
+        PlayFireworkSound();
+        fireworksFirst.SetActive(true);
         yield return new WaitForSeconds(3f);
         var cc = DiaryGameSystem.instance.cameraController;
         float showLogoCamMoveTime = 3.2f;
@@ -137,9 +141,8 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(showLogoCamMoveTime - 0.2f);
 
 
-        PlayFireworkSound();
-        fireworksFirst.SetActive(true);
-        yield return new WaitForSeconds(3f);
+
+        yield return new WaitForSeconds(2f);
         foreach (var f in fireworks)
         {
             StartCoroutine(FireworksCo(f));
