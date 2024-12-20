@@ -34,7 +34,7 @@ namespace Assets.Game.Scripts.game.Diary
             locker.position = lock_enterStart.position;
             locker.rotation = lock_enterStart.rotation;
             ToggleLockTurnPage(true);
-            foreach(var mpo in startingMpos)
+            foreach (var mpo in startingMpos)
             {
                 mpo.Init();
                 mpo.StartAnim();
@@ -68,7 +68,7 @@ namespace Assets.Game.Scripts.game.Diary
             else
             {
                 //unlock
-                SoundSystem.instance.Play("bling",0.5f);
+                SoundSystem.instance.Play("bling", 0.3f);
                 locker.DOMove(lock_leaveEnd.position, 1.5f).SetEase(Ease.InCubic);
                 locker.DORotate(lock_leaveEnd.eulerAngles, 1.5f).SetEase(Ease.Linear);
             }
@@ -82,6 +82,7 @@ namespace Assets.Game.Scripts.game.Diary
         public bool skipDialogs;
         public bool skipLogo;
         public bool fastDialogs;
+
         private void Update()
         {
             if (testLockNext)
@@ -108,7 +109,7 @@ namespace Assets.Game.Scripts.game.Diary
 
             if (Input.GetMouseButtonDown(0))
             {
-                SoundSystem.instance.Play("click",0.4f);
+                SoundSystem.instance.Play("click", 0.4f);
             }
         }
     }

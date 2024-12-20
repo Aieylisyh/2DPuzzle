@@ -2893,8 +2893,8 @@ MonoBehaviour:
   ref_y_n: {fileID: 891004991}
   ref_comedy: {fileID: 120572012}
   ref_focus: {fileID: 1008301631}
-  duration_long: 1.5
-  duration_short: 0.6
+  duration_long: 1.6
+  duration_short: 0.7
 --- !u!1 &128255140
 GameObject:
   m_ObjectHideFlags: 0
@@ -34465,7 +34465,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 186cf22ffaae264449e086a0c4206a6d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 226c7564ffde2124dbc519ec774b86a4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1

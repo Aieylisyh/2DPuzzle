@@ -63,7 +63,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
         DiaryGameSystem.instance.ToggleLockTurnPage(false);
     }
 
-    public void ShowFriendTalk(bool rightOrLeft, DialogData[] dialogs, float extraDuration, float delay, Action callback)
+    public void ShowFriendTalk(bool rightOrLeft, DialogData[] dialogs, float endExtraDuration, float startDelay, Action callback)
     {
         if (DiaryGameSystem.instance.skipDialogs)
         {
@@ -74,15 +74,15 @@ public class DiaryGameFlowSystem : MonoBehaviour
         if (DiaryGameSystem.instance.fastDialogs)
             StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, 0, 0, callback));
         else
-            StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, extraDuration, delay, callback));
+            StartCoroutine(ShowFriendTalkCoroutine(rightOrLeft, dialogs, endExtraDuration, startDelay, callback));
     }
 
-    IEnumerator ShowFriendTalkCoroutine(bool rightOrLeft, DialogData[] dialogs, float extraDuration, float delay, Action callback)
+    IEnumerator ShowFriendTalkCoroutine(bool rightOrLeft, DialogData[] dialogs, float endExtraDuration, float startDelay, Action callback)
     {
         isTalking = true;
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(startDelay);
         var cc = DiaryGameSystem.instance.cameraController;
-        cc.TurnTo(0, rightOrLeft ? 1 : -1, true);
+        cc.TurnTo(0, rightOrLeft ? 1 : -1, false);
 
         if (DiaryGameSystem.instance.fastDialogs)
             yield return new WaitForSeconds(0.1f);
@@ -104,8 +104,8 @@ public class DiaryGameFlowSystem : MonoBehaviour
             subtitle.gameObject.SetActive(false);
         }
 
-        yield return new WaitForSeconds(extraDuration);
-        cc.TurnTo(0, 0, false);
+        yield return new WaitForSeconds(endExtraDuration);
+        cc.TurnTo(0, 0, true);
         yield return new WaitForSeconds(cc.duration_short);
 
         isTalking = false;
