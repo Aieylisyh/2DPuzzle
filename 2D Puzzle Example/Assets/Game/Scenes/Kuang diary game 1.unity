@@ -38340,8 +38340,8 @@ MonoBehaviour:
   testUnlockNext: 0
   neverLock: 0
   skipDialogs: 0
-  skipLogo: 1
-  fastDialogs: 1
+  skipLogo: 0
+  fastDialogs: 0
 --- !u!114 &1268876852
 MonoBehaviour:
   m_ObjectHideFlags: 0

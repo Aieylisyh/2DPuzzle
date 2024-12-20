@@ -132,6 +132,8 @@ public class DiaryGameFlowSystem : MonoBehaviour
         cc.TurnTo(cc.ref_comedy, showLogoCamMoveTime);
         yield return new WaitForSeconds(showLogoCamMoveTime - 0.2f);
 
+        DiaryGameFlowSystem.instance.ShowFriendTalk(false, endDialogDatas, 1.2f, 0.5f, null);
+        yield return new WaitForSeconds(3f);
         PlayFireworkSound();
         fireworksFirst.SetActive(true);
         yield return new WaitForSeconds(3f);
@@ -146,8 +148,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         filter.enabled = true;
         RenderSettings.fog = true;
-        yield return new WaitForSeconds(3f);
-        DiaryGameFlowSystem.instance.ShowFriendTalk(false, endDialogDatas, 1.2f, 0.4f, null);
+
     }
 
     public DialogData[] endDialogDatas;
