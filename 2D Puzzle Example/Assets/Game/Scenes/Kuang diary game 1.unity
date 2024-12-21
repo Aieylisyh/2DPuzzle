@@ -665,7 +665,7 @@ MonoBehaviour:
   tinyStage: {fileID: 49735795}
   dialogDatas_Left:
   - soundId: train 3 q
-    text: 'Kaka: I love my house I like my socks I hate eggs.'
+    text: The whole carriage was filled with people we knew, cool!
     time: 3
   dialogDatas_Right: []
 --- !u!4 &41257890
@@ -2676,7 +2676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120572011}
   m_LocalRotation: {x: 0.05233596, y: -0, z: -0, w: 0.9986295}
-  m_LocalPosition: {x: 0, y: 0.91, z: -6.81}
+  m_LocalPosition: {x: 0, y: 0.92, z: -6.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13996,7 +13996,7 @@ MonoBehaviour:
   dialogDatas_Left: []
   dialogDatas_Right:
   - soundId: train 4 y
-    text: 'Kaka: I love my house I like my socks I hate eggs.'
+    text: Hey, after backache, finally.
     time: 3
 --- !u!4 &408079972
 Transform:
@@ -14291,7 +14291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1.3
+  delay: 1.5
   duration: 2.3
   useCrtLocalPos: 0
   startPos: {x: 792.165, y: -3.744, z: -3.42}
@@ -26187,7 +26187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749429325}
   m_LocalRotation: {x: -0, y: -0.9566056, z: -0, w: -0.29138607}
-  m_LocalPosition: {x: 0.285, y: -0.331, z: -0.614}
+  m_LocalPosition: {x: 0.289, y: -0.331, z: -0.672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26533,8 +26533,9 @@ MonoBehaviour:
   filter: {fileID: 319931624}
   endDialogDatas:
   - soundId: ending 5 y
-    text: 1231232131232131
-    time: 3
+    text: It was too late to get a taxi back, but I did see a unforgettable fireworks!
+    time: 3.1
+  demo02: {fileID: 424931692}
 --- !u!4 &763184882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6202ff505aa176d43865035aa7073aa8, type: 3}
@@ -29769,27 +29770,27 @@ MonoBehaviour:
   dongSpawnOffset: 4
   "dialogDatas_Left_\u5F00\u573A":
   - soundId: temple 1 q
-    text: 123123213213213123123
+    text: Chengtian Temple was the first temple we visited
     time: 3
   "dialogDatas_Right_\u5F00\u573A":
   - soundId: temple 2 m
-    text: 123123213213213123123
+    text: Yes, the kids were taking classes in the building next door.
     time: 2.9
   - soundId: temple 3 y
-    text: 123123213213213123123
+    text: As soon as the monk hitting the wooden fish, we take photos
     time: 3.1
   "dialogDatas_Left_\u4E4C\u9F9F":
   - soundId: temple 4 k
-    text: 123123213213213123123
+    text: Turtles in the pond are stacked together. How they did it.
     time: 3
   "dialogDatas_Right_\u4E4C\u9F9F": []
   "dialogDatas_Left_\u6536\u5C3E": []
   "dialogDatas_Right_\u6536\u5C3E":
   - soundId: temple 5 m
-    text: 123123213213213123123
+    text: This is a little girl from Xunpu fishing village.
     time: 4.5
   - soundId: temple 6 y
-    text: 123123213213213123123
+    text: Yep yep
     time: 2.3
 --- !u!1 &885573394
 GameObject:
@@ -45105,7 +45106,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.8
+    m_Strength: 0.72
     m_Bias: 0.06
     m_NormalBias: 0.04
     m_NearPlane: 1
@@ -50610,7 +50611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1.025
+  delay: 1.1
   duration: 2.1
   useCrtLocalPos: 0
   startPos: {x: 791.9118, y: -3.744, z: -3.508}
@@ -54938,7 +54939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4717563097389d343b537fd86f76001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.9
+  delay: 1
   duration: 2
   useCrtLocalPos: 0
   startPos: {x: 791.895, y: -3.744, z: -3.442}
@@ -55524,11 +55525,11 @@ MonoBehaviour:
   tinyStage: {fileID: 958373715}
   dialogDatas_Left:
   - soundId: train 1 m
-    text: 'Alice: I love my house I like my socks I hate eggs.'
+    text: It was a long train trip
     time: 3
   dialogDatas_Right:
   - soundId: train 2 k
-    text: 'Alice: I love my house I like my socks I hate eggs.'
+    text: We did everything to kill time
     time: 3
 --- !u!1 &1860960076
 GameObject:
@@ -56753,15 +56754,15 @@ MonoBehaviour:
   maxRayCastDistance: 1000
   dialogDataLeft:
   - soundId: cover 1 k
-    text: asdasdasdasdasdasdasdasd
-    time: 2.2
+    text: Do you still remember our internship in Quanzhou?
+    time: 2.1
   dialogDataRight:
   - soundId: cover 2 y
-    text: asdasdsadsadasdasdsadasd
+    text: Of course!
     time: 2.3
   - soundId: cover 3 m
-    text: 1232131231231313131
-    time: 2.2
+    text: Fresh in memory
+    time: 2
 --- !u!1 &1911471067
 GameObject:
   m_ObjectHideFlags: 0
@@ -58013,7 +58014,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.9777253, b: 0.7327044, a: 1}
   m_Intensity: 1
-  m_Range: 16
+  m_Range: 18
   m_SpotAngle: 49
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -66053,7 +66054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8294938588031591920}
   m_LocalRotation: {x: -0, y: 0.56292623, z: -0, w: 0.8265072}
-  m_LocalPosition: {x: 0.811, y: -1.453, z: 4.263}
+  m_LocalPosition: {x: 0.742, y: -1.453, z: 4.366}
   m_LocalScale: {x: 1.1355, y: 1.1355, z: 1.1355}
   m_ConstrainProportionsScale: 0
   m_Children: []

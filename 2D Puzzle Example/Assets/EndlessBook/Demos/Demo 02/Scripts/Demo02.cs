@@ -734,5 +734,15 @@
                             onPageTurnStart: OnPageTurnStart,
                             onPageTurnEnd: OnPageTurnEnd);
         }
+
+        public void Ex_OpenBack()
+        {
+            OpenBack();
+        }
+
+        public void Ex_CloseBack()
+        {
+            ClosedBack();
+        }
     }
 }

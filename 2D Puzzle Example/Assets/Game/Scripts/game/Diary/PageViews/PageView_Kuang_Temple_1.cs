@@ -149,7 +149,7 @@ public class PageView_Kuang_Temple_1 : PageView
         var datas = dialogDatas_Right_开场;
         if (datas != null && datas.Length > 0)
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.5f, 0.3f, null);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.4f, 0.3f, null);
             return;
         }
     }
@@ -159,7 +159,7 @@ public class PageView_Kuang_Temple_1 : PageView
         var datas = dialogDatas_Left_乌龟;
         if (datas != null && datas.Length > 0)
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 0.4f, ShowFriendTalkRight_乌龟);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.1f, 0.4f, ShowFriendTalkRight_乌龟);
             return;
         }
 
@@ -171,7 +171,7 @@ public class PageView_Kuang_Temple_1 : PageView
         var datas = dialogDatas_Right_乌龟;
         if (datas != null && datas.Length > 0)
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.5f, 0.3f, null);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.1f, 0.3f, null);
             return;
         }
     }
@@ -181,7 +181,7 @@ public class PageView_Kuang_Temple_1 : PageView
         var datas = dialogDatas_Left_收尾;
         if (datas != null && datas.Length > 0)
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.2f, 0.4f, ShowFriendTalkRight_收尾);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(false, datas, 1.1f, 0.4f, ShowFriendTalkRight_收尾);
             return;
         }
 
@@ -193,7 +193,7 @@ public class PageView_Kuang_Temple_1 : PageView
         var datas = dialogDatas_Right_收尾;
         if (datas != null && datas.Length > 0)
         {
-            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.5f, 0.3f, null);
+            DiaryGameFlowSystem.instance.ShowFriendTalk(true, datas, 1.1f, 0.3f, null);
             return;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using Assets.Game.Scripts.game.Diary;
 using com;
 using DG.Tweening;
+using echo17.EndlessBook.Demo02;
 using System;
 using System.Collections;
 using TMPro;
@@ -126,23 +127,28 @@ public class DiaryGameFlowSystem : MonoBehaviour
     IEnumerator FireworksCoroutine()
     {
         gameLogo.SetActive(false);
-
-
         yield return new WaitForSeconds(1f);
-        DiaryGameFlowSystem.instance.ShowFriendTalk(false, endDialogDatas, 1.2f, 0.5f, null);
-        //TODO callback later content
-        yield return new WaitForSeconds(4.5f);
-        PlayFireworkSound();
-        fireworksFirst.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        DiaryGameFlowSystem.instance.ShowFriendTalk(false, endDialogDatas, 1.5f, 0.4f,
+            () => { StartCoroutine(PostFireworksCo()); });
+    }
+
+    IEnumerator PostFireworksCo()
+    {
+        demo02.Ex_OpenBack();
+        yield return new WaitForSeconds(2f);
+        demo02.Ex_CloseBack();
+        yield return new WaitForSeconds(0.35f);
         var cc = DiaryGameSystem.instance.cameraController;
         float showLogoCamMoveTime = 3.2f;
         cc.TurnTo(cc.ref_comedy, showLogoCamMoveTime);
-        yield return new WaitForSeconds(showLogoCamMoveTime - 0.2f);
 
+        var tt = 0.5f;
+        yield return new WaitForSeconds(showLogoCamMoveTime - tt);
 
+        PlayFireworkSound();
+        fireworksFirst.SetActive(true);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f + tt);
         foreach (var f in fireworks)
         {
             StartCoroutine(FireworksCo(f));
@@ -152,12 +158,13 @@ public class DiaryGameFlowSystem : MonoBehaviour
             l.DOIntensity(0.1f, 0.2f);
         }
         yield return new WaitForSeconds(0.2f);
+
         filter.enabled = true;
         RenderSettings.fog = true;
-
     }
 
     public DialogData[] endDialogDatas;
+    public echo17.EndlessBook.Demo02.Demo02 demo02;
 
     IEnumerator FireworksCo(ParticleSystem ps)
     {
