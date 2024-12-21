@@ -7366,7 +7366,7 @@ MonoBehaviour:
     m_Bits: 1
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 1
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -27729,6 +27729,10 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 108130294921589136, guid: f4f2a21bfa9768d4cbce6e7a7f5b09b3, type: 3}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108130294921589136, guid: f4f2a21bfa9768d4cbce6e7a7f5b09b3, type: 3}
       propertyPath: m_Intensity
       value: 0.6
       objectReference: {fileID: 0}
@@ -28181,6 +28185,10 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 108130294921589136, guid: f4f2a21bfa9768d4cbce6e7a7f5b09b3, type: 3}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108130294921589136, guid: f4f2a21bfa9768d4cbce6e7a7f5b09b3, type: 3}
       propertyPath: m_Intensity
       value: 0.6
       objectReference: {fileID: 0}
@@ -28287,7 +28295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 10}
+  m_AnchoredPosition: {x: 0, y: 12}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &837017497
@@ -28337,8 +28345,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -45097,7 +45105,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.9966676, b: 0.9213836, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -45134,7 +45142,7 @@ Light:
   m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 1
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -58045,7 +58053,7 @@ Light:
       e33: 1
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
+  m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 1
   m_CullingMask:
@@ -63711,7 +63719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3642277230683059511
 Transform:
   m_ObjectHideFlags: 0
@@ -63758,31 +63766,37 @@ MonoBehaviour:
     hideSr: {fileID: 0}
     stageQte: 01000000
     sfx: beach 1 q
+    subtitle: It's me, I bought the shovel.
   - pos: {fileID: 1355732619}
     showSr: {fileID: 250596705129340748}
     hideSr: {fileID: 4254614516414498363}
-    stageQte: 0300000002000000
+    stageQte: 03000000
     sfx: 
+    subtitle: 
   - pos: {fileID: 1895299087}
     showSr: {fileID: 4816836304075401779}
     hideSr: {fileID: 250596705129340748}
     stageQte: 0100000003000000
-    sfx: beach 2 k
+    sfx: 
+    subtitle: 
   - pos: {fileID: 1524376344}
     showSr: {fileID: 4822261470737467408}
     hideSr: {fileID: 4816836304075401779}
     stageQte: 020000000200000001000000
-    sfx: 
+    sfx: beach 2 k
+    subtitle: Who suggested that we dig a hole to take pictures?
   - pos: {fileID: 805183543}
     showSr: {fileID: 5743095209019000482}
     hideSr: {fileID: 4822261470737467408}
     stageQte: 010000000100000003000000
     sfx: 
+    subtitle: 
   - pos: {fileID: 630235428}
     showSr: {fileID: 8694452165158356044}
     hideSr: {fileID: 5743095209019000482}
     stageQte: 010000000200000003000000
     sfx: 
+    subtitle: 
   cam1: {fileID: 3642277229848045053}
   cam2: {fileID: 8852920534641335843}
   cam1TransTarget: {fileID: 4984707143804318656}

@@ -34,6 +34,10 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
     IEnumerator StartGameCoroutine()
     {
+        foreach (var l in lights)
+        {
+            l.intensity *= 0.2f;
+        }
         gameLogo.SetActive(false);
         yield return new WaitForSeconds(0.7f);
 
@@ -48,9 +52,12 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
             float t1 = 1.0f;
             gameLogo.transform.DORotate(Vector3.zero, t1).SetEase(Ease.InOutCubic);
-            yield return new WaitForSeconds(t1);
-
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(t1 + 1.5f);
+            foreach (var l in lights)
+            {
+                l.DOIntensity(l.intensity * 5, 2f);
+            }
+            yield return new WaitForSeconds(3 - 1.5f);
 
 
             float t2 = 0.7f;
@@ -102,7 +109,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
             if (DiaryGameSystem.instance.fastDialogs)
                 yield return new WaitForSeconds(0.1f);
             else
-                yield return new WaitForSeconds(d.time);
+                yield return new WaitForSeconds(d.time + 0.4f);
 
             subtitle.gameObject.SetActive(false);
         }
@@ -115,6 +122,18 @@ public class DiaryGameFlowSystem : MonoBehaviour
         callback?.Invoke();
     }
 
+    public void SimpleSubtitle(string s, float d)
+    {
+        StartCoroutine(SimpleSubtitleCo(s, d));
+    }
+
+    IEnumerator SimpleSubtitleCo(string s, float d)
+    {
+        subtitle.gameObject.SetActive(true);
+        subtitle.text = s;
+        yield return new WaitForSeconds(d);
+        subtitle.gameObject.SetActive(false);
+    }
     public void StartFireworks()
     {
         StartCoroutine(FireworksCoroutine());
@@ -162,6 +181,10 @@ public class DiaryGameFlowSystem : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         filter.enabled = true;
+        RenderSettings.fogColor = Color.black;
+        RenderSettings.fogStartDistance = 2.5f;
+        RenderSettings.fogEndDistance = 8.5f;
+        RenderSettings.fogMode = FogMode.Linear;
         RenderSettings.fog = true;
     }
 

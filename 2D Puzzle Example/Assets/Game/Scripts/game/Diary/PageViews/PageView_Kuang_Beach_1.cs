@@ -17,6 +17,7 @@ public class PageView_Kuang_Beach_1 : PageView
         public SpriteRenderer hideSr;
         public int[] stageQte;//d 1 i 2 g 3
         public string sfx;
+        public string subtitle;
     }
 
     public QteArray[] qteArrays;
@@ -42,6 +43,7 @@ public class PageView_Kuang_Beach_1 : PageView
 
     public SpriteRenderer bgStart;
     public Transform bgStartEnd;
+
     public override void Activate()
     {
         base.Activate();
@@ -219,7 +221,10 @@ public class PageView_Kuang_Beach_1 : PageView
                 crtA.showSr.DOFade(1, 1f).SetDelay(0.0f);
 
             if (crtA.sfx != "")
+            {
                 SoundSystem.instance.Play(crtA.sfx);
+                DiaryGameFlowSystem.instance.SimpleSubtitle(crtA.subtitle, 3.5f);  
+            }
         }
         else
         {
