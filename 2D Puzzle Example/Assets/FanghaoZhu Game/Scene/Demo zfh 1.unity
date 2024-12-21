@@ -12875,45 +12875,11 @@ MonoBehaviour:
   - Just when I thought these dark days would continue to accompany my entire college
     life, things seemed to take a turn for the better.
   - The next year, I met a new neighbour who seemed very hungry when we first met...
-  - 'Just when I thought these dark days would continue to accompany my entire college
-    life, things seemed to take a turn for the better.
-
-
-
-    The next year, I met
-    a new neighbour who seemed very hungry when we first met...'
-  - 'In September 2022,
-
-
-
-    I embarked on a flight to <size=150%>London</size>
-    with great anticipation.
-
-
-
-    When I was a child, I had travelled to the UK
-    once and left a very good impression.
-
-
-
-    Therefore, I thought that my study
-    abroad trip in the UK would be full of fun!'
-  - 'In September 2022,
-
-
-
-    I embarked on a flight to <size=150%>London</size>
-    with great anticipation.
-
-
-
-    When I was a child, I had travelled to the UK
-    once and left a very good impression.
-
-
-
-    Therefore, I thought that my study
-    abroad trip in the UK would be full of fun!'
+  - She requested me to cook her a meal, which may indeed be a problem for a new
+    international student who has just arrived in a foreign country alone...
+  - So I simply made a pot of curry.
+  - What surprised me was that she actually thought it was very delicious, which
+    gave me great confidence.
   - 'In September 2022,
 
 
@@ -27585,7 +27551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b012def731484982050f24757d06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStage: 1
+  startStage: 6
   allScenes:
   - {fileID: 752132580}
   - {fileID: 1438874785}
