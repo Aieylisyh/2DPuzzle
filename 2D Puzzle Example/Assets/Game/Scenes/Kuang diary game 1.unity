@@ -63757,26 +63757,32 @@ MonoBehaviour:
     showSr: {fileID: 4254614516414498363}
     hideSr: {fileID: 0}
     stageQte: 01000000
+    sfx: beach 1 q
   - pos: {fileID: 1355732619}
     showSr: {fileID: 250596705129340748}
     hideSr: {fileID: 4254614516414498363}
     stageQte: 0300000002000000
+    sfx: 
   - pos: {fileID: 1895299087}
     showSr: {fileID: 4816836304075401779}
     hideSr: {fileID: 250596705129340748}
     stageQte: 0100000003000000
+    sfx: beach 2 k
   - pos: {fileID: 1524376344}
     showSr: {fileID: 4822261470737467408}
     hideSr: {fileID: 4816836304075401779}
     stageQte: 020000000200000001000000
+    sfx: 
   - pos: {fileID: 805183543}
     showSr: {fileID: 5743095209019000482}
     hideSr: {fileID: 4822261470737467408}
     stageQte: 010000000100000003000000
+    sfx: 
   - pos: {fileID: 630235428}
     showSr: {fileID: 8694452165158356044}
     hideSr: {fileID: 5743095209019000482}
     stageQte: 010000000200000003000000
+    sfx: 
   cam1: {fileID: 3642277229848045053}
   cam2: {fileID: 8852920534641335843}
   cam1TransTarget: {fileID: 4984707143804318656}

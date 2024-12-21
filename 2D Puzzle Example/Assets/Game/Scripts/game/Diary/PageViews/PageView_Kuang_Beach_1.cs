@@ -16,6 +16,7 @@ public class PageView_Kuang_Beach_1 : PageView
         public SpriteRenderer showSr;
         public SpriteRenderer hideSr;
         public int[] stageQte;//d 1 i 2 g 3
+        public string sfx;
     }
 
     public QteArray[] qteArrays;
@@ -216,6 +217,9 @@ public class PageView_Kuang_Beach_1 : PageView
                 crtA.hideSr.DOFade(0, 0.7f);
             if (crtA.showSr != null)
                 crtA.showSr.DOFade(1, 1f).SetDelay(0.0f);
+
+            if (crtA.sfx != "")
+                SoundSystem.instance.Play(crtA.sfx);
         }
         else
         {

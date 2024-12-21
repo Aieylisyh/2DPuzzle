@@ -134,6 +134,8 @@ public class DiaryGameFlowSystem : MonoBehaviour
 
     IEnumerator PostFireworksCo()
     {
+        DiaryGameSystem.instance.ToggleLockTurnPage(false);
+        yield return new WaitForSeconds(0.5f);
         demo02.Ex_OpenBack();
         yield return new WaitForSeconds(2f);
         demo02.Ex_CloseBack();
