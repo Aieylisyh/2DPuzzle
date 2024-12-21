@@ -156,7 +156,7 @@ public class DiaryGameFlowSystem : MonoBehaviour
         DiaryGameSystem.instance.ToggleLockTurnPage(false);
         yield return new WaitForSeconds(0.5f);
         demo02.Ex_OpenBack();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.1f);
         demo02.Ex_CloseBack();
         yield return new WaitForSeconds(0.35f);
         var cc = DiaryGameSystem.instance.cameraController;
@@ -178,14 +178,16 @@ public class DiaryGameFlowSystem : MonoBehaviour
         {
             l.DOIntensity(0.1f, 0.2f);
         }
+
         yield return new WaitForSeconds(0.2f);
 
         filter.enabled = true;
-        RenderSettings.fogColor = Color.black;
-        RenderSettings.fogStartDistance = 2.5f;
-        RenderSettings.fogEndDistance = 8.5f;
-        RenderSettings.fogMode = FogMode.Linear;
-        RenderSettings.fog = true;
+
+        //RenderSettings.fog = true;
+        //RenderSettings.fogMode = FogMode.Linear;
+        //RenderSettings.fogColor = Color.black;
+        //RenderSettings.fogStartDistance = 2.5f;
+        RenderSettings.fogEndDistance = 9.2f;
     }
 
     public DialogData[] endDialogDatas;
