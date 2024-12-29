@@ -16,7 +16,7 @@ public class PageView_Kuang_Calender_1 : PageView
     }
     public override void Deactivate()
     {
-        Debug.Log("Deactivate");
+        //Debug.Log("Deactivate");
         base.Deactivate();
     }
 

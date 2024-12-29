@@ -52,7 +52,7 @@ namespace Assets.Game.Scripts.game.Diary
             }
 
 
-            Debug.Log("ToggleLockTurnPage " + b);
+            //("ToggleLockTurnPage " + b);
             if (canTurnPage == !b)
                 return;
 
