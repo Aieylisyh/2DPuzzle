@@ -38,7 +38,7 @@ public class 越来越多人加入System : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         _pcgs.Show(false, false);
-
+        结局System.instance.Reinit();
     }
 
     public void End()
