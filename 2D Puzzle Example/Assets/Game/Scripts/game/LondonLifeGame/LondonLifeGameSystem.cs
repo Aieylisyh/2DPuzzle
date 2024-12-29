@@ -33,10 +33,10 @@ public class LondonLifeGameSystem : MonoBehaviour
         instance = this;
     }
 
-    // Use this for initialization
     void Start()
     {
-        SetStage(startStage);
+        //SetStage(startStage);
+        warp2.enabled = true;
     }
 
     void SetStage(Stage s)
@@ -87,11 +87,15 @@ public class LondonLifeGameSystem : MonoBehaviour
         action?.Invoke();
     }
 
+    public CameraFilterPack_Vision_Warp2 warp2;
+
     public void SetToFirstStage()
     {
-        SetStage(Stage.GoToPlane);
+        //   SetStage(Stage.GoToPlane);
+        SetStage(startStage);
         frame.SetActive(true);
         Text.SetActive(true);
         Title.SetActive(false);
+        warp2.enabled = false;
     }
 }

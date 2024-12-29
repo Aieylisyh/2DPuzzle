@@ -28,6 +28,7 @@ public class MeetGirlSystem : MonoBehaviour
         _pcgs.Show(true, true);
         StartCoroutine(GrilScene());
         SceneTextSystem.instance.SetText(4, false);
+        girlBegCount = 0;
         // image1.DOFade(1, 1);
         //   clockCg.DOFade(1, 1).SetDelay(0.8f);
     }
@@ -53,9 +54,15 @@ public class MeetGirlSystem : MonoBehaviour
         SoundSystem.instance.Play("bubble");
     }
 
+    int girlBegCount = 0;
+
     public void EndGirlBegScene()
     {
-        StartCoroutine(EndGirlBegSceneCo());
+        girlBegCount++;
+        if (girlBegCount == 2)
+        {
+            StartCoroutine(EndGirlBegSceneCo());
+        }
     }
 
     IEnumerator EndGirlBegSceneCo()

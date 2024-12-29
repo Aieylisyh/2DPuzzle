@@ -10,6 +10,10 @@ public class 女邻居点赞System : MonoBehaviour
 
     [SerializeField] PanelCanvasGroupSwitcher _pcgs;
 
+    [SerializeField] string 点赞文字;
+
+    [SerializeField] string 一起做饭文字;
+
     private void Awake()
     {
         instance = this;
@@ -142,6 +146,8 @@ public class 女邻居点赞System : MonoBehaviour
         chaseScene.SetActive(true);
         cookTogetherScene.SetActive(false);
         chaseItemIndex = -1;
+
+        SceneTextSystem.instance.SetText(点赞文字, false);
     }
 
     public void OnClickRawFood(GameObject cookedFood)
@@ -182,6 +188,7 @@ public class 女邻居点赞System : MonoBehaviour
         beggerScene.SetActive(false);
         chaseScene.SetActive(false);
         cookTogetherScene.SetActive(true);
+        SceneTextSystem.instance.SetText(一起做饭文字, false);
     }
 
     public GameObject[] cookTogetherCookeditems;
