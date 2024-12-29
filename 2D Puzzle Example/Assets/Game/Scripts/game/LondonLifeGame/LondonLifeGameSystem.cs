@@ -22,6 +22,9 @@ public class LondonLifeGameSystem : MonoBehaviour
 
     public Stage startStage;
     Stage _crtStage;
+    public GameObject frame;
+    public GameObject Text;
+    public GameObject Title;
 
     public CanvasGroup[] allScenes;
 
@@ -82,5 +85,13 @@ public class LondonLifeGameSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         action?.Invoke();
+    }
+
+    public void SetToFirstStage()
+    {
+        SetStage(Stage.GoToPlane);
+        frame.SetActive(true);
+        Text.SetActive(true);
+        Title.SetActive(false);
     }
 }
