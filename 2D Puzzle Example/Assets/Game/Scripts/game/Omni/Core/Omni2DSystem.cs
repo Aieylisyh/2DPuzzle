@@ -16,28 +16,27 @@ namespace Omni
         public enum GamePhase
         {
             Default,
-            TurnOnPC,
-            LoginOmni,
-            //插入支线
-            MainlineMission_that_employee,
-            //插入支线
-            MainlineMission_bathroom_girl,
-            ThreatMail,
-            TurnTo3DScene,
+            Start,//游戏开始，进入电脑界面
+            Login,//登录 OMNI 系统
+            ReceiveDailyWork,//接受第一轮任务，熟悉系统界面
 
+            //插入支线 日常任务
+            Work_Daily1,
+            Work_Daily2,
+            Work_Daily3,
 
-            /// <summary>
-            /// 支线
-            /// </summary>
-            Mission_xxxxx1,
-            Mission_xxxxx2,
-            Mission_xxxxx3,
-            Mission_xxxxx4,
-            Mission_xxxxx5,
-            Mission_xxxxx6,
-            Mission_xxxxx7,
+            ReceiveSpecialWork,//接收特殊任务包
 
+            //插入支线 特殊任务
+            Work_TrackingKiller,//追踪杀人犯
+            Work_TrackingCoworker,//追踪前同事
+            Work_MythGirl,//神秘任务：女孩监控事件
 
+            UnknownEmail,//邮件事件：收到自己被监控的数据
+            SystemCrash,//系统崩溃，画面切换，进入 3D 第一人称恐怖办公空间
+            ExploreCompany,//探索公司黑幕，AI 克隆暴露
+            Ending_Normal,//回到原点
+            Ending_Bad,//主角被改造
         }
 
         public GamePhase gameStartPhase;
