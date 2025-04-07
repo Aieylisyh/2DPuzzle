@@ -16,14 +16,15 @@ namespace Omni
         public enum GamePhase
         {
             Default,
+
             Start,//游戏开始，进入电脑界面
             Login,//登录 OMNI 系统
             ReceiveDailyWork,//接受第一轮任务，熟悉系统界面
 
             //插入支线 日常任务
-            Work_Daily1,
-            Work_Daily2,
-            Work_Daily3,
+            Work_Daily1,//外卖
+            Work_Daily2,//购物
+            Work_Daily3,//监控
 
             ReceiveSpecialWork,//接收特殊任务包
 
