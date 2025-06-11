@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Omni;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,11 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
 
         public string correctUsername;
         public string correctPassword;
-        // Use this for initialization
+
+        public GameObject profileImage;
+        public GameObject passwordArea;
+        public GameObject submitLoginButton;
+
         void Start()
         {
             // 初始化输入框为隐藏状态
@@ -27,7 +32,52 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
             isHidden = true;
         }
 
-        // Update is called once per frame
+        public void Reboot()
+        {
+            profileImage.SetActive(false);
+            passwordArea.SetActive(false);
+            submitLoginButton.SetActive(false);
+            StartCoroutine(RebootCo());
+        }
+
+        public void TurnOffPasswordScreen()
+        {
+            profileImage.SetActive(false);
+            passwordArea.SetActive(false);
+            submitLoginButton.SetActive(false);
+            StopCoroutine(RebootCo());
+        }
+        IEnumerator RebootCo()
+        {
+            yield return new WaitForSeconds(1.0f);
+            passwordArea.SetActive(true);
+        }
+
+        public void OnUsernameChanged(string v)
+        {
+            if (v == correctUsername)
+            {
+                profileImage.SetActive(true);
+            }
+            else
+            {
+                profileImage.SetActive(false);
+            }
+
+        }
+
+        public void OnPasswordChanged(string v)
+        {
+            if (v.Length > 5)
+            {
+                submitLoginButton.SetActive(true);
+            }
+            else
+            {
+                submitLoginButton.SetActive(false);
+            }
+        }
+
         public void ToggleHidden()
         {
             if (isHidden)
@@ -55,6 +105,7 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
                 if (inputField_password.text == correctPassword)
                 {
                     Debug.Log("用户名密码正确");
+                    Omni2DSystem.instance.OnLoginSuc();
                 }
                 else
                 {

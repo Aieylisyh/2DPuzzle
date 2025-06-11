@@ -64,12 +64,12 @@ namespace Omni
 
         private void Start()
         {
-            //ToggleCg(sceneCg_girlInBed1, false);
             switch (gameStartPhase)
             {
                 case GamePhase.Default:
-                    //ToggleCg(sceneCg_girlInBed1, true);
-                    //StartSceneGirlInBed();
+                case GamePhase.Start:
+                    ToggleCg(cg_office_2d_computer_screen, true);
+                    StartGameSetup();
                     break;
             }
         }
