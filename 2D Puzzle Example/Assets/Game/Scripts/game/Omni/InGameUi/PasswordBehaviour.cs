@@ -1,4 +1,5 @@
-﻿using Omni;
+﻿using DG.Tweening;
+using Omni;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
         public GameObject profileImage;
         public GameObject passwordArea;
         public GameObject submitLoginButton;
+        public CanvasGroup cg_welcome;
 
         void Start()
         {
@@ -30,6 +32,7 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
             inputField_password.contentType = TMP_InputField.ContentType.Password;
             toggleHiddenImg.sprite = toShow;
             isHidden = true;
+            cg_welcome.alpha = 0;
         }
 
         public void Reboot()
@@ -45,11 +48,23 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
             profileImage.SetActive(false);
             passwordArea.SetActive(false);
             submitLoginButton.SetActive(false);
+            cg_welcome.alpha = 0;
+            cg_welcome.interactable = false;
+            cg_welcome.blocksRaycasts = false;
             StopCoroutine(RebootCo());
         }
         IEnumerator RebootCo()
         {
+            cg_welcome.alpha = 0;
+            cg_welcome.blocksRaycasts = true;
             yield return new WaitForSeconds(1.0f);
+            cg_welcome.DOFade(1, 2);
+            yield return new WaitForSeconds(2.5f);
+            cg_welcome.DOFade(0, 1);
+            yield return new WaitForSeconds(1.0f);
+            cg_welcome.alpha = 0;
+            cg_welcome.blocksRaycasts = false;
+
             passwordArea.SetActive(true);
         }
 

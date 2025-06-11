@@ -16,7 +16,8 @@ namespace Omni
 
         bool _isScreenOn;
         public GameObject blackScreen;
-
+        public RectTransform screenRect;
+        public RectTransform screenRect_fullScreenRef;
         public PasswordBehaviour pb;
 
         void StartGameSetup()
@@ -32,13 +33,22 @@ namespace Omni
                 _isScreenOn = false;
                 blackScreen.SetActive(true);
                 pb.TurnOffPasswordScreen();
+                
             }
             else
             {
                 _isScreenOn = false;
                 blackScreen.SetActive(false);
                 pb.Reboot();
+                StartCoroutine(ZoomToFullScreen());
             }
+        }
+
+        IEnumerator ZoomToFullScreen()
+        {
+            yield return new WaitForSeconds(0.7f);
+            screenRect.DOScale(screenRect_fullScreenRef.localScale.x, 2);
+            screenRect.DOAnchorPos(screenRect_fullScreenRef.anchoredPosition, 2);
         }
 
         public void OnLoginSuc()
