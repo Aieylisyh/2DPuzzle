@@ -68,7 +68,7 @@ namespace Omni
             {
                 case GamePhase.Default:
                 case GamePhase.Start:
-                    ToggleCg(cg_office_2d_computer_screen, true);
+                    ToggleCg(cg_office_2d_login, true);
                     StartGameSetup();
                     break;
             }

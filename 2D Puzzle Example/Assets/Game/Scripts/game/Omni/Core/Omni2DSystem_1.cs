@@ -12,43 +12,55 @@ namespace Omni
     public partial class Omni2DSystem : MonoBehaviour
     {
 
-        public CanvasGroup cg_office_2d_computer_screen;
+        public CanvasGroup cg_computer_bg;
 
         bool _isScreenOn;
-        public GameObject blackScreen;
+        public CanvasGroup cg_office_2d_login;
+        public CanvasGroup cg_computer_welcome;
         public RectTransform screenRect;
         public RectTransform screenRect_fullScreenRef;
         public PasswordBehaviour pb;
 
+        public Image bootBtnImg;
+        public Sprite bootBtnOn;
+        public Sprite bootBtnOff;
+
         void StartGameSetup()
         {
             _isScreenOn = false;
-            blackScreen.SetActive(true);
+            cg_computer_welcome.alpha = 0;
+            cg_computer_bg.alpha = 0;
+            bootBtnImg.sprite = bootBtnOff;
         }
 
         public void OnScreenPowerButtonClicked()
         {
-            if (_isScreenOn)
+            if (!_isScreenOn)
             {
-                _isScreenOn = false;
-                blackScreen.SetActive(true);
-                pb.TurnOffPasswordScreen();
-                
-            }
-            else
-            {
-                _isScreenOn = false;
-                blackScreen.SetActive(false);
-                pb.Reboot();
+                _isScreenOn = true;
+                bootBtnImg.sprite = bootBtnOn;
+
                 StartCoroutine(ZoomToFullScreen());
             }
         }
 
         IEnumerator ZoomToFullScreen()
         {
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(0.4f);
             screenRect.DOScale(screenRect_fullScreenRef.localScale.x, 2);
             screenRect.DOAnchorPos(screenRect_fullScreenRef.anchoredPosition, 2);
+            yield return new WaitForSeconds(2f);
+            cg_computer_welcome.DOKill();
+            cg_computer_welcome.DOFade(1, 2).OnComplete(
+                () =>
+                {
+                    cg_computer_bg.alpha = 1;
+                    cg_computer_welcome.DOFade(0, 1.5f).SetDelay(1f);
+
+                }
+                );
+            yield return new WaitForSeconds(5.0f);
+            pb.Boot();
         }
 
         public void OnLoginSuc()

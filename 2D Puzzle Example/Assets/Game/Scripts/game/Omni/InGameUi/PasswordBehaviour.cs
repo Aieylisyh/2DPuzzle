@@ -21,76 +21,71 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
         public string correctUsername;
         public string correctPassword;
 
-        public GameObject profileImage;
+        public Image profileImage;
         public GameObject passwordArea;
-        public GameObject submitLoginButton;
+        public Image submitLoginButtonImage;
         public CanvasGroup cg_welcome;
 
         void Start()
         {
-            // 初始化输入框为隐藏状态
-            inputField_password.contentType = TMP_InputField.ContentType.Password;
-            toggleHiddenImg.sprite = toShow;
-            isHidden = true;
-            cg_welcome.alpha = 0;
+            TurnOffPasswordScreen();
         }
 
-        public void Reboot()
+        public void Boot()
         {
-            profileImage.SetActive(false);
-            passwordArea.SetActive(false);
-            submitLoginButton.SetActive(false);
-            StartCoroutine(RebootCo());
+            passwordArea.SetActive(true);
+            submitLoginButtonImage.gameObject.SetActive(false);
         }
 
         public void TurnOffPasswordScreen()
         {
-            profileImage.SetActive(false);
+            // 初始化输入框为隐藏状态
+            inputField_password.contentType = TMP_InputField.ContentType.Password;
+            isHidden = true;
             passwordArea.SetActive(false);
-            submitLoginButton.SetActive(false);
+            submitLoginButtonImage.gameObject.SetActive(false);
             cg_welcome.alpha = 0;
             cg_welcome.interactable = false;
             cg_welcome.blocksRaycasts = false;
-            StopCoroutine(RebootCo());
         }
-        IEnumerator RebootCo()
-        {
-            cg_welcome.alpha = 0;
-            cg_welcome.blocksRaycasts = true;
-            yield return new WaitForSeconds(1.0f);
-            cg_welcome.DOFade(1, 2);
-            yield return new WaitForSeconds(2.5f);
-            cg_welcome.DOFade(0, 1);
-            yield return new WaitForSeconds(1.0f);
-            cg_welcome.alpha = 0;
-            cg_welcome.blocksRaycasts = false;
 
-            passwordArea.SetActive(true);
-        }
+        public Sprite spUser;
+        public Sprite spDefault;
 
         public void OnUsernameChanged(string v)
         {
             if (v == correctUsername)
             {
-                profileImage.SetActive(true);
+                profileImage.sprite = spUser;
             }
             else
             {
-                profileImage.SetActive(false);
+                profileImage.sprite = spDefault;
             }
-
         }
+
+        public Sprite spLoginOk;
+        public Sprite spLoginNotOk;
 
         public void OnPasswordChanged(string v)
         {
-            if (v.Length > 5)
+            if (inputField_username.text == correctUsername)
             {
-                submitLoginButton.SetActive(true);
+                submitLoginButtonImage.gameObject.SetActive(true);
+                if (v.Length > 5)
+                {
+                    submitLoginButtonImage.sprite = spLoginOk;
+                }
+                else
+                {
+                    submitLoginButtonImage.sprite = spLoginNotOk;
+                }
             }
             else
             {
-                submitLoginButton.SetActive(false);
+                submitLoginButtonImage.gameObject.SetActive(false);
             }
+
         }
 
         public void ToggleHidden()
