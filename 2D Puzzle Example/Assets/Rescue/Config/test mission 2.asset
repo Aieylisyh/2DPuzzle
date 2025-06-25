@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479d6a8b9ee29c045811115b30627fba, type: 3}
+  m_Name: test mission 2
+  m_EditorClassIdentifier: 
+  order: 2
+  agentName: Lily
+  title: A good request
+  agentPhoto: {fileID: 21300000, guid: 1342972fab765af4d8f02658dd9008e8, type: 3}
+  desc: 'sadasdasda
+
+    121212
+
+    123'
+  type: 1
