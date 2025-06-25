@@ -64,6 +64,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             newMission.gameObject.SetActive(true);
             newMission.SyncView();
             newMission.ToggleOff();
+            missions.Add(newMission);
         }
 
         MissionListItem GetCurrentMission(int index)

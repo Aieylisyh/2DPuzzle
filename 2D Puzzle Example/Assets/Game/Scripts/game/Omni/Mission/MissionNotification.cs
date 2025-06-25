@@ -22,6 +22,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         public void OnClickChecked()
         {
+            Debug.Log("OnClickChecked");
             //点击勾 添加这个新任务
             MissionListPanel.instance.AddMission(proto);
             Hide();
@@ -35,7 +36,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             }
 
             proto = p;
-            title.text = proto.title;
+            title.text = "\"" + proto.title + "\"";
             agentNameTxt.text = proto.agentName;
             _isShowing = true;
             view.SetActive(true);

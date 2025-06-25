@@ -54,12 +54,11 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         public void OnClick()
         {
-            MissionListPanel.instance.ToggleOffMissions();
-
             if (data.state == MissionData.State.Unread)
                 data.state = MissionData.State.Read;
 
             SyncView();
+            MissionListPanel.instance.ToggleOffMissions();
             ToggleOn();
         }
     }

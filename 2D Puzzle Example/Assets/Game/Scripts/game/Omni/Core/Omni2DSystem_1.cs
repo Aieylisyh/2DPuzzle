@@ -21,6 +21,7 @@ namespace Omni
         public RectTransform screenRect_fullScreenRef;
         public PasswordBehaviour pb;
 
+        public Sticker sticker;
         public Image bootBtnImg;
         public Sprite bootBtnOn;
         public Sprite bootBtnOff;
@@ -56,10 +57,11 @@ namespace Omni
                 {
                     cg_computer_bg.alpha = 1;
                     cg_computer_welcome.DOFade(0, 1.5f).SetDelay(1f);
-
+                     sticker.canRemove = true;
                 }
                 );
             yield return new WaitForSeconds(5.0f);
+           
             pb.Boot();
         }
 
