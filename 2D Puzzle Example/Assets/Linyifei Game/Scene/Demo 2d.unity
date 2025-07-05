@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnKeywordChecked
@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnRestaurantChecked
@@ -1917,7 +1917,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnKeywordChecked
@@ -2943,7 +2943,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnRestaurantChecked
@@ -3804,7 +3804,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnRestaurantChecked
@@ -4284,7 +4284,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnRestaurantChecked
@@ -5140,7 +5140,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnRestaurantChecked
@@ -5533,7 +5533,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnKeywordChecked
@@ -7838,7 +7838,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnKeywordChecked
@@ -9428,7 +9428,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnKeywordChecked
@@ -10014,7 +10014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1116798189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11411,6 +11411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1209450771}
   - component: {fileID: 1209450772}
+  - component: {fileID: 1209450773}
   m_Layer: 0
   m_Name: Mission
   m_TagString: Untagged
@@ -11448,6 +11449,42 @@ MonoBehaviour:
   tests:
   - {fileID: 11400000, guid: d1f666d3999e24943a71a5cdb5a93f44, type: 2}
   - {fileID: 11400000, guid: 8315a61af8fc9ae44bc0e8ac4f358613, type: 2}
+  infoMissionSystem: {fileID: 1209450773}
+--- !u!114 &1209450773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209450770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9918b03e9394ed4eaedaa48e1162873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 1334848173}
+  restaurantCheckmark1: {fileID: 1105184702}
+  restaurantCheckmark2: {fileID: 1169187773}
+  restaurantCheckmark3: {fileID: 1169458228}
+  restaurantCheckmark4: {fileID: 1766034167}
+  restaurantCheckmark5: {fileID: 575985650}
+  restaurantCheckmark6: {fileID: 1381649364}
+  finishBtn_ok: {fileID: 983297398}
+  finishBtn_notOk: {fileID: 1776574348}
+  keyword_burger: {fileID: 1662351713}
+  keyword_burgers: {fileID: 1558440851}
+  keyword_20min: {fileID: 2090674643}
+  keyword_15min: {fileID: 650626879}
+  keyword_0fee: {fileID: 1255279182}
+  keyword_199fee: {fileID: 826881863}
+  keyword_15_25_perperson: {fileID: 1582047422}
+  keyword_20_25_perperson: {fileID: 79991616}
+  clueLv3_burger: {fileID: 1158043889}
+  clueLv3_min: {fileID: 643232248}
+  clueLv3_fee: {fileID: 673981445}
+  clueLv3_perperson: {fileID: 1685719836}
+  txt_clueLv3: {fileID: 40116204}
+  txt_clueLv4: {fileID: 674582843}
 --- !u!1 &1210522561
 GameObject:
   m_ObjectHideFlags: 0
@@ -11758,7 +11795,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnKeywordChecked
@@ -13218,14 +13255,13 @@ GameObject:
   - component: {fileID: 1334848174}
   - component: {fileID: 1334848176}
   - component: {fileID: 1334848175}
-  - component: {fileID: 1334848177}
   m_Layer: 5
   m_Name: textInfoMission
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1334848174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13296,38 +13332,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334848173}
   m_CullTransparentMesh: 1
---- !u!114 &1334848177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334848173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9918b03e9394ed4eaedaa48e1162873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restaurantCheckmark1: {fileID: 1105184702}
-  restaurantCheckmark2: {fileID: 1169187773}
-  restaurantCheckmark3: {fileID: 1169458228}
-  restaurantCheckmark4: {fileID: 1766034167}
-  restaurantCheckmark5: {fileID: 575985650}
-  restaurantCheckmark6: {fileID: 1381649364}
-  finishBtn_ok: {fileID: 983297398}
-  finishBtn_notOk: {fileID: 1776574348}
-  keyword_burger: {fileID: 1662351713}
-  keyword_burgers: {fileID: 1558440851}
-  keyword_20min: {fileID: 2090674643}
-  keyword_15min: {fileID: 650626879}
-  keyword_0fee: {fileID: 1255279182}
-  keyword_199fee: {fileID: 826881863}
-  keyword_15_25_perperson: {fileID: 1582047422}
-  keyword_20_25_perperson: {fileID: 79991616}
-  clueLv3_burger: {fileID: 1158043889}
-  clueLv3_min: {fileID: 643232248}
-  clueLv3_fee: {fileID: 673981445}
-  clueLv3_perperson: {fileID: 1685719836}
 --- !u!1 &1340318572
 GameObject:
   m_ObjectHideFlags: 0
@@ -13719,7 +13723,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnRestaurantChecked
@@ -16611,7 +16615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnKeywordChecked
@@ -16745,7 +16749,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334848177}
+      - m_Target: {fileID: 1209450773}
         m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.TextInfo.TextInfoMissionSystem,
           Assembly-CSharp
         m_MethodName: OnKeywordChecked
@@ -23945,7 +23949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1896602328
 RectTransform:
   m_ObjectHideFlags: 0

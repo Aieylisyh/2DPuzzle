@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: test mission 2
   m_EditorClassIdentifier: 
   order: 2
-  agentName: Lily
   title: A good request
   agentPhoto: {fileID: 21300000, guid: 1342972fab765af4d8f02658dd9008e8, type: 3}
   desc: 'sadasdasda
@@ -21,4 +20,4 @@ MonoBehaviour:
     121212
 
     123'
-  type: 1
+  type: 2

@@ -58,7 +58,9 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
             SyncView();
             MissionListPanel.instance.ToggleOffMissions();
+            MissionSystem.instance.ShowMission(data);
             ToggleOn();
+
         }
     }
 }

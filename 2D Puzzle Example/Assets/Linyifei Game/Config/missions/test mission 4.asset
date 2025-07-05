@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: test mission 4
   m_EditorClassIdentifier: 
   order: 4
-  agentName: Norman
   title: bibibi
   agentPhoto: {fileID: 21300000, guid: 18ede5e199e4f3b40a66d6c8ec9f5490, type: 3}
   desc: 'asd1232
 
     asdas'
-  type: 0
+  type: 1

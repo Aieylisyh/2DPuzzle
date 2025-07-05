@@ -15,7 +15,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         public enum Type
         {
             None,
-            Watch,
+            TextInfo,
             Listen,
         }
 

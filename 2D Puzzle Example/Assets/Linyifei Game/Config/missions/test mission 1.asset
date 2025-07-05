@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: test mission 1
   m_EditorClassIdentifier: 
   order: 1
-  agentName: David
   title: A sincere request
   agentPhoto: {fileID: 21300000, guid: 599072f5bd015ba408b8276e7e90ddbe, type: 3}
   desc: 'asdhaskjdhasjkhdkja
@@ -21,4 +20,4 @@ MonoBehaviour:
     asdasd
 
     asdasdasdasd'
-  type: 1
+  type: 2

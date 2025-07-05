@@ -6,8 +6,15 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
 {
     public class TextInfoMissionSystem : MonoBehaviour
     {
-        private void Start()
+        public GameObject view;
+
+        /// <summary>
+        /// 首次开始这个任务
+        /// </summary>
+        public void ResetMission()
         {
+            view.SetActive(true);
+
             RefreshFinishBtn();
             restaurantCheckmark1.SetActive(false);
             restaurantCheckmark2.SetActive(false);
@@ -30,12 +37,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             txt_clueLv4.text = "0/3";
             // txt_clueLv4.text = "need 3 checked";
         }
-        /// <summary>
-        /// 首次开始这个任务
-        /// </summary>
-        public void ResetMission()
-        {
 
+        public void Hide()
+        {
+            view.SetActive(false);
         }
 
         /// <summary>
