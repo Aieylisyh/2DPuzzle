@@ -28,13 +28,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                     stateTxt.text = "";
                     break;
                 case MissionData.State.Unread:
-                    stateTxt.text = "!New";
+                    stateTxt.text = "! New";
                     break;
                 case MissionData.State.Read:
                     stateTxt.text = "";
                     break;
                 case MissionData.State.Done:
-                    stateTxt.text = "√Completed";
+                    stateTxt.text = "√ Completed";
                     break;
             }
         }

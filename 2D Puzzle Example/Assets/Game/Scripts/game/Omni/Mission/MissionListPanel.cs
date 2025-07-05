@@ -20,6 +20,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         private void Awake()
         {
             instance = this;
+            txt_completedMissionsCount.text = "0";
         }
 
         public void ToggleOnMission(int index)

@@ -970,9 +970,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19578be75ab008d4bbe14028ffd78c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missions: []
+  missionItems: []
   prefab: {fileID: 437056075}
   notification: {fileID: 107169389}
+  txt_completedMissionsCount: {fileID: 1623722009}
 --- !u!114 &107169389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,7 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b319816745eec054281c606c1902d8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proto: {fileID: 0}
+  crtMissionPackage: {fileID: 0}
   view: {fileID: 1116798188}
   title: {fileID: 989350243}
   agentNameTxt: {fileID: 240861956}
@@ -2483,7 +2484,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 636, y: 472}
-  m_SizeDelta: {x: 309, y: 2640.78}
+  m_SizeDelta: {x: 309, y: 312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &324242773
 MonoBehaviour:
@@ -3112,7 +3113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452c8e9951809d644afb3f75e600ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proto: {fileID: 0}
   title: {fileID: 210213352}
   photoImg: {fileID: 1437296541}
   stateTxt: {fileID: 1736148794}
@@ -8539,10 +8539,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tests:
-  - {fileID: 11400000, guid: b86af1643d5f00d4bbe2355a2c518e21, type: 2}
-  - {fileID: 11400000, guid: 9b386081da53ba647b90b3ecb4cbcff5, type: 2}
-  - {fileID: 11400000, guid: 85e7a954ebea41344bb7d3bb9a4b813d, type: 2}
-  - {fileID: 11400000, guid: c66df88a061f11d48a645ebae1ba14a7, type: 2}
+  - {fileID: 11400000, guid: d1f666d3999e24943a71a5cdb5a93f44, type: 2}
+  - {fileID: 11400000, guid: 8315a61af8fc9ae44bc0e8ac4f358613, type: 2}
 --- !u!1 &1210522561
 GameObject:
   m_ObjectHideFlags: 0
@@ -9348,7 +9346,7 @@ RectTransform:
   m_GameObject: {fileID: 1265815791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.755, y: 1.755, z: 1}
+  m_LocalScale: {x: 1.756, y: 1.755, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1309384704}
@@ -9357,7 +9355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57.3, y: -314.4}
+  m_AnchoredPosition: {x: 62, y: -314.4}
   m_SizeDelta: {x: 1568, y: 1337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1265815795
@@ -13027,7 +13025,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1342
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd9ae127c0b4fcc4884173d2d703fc76, type: 2}
   m_sharedMaterial: {fileID: 1041222676371264074, guid: dd9ae127c0b4fcc4884173d2d703fc76, type: 2}

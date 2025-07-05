@@ -7,7 +7,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission
     public class MissionPrototype : ScriptableObject
     {
         public int order;
-        public string agentName;
         public string title;
         public Sprite agentPhoto;
         [Multiline]

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131b38fa60b0cf34eb7fa6c4887169ce, type: 3}
+  m_Name: New Mission Package Prototype 1
+  m_EditorClassIdentifier: 
+  senderName: David 27
+  title: New works
+  id: New works
+  protos:
+  - {fileID: 11400000, guid: b86af1643d5f00d4bbe2355a2c518e21, type: 2}
+  - {fileID: 11400000, guid: 9b386081da53ba647b90b3ecb4cbcff5, type: 2}
+  - {fileID: 11400000, guid: 85e7a954ebea41344bb7d3bb9a4b813d, type: 2}

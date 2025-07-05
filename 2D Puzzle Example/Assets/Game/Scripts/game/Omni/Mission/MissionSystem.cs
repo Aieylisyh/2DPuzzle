@@ -9,7 +9,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
     {
         public static MissionSystem instance;
 
-        public MissionPrototype[] tests;
+        public MissionPackagePrototype[] tests;
 
         public List<MissionData> missions = new List<MissionData>();
 
@@ -18,14 +18,22 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             instance = this;
         }
 
-        void Add(MissionPrototype p)
+        void Add(MissionPackagePrototype mpp)
         {
-            var newMission = new MissionData();
-            newMission.proto = p;
-            newMission.state = MissionData.State.Unread;
-            missions.Add(newMission);
+            MissionListPanel.instance.notification.Show(mpp);
+        }
 
-            MissionListPanel.instance.notification.Show(newMission);
+        public void AddMissionByPackage(MissionPackagePrototype mpp)
+        {
+            foreach (var p in mpp.protos)
+            {
+                var newMission = new MissionData();
+                newMission.proto = p;
+                newMission.state = MissionData.State.Unread;
+                newMission.missionPackageId = mpp.id;
+                missions.Add(newMission);
+                MissionListPanel.instance.AddMission(newMission);
+            }
         }
 
         public int GetCompletedMissionsCount()
@@ -64,14 +72,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             if (Input.GetKeyDown("2"))
             {
                 Add(tests[1]);
-            }
-            if (Input.GetKeyDown("3"))
-            {
-                Add(tests[2]);
-            }
-            if (Input.GetKeyDown("4"))
-            {
-                Add(tests[3]);
             }
 
             if (Input.GetKeyDown("0"))

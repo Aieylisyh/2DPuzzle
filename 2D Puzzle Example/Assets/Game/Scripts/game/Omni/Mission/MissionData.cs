@@ -18,6 +18,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         public State state = State.Waiting;
         
-
+        public string missionPackageId;
     }
 }
