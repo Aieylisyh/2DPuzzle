@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.game.Omni.Mission
@@ -8,11 +9,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission
     {
         public static MissionListPanel instance;
 
-        public List<MissionListItem> missions = new List<MissionListItem>();
+        public List<MissionListItem> missionItems = new List<MissionListItem>();
 
         public MissionListItem prefab;//预制体
 
         public MissionNotification notification;
+
+        public TextMeshProUGUI txt_completedMissionsCount;
 
         private void Awake()
         {
@@ -30,7 +33,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         public void ToggleOffMissions()
         {
-            foreach (var m in missions)
+            foreach (var m in missionItems)
             {
                 m.ToggleOff();
             }
@@ -50,30 +53,41 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             var m = GetCurrentMission(index);
             if (m != null)
             {
-                missions.Remove(m);
+                missionItems.Remove(m);
                 Destroy(m.gameObject);
             }
         }
 
-        public void AddMission(MissionPrototype proto)
+        public void AddMission(MissionData data)
         {
-            var newMission = Instantiate(prefab, prefab.transform.parent);
-            newMission.proto = proto;
-            newMission.data = new MissionData();
-            newMission.data.state = MissionData.State.Unread;
-            newMission.gameObject.SetActive(true);
-            newMission.SyncView();
-            newMission.ToggleOff();
-            missions.Add(newMission);
+            var newMissionItem = Instantiate(prefab, prefab.transform.parent);
+            newMissionItem.data = data;
+            newMissionItem.gameObject.SetActive(true);
+            newMissionItem.SyncView();
+            newMissionItem.ToggleOff();
+            missionItems.Add(newMissionItem);
+        }
+
+        public void RefreshAllMissionItems()
+        {
+            foreach (var mi in missionItems)
+            {
+                mi.SyncView();
+            }
+        }
+
+        public void RefreshCompletedMissionsCount()
+        {
+            txt_completedMissionsCount.text = "" + MissionSystem.instance.GetCompletedMissionsCount();
         }
 
         MissionListItem GetCurrentMission(int index)
         {
-            if (index < 0 || index >= missions.Count)
+            if (index < 0 || index >= missionItems.Count)
             {
                 return null;
             }
-            return missions[index];
+            return missionItems[index];
         }
     }
 }

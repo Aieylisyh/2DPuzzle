@@ -5,6 +5,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 {
     public class MissionData
     {
+        public MissionPrototype proto;
+
         public enum State
         {
             Waiting,
@@ -15,5 +17,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         }
 
         public State state = State.Waiting;
+        
+
     }
 }

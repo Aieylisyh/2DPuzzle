@@ -7,7 +7,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 {
     public class MissionListItem : MonoBehaviour
     {
-        public MissionPrototype proto;
         public MissionData data;
 
         public TextMeshProUGUI title;
@@ -18,8 +17,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         public void SyncView()
         {
-            title.text = proto.title;
-            photoImg.sprite = proto.agentPhoto;
+            title.text = data.proto.title;
+            photoImg.sprite = data.proto.agentPhoto;
             switch (data.state)
             {
                 case MissionData.State.Waiting:
@@ -35,7 +34,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                     stateTxt.text = "";
                     break;
                 case MissionData.State.Done:
-                    stateTxt.text = "Done";
+                    stateTxt.text = "√Completed";
                     break;
             }
         }

@@ -6,7 +6,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 {
     public class MissionNotification : MonoBehaviour
     {
-        public MissionPrototype proto;
+        public MissionData crtMissionData;
         public GameObject view;
 
         public TextMeshProUGUI title;
@@ -24,20 +24,20 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         {
             Debug.Log("OnClickChecked");
             //点击勾 添加这个新任务
-            MissionListPanel.instance.AddMission(proto);
+            MissionListPanel.instance.AddMission(crtMissionData);
             Hide();
         }
 
-        public void Show(MissionPrototype p)
+        public void Show(MissionData md)
         {
             if (_isShowing)
             {
                 return;
             }
 
-            proto = p;
-            title.text = "\"" + proto.title + "\"";
-            agentNameTxt.text = proto.agentName;
+            crtMissionData = md;
+            title.text = "\"" + md.proto.title + "\"";
+            agentNameTxt.text = md.proto.agentName;
             _isShowing = true;
             view.SetActive(true);
         }
