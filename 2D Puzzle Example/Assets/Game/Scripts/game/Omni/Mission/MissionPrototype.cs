@@ -17,6 +17,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             None,
             TextInfo,
             Listen,
+            VoiceRecord,
         }
 
         public Type type;

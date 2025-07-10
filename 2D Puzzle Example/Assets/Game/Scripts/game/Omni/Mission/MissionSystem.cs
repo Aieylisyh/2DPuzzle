@@ -1,7 +1,7 @@
 ﻿using Assets.Game.Scripts.game.Omni.Mission.TextInfo;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
+using Assets.Game.Scripts.game.Omni.Mission.VideoRecord;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.game.Omni.Mission
@@ -14,7 +14,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         public List<MissionData> missions = new List<MissionData>();
 
-        public TextInfoMissionSystem infoMissionSystem;
+        public TextInfoMissionSystem textInfoMissionSystem;
+        public VoiceRecordMissionSystem voiceRecordMissionSystem;
 
         private void Awake()
         {
@@ -83,17 +84,23 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             }
         }
 
-       public void ShowMission(MissionData md)
+        public void ShowMission(MissionData md)
         {
             if (md.proto.type == MissionPrototype.Type.TextInfo)
             {
-                infoMissionSystem.ResetMission();
+                textInfoMissionSystem.ResetMission();
+                voiceRecordMissionSystem.Hide();
+            }
+            else if (md.proto.type == MissionPrototype.Type.VoiceRecord)
+            {
+                voiceRecordMissionSystem.ResetMission();
+                textInfoMissionSystem.Hide();
             }
             else
             {
-                infoMissionSystem.Hide();
+                textInfoMissionSystem.Hide();
+                voiceRecordMissionSystem.Hide();
             }
-
         }
     }
 }
