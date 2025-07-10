@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
     {
         public GameObject view;
 
+        bool currentMissionDone;
+
+        private void Awake()
+        {
+            view.SetActive(false);
+        }
+
         /// <summary>
         /// 首次开始这个任务
         /// </summary>
@@ -16,12 +24,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             view.SetActive(true);
 
             RefreshFinishBtn();
-            restaurantCheckmark1.SetActive(false);
-            restaurantCheckmark2.SetActive(false);
-            restaurantCheckmark3.SetActive(false);
-            restaurantCheckmark4.SetActive(false);
-            restaurantCheckmark5.SetActive(false);
-            restaurantCheckmark6.SetActive(false);
+            foreach (var cm in restaurantCheckmarks)
+            {
+                cm.SetActive(false);
+            }
 
             keyword_burger.SetActive(false);
             keyword_burgers.SetActive(false);
@@ -36,6 +42,21 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
 
             txt_clueLv4.text = "0/3";
             // txt_clueLv4.text = "need 3 checked";
+
+            foreach (var g in submitSucToShows)
+                g.SetActive(false);
+            foreach (var g in submitFailToShows)
+                g.SetActive(false);
+
+            ToggleFinishedButton(false);
+
+            if (currentMissionDone)
+            {
+                foreach (var g in submitSucToShows)
+                    g.SetActive(true);
+                foreach (var g in submitSucToHides)
+                    g.SetActive(false);
+            }
         }
 
         public void Hide()
@@ -48,36 +69,69 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
         /// </summary>
         public void RetryMission()
         {
-
+            foreach (var g in submitFailToShows)
+                g.SetActive(false);
+            //    foreach (var g in submitFailToHides)
+            // g.SetActive(false);
         }
 
+        public GameObject[] submitSucToShows;
+        public GameObject[] submitSucToHides;
+        public GameObject[] submitFailToShows;
+        public GameObject[] submitFailToHides;
         /// <summary>
         /// 点击finish触发（至少勾选了3个餐厅出现可以点击的finish）
         /// </summary>
         public void SubmitMission()
         {
+            bool result = true;
+            int checkedCount = 0;
+            foreach (var cm in restaurantCheckmarks)
+            {
+                if (cm.activeSelf)
+                {
+                    checkedCount++;
+                    if (!correctRestaurantCheckmarks.Contains(cm))
+                    {
+                        result = false;//选了不该选的
+                    }
+                }
+            }
+            if (checkedCount != correctRestaurantCheckmarks.Length)
+            {
+                result = false;//选的数量不对
+            }
 
+            Debug.Log("SubmitMission" + result);
+            if (result)
+            {
+                currentMissionDone = true;
+                foreach (var g in submitSucToShows)
+                    g.SetActive(true);
+                foreach (var g in submitSucToHides)
+                    g.SetActive(false);
+                return;
+            }
+
+            foreach (var g in submitFailToShows)
+                g.SetActive(true);
+            foreach (var g in submitFailToHides)
+                g.SetActive(false);
         }
-
-        public GameObject restaurantCheckmark1;
-        public GameObject restaurantCheckmark2;
-        public GameObject restaurantCheckmark3;
-        public GameObject restaurantCheckmark4;
-        public GameObject restaurantCheckmark5;
-        public GameObject restaurantCheckmark6;
 
         public GameObject finishBtn_ok;
         public GameObject finishBtn_notOk;
 
+        public GameObject[] correctRestaurantCheckmarks;
+        public GameObject[] restaurantCheckmarks;
+
         int GetRestaurantCheckedCount()
         {
             int checkedCount = 0;
-            if (restaurantCheckmark1.activeSelf) checkedCount++;
-            if (restaurantCheckmark2.activeSelf) checkedCount++;
-            if (restaurantCheckmark3.activeSelf) checkedCount++;
-            if (restaurantCheckmark4.activeSelf) checkedCount++;
-            if (restaurantCheckmark5.activeSelf) checkedCount++;
-            if (restaurantCheckmark6.activeSelf) checkedCount++;
+            foreach (var cm in restaurantCheckmarks)
+            {
+                if (cm.activeSelf) checkedCount++;
+            }
             return checkedCount;
         }
 
@@ -85,16 +139,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
         {
             int checkedCount = GetRestaurantCheckedCount();
             txt_clueLv4.text = checkedCount + "/3";
-            if (checkedCount >= 3)
-            {
-                finishBtn_ok.SetActive(true);
-                finishBtn_notOk.SetActive(false);
-            }
-            else
-            {
-                finishBtn_ok.SetActive(false);
-                finishBtn_notOk.SetActive(true);
-            }
+            ToggleFinishedButton(checkedCount >= 3);
+        }
+
+        void ToggleFinishedButton(bool ok)
+        {
+            finishBtn_ok.SetActive(ok);
+            finishBtn_notOk.SetActive(!ok);
         }
 
         public void OnRestaurantChecked(GameObject checkmark)
