@@ -21,7 +21,7 @@ namespace Assets.MoissanColorGame.Script
 
         private void OnMouseOver()
         {
-            Debug.Log("OnMouseOver");
+            //Debug.Log("OnMouseOver");
             sr.color = new Color(0.9f, 0.9f, 0.9f, 1);
         }
 
@@ -32,7 +32,7 @@ namespace Assets.MoissanColorGame.Script
 
         private void OnMouseDown()
         {
-            Debug.Log("OnMouseDown");
+            //Debug.Log("OnMouseDown");
             InventoryColorPalette.instance.Show();
         }
     }
