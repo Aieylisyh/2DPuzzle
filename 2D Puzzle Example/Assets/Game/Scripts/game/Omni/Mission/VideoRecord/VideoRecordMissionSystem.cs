@@ -91,16 +91,19 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             foreach (var q in questions)
             {
                 if (q.checkmarks.Contains(选项对应的checkmark))
+                {
                     q.Check(选项对应的checkmark);
 
-                if (q.IsCorrect() && q.talkSp != null)
-                {
-                    selfTalk.sprite = q.talkSp;
-                    selfTalk.enabled = true;
-                }
-                else
-                {
-                    selfTalk.enabled = false;
+                    if (q.IsCorrect() && q.talkSp != null)
+                    {
+                        selfTalk.sprite = q.talkSp;
+                        selfTalk.enabled = true;
+                    }
+                    else
+                    {
+                        selfTalk.enabled = false;
+                    }
+                    break;
                 }
             }
 

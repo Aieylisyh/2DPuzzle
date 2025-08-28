@@ -85,7 +85,11 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             foreach (var q in questions)
             {
                 if (q.checkmarks.Contains(选项对应的checkmark))
+                {
                     q.Check(选项对应的checkmark);
+                    break;
+                }
+
             }
 
             RefreshFinishBtn();
@@ -162,10 +166,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             }
 
             Debug.Log("SubmitMission" + result);
-            if(MissionSystem.instance.cheatMode_alwaysCorrect)
-                result=true;
-            
-            
+            if (MissionSystem.instance.cheatMode_alwaysCorrect)
+                result = true;
+
+
             if (result)
             {
                 currentMissionDone = true;
