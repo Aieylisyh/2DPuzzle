@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Assets.Game.Scripts.game.Omni.Mission;
+using DG.Tweening;
 using Omni;
 using System.Collections;
 using TMPro;
@@ -44,11 +45,9 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
             isHidden = true;
             passwordArea.SetActive(false);
             submitLoginButtonImage.gameObject.SetActive(false);
-            cg_welcome.alpha = 0;
-            cg_welcome.interactable = false;
-            cg_welcome.blocksRaycasts = false;
+           
         }
-
+     
         public Sprite spUser;
         public Sprite spDefault;
 

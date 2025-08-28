@@ -10,19 +10,25 @@ namespace Assets.Game.Scripts.game.Omni.Mission
     {
         public static MissionSystem instance;
 
-        public MissionPackagePrototype[] tests;
+        public MissionPackagePrototype[] missionPackages;
 
         public List<MissionData> missions = new List<MissionData>();
 
-        public TextInfoMissionSystem textInfoMissionSystem;
-        public VoiceRecordMissionSystem voiceRecordMissionSystem;
+        public TextInfoMissionSystem textInfoMs;
+        public VoiceRecordMissionSystem voiceRms;
+        public VideoRecordMissionSystem videoRms;
+        public bool cheatMode_alwaysCorrect;
 
         private void Awake()
         {
             instance = this;
         }
 
-        void Add(MissionPackagePrototype mpp)
+        public void Add(int i)
+        {
+            Add(missionPackages[i]);
+        }
+        public void Add(MissionPackagePrototype mpp)
         {
             MissionListPanel.instance.notification.Show(mpp);
         }
@@ -68,38 +74,46 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         void Update()
         {
-            if (Input.GetKeyDown("1"))
-            {
-                Add(tests[0]);
-            }
-
-            if (Input.GetKeyDown("2"))
-            {
-                Add(tests[1]);
-            }
-
-            if (Input.GetKeyDown("0"))
-            {
-                Complete(missions[0]);
-            }
+            // if (Input.GetKeyDown("1"))
+            // {
+            //     Add(missionPackages[0]);
+            // }
+            //
+            // if (Input.GetKeyDown("2"))
+            // {
+            //     Add(missionPackages[1]);
+            // }
+            //
+            // if (Input.GetKeyDown("0"))
+            // {
+            //     Complete(missions[0]);
+            // }
         }
 
         public void ShowMission(MissionData md)
         {
             if (md.proto.type == MissionPrototype.Type.TextInfo)
             {
-                textInfoMissionSystem.ResetMission();
-                voiceRecordMissionSystem.Hide();
+                textInfoMs.ResetMission();
+                voiceRms.Hide();
+                videoRms.Hide();
             }
             else if (md.proto.type == MissionPrototype.Type.VoiceRecord)
             {
-                voiceRecordMissionSystem.ResetMission();
-                textInfoMissionSystem.Hide();
+                voiceRms.ResetMission();
+                textInfoMs.Hide();
+                videoRms.Hide();
+            }
+            else if (md.proto.type == MissionPrototype.Type.VideoRecord)
+            {
+                videoRms.ResetMission();
+                textInfoMs.Hide();
+                voiceRms.Hide();
             }
             else
             {
-                textInfoMissionSystem.Hide();
-                voiceRecordMissionSystem.Hide();
+                textInfoMs.Hide();
+                voiceRms.Hide();
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Assets.Game.Scripts.game.Omni.InGameUi;
+using Assets.Game.Scripts.game.Omni.Mission;
 using com;
 using DG.Tweening;
 using System;
@@ -11,12 +12,11 @@ namespace Omni
 
     public partial class Omni2DSystem : MonoBehaviour
     {
-
-        public CanvasGroup cg_computer_bg;
-
         bool _isScreenOn;
-        public CanvasGroup cg_office_2d_login;
+        public CanvasGroup cg_office_2d_main;
         public CanvasGroup cg_computer_welcome;
+        public CanvasGroup cg_computer_bg;
+        public CanvasGroup cg_computer_mainUI;
         public RectTransform screenRect;
         public RectTransform screenRect_fullScreenRef;
         public PasswordBehaviour pb;
@@ -29,8 +29,6 @@ namespace Omni
         void StartGameSetup()
         {
             _isScreenOn = false;
-            cg_computer_welcome.alpha = 0;
-            cg_computer_bg.alpha = 0;
             bootBtnImg.sprite = bootBtnOff;
         }
 
@@ -57,17 +55,33 @@ namespace Omni
                 {
                     cg_computer_bg.alpha = 1;
                     cg_computer_welcome.DOFade(0, 1.5f).SetDelay(1f);
-                     sticker.canRemove = true;
+                    sticker.canRemove = true;
                 }
                 );
             yield return new WaitForSeconds(5.0f);
-           
+
             pb.Boot();
         }
 
         public void OnLoginSuc()
         {
             pb.TurnOffPasswordScreen();
+
+            ToggleCg(cg_computer_welcome, true);
+            ToggleCg(cg_computer_mainUI, false);
+            StartCoroutine(LoginSucIE());
         }
+
+        IEnumerator LoginSucIE()
+        {
+            yield return new WaitForSeconds(1.8f);
+            ToggleCg(cg_computer_welcome, false);
+            ToggleCg(cg_computer_mainUI, true);
+
+            yield return new WaitForSeconds(2f);
+
+            MissionSystem.instance.Add(0);
+        }
+
     }
 }

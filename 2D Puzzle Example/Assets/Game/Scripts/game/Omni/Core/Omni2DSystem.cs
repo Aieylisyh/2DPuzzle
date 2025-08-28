@@ -55,7 +55,7 @@ namespace Omni
             }
         }
 
-        void ToggleCg(CanvasGroup cg, bool on)
+        public void ToggleCg(CanvasGroup cg, bool on)
         {
             cg.alpha = on ? 1 : 0;
             cg.interactable = on;
@@ -68,13 +68,16 @@ namespace Omni
             {
                 case GamePhase.Default:
                 case GamePhase.Start:
-                    ToggleCg(cg_office_2d_login, true);
+                    ToggleCg(cg_office_2d_main, true);
+                    ToggleCg(cg_computer_bg, false);
+                    ToggleCg(cg_computer_welcome, false);
+                    ToggleCg(cg_computer_mainUI, false);
                     StartGameSetup();
                     break;
             }
         }
 
-        IEnumerator DelayAction(float delay, Action action)
+        IEnumerator DelayActionIE(float delay, Action action)
         {
             yield return new WaitForSeconds(delay);
             action?.Invoke();

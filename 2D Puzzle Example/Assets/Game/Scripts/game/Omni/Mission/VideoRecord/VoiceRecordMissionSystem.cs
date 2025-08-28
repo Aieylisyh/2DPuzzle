@@ -162,6 +162,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             }
 
             Debug.Log("SubmitMission" + result);
+            if(MissionSystem.instance.cheatMode_alwaysCorrect)
+                result=true;
+            
+            
             if (result)
             {
                 currentMissionDone = true;

@@ -15,9 +15,5 @@ MonoBehaviour:
   order: 2
   title: A good request
   agentPhoto: {fileID: 21300000, guid: 1342972fab765af4d8f02658dd9008e8, type: 3}
-  desc: 'sadasdasda
-
-    121212
-
-    123'
+  desc: videovideo
   type: 2

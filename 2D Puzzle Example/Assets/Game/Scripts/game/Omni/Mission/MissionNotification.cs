@@ -35,7 +35,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             {
                 return;
             }
-
+            Debug.Log("Show MissionNotification");
             crtMissionPackage = mpp;
             title.text = "\"" + mpp.title + "\"";
             agentNameTxt.text = mpp.senderName;
