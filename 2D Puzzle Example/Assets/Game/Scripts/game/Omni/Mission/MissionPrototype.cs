@@ -18,6 +18,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             TextInfo,
             VideoRecord,
             VoiceRecord,
+            Map,
         }
 
         public Type type;

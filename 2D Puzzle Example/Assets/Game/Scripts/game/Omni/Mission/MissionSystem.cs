@@ -17,6 +17,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         public TextInfoMissionSystem textInfoMs;
         public VoiceRecordMissionSystem voiceRms;
         public VideoRecordMissionSystem videoRms;
+        public MapMissionSystem mapMs1;
         public bool cheatMode_alwaysCorrect;
 
         private void Awake()
@@ -97,18 +98,28 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 textInfoMs.ResetMission();
                 voiceRms.Hide();
                 videoRms.Hide();
+                mapMs1.Hide();
             }
             else if (md.proto.type == MissionPrototype.Type.VoiceRecord)
             {
                 voiceRms.ResetMission();
                 textInfoMs.Hide();
                 videoRms.Hide();
+                mapMs1.Hide();
             }
             else if (md.proto.type == MissionPrototype.Type.VideoRecord)
             {
                 videoRms.ResetMission();
                 textInfoMs.Hide();
                 voiceRms.Hide();
+                mapMs1.Hide();
+            }
+            else if (md.proto.type == MissionPrototype.Type.Map)
+            {
+                videoRms.Hide();
+                textInfoMs.Hide();
+                voiceRms.Hide();
+                mapMs1.ResetMission();
             }
             else
             {

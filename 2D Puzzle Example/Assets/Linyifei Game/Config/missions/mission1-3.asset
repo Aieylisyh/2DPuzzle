@@ -10,15 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 479d6a8b9ee29c045811115b30627fba, type: 3}
-  m_Name: test mission 3
+  m_Name: mission1-3
   m_EditorClassIdentifier: 
   order: 3
-  agentName: Norman
-  title: Gagaga
-  agentPhoto: {fileID: 21300000, guid: 18ede5e199e4f3b40a66d6c8ec9f5490, type: 3}
-  desc: 'ashdkashdkashd
-
-    qweqweqwe
-
-    popopopopop'
-  type: 0
+  title: David 27
+  agentPhoto: {fileID: 21300000, guid: 599072f5bd015ba408b8276e7e90ddbe, type: 3}
+  desc: David 27
+  type: 2

@@ -16,8 +16,8 @@ MonoBehaviour:
   title: New works
   id: New works
   protos:
+  - {fileID: 11400000, guid: c66df88a061f11d48a645ebae1ba14a7, type: 2}
   - {fileID: 11400000, guid: b86af1643d5f00d4bbe2355a2c518e21, type: 2}
   - {fileID: 11400000, guid: 9b386081da53ba647b90b3ecb4cbcff5, type: 2}
   - {fileID: 11400000, guid: 85e7a954ebea41344bb7d3bb9a4b813d, type: 2}
-  - {fileID: 11400000, guid: c66df88a061f11d48a645ebae1ba14a7, type: 2}
-  - {fileID: 11400000, guid: 9b386081da53ba647b90b3ecb4cbcff5, type: 2}
+  - {fileID: 11400000, guid: 1dc068f9c848e8443ba0481607380bbe, type: 2}
