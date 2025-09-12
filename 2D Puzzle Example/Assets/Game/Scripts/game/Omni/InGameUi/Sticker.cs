@@ -22,7 +22,6 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
                 {
                     this.gameObject.SetActive(false);
                 }
-
                 );
         }
     }
