@@ -13,7 +13,7 @@ namespace Omni
         public static Omni2DSystem instance;
 
 
-        public enum GamePhase
+        public enum GamePhase//目前仅作为参考
         {
             Default,
 
@@ -40,7 +40,6 @@ namespace Omni
             Ending_Bad,//主角被改造
         }
 
-        public GamePhase gameStartPhase;
 
         void Awake()
         {
@@ -51,6 +50,7 @@ namespace Omni
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
+                Debug.Log("Try Pass Game Phase");
 
             }
         }
@@ -64,17 +64,11 @@ namespace Omni
 
         private void Start()
         {
-            switch (gameStartPhase)
-            {
-                case GamePhase.Default:
-                case GamePhase.Start:
-                    ToggleCg(cg_office_2d_main, true);
-                    ToggleCg(cg_computer_bg, false);
-                    ToggleCg(cg_computer_welcome, false);
-                    ToggleCg(cg_computer_mainUI, false);
-                    StartGameSetup();
-                    break;
-            }
+            ToggleCg(cg_office_2d_main, true);
+            ToggleCg(cg_computer_bg, false);
+            ToggleCg(cg_computer_welcome, false);
+            ToggleCg(cg_computer_mainUI, false);
+            StartGameSetup();
         }
 
         IEnumerator DelayActionIE(float delay, Action action)

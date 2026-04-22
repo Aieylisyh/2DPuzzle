@@ -141,6 +141,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             finishBtn_notOk.SetActive(!ok);
         }
 
+        public void DebugCompleteMission()
+        {
+            finishBtn_ok.SetActive(false);
+            finishBtn_notOk.SetActive(false);
+            SubmitMission();
+        }
+
         public void OnClickVideoPlayButton()
         {
             vp.Play();
@@ -162,7 +169,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                 g.SetActive(true);
             foreach (var g in submitSucToHides)
                 g.SetActive(false);
-            return;
         }
 
         public GameObject videoPlayButton;
