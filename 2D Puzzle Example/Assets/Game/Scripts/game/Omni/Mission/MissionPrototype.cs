@@ -20,6 +20,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             VoiceRecord,
             Map,
             Map2,
+            Work6,
         }
 
         public Type type;

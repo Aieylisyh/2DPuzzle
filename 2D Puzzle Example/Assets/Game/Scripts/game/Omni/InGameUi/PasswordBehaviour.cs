@@ -27,11 +27,24 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
         public Image submitLoginButtonImage;
         public CanvasGroup cg_welcome;
 
+        private bool _debugLoginOk;
+
         void Start()
         {
             TurnOffPasswordScreen();
         }
 
+        private void Update()
+        {
+            if (!_debugLoginOk && Input.GetKey("l"))
+            {
+                _debugLoginOk = true;
+                Boot();
+                Omni2DSystem.instance.OnScreenPowerButtonClicked();
+                Omni2DSystem.instance.OnLoginSuc();
+
+            }
+        }
         public void Boot()
         {
             passwordArea.SetActive(true);
@@ -45,9 +58,9 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
             isHidden = true;
             passwordArea.SetActive(false);
             submitLoginButtonImage.gameObject.SetActive(false);
-           
+
         }
-     
+
         public Sprite spUser;
         public Sprite spDefault;
 

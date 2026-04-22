@@ -1,4 +1,5 @@
-﻿using com;
+﻿using Assets.Game.Scripts.game.Omni.Mission;
+using com;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -52,6 +53,11 @@ namespace Omni
             {
                 Debug.Log("Try Pass Game Phase");
 
+            }
+             if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                Debug.Log("Try start work 6");
+               MissionSystem.instance.work6Mission.StartWork6ByPlot();
             }
         }
 

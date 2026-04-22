@@ -18,7 +18,16 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         public void SyncView()
         {
             title.text = data.proto.title;
-            photoImg.sprite = data.proto.agentPhoto;
+            if (data.proto.agentPhoto == null)
+            {
+                photoImg.enabled = false;
+            }
+            else
+            {
+                photoImg.enabled = true;
+                photoImg.sprite = data.proto.agentPhoto;
+            }
+
             switch (data.state)
             {
                 case MissionData.State.Waiting:
