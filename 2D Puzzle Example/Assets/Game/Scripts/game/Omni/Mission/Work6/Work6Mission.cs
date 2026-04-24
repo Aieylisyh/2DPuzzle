@@ -16,11 +16,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
         public GameObject talk4;
         public GameObject talk5;
         public GameObject talk6;
+
         public GameObject videoButton;
         public VideoPlayer vp;
 
         public GameObject missionObj;
-
+        public Work6Email email;
+        public GameObject header;
 
         public MissionPrototype work6proto;
 
@@ -58,6 +60,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
             videoButton.SetActive(true);
             vp.Stop();
             missionObj.SetActive(false);
+            header.SetActive(false);
         }
 
         public void ResetMission()
@@ -66,6 +69,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
 
             missionObj.SetActive(true);
             talk1.gameObject.SetActive(true);
+            email.Hide();
+            header.SetActive(true);
         }
 
         public void OnClickVideoButton()
@@ -75,7 +80,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
             talk1.gameObject.SetActive(false);
             talk2.gameObject.SetActive(true);
             StartCoroutine(OnVideoPlayedIE());
-            
+
         }
 
         public void OnClickNo()
@@ -83,6 +88,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
             popup.SetPopupState(Work6Popup.PopupState.None);
             talk5.gameObject.SetActive(false);
             talk6.gameObject.SetActive(true);
+
+            header.SetActive(false);
+            email.header.SetActive(true);
+            email.OnStartEmailSequence();
         }
 
         IEnumerator OnVideoPlayedIE()
@@ -91,13 +100,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
             yield return new WaitForSeconds(3f);
             talk2.gameObject.SetActive(false);
             talk3.gameObject.SetActive(true);
-            yield return new WaitForSeconds(7.5f);
+            yield return new WaitForSeconds(7.0f);
             talk3.gameObject.SetActive(false);
             talk4.gameObject.SetActive(true);
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(5.4f);
             talk4.gameObject.SetActive(false);
             talk5.gameObject.SetActive(true);
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3.4f);
             popup.SetPopupState(Work6Popup.PopupState.Show);
         }
         //接到任务看视频前-台词1

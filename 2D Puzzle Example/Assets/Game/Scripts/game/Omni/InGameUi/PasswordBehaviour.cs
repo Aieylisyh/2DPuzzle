@@ -36,7 +36,7 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
 
         private void Update()
         {
-            if (!_debugLoginOk && Input.GetKey("l"))
+            if (!_debugLoginOk && Input.GetKeyDown("l"))
             {
                 _debugLoginOk = true;
                 Boot();

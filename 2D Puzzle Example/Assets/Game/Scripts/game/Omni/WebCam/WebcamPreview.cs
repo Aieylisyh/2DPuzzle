@@ -20,6 +20,7 @@ public class WebcamPreview : MonoBehaviour
             Debug.Log(device.kind);
         }
 
+        gameObject.SetActive(false);
     }
 
     public void OnClickStart()
@@ -28,7 +29,7 @@ public class WebcamPreview : MonoBehaviour
         StartCapture();
     }
 
-    void StartCapture()
+    public void StartCapture()
     {
         WebCamDevice[] devices = WebCamTexture.devices;
         if (devices.Length == 0) { Debug.LogError("No webcam found"); return; }
