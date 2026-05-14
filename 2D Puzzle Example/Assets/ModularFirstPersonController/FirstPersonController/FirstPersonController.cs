@@ -113,7 +113,7 @@ public class FirstPersonController : MonoBehaviour
         }
         else if (crosshairObject != null)
         {
-            crosshairObject.gameObject.SetActive(false);
+            ToggleCrosshair(false);
         }
 
         // --- Cinematic Camera Transition Setup ---
@@ -125,6 +125,11 @@ public class FirstPersonController : MonoBehaviour
         {
             camB.gameObject.SetActive(false);
         }
+    }
+
+    public void ToggleCrosshair(bool b)
+    {
+        crosshairObject.gameObject.SetActive(b);
     }
 
     private void HandleInteraction()

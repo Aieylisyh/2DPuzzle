@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Linyifei Game/Scene/Demo 2d.unity
     guid: 2de88cd025a578f43944e8860aa0479c
+  - enabled: 1
+    path: Assets/Linyifei Game/Scene/Demo3d.unity
+    guid: a62bdaa896e6a3d419ed36e7b755a31c
   m_configObjects: {}

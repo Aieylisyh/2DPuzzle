@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Linyifei_Game.Script.Onmi_sys
 {
-    public class EndingAndJumpScare : MonoBehaviour
+    public class JumpScare : MonoBehaviour
     {
         [Header("🎥 摄像机联动 (劫持控制)")]
         public FirstPersonController fpc;
@@ -16,6 +16,10 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
         public bool alignToPlayerOnWall = true;
         [Tooltip("请在墙上放置一个空物体拖入这里。它的蓝色箭头(Z轴)必须垂直指向房间内部！")]
         public Transform wallReference;
+
+        // ▼▼▼ 新增这行 ▼▼▼
+        [Tooltip("如果动态对齐后鬼偏左或偏右，用这个微调。正数向右，负数向左。")]
+        public float fineTuneHorizontalOffset = 0f;
 
         [Header("🎯 动态扑脸设置 (自动计算落点)")]
         [Tooltip("勾选后，鬼会精准扑向摄像机并停在安全距离，绝不会飞离地面")]
@@ -100,22 +104,28 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
 
             if (alignToPlayerOnWall && wallReference != null && fpc != null)
             {
-                // 1. 构建墙面几何平面 (以 wallReference 的位置为基准，以它的前向为法线)
+                // 1. 构建墙面几何平面
                 Plane wallPlane = new Plane(wallReference.forward, wallReference.position);
 
-                // 2. 将玩家摄像机的位置，垂直投影到这面墙上
+                // 2. 分别获取“玩家摄像机”和“鬼初始位置”在墙面上的投影点
                 Vector3 projectedCamPos = wallPlane.ClosestPointOnPlane(fpc.playerCamera.transform.position);
+                Vector3 projectedGhostPos = wallPlane.ClosestPointOnPlane(ghost1StartPos.position);
 
-                // 3. 计算原本预设的起点，到完美投影点之间的空间偏移量
-                Vector3 offset = projectedCamPos - ghost2StartPos.position;
-                offset.y = 0; // 强制Y轴偏移为0，保证鬼贴地的绝对高度不发生任何改变！
+                // 3. 计算基础对齐偏移量 (负责把整体拉到玩家正前方)
+                Vector3 baseOffset = projectedCamPos - projectedGhostPos;
+                baseOffset.y = 0;
 
-                // 4. 把整套动画轨迹全部平移过去
-                lookTarget += offset;
-                g1Start += offset;
-                g1End += offset;
-                g2Start += offset;
-                g2Mid += offset;
+                // 4. 计算视觉微调偏移量 (仅用来偏移鬼的画幅位置)
+                Vector3 visualOffset = wallReference.right * fineTuneHorizontalOffset;
+
+                // 5. 摄像机目标点：【只应用基础对齐】！确保摄像机永远笔直看向正前方的墙
+                lookTarget += baseOffset;
+
+                // 6. 鬼的所有轨迹：【基础对齐 + 视觉微调】！让鬼在摄像机的绝对中心发生左/右偏移
+                g1Start += (baseOffset + visualOffset);
+                g1End += (baseOffset + visualOffset);
+                g2Start += (baseOffset + visualOffset);
+                g2Mid += (baseOffset + visualOffset);
             }
 
             // ==========================================
@@ -159,7 +169,7 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
 
             // 8. 鬼2：扑脸计算！
             Vector3 finalApproachPos = ghost2ApproachPos != null ? ghost2ApproachPos.position : fpc.playerCamera.transform.position;
-            
+
             if (useDynamicApproach && fpc != null)
             {
                 // 获取从鬼指向玩家摄像机的向量，并在 Y 轴拍扁，保持水平滑行
@@ -226,7 +236,7 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
 
             Vector3 targetEuler = targetWorldRot.eulerAngles;
             Quaternion targetBodyRot = Quaternion.Euler(0, targetEuler.y, 0);
-            
+
             float targetPitch = targetEuler.x;
             if (targetPitch > 180f) targetPitch -= 360f;
             targetPitch = Mathf.Clamp(targetPitch, -fpc.maxLookAngle, fpc.maxLookAngle);
@@ -266,7 +276,7 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
                 SetAlpha(target, Mathf.Lerp(startAlpha, endAlpha, time / duration));
                 yield return null;
             }
-            SetAlpha(target, endAlpha); 
+            SetAlpha(target, endAlpha);
         }
 
         private IEnumerator MoveRoutine(Transform target, Vector3 startPos, Vector3 endPos, float duration)
@@ -278,7 +288,7 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
                 target.position = Vector3.Lerp(startPos, endPos, time / duration);
                 yield return null;
             }
-            target.position = endPos; 
+            target.position = endPos;
         }
 
         private IEnumerator CrossfadeRoutine(SpriteRenderer fadeOutTarget, SpriteRenderer fadeInTarget, float duration)

@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399347539070945983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 337263680}
   - component: {fileID: 337263681}
   - component: {fileID: 337263684}
+  - component: {fileID: 337263685}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -416,7 +417,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399347539133496382}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91f7bda0206423c4d990cefee1b4f6cf, type: 3}
   m_Name: 
@@ -428,6 +429,24 @@ MonoBehaviour:
   Blood_Darkness: 0.5
   Blood_Distortion_Speed: 0.25
   Blood_Fade: 1
+--- !u!114 &337263685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399347539133496382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91eaea06f197dca4cadb46271e37947f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 4800000, guid: c1b0c5c5ba1a04541bef7f52b7401552, type: 3}
+  Vignetting: 0
+  VignettingFull: 0.004
+  VignettingDirt: 0.125
+  VignettingColor: {r: 0.10062885, g: 0.077532284, b: 0.07562986, a: 1}
+  duration: 0.3
 --- !u!1 &1399347539177832480
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,14 @@ public class Door3DOmniBehaviour : Object3DOmniBehaviour
     private bool openning = false;
     public bool locked;
 
+    private void Start()
+    {
+        room1.SetActive(true);
+        room2.SetActive(true);
+        room3.SetActive(false);
+        room4.SetActive(false);
+    }
+
     public void SetLocked(bool value)
     {
         Debug.Log("Door locked state changed to: " + value);
