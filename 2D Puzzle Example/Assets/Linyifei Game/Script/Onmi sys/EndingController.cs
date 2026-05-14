@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // 定义一个结构体，把图片和它的停留时间打包在一起
@@ -170,6 +171,8 @@ public class EndingController : MonoBehaviour
         // 示例：如果你在同一个物体上挂了上一个回答里的 EndingController
         // EndingController endingUI = GetComponent<EndingController>();
         // if(endingUI != null) endingUI.StartEndingSequence();
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 
     /// <summary>

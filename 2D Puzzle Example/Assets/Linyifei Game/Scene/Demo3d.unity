@@ -2144,7 +2144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198844904}
   m_LocalRotation: {x: -0, y: -0.7071069, z: -0, w: -0.70710677}
-  m_LocalPosition: {x: 12.91, y: 1.1836691, z: -2.859}
+  m_LocalPosition: {x: 12.91, y: 1.173, z: -2.859}
   m_LocalScale: {x: 0.15656999, y: 0.15657, z: 0.31313998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4341,7 +4341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433243608}
   m_LocalRotation: {x: -0, y: -0.7071069, z: -0, w: -0.70710677}
-  m_LocalPosition: {x: 13.778, y: 1.1836691, z: -2.859}
+  m_LocalPosition: {x: 13.778, y: 1.173, z: -2.859}
   m_LocalScale: {x: 0.15656999, y: 0.15657, z: 0.31313998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11097,6 +11097,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1514156591}
+        m_TargetAssemblyTypeName: Door3DOmniBehaviour, Assembly-CSharp
+        m_MethodName: ChangeRoom2To4WithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!135 &1062134664
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12329,7 +12341,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1702550872}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1195994966
 Light:
@@ -15256,7 +15268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461765910}
   m_LocalRotation: {x: -0, y: -0.7071069, z: -0, w: -0.70710677}
-  m_LocalPosition: {x: 12.84, y: 1.1836691, z: -2.859}
+  m_LocalPosition: {x: 12.84, y: 1.173, z: -2.859}
   m_LocalScale: {x: 0.15656999, y: 0.15657, z: 0.31313998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15786,8 +15798,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480137519}
-  m_LocalRotation: {x: 0.017449748, y: 0.017449744, z: -0.00030458646, w: 0.9996954}
-  m_LocalPosition: {x: 15.9, y: 1.11, z: -0.86}
+  m_LocalRotation: {x: 0.017449748, y: 0.017449746, z: -0.00030458643, w: 0.9996954}
+  m_LocalPosition: {x: 15.9, y: 1.11, z: -0.865}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16160,7 +16172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490236463}
   m_LocalRotation: {x: -0, y: -0.7071069, z: -0, w: -0.70710677}
-  m_LocalPosition: {x: 12.664, y: 1.1836691, z: -2.846}
+  m_LocalPosition: {x: 12.664, y: 1.173, z: -2.846}
   m_LocalScale: {x: 0.15656999, y: 0.15657, z: 0.31313998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17952,8 +17964,8 @@ Transform:
   - {fileID: 1845482874}
   - {fileID: 866772137}
   - {fileID: 2108979084}
-  - {fileID: 435124659}
   - {fileID: 1195994965}
+  - {fileID: 435124659}
   - {fileID: 1346985159}
   m_Father: {fileID: 716986276}
   m_RootOrder: 7
@@ -20732,33 +20744,33 @@ MonoBehaviour:
   seatPoint: {fileID: 808515944}
   swivelPoint: {fileID: 984577006}
   lookTargetPoint: {fileID: 1480137520}
-  moveToStandDuration: 1
-  sitDownDuration: 1.2
-  swivelDuration: 1.2
+  moveToStandDuration: 2
+  sitDownDuration: 2
+  swivelDuration: 1.5
   focusScreenDuration: 1.5
   delayAfterStand: 0.2
-  delayAfterSit: 0.3
-  delayAfterSwivel: 0.5
+  delayAfterSit: 1
+  delayAfterSwivel: 0.4
   transitionCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.11785092
+      outSlope: 0.11785092
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.2027778
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.70943373
+      outSlope: -0.70943373
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.1444444
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -22327,6 +22339,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 716986276}
     m_Modifications:
+    - target: {fileID: 1399347539133496380, guid: 162a8bd6de8decc4db5bdbd541ce7b4a, type: 3}
+      propertyPath: far clip plane
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399347539133496380, guid: 162a8bd6de8decc4db5bdbd541ce7b4a, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1399347539889575586, guid: 162a8bd6de8decc4db5bdbd541ce7b4a, type: 3}
       propertyPath: camB
       value: 
