@@ -76,7 +76,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                     break;
                 }
             }
-            MissionListPanel.instance.RefreshCompletedMissionsCount();
+            // MissionListPanel.instance.RefreshCompletedMissionsCount();
         }
 
         void Update()
