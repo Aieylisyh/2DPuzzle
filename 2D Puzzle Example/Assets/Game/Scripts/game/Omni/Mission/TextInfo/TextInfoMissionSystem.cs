@@ -10,7 +10,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
     public class TextInfoMissionSystem : MonoBehaviour
     {
         public GameObject view;
-
+        public MissionData missionData;
         bool currentMissionDone;
 
         private void Awake()
@@ -112,6 +112,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             {
                 SoundSystem.instance.Play("newmsg");
                 Omni2DSystem.instance.RefreshMissionDoneNum(1);
+                MissionSystem.instance.Complete(missionData);
                 currentMissionDone = true;
                 foreach (var g in submitSucToShows)
                     g.SetActive(true);

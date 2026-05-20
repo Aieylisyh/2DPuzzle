@@ -16,7 +16,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
         public GameObject talk4;
         public GameObject talk5;
         public GameObject talk6;
-
+        public MissionData missionData;
         public GameObject videoButton;
         public VideoPlayer vp;
 

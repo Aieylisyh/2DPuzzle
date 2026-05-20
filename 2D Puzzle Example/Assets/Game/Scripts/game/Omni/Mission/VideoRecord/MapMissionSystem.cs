@@ -18,7 +18,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         public Sprite talkSp_suc;
         public GameObject redDotButton;
         public MapData[] mapDatas;
-
+        public MissionData missionData;
         [System.Serializable]
         public class MapData
         {
@@ -136,6 +136,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             selfTalk.sprite = talkSp_suc;
             SoundSystem.instance.Play("newmsg");
             Omni2DSystem.instance.RefreshMissionDoneNum(1);
+            MissionSystem.instance.Complete(missionData);
             currentMissionDone = true;
             foreach (var g in submitSucToShows)
                 g.SetActive(true);

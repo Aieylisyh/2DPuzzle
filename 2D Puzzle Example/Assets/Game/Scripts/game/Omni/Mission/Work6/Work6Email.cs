@@ -87,7 +87,9 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
 
             emailRedText.SetActive(true);
 
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(5f);
+            webcamPreview.StopCapture();
+            yield return new WaitForSeconds(0.5f);
             SceneManager.LoadScene(1);
         }
     }

@@ -56,4 +56,8 @@ public class WebcamPreview : MonoBehaviour
     {
         StopCapture();
     }
+    void OnDisable()
+    {
+        StopCapture();
+    }
 }

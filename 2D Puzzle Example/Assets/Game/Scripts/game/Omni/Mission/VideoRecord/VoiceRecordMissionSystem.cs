@@ -11,7 +11,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
     public class VoiceRecordMissionSystem : MonoBehaviour
     {
         public GameObject view;
-
+        public MissionData missionData;
         bool currentMissionDone;
 
         [System.Serializable]
@@ -176,6 +176,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             {
                 SoundSystem.instance.Play("newmsg");
                 Omni2DSystem.instance.RefreshMissionDoneNum(1);
+                MissionSystem.instance.Complete(missionData);
                 currentMissionDone = true;
                 foreach (var g in submitSucToShows)
                     g.SetActive(true);

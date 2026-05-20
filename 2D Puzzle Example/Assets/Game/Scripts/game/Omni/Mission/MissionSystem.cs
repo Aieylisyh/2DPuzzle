@@ -73,6 +73,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 {
                     m.state = MissionData.State.Done;
                     MissionListPanel.instance.RefreshAllMissionItems();
+                    break;
                 }
             }
             MissionListPanel.instance.RefreshCompletedMissionsCount();
@@ -106,6 +107,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 mapMs1.Hide();
                 mapMs2.Hide();
                 work6Mission.Hide();
+
+                textInfoMs.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.VoiceRecord)
             {
@@ -115,6 +118,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 mapMs1.Hide();
                 mapMs2.Hide();
                 work6Mission.Hide();
+
+                voiceRms.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.VideoRecord)
             {
@@ -124,6 +129,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 mapMs1.Hide();
                 mapMs2.Hide();
                 work6Mission.Hide();
+
+                videoRms.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.Map)
             {
@@ -133,6 +140,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 mapMs1.ResetMission();
                 mapMs2.Hide();
                 work6Mission.Hide();
+
+                mapMs1.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.Map2)
             {
@@ -142,6 +151,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 mapMs1.Hide();
                 mapMs2.ResetMission();
                 work6Mission.Hide();
+
+                mapMs2.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.Work6)
             {
@@ -151,6 +162,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 mapMs1.Hide();
                 mapMs2.Hide();
                 work6Mission.ResetMission();
+
+                work6Mission.missionData = md;
             }
             else
             {

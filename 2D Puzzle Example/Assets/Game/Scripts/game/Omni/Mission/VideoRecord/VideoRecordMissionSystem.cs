@@ -17,7 +17,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         public Sprite talkSp_start;
         public Sprite talkSp_suc;
         public Sprite talkSp_fail;
-
+        public MissionData missionData;
         [System.Serializable]
         public class QuestionAndAnswers
         {
@@ -193,6 +193,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                 selfTalk.sprite = talkSp_suc;
                 SoundSystem.instance.Play("newmsg");
                 Omni2DSystem.instance.RefreshMissionDoneNum(1);
+                MissionSystem.instance.Complete(missionData);
                 currentMissionDone = true;
                 foreach (var g in submitSucToShows)
                     g.SetActive(true);
