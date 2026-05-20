@@ -73,9 +73,20 @@ public class EndingController : MonoBehaviour
 
     // 内部防误触标记
     private bool isCinematicPlaying = false;
-
+    public OmniGameGlobalConfig cfg;
     private void Start()
     {
+        if (cfg.ClickCallPoliceTime > 0)
+        {
+            isBeOrHe = false;
+            Debug.Log("EndingController: 进入了坏结局分支。");
+        }
+        else
+        {
+            isBeOrHe = true;
+            Debug.Log("EndingController: 进入了好结局分支。");
+        }
+
         endingButton.gameObject.SetActive(false);
         if (panelCanvasGroup != null)
         {

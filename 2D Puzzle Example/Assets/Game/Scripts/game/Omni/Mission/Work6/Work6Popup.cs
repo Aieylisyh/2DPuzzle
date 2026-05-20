@@ -1,4 +1,5 @@
 ﻿using com;
+using Omni;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,6 +43,16 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
             SetPopupState(PopupState.No);
             //yield return new WaitForSeconds(0.25f);
             _interrupted = false;
+        }
+
+        public void OnClickYes()
+        {
+            if (popupYes.gameObject.activeSelf)
+            {
+                Omni2DSystem.instance.cfg.ClickCallPoliceTime += 1;
+                Debug.Log("ClickCallPoliceTime: " + Omni2DSystem.instance.cfg.ClickCallPoliceTime);
+                SoundSystem.instance.Play("callPolice");
+            }
         }
 
         public enum PopupState

@@ -990,14 +990,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5135ceb0ac7feb9438b77a0818149c86, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec52727c59a46364dbd97016f2b9d8c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -21683,6 +21683,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  cfg: {fileID: 11400000, guid: 4df30af9a7ad59947bf1df3d944dc4d7, type: 2}
 --- !u!1 &1959054397
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ namespace Omni
             Ending_Bad,//主角被改造
         }
 
+        public OmniGameGlobalConfig cfg;
 
         void Awake()
         {
@@ -77,6 +78,7 @@ namespace Omni
             ToggleCg(cg_computer_welcome, false);
             ToggleCg(cg_computer_mainUI, false);
             StartGameSetup();
+            cfg.ClickCallPoliceTime = 0;
         }
 
         IEnumerator DelayActionIE(float delay, Action action)

@@ -21248,6 +21248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27764b0bc6629784d90c0b167fa8ecea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cfg: {fileID: 11400000, guid: 4df30af9a7ad59947bf1df3d944dc4d7, type: 2}
   "\u6D4B\u8BD5\u7528\u7684\u6240\u6709\u5BF9\u8C61":
   - {fileID: 1709095046}
   - {fileID: 1479954990}
@@ -22333,7 +22334,20 @@ MonoBehaviour:
         m_CallState: 2
   evtDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1209450778}
+        m_TargetAssemblyTypeName: Assets.Game.Scripts.game.Omni.Mission.Work6.Work6Popup,
+          Assembly-CSharp
+        m_MethodName: OnClickYes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   evtExit:
     m_PersistentCalls:
       m_Calls:
