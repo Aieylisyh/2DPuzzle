@@ -1,6 +1,7 @@
 ﻿using Assets.Game.Scripts.game.Omni.Mission.TextInfo;
 using Assets.Game.Scripts.game.Omni.Mission.VideoRecord;
 using Assets.Game.Scripts.game.Omni.Mission.Work6;
+using com;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         public void Add(MissionPackagePrototype mpp)
         {
             MissionListPanel.instance.notification.Show(mpp);
+            SoundSystem.instance.Play("newmsg");
         }
 
         public void AddMissionByPackage(MissionPackagePrototype mpp)

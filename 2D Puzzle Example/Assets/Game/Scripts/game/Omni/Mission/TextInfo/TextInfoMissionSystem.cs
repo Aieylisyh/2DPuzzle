@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using com;
+using Omni;
+using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -108,6 +110,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
 
             if (result)
             {
+                SoundSystem.instance.Play("newmsg");
+                Omni2DSystem.instance.RefreshMissionDoneNum(1);
                 currentMissionDone = true;
                 foreach (var g in submitSucToShows)
                     g.SetActive(true);
@@ -115,7 +119,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
                     g.SetActive(false);
                 return;
             }
-
+            SoundSystem.instance.Play("warning");
             foreach (var g in submitFailToShows)
                 g.SetActive(true);
             foreach (var g in submitFailToHides)

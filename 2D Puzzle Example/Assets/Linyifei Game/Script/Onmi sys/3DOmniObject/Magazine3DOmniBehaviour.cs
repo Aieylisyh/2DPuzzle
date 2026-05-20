@@ -1,4 +1,5 @@
 ﻿using Assets.Linyifei_Game.Script.Onmi_sys;
+using com;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ public class Magazine3DOmniBehaviour : Object3DOmniBehaviour
         isInteracting = true;
         StartDisplay();
         extraEvt?.Invoke();
+        SoundSystem.instance.Play("inspect");
     }
 
     private void Update()

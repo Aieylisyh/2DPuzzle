@@ -45,7 +45,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
             newMission.missionPackageId = "work6";
             MissionSystem.instance.missions.Add(newMission);
             MissionListPanel.instance.AddMission(newMission);
-            SoundSystem.instance.Play("click");
+            SoundSystem.instance.Play("strange");
         }
 
         public void Hide()

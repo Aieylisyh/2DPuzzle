@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using com;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -66,6 +67,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
                     popupYes.gameObject.SetActive(false);
                     popupNo.gameObject.SetActive(false);
                     btns.SetActive(true);
+                    SoundSystem.instance.Play("warning");
                     break;
                 case PopupState.Yes:
                     popupShow.gameObject.SetActive(false);

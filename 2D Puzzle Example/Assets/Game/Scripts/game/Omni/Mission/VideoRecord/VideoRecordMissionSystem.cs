@@ -1,4 +1,6 @@
-﻿using System;
+﻿using com;
+using Omni;
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -189,7 +191,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             {
                 selfTalk.enabled = true;
                 selfTalk.sprite = talkSp_suc;
-
+                SoundSystem.instance.Play("newmsg");
+                Omni2DSystem.instance.RefreshMissionDoneNum(1);
                 currentMissionDone = true;
                 foreach (var g in submitSucToShows)
                     g.SetActive(true);
@@ -197,7 +200,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                     g.SetActive(false);
                 return;
             }
-
+            SoundSystem.instance.Play("warning");
             selfTalk.enabled = true;
             selfTalk.sprite = talkSp_fail;
             foreach (var g in submitFailToShows)
@@ -232,6 +235,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             videoPlayButton.SetActive(false);
             selfTalk.enabled = true;
             selfTalk.sprite = talkSp_start;
+            Omni2DSystem.instance.SwitchBgm();
         }
 
         public GameObject videoPlayButton;

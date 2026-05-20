@@ -1,4 +1,5 @@
 using Assets.Linyifei_Game.Script.Onmi_sys;
+using com;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -24,6 +25,10 @@ public class Door3DOmniBehaviour : Object3DOmniBehaviour
     public void SetLocked(bool value)
     {
         Debug.Log("Door locked state changed to: " + value);
+        if (!value && locked)
+        {
+            SoundSystem.instance.Play("click");
+        }
         locked = value;
     }
 
@@ -33,6 +38,7 @@ public class Door3DOmniBehaviour : Object3DOmniBehaviour
         door.DOKill();
         door.DOLocalRotate(new Vector3(0, 90, 0), duration, RotateMode.Fast).SetEase(Ease.OutBounce);
         openning = true;
+        SoundSystem.instance.Play("opendoor");
     }
 
     public void OpenIn()
@@ -41,12 +47,14 @@ public class Door3DOmniBehaviour : Object3DOmniBehaviour
         door.DOKill();
         door.DOLocalRotate(new Vector3(0, -90, 0), duration, RotateMode.Fast).SetEase(Ease.OutBounce);
         openning = true;
+        SoundSystem.instance.Play("opendoor");
     }
     public void Close()
     {
         door.DOKill();
         door.DOLocalRotate(new Vector3(0, 0, 0), duration, RotateMode.Fast).SetEase(Ease.OutCubic);
         openning = false;
+        SoundSystem.instance.Play("closedoor");
     }
 
     public override void OnInteract()

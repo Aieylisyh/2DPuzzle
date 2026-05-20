@@ -1,6 +1,9 @@
-﻿using DG.Tweening;
+﻿using com;
+using DG.Tweening;
+using Omni;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Game.Scripts.game.Omni.Mission.Work6
 {
@@ -58,7 +61,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
 
 
             yield return new WaitForSeconds(1.5f);
-
+            SoundSystem.instance.Play("newmsg");
             emailPopup.gameObject.SetActive(true);
             emailPopup.DOAnchorPos(emailPopupTo.anchoredPosition, 0.7f);
         }
@@ -72,13 +75,20 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
 
             emailTalk2.SetActive(true);
             emailTalk1.SetActive(false);
+            yield return new WaitForSeconds(3f);
+            Omni2DSystem.instance.StopBgm();
+            yield return new WaitForSeconds(1f);
 
-            yield return new WaitForSeconds(4f);
+            SoundSystem.instance.Play("strange");
             webcamPreview.gameObject.SetActive(true);
             webcamPreview.StartCapture();
+
             yield return new WaitForSeconds(3.5f);
 
             emailRedText.SetActive(true);
+
+            yield return new WaitForSeconds(6f);
+            SceneManager.LoadScene(1);
         }
     }
 }

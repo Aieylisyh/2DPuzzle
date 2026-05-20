@@ -1,4 +1,5 @@
 ﻿using Assets.Game.Scripts.game.Omni.Mission;
+using Assets.Linyifei_Game.Script.Onmi_sys;
 using com;
 using DG.Tweening;
 using System;
@@ -12,7 +13,6 @@ namespace Omni
     public partial class Omni2DSystem : MonoBehaviour
     {
         public static Omni2DSystem instance;
-
 
         public enum GamePhase//目前仅作为参考
         {
@@ -45,6 +45,8 @@ namespace Omni
         void Awake()
         {
             instance = this;
+            bgmController1.gameObject.SetActive(true);
+            bgmController2.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -54,10 +56,10 @@ namespace Omni
                 Debug.Log("Try Pass Game Phase");
 
             }
-             if (Input.GetKeyDown(KeyCode.Alpha6))
+            if (Input.GetKeyDown(KeyCode.Alpha6))
             {
                 Debug.Log("Try start work 6");
-               MissionSystem.instance.work6Mission.StartWork6ByPlot();
+                MissionSystem.instance.work6Mission.StartWork6ByPlot();
             }
         }
 

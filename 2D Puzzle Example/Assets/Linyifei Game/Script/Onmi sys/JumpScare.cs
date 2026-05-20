@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using com;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Linyifei_Game.Script.Onmi_sys
@@ -10,6 +11,8 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
         [Tooltip("预设的看向目标。如果开启了下方墙面对齐，这个点也会自动平移以对准鬼")]
         public Transform targetLookPoint;
         public AnimationCurve lookCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+        [Tooltip("看向 jumpscare 时摄像机的固定绝对俯仰角（Pitch）。单位为度。负值表示指向上方。默认 -10 度表示向上指 10 度。")]
+        public float forcedAbsolutePitch = -10f; // 添加这个变量来控制固定的 pitch
 
         [Header("📐 动态墙面对齐 (正对玩家)")]
         [Tooltip("勾选后，鬼的整个出场轨迹会自动平移，确保正对玩家")]
@@ -143,7 +146,7 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
             {
                 yield return new WaitForSeconds(transitionToLookTime);
             }
-
+            SoundSystem.instance.Play("jumpscare");
             // 2. 准备让鬼1出场
             yield return new WaitForSeconds(delayBeforeGhost1);
             ghost1.transform.position = g1Start;
@@ -237,9 +240,15 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
             Vector3 targetEuler = targetWorldRot.eulerAngles;
             Quaternion targetBodyRot = Quaternion.Euler(0, targetEuler.y, 0);
 
-            float targetPitch = targetEuler.x;
-            if (targetPitch > 180f) targetPitch -= 360f;
-            targetPitch = Mathf.Clamp(targetPitch, -fpc.maxLookAngle, fpc.maxLookAngle);
+            // 原来的逻辑：基于目标点计算出 pitch
+            // float targetPitch = targetEuler.x;
+            // if (targetPitch > 180f) targetPitch -= 360f;
+
+            // 新的逻辑：应用绝对、固定的 pitch，而不基于计算结果
+            float targetPitch = forcedAbsolutePitch; // 直接赋值
+            // 移除了对 applyFpcLookLimits 的判断和对 fpc.maxLookAngle 的应用
+            // 因为在强制设置绝对角度时通常不需要这些。
+
             Quaternion targetCamRot = Quaternion.Euler(targetPitch, 0, 0);
 
             if (duration <= 0) duration = 0.01f;

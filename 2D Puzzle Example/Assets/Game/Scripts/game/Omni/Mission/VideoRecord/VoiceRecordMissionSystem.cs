@@ -1,4 +1,6 @@
-﻿using System;
+﻿using com;
+using Omni;
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -172,6 +174,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
             if (result)
             {
+                SoundSystem.instance.Play("newmsg");
+                Omni2DSystem.instance.RefreshMissionDoneNum(1);
                 currentMissionDone = true;
                 foreach (var g in submitSucToShows)
                     g.SetActive(true);
@@ -179,7 +183,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                     g.SetActive(false);
                 return;
             }
-
+            SoundSystem.instance.Play("warning");
             foreach (var g in submitFailToShows)
                 g.SetActive(true);
             foreach (var g in submitFailToHides)

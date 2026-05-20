@@ -4,6 +4,7 @@ using com;
 using DG.Tweening;
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,14 @@ namespace Omni
         public Image bootBtnImg;
         public Sprite bootBtnOn;
         public Sprite bootBtnOff;
+        public TextMeshProUGUI missionDoneNumTxt;
+        public int missionDoneNum = 1342;
+
+        public void RefreshMissionDoneNum(int delta)
+        {
+            missionDoneNum += delta;
+            missionDoneNumTxt.text = missionDoneNum.ToString();
+        }
 
         void StartGameSetup()
         {
@@ -62,26 +71,5 @@ namespace Omni
 
             pb.Boot();
         }
-
-        public void OnLoginSuc()
-        {
-            pb.TurnOffPasswordScreen();
-
-            ToggleCg(cg_computer_welcome, true);
-            ToggleCg(cg_computer_mainUI, false);
-            StartCoroutine(LoginSucIE());
-        }
-
-        IEnumerator LoginSucIE()
-        {
-            yield return new WaitForSeconds(1.8f);
-            ToggleCg(cg_computer_welcome, false);
-            ToggleCg(cg_computer_mainUI, true);
-
-            yield return new WaitForSeconds(2f);
-
-            MissionSystem.instance.Add(0);
-        }
-
     }
 }

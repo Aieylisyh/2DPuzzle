@@ -1,4 +1,6 @@
-﻿using System;
+﻿using com;
+using Omni;
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -132,7 +134,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
             selfTalk.enabled = true;
             selfTalk.sprite = talkSp_suc;
-
+            SoundSystem.instance.Play("newmsg");
+            Omni2DSystem.instance.RefreshMissionDoneNum(1);
             currentMissionDone = true;
             foreach (var g in submitSucToShows)
                 g.SetActive(true);
