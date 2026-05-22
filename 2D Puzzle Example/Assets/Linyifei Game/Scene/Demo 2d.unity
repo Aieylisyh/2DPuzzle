@@ -2934,6 +2934,7 @@ GameObject:
   - component: {fileID: 200885054}
   - component: {fileID: 200885053}
   - component: {fileID: 200885056}
+  - component: {fileID: 200885057}
   m_Layer: 5
   m_Name: Video Player
   m_TagString: Untagged
@@ -3014,14 +3015,14 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 3
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: Assets/StreamingAssets/work2.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -3044,6 +3045,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+--- !u!114 &200885057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200885051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a86056c57929294ab2e4b4b7a743190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoFileName: work2.mp4
 --- !u!1 &210213350
 GameObject:
   m_ObjectHideFlags: 0
@@ -5148,6 +5162,7 @@ GameObject:
   - component: {fileID: 356539267}
   - component: {fileID: 356539266}
   - component: {fileID: 356539269}
+  - component: {fileID: 356539270}
   m_Layer: 5
   m_Name: Video Player
   m_TagString: Untagged
@@ -5228,18 +5243,18 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 3
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: Assets/StreamingAssets/work4.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -5258,6 +5273,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+--- !u!114 &356539270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356539264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a86056c57929294ab2e4b4b7a743190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoFileName: work4.mp4
 --- !u!1 &357321988
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,6 +6846,7 @@ GameObject:
   - component: {fileID: 449375761}
   - component: {fileID: 449375760}
   - component: {fileID: 449375763}
+  - component: {fileID: 449375764}
   m_Layer: 5
   m_Name: Video Player
   m_TagString: Untagged
@@ -6898,18 +6927,18 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 3
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: Assets/StreamingAssets/work5.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -6928,6 +6957,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+--- !u!114 &449375764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449375758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a86056c57929294ab2e4b4b7a743190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoFileName: work5.mp4
 --- !u!1 &454779003
 GameObject:
   m_ObjectHideFlags: 0
@@ -17508,6 +17550,7 @@ GameObject:
   - component: {fileID: 1062217000}
   - component: {fileID: 1062216999}
   - component: {fileID: 1062217002}
+  - component: {fileID: 1062217003}
   m_Layer: 5
   m_Name: Video Player
   m_TagString: Untagged
@@ -17588,14 +17631,14 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 3
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: Assets/StreamingAssets/work3.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -17618,6 +17661,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+--- !u!114 &1062217003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062216997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a86056c57929294ab2e4b4b7a743190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoFileName: work3.mp4
 --- !u!1 &1068035896
 GameObject:
   m_ObjectHideFlags: 0
@@ -42628,21 +42684,21 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 3
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: Assets/StreamingAssets/work6.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 0
-  m_SkipOnDrop: 0
+  m_SkipOnDrop: 1
   m_Looping: 0
-  m_WaitForFirstFrame: 0
+  m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
 --- !u!224 &6014211150150619340
@@ -42678,6 +42734,7 @@ GameObject:
   - component: {fileID: 6014211150150619342}
   - component: {fileID: 6014211150150619343}
   - component: {fileID: 6014211150150619344}
+  - component: {fileID: 6014211150150619345}
   m_Layer: 5
   m_Name: Video Player
   m_TagString: Untagged
@@ -42733,6 +42790,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+--- !u!114 &6014211150150619345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6014211150150619341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a86056c57929294ab2e4b4b7a743190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoFileName: work6.mp4
 --- !u!224 &6014211150344697170
 RectTransform:
   m_ObjectHideFlags: 0
