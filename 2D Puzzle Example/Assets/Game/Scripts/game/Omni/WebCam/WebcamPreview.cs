@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Game.Scripts.game.Omni.WebCam;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,37 +9,37 @@ public class WebcamPreview : MonoBehaviour
 {
     WebCamTexture tex;
     RawImage img;
-    public TMP_InputField inputField;
 
-    void Start()
+    void Awake()
     {
         img = GetComponent<RawImage>();
-        WebCamDevice[] devices = WebCamTexture.devices;
-        foreach (WebCamDevice device in devices)
-        {
-            Debug.Log(device.name);
-            Debug.Log(device.kind);
-        }
-
-        gameObject.SetActive(false);
-    }
-
-    public void OnClickStart()
-    {
-        StartCapture();
     }
 
     public void StartCapture()
     {
-        WebCamDevice[] devices = WebCamTexture.devices;
-        if (devices.Length == 0) { Debug.LogError("No webcam found"); return; }
-
         try
         {
-            var webCamIndex = int.Parse(inputField.text);
+            WebCamDevice[] devices = WebCamTexture.devices;
+            var webCamIndex = WebCamDebugger.defaultCamIndex;
+
             Debug.Log("StartCapture with cam index: " + webCamIndex);
+            if (devices.Length == 0)
+            {
+                throw new Exception("No webcam found"); // failed to start
+            }
+            if (webCamIndex >= devices.Length)
+            {
+                throw new Exception("Invalid webcam index");
+            }
+            StopCapture();
+
             tex = new WebCamTexture(devices[webCamIndex].name);   // default cam
+
             tex.Play();                                 // start capturing
+            if (!tex.isPlaying)
+            {
+                throw new Exception("Failed to start webcam capture"); // failed to start
+            }
             img.texture = tex;                          // show on UI
 
             // auto-rotate if the driver reports a rotation
@@ -51,8 +52,8 @@ public class WebcamPreview : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogWarning(e);
+            StopCapture();
         }
-
     }
 
     public void StopCapture()
