@@ -28,9 +28,28 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         protected void StopVideoAndShowPlayButton()
         {
             if (vp != null)
+            {
                 vp.Stop();
+                ApplyVideoIdleColor();
+            }
+
             if (videoPlayButton != null)
                 videoPlayButton.SetActive(true);
+        }
+
+        protected void ApplyVideoIdleColor()
+        {
+            if (vp == null)
+                return;
+
+            var clearRt = vp.GetComponent<ClearRenderTexture>();
+            if (clearRt != null)
+            {
+                clearRt.ApplyIdleColor();
+                return;
+            }
+
+            ClearRenderTexture.FillRenderTexture(vp.targetTexture, new Color(0.12f, 0.12f, 0.14f, 1f));
         }
 
         public virtual void OnClickVideoPlayButton()

@@ -3045,6 +3045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+  idleColor: {r: 0.7686275, g: 0.8078432, b: 0.7254902, a: 1}
 --- !u!114 &200885057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5273,6 +5274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+  idleColor: {r: 0.7686275, g: 0.8078432, b: 0.7254902, a: 1}
 --- !u!114 &356539270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6957,6 +6959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+  idleColor: {r: 0.7686275, g: 0.8078432, b: 0.7254902, a: 1}
 --- !u!114 &449375764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17662,6 +17665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+  idleColor: {r: 0.7686275, g: 0.8078432, b: 0.7254902, a: 1}
 --- !u!114 &1062217003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20334,6 +20338,7 @@ MonoBehaviour:
   mapMs2: {fileID: 1209450777}
   work6Mission: {fileID: 1209450779}
   cheatMode_alwaysCorrect: 0
+  cheatMode_skipOrderLock: 0
 --- !u!114 &1209450773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20402,6 +20407,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 1139792951}
+  submitSucToShows:
+  - {fileID: 1485685890}
+  submitSucToHides:
+  - {fileID: 142907330}
+  - {fileID: 1118492413}
+  - {fileID: 979915265}
+  - {fileID: 2057444888}
+  - {fileID: 542944377}
+  - {fileID: 1327086505}
+  - {fileID: 1891786516}
+  submitFailToShows:
+  - {fileID: 2057444888}
+  submitFailToHides: []
+  finishBtn_ok: {fileID: 979915265}
+  finishBtn_notOk: {fileID: 1118492413}
+  videoPlayButton: {fileID: 542944377}
+  vp: {fileID: 200885055}
   questions:
   - checkmarks:
     - {fileID: 834003606}
@@ -20433,23 +20455,6 @@ MonoBehaviour:
     - {fileID: 934880414}
     - {fileID: 1942484186}
     currentCheckmark: {fileID: 934880414}
-  submitSucToShows:
-  - {fileID: 1485685890}
-  submitSucToHides:
-  - {fileID: 142907330}
-  - {fileID: 1118492413}
-  - {fileID: 979915265}
-  - {fileID: 2057444888}
-  - {fileID: 542944377}
-  - {fileID: 1327086505}
-  - {fileID: 1891786516}
-  submitFailToShows:
-  - {fileID: 2057444888}
-  submitFailToHides: []
-  finishBtn_ok: {fileID: 979915265}
-  finishBtn_notOk: {fileID: 1118492413}
-  videoPlayButton: {fileID: 542944377}
-  vp: {fileID: 200885055}
 --- !u!114 &1209450775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20463,10 +20468,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 1403647061}
-  selfTalk: {fileID: 396973711}
-  talkSp_start: {fileID: 21300000, guid: 23045c565927c4649a993f88692af1f3, type: 3}
-  talkSp_suc: {fileID: 21300000, guid: 414bc7fc5e204f948ac34660b576696c, type: 3}
-  talkSp_fail: {fileID: 21300000, guid: 3e8d0319db6e2884db06151488a3ba49, type: 3}
+  submitSucToShows:
+  - {fileID: 1654232462}
+  submitSucToHides:
+  - {fileID: 1994408444}
+  - {fileID: 985092447}
+  - {fileID: 2021490674}
+  - {fileID: 1755910104}
+  - {fileID: 258523705}
+  - {fileID: 1759900046}
+  - {fileID: 847987501}
+  submitFailToShows:
+  - {fileID: 1755910104}
+  submitFailToHides: []
+  finishBtn_ok: {fileID: 2021490674}
+  finishBtn_notOk: {fileID: 985092447}
+  videoPlayButton: {fileID: 258523705}
+  vp: {fileID: 1062217001}
   questions:
   - checkmarks:
     - {fileID: 1907597628}
@@ -20486,23 +20504,10 @@ MonoBehaviour:
     - {fileID: 484101920}
     currentCheckmark: {fileID: 584073016}
     talkSp: {fileID: 21300000, guid: 8f425ace4f873f64a85b816e2f44bb33, type: 3}
-  submitSucToShows:
-  - {fileID: 1654232462}
-  submitSucToHides:
-  - {fileID: 1994408444}
-  - {fileID: 985092447}
-  - {fileID: 2021490674}
-  - {fileID: 1755910104}
-  - {fileID: 258523705}
-  - {fileID: 1759900046}
-  - {fileID: 847987501}
-  submitFailToShows:
-  - {fileID: 1755910104}
-  submitFailToHides: []
-  finishBtn_ok: {fileID: 2021490674}
-  finishBtn_notOk: {fileID: 985092447}
-  videoPlayButton: {fileID: 258523705}
-  vp: {fileID: 1062217001}
+  selfTalk: {fileID: 396973711}
+  talkSp_start: {fileID: 21300000, guid: 23045c565927c4649a993f88692af1f3, type: 3}
+  talkSp_suc: {fileID: 21300000, guid: 414bc7fc5e204f948ac34660b576696c, type: 3}
+  talkSp_fail: {fileID: 21300000, guid: 3e8d0319db6e2884db06151488a3ba49, type: 3}
 --- !u!114 &1209450776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20516,20 +20521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 1434063206}
-  selfTalk: {fileID: 576280290}
-  talkSp_start: {fileID: 21300000, guid: 206fcb48fc6700e44be4832a67bca2b1, type: 3}
-  talkSp_suc: {fileID: 21300000, guid: 45fb991f1cf2008438b06cc3c4ac5213, type: 3}
-  redDotButton: {fileID: 1039628565}
-  mapDatas:
-  - startTime: 0
-    endTime: 3
-    hint: {fileID: 1840896499}
-  - startTime: 6
-    endTime: 10
-    hint: {fileID: 525784849}
-  - startTime: 16
-    endTime: 20
-    hint: {fileID: 1772741374}
   submitSucToShows:
   - {fileID: 838890170}
   submitSucToHides:
@@ -20548,6 +20539,20 @@ MonoBehaviour:
   finishBtn_notOk: {fileID: 461697775}
   videoPlayButton: {fileID: 511816537}
   vp: {fileID: 356539268}
+  redDotButton: {fileID: 1039628565}
+  mapDatas:
+  - startTime: 0
+    endTime: 3
+    hint: {fileID: 1840896499}
+  - startTime: 6
+    endTime: 10
+    hint: {fileID: 525784849}
+  - startTime: 16
+    endTime: 20
+    hint: {fileID: 1772741374}
+  selfTalk: {fileID: 576280290}
+  talkSp_start: {fileID: 21300000, guid: 206fcb48fc6700e44be4832a67bca2b1, type: 3}
+  talkSp_suc: {fileID: 21300000, guid: 45fb991f1cf2008438b06cc3c4ac5213, type: 3}
 --- !u!114 &1209450777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20561,24 +20566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 1664346967}
-  selfTalk: {fileID: 1767718204}
-  talkSp_start: {fileID: 21300000, guid: f6b39819de6650a49b6625cc5ca4dab2, type: 3}
-  talkSp_popupEnd: {fileID: 21300000, guid: 84b114d6338fcbb4986b4a01a281c906, type: 3}
-  talkSp_videoStart: {fileID: 21300000, guid: 14f0636438a55d34796e009695b8def2, type: 3}
-  talkSp_suc: {fileID: 21300000, guid: bcf59642eb6c00c439063c0ee89b2719, type: 3}
-  redDotButton: {fileID: 1877069075}
-  transparentButton: {fileID: 1749076581}
-  popupPanel: {fileID: 1920312733}
-  mapDatas:
-  - startTime: 0
-    endTime: 3
-    hint: {fileID: 141643597}
-  - startTime: 6
-    endTime: 10
-    hint: {fileID: 1694423736}
-  - startTime: 16
-    endTime: 20
-    hint: {fileID: 1691194786}
   submitSucToShows:
   - {fileID: 2078544868}
   submitSucToHides:
@@ -20597,6 +20584,24 @@ MonoBehaviour:
   finishBtn_notOk: {fileID: 2131304523}
   videoPlayButton: {fileID: 1499243484}
   vp: {fileID: 449375762}
+  redDotButton: {fileID: 1877069075}
+  mapDatas:
+  - startTime: 0
+    endTime: 3
+    hint: {fileID: 141643597}
+  - startTime: 6
+    endTime: 10
+    hint: {fileID: 1694423736}
+  - startTime: 16
+    endTime: 20
+    hint: {fileID: 1691194786}
+  selfTalk: {fileID: 1767718204}
+  talkSp_start: {fileID: 21300000, guid: f6b39819de6650a49b6625cc5ca4dab2, type: 3}
+  talkSp_popupEnd: {fileID: 21300000, guid: 84b114d6338fcbb4986b4a01a281c906, type: 3}
+  talkSp_videoStart: {fileID: 21300000, guid: 14f0636438a55d34796e009695b8def2, type: 3}
+  talkSp_suc: {fileID: 21300000, guid: bcf59642eb6c00c439063c0ee89b2719, type: 3}
+  transparentButton: {fileID: 1749076581}
+  popupPanel: {fileID: 1920312733}
 --- !u!114 &1209450778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20625,6 +20630,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357d208f11ba5f542844f1b27599b5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  view: {fileID: 0}
+  submitSucToShows: []
+  submitSucToHides: []
+  submitFailToShows: []
+  submitFailToHides: []
+  finishBtn_ok: {fileID: 0}
+  finishBtn_notOk: {fileID: 0}
   popup: {fileID: 1209450778}
   talk1: {fileID: 1907050568}
   talk2: {fileID: 103781905}
@@ -21481,6 +21493,7 @@ MonoBehaviour:
   - {fileID: 1619941233}
   - {fileID: 511849068}
   - {fileID: 435704201}
+  finishBtn: {fileID: 1177668225}
 --- !u!1 &1235800261
 GameObject:
   m_ObjectHideFlags: 0
@@ -42794,6 +42807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
+  idleColor: {r: 0.7686275, g: 0.8078432, b: 0.7254902, a: 1}
 --- !u!114 &6014211150150619345
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -77,7 +77,14 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
             SetActiveIfNotNull(videoButton, true);
 
             if (vp != null)
+            {
                 vp.Stop();
+                var clearRt = vp.GetComponent<ClearRenderTexture>();
+                if (clearRt != null)
+                    clearRt.ApplyIdleColor();
+                else
+                    ClearRenderTexture.FillRenderTexture(vp.targetTexture, new Color(0.12f, 0.12f, 0.14f, 1f));
+            }
 
             SetActiveIfNotNull(missionObj, false);
             SetActiveIfNotNull(header, false);

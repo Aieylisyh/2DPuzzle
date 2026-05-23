@@ -29,14 +29,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 photoImg.sprite = data.proto.agentPhoto;
             }
 
-            bool unlocked = MissionSystem.instance == null || MissionSystem.instance.IsMissionUnlocked(data);
-
-            if (!unlocked && data.state != MissionData.State.Done)
-            {
-                stateTxt.text = "Locked";
-                return;
-            }
-
             switch (data.state)
             {
                 case MissionData.State.Waiting:

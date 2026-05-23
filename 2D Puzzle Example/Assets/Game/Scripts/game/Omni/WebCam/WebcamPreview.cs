@@ -10,6 +10,8 @@ public class WebcamPreview : MonoBehaviour
     WebCamTexture tex;
     RawImage img;
 
+    public bool IsCaptureActive { get; private set; }
+
     void Awake()
     {
         img = GetComponent<RawImage>();
@@ -17,6 +19,8 @@ public class WebcamPreview : MonoBehaviour
 
     public void StartCapture()
     {
+        IsCaptureActive = false;
+
         try
         {
             WebCamDevice[] devices = WebCamTexture.devices;
@@ -48,17 +52,21 @@ public class WebcamPreview : MonoBehaviour
                        : new Rect(0, 0, 1, 1);
             img.rectTransform.localEulerAngles =
                 new Vector3(0, 0, -tex.videoRotationAngle);
+
+            IsCaptureActive = true;
         }
         catch (Exception e)
         {
             Debug.LogWarning(e);
             StopCapture();
+            IsCaptureActive = false;
         }
     }
 
     public void StopCapture()
     {
         if (tex != null && tex.isPlaying) tex.Stop();
+        IsCaptureActive = false;
     }
 
     void OnDestroy()

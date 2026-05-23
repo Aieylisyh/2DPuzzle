@@ -14,6 +14,8 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
         public GameObject modelView;
         public TextMeshProUGUI txt;
         public GameObject[] finishShows;
+        public GameObject finishBtn;
+        public int correctCamIndex;
 
         void Start()
         {
@@ -26,10 +28,13 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
             // }
             infoPanel.SetActive(false);
             coreBtns.SetActive(false);
+            finishBtn.SetActive(false);
             foreach (var item in finishShows)
             {
                 item.SetActive(false);
             }
+
+            RefreshFinishBtn();
         }
 
         public void OnClickOpenPanel()
@@ -41,6 +46,7 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
             SyncText();
 
             webcamPreview.StartCapture();
+            RefreshFinishBtn();
         }
 
         public void OnClickFinshPanel()
@@ -72,6 +78,17 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
         void SyncText()
         {
             txt.text = "[" + defaultCamIndex + "]";
+            RefreshFinishBtn();
+        }
+
+        void RefreshFinishBtn()
+        {
+            if (finishBtn == null)
+                return;
+
+            bool indexCorrect = defaultCamIndex == correctCamIndex;
+            bool captureOk = webcamPreview != null && webcamPreview.IsCaptureActive;
+            finishBtn.SetActive(indexCorrect && captureOk);
         }
 
         void TestWebCam()
