@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using com;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,14 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             {
                 photoImg.enabled = true;
                 photoImg.sprite = data.proto.agentPhoto;
+            }
+
+            bool unlocked = MissionSystem.instance == null || MissionSystem.instance.IsMissionUnlocked(data);
+
+            if (!unlocked && data.state != MissionData.State.Done)
+            {
+                stateTxt.text = "Locked";
+                return;
             }
 
             switch (data.state)
@@ -62,6 +71,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         public void OnClick()
         {
+            if (MissionSystem.instance != null && !MissionSystem.instance.IsMissionUnlocked(data))
+            {
+                if (SoundSystem.instance != null)
+                    SoundSystem.instance.Play("warning");
+                return;
+            }
+
             if (data.state == MissionData.State.Unread)
                 data.state = MissionData.State.Read;
 

@@ -1,245 +1,106 @@
-﻿using com;
+﻿using Assets.Game.Scripts.game.Omni.Mission;
 using Omni;
-using System;
-using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Video;
 
 namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 {
-    public class VideoRecordMissionSystem : MonoBehaviour
+    public class VideoRecordMissionSystem : QuestionMissionBehaviour
     {
-        public GameObject view;
-        public Image selfTalk;
-        bool currentMissionDone;
-        public Sprite talkSp_start;
-        public Sprite talkSp_suc;
-        public Sprite talkSp_fail;
-        public MissionData missionData;
         [System.Serializable]
         public class QuestionAndAnswers
         {
             public GameObject[] checkmarks;
             public GameObject currentCheckmark;
             public Sprite talkSp;
-
-            public void Check(GameObject checkmarkClicked)
-            {
-                Reset();
-                checkmarkClicked.SetActive(true);
-            }
-
-            public bool IsCorrect()
-            {
-                bool result = true;
-                int checkedCount = 0;
-                foreach (var cm in checkmarks)
-                {
-                    if (cm.activeSelf)
-                    {
-                        checkedCount++;
-                        if (cm != currentCheckmark)
-                        {
-                            result = false;
-                        }
-                    }
-                }
-
-                if (checkedCount != 1)
-                {
-                    result = false;
-                }
-
-                return result;
-            }
-
-            public bool IsChecked()
-            {
-                int checkedCount = 0;
-                foreach (var cm in checkmarks)
-                {
-                    if (cm.activeSelf)
-                    {
-                        checkedCount++;
-                    }
-                }
-                return checkedCount > 0;
-            }
-
-            public void Reset()
-            {
-                foreach (var cm in checkmarks)
-                {
-                    cm.SetActive(false);
-                }
-            }
         }
 
         public QuestionAndAnswers[] questions;
 
-        private void Awake()
-        {
-            view.SetActive(false);
-            ResetAllQuestions();
-            vp.Stop();
-            vp.loopPointReached += OnVideoFinished;
-            selfTalk.enabled = false;
-        }
+        public Image selfTalk;
+        public Sprite talkSp_start;
+        public Sprite talkSp_suc;
+        public Sprite talkSp_fail;
 
-        public void 点击选项(GameObject 选项对应的checkmark)
+        protected override void BindSerializedQuestions()
         {
-            foreach (var q in questions)
+            if (questions == null)
             {
-                if (q.checkmarks.Contains(选项对应的checkmark))
+                runtimeQuestions = null;
+                return;
+            }
+
+            runtimeQuestions = new QuestionRuntime[questions.Length];
+            for (int i = 0; i < questions.Length; i++)
+            {
+                var q = questions[i];
+                runtimeQuestions[i] = new QuestionRuntime
                 {
-                    q.Check(选项对应的checkmark);
-
-                    if (q.IsCorrect() && q.talkSp != null)
-                    {
-                        selfTalk.sprite = q.talkSp;
-                        selfTalk.enabled = true;
-                    }
-                    else
-                    {
-                        selfTalk.enabled = false;
-                    }
-                    break;
-                }
+                    checkmarks = q.checkmarks,
+                    currentCheckmark = q.currentCheckmark,
+                    talkSp = q.talkSp
+                };
             }
-
-            RefreshFinishBtn();
         }
 
-        private void OnVideoFinished(VideoPlayer source)
+        protected override void Awake()
         {
-            videoPlayButton.SetActive(true);
-            // throw new NotImplementedException();
+            base.Awake();
+
+            if (selfTalk != null)
+                selfTalk.enabled = false;
         }
 
-        void ResetAllQuestions()
+        protected override void OnQuestionAnswered(QuestionRuntime question)
         {
-            foreach (var q in questions)
-                q.Reset();
-        }
-        /// <summary>
-        /// 首次开始这个任务
-        /// </summary>
-        public void ResetMission()
-        {
-            view.SetActive(true);
-            ResetAllQuestions();
+            if (selfTalk == null)
+                return;
 
-            foreach (var g in submitSucToShows)
-                g.SetActive(false);
-            foreach (var g in submitFailToShows)
-                g.SetActive(false);
-
-            ToggleFinishedButton(false);
-
-            if (currentMissionDone)
+            if (question.IsCorrect() && question.talkSp != null)
             {
-                foreach (var g in submitSucToShows)
-                    g.SetActive(true);
-                foreach (var g in submitSucToHides)
-                    g.SetActive(false);
+                selfTalk.sprite = question.talkSp;
+                selfTalk.enabled = true;
             }
-
-            vp.Stop();
-            videoPlayButton.SetActive(true);
-        }
-
-
-        public void Hide()
-        {
-            view.SetActive(false);
-        }
-
-        /// <summary>
-        /// 失败了重新开始
-        /// </summary>
-        public void RetryMission()
-        {
-            //ResetAllQuestions();
-            foreach (var g in submitFailToShows)
-                g.SetActive(false);
-        }
-
-        public GameObject[] submitSucToShows;
-        public GameObject[] submitSucToHides;
-        public GameObject[] submitFailToShows;
-        public GameObject[] submitFailToHides;
-        /// <summary>
-        /// 点击finish触发（至少勾选了3个餐厅出现可以点击的finish）
-        /// </summary>
-        public void SubmitMission()
-        {
-            bool result = true;
-            foreach (var q in questions)
+            else
             {
-                if (!q.IsCorrect())
-                    result = false;
+                selfTalk.enabled = false;
             }
+        }
 
-            Debug.Log("SubmitMission" + result);
-            if (MissionSystem.instance.cheatMode_alwaysCorrect)
-                result = true;
-
-
-            if (result)
+        protected override void OnSubmitSuccess()
+        {
+            if (selfTalk != null)
             {
                 selfTalk.enabled = true;
                 selfTalk.sprite = talkSp_suc;
-                SoundSystem.instance.Play("newmsg");
-                Omni2DSystem.instance.RefreshMissionDoneNum(1);
-                MissionSystem.instance.Complete(missionData);
-                currentMissionDone = true;
-                foreach (var g in submitSucToShows)
-                    g.SetActive(true);
-                foreach (var g in submitSucToHides)
-                    g.SetActive(false);
-                return;
             }
-            SoundSystem.instance.Play("warning");
-            selfTalk.enabled = true;
-            selfTalk.sprite = talkSp_fail;
-            foreach (var g in submitFailToShows)
-                g.SetActive(true);
-            foreach (var g in submitFailToHides)
-                g.SetActive(false);
+
+            base.OnSubmitSuccess();
         }
 
-        public GameObject finishBtn_ok;
-        public GameObject finishBtn_notOk;
-
-        void RefreshFinishBtn()
+        protected override void OnSubmitFail()
         {
-            bool allChecked = true;
-            foreach (var q in questions)
+            if (selfTalk != null)
             {
-                if (!q.IsChecked())
-                    allChecked = false;
+                selfTalk.enabled = true;
+                selfTalk.sprite = talkSp_fail;
             }
-            ToggleFinishedButton(allChecked);
+
+            base.OnSubmitFail();
         }
 
-        void ToggleFinishedButton(bool ok)
+        public override void OnClickVideoPlayButton()
         {
-            finishBtn_ok.SetActive(ok);
-            finishBtn_notOk.SetActive(!ok);
-        }
+            base.OnClickVideoPlayButton();
 
-        public void OnClickVideoPlayButton()
-        {
-            vp.Play();
-            videoPlayButton.SetActive(false);
-            selfTalk.enabled = true;
-            selfTalk.sprite = talkSp_start;
-            Omni2DSystem.instance.SwitchBgm();
-        }
+            if (selfTalk != null)
+            {
+                selfTalk.enabled = true;
+                selfTalk.sprite = talkSp_start;
+            }
 
-        public GameObject videoPlayButton;
-        public VideoPlayer vp;
+            if (Omni2DSystem.instance != null)
+                Omni2DSystem.instance.SwitchBgm();
+        }
     }
 }

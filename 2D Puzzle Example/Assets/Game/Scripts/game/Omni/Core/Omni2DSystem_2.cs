@@ -13,6 +13,10 @@ namespace Omni
     {
         public void OnLoginSuc()
         {
+            if (_hasLoggedIn)
+                return;
+
+            _hasLoggedIn = true;
             pb.TurnOffPasswordScreen();
 
             ToggleCg(cg_computer_welcome, true);

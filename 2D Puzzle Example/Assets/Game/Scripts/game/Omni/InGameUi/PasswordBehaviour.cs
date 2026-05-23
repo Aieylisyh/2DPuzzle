@@ -1,4 +1,5 @@
 ﻿using Assets.Game.Scripts.game.Omni.Mission;
+using com;
 using DG.Tweening;
 using Omni;
 using System.Collections;
@@ -27,8 +28,6 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
         public Image submitLoginButtonImage;
         public CanvasGroup cg_welcome;
 
-        private bool _debugLoginOk;
-
         void Start()
         {
             TurnOffPasswordScreen();
@@ -36,13 +35,10 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
 
         private void Update()
         {
-            if (!_debugLoginOk && Input.GetKeyDown("l"))
+            if (Input.GetKeyDown(KeyCode.F2) || Input.GetKeyDown("l"))
             {
-                _debugLoginOk = true;
-                Boot();
-                Omni2DSystem.instance.OnScreenPowerButtonClicked();
-                Omni2DSystem.instance.OnLoginSuc();
-
+                if (Omni2DSystem.instance != null)
+                    Omni2DSystem.instance.SkipBootAndLogin();
             }
         }
         public void Boot()
@@ -69,6 +65,7 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
             if (v == correctUsername)
             {
                 profileImage.sprite = spUser;
+                Omni2DSystem.instance.sticker.canRemove = true;
             }
             else
             {

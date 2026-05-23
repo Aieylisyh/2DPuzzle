@@ -1,13 +1,12 @@
-﻿using com;
+﻿using Assets.Game.Scripts.game.Omni.Mission;
+using com;
 using System.Collections;
-using System.Reflection;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Video;
 
 namespace Assets.Game.Scripts.game.Omni.Mission.Work6
 {
-    public class Work6Mission : MonoBehaviour
+    public class Work6Mission : MissionBehaviour
     {
         public Work6Popup popup;
         public GameObject talk1;
@@ -16,98 +15,130 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
         public GameObject talk4;
         public GameObject talk5;
         public GameObject talk6;
-        public MissionData missionData;
         public GameObject videoButton;
         public VideoPlayer vp;
 
         public GameObject missionObj;
         public Work6Email email;
         public GameObject header;
-
         public MissionPrototype work6proto;
 
-        private void Start()
+        protected override void Awake()
+        {
+            if (missionObj != null)
+                view = missionObj;
+
+            base.Awake();
+
+            if (vp != null)
+                vp.loopPointReached += OnVideoFinished;
+        }
+
+        void Start()
         {
             Hide();
-            vp.loopPointReached += OnVideoFinished;
         }
-        private void OnVideoFinished(VideoPlayer source)
+
+        void OnVideoFinished(VideoPlayer source)
         {
-            vp.gameObject.SetActive(false);
-            SoundSystem.instance.Play("click");
+            if (vp != null)
+                vp.gameObject.SetActive(false);
+            if (SoundSystem.instance != null)
+                SoundSystem.instance.Play("click");
         }
 
         public void StartWork6ByPlot()
         {
+            if (work6proto == null || MissionSystem.instance == null || MissionListPanel.instance == null)
+                return;
+
             var newMission = new MissionData();
             newMission.proto = work6proto;
             newMission.state = MissionData.State.Unread;
             newMission.missionPackageId = "work6";
             MissionSystem.instance.missions.Add(newMission);
             MissionListPanel.instance.AddMission(newMission);
-            SoundSystem.instance.Play("strange");
+
+            if (SoundSystem.instance != null)
+                SoundSystem.instance.Play("strange");
         }
 
-        public void Hide()
+        public override void Hide()
         {
-            popup.SetPopupState(Work6Popup.PopupState.None);
-            talk1.gameObject.SetActive(false);
-            talk2.gameObject.SetActive(false);
-            talk3.gameObject.SetActive(false);
-            talk4.gameObject.SetActive(false);
-            talk5.gameObject.SetActive(false);
-            talk6.gameObject.SetActive(false);
-            videoButton.SetActive(true);
-            vp.Stop();
-            missionObj.SetActive(false);
-            header.SetActive(false);
+            if (popup != null)
+                popup.SetPopupState(Work6Popup.PopupState.None);
+
+            SetActiveIfNotNull(talk1, false);
+            SetActiveIfNotNull(talk2, false);
+            SetActiveIfNotNull(talk3, false);
+            SetActiveIfNotNull(talk4, false);
+            SetActiveIfNotNull(talk5, false);
+            SetActiveIfNotNull(talk6, false);
+            SetActiveIfNotNull(videoButton, true);
+
+            if (vp != null)
+                vp.Stop();
+
+            SetActiveIfNotNull(missionObj, false);
+            SetActiveIfNotNull(header, false);
         }
 
-        public void ResetMission()
+        public override void ResetMission()
         {
             Hide();
+            SetActiveIfNotNull(missionObj, true);
+            SetActiveIfNotNull(talk1, true);
 
-            missionObj.SetActive(true);
-            talk1.gameObject.SetActive(true);
-            email.Hide();
-            header.SetActive(true);
+            if (email != null)
+                email.Hide();
+
+            SetActiveIfNotNull(header, true);
         }
 
         public void OnClickVideoButton()
         {
-            videoButton.SetActive(false);
-            vp.Play();
-            talk1.gameObject.SetActive(false);
-            talk2.gameObject.SetActive(true);
-            StartCoroutine(OnVideoPlayedIE());
+            SetActiveIfNotNull(videoButton, false);
 
+            if (vp != null)
+                vp.Play();
+
+            SetActiveIfNotNull(talk1, false);
+            SetActiveIfNotNull(talk2, true);
+            StartCoroutine(OnVideoPlayedIE());
         }
 
         public void OnClickNo()
         {
-            popup.SetPopupState(Work6Popup.PopupState.None);
-            talk5.gameObject.SetActive(false);
-            talk6.gameObject.SetActive(true);
+            if (popup != null)
+                popup.SetPopupState(Work6Popup.PopupState.None);
 
-            header.SetActive(false);
-            email.header.SetActive(true);
-            email.OnStartEmailSequence();
+            SetActiveIfNotNull(talk5, false);
+            SetActiveIfNotNull(talk6, true);
+            SetActiveIfNotNull(header, false);
+
+            if (email != null)
+            {
+                SetActiveIfNotNull(email.header, true);
+                email.OnStartEmailSequence();
+            }
         }
 
         IEnumerator OnVideoPlayedIE()
         {
             yield return new WaitForSeconds(0.1f);
             yield return new WaitForSeconds(3f);
-            talk2.gameObject.SetActive(false);
-            talk3.gameObject.SetActive(true);
+            SetActiveIfNotNull(talk2, false);
+            SetActiveIfNotNull(talk3, true);
             yield return new WaitForSeconds(7.0f);
-            talk3.gameObject.SetActive(false);
-            talk4.gameObject.SetActive(true);
+            SetActiveIfNotNull(talk3, false);
+            SetActiveIfNotNull(talk4, true);
             yield return new WaitForSeconds(5.4f);
-            talk4.gameObject.SetActive(false);
-            talk5.gameObject.SetActive(true);
+            SetActiveIfNotNull(talk4, false);
+            SetActiveIfNotNull(talk5, true);
             yield return new WaitForSeconds(3.4f);
-            popup.SetPopupState(Work6Popup.PopupState.Show);
+
+            if (popup != null)
+                popup.SetPopupState(Work6Popup.PopupState.Show);
         }
         //接到任务看视频前-台词1
         //视频0秒（开始看）-台词2

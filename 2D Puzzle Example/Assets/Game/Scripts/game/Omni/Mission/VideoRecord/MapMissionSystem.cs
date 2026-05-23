@@ -1,24 +1,11 @@
-﻿using com;
-using Omni;
-using System;
-using System.Collections;
-using System.Linq;
+﻿using Assets.Game.Scripts.game.Omni.Mission;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Video;
 
 namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 {
-    public class MapMissionSystem : MonoBehaviour
+    public class MapMissionSystem : MapMissionBehaviour
     {
-        public GameObject view;
-        public Image selfTalk;
-        bool currentMissionDone;
-        public Sprite talkSp_start;
-        public Sprite talkSp_suc;
-        public GameObject redDotButton;
-        public MapData[] mapDatas;
-        public MissionData missionData;
         [System.Serializable]
         public class MapData
         {
@@ -27,125 +14,61 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             public GameObject hint;
         }
 
-        private void Awake()
+        public MapData[] mapDatas;
+
+        public Image selfTalk;
+        public Sprite talkSp_start;
+        public Sprite talkSp_suc;
+
+        protected override void BindSerializedMapDatas()
         {
-            view.SetActive(false);
-            vp.Stop();
-            vp.loopPointReached += OnVideoFinished;
-            selfTalk.enabled = false;
-            redDotButton.SetActive(false);
-        }
-
-        private void OnVideoFinished(VideoPlayer source)
-        {
-            videoPlayButton.SetActive(true);
-            redDotButton.SetActive(false);
-        }
-
-        /// <summary>
-        /// 首次开始这个任务
-        /// </summary>
-        public void ResetMission()
-        {
-            view.SetActive(true);
-
-            videoPlayButton.SetActive(true);
-            redDotButton.SetActive(false);
-
-            foreach (var g in submitSucToShows)
-                g.SetActive(false);
-            foreach (var g in submitFailToShows)
-                g.SetActive(false);
-
-            ToggleFinishedButton(false);
-
-            if (currentMissionDone)
+            if (mapDatas == null)
             {
-                foreach (var g in submitSucToShows)
-                    g.SetActive(true);
-                foreach (var g in submitSucToHides)
-                    g.SetActive(false);
+                runtimeMapDatas = null;
+                return;
+            }
 
+            runtimeMapDatas = new MapDataRuntime[mapDatas.Length];
+            for (int i = 0; i < mapDatas.Length; i++)
+            {
+                var d = mapDatas[i];
+                runtimeMapDatas[i] = new MapDataRuntime
+                {
+                    startTime = d.startTime,
+                    endTime = d.endTime,
+                    hint = d.hint
+                };
+            }
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            if (selfTalk != null)
+                selfTalk.enabled = false;
+        }
+
+        protected override void ApplyCompletedState()
+        {
+            base.ApplyCompletedState();
+
+            if (selfTalk != null)
+            {
                 selfTalk.enabled = true;
                 selfTalk.sprite = talkSp_suc;
-                videoPlayButton.SetActive(false);
-                redDotButton.SetActive(false);
             }
-
-            vp.Stop();
         }
 
-
-        public void Hide()
+        protected override void OnSubmitSuccess()
         {
-            view.SetActive(false);
-        }
-
-
-        public GameObject[] submitSucToShows;
-        public GameObject[] submitSucToHides;
-        public GameObject[] submitFailToShows;
-        public GameObject[] submitFailToHides;
-
-        public GameObject finishBtn_ok;
-        public GameObject finishBtn_notOk;
-
-        void RefreshFinishBtn()
-        {
-            bool allChecked = true;
-            foreach (var d in mapDatas)
+            if (selfTalk != null)
             {
-                if (!d.hint.activeSelf)
-                    allChecked = false;
-            }
-            ToggleFinishedButton(allChecked);
-        }
-
-        public void OnClickMapRedDot()
-        {
-            var t = vp.time;
-            Debug.Log("OnClickMapRedDot t " + t);
-            foreach (var d in mapDatas)
-            {
-                if (d.startTime < t && d.endTime > t)
-                    d.hint.SetActive(true);
+                selfTalk.enabled = true;
+                selfTalk.sprite = talkSp_suc;
             }
 
-            RefreshFinishBtn();
+            base.OnSubmitSuccess();
         }
-
-        void ToggleFinishedButton(bool ok)
-        {
-            finishBtn_ok.SetActive(ok);
-            finishBtn_notOk.SetActive(!ok);
-        }
-
-        public void OnClickVideoPlayButton()
-        {
-            vp.Play();
-            videoPlayButton.SetActive(false);
-            redDotButton.SetActive(true);
-
-        }
-
-        public void SubmitMission()
-        {
-            Debug.Log("SubmitMission");
-
-            selfTalk.enabled = true;
-            selfTalk.sprite = talkSp_suc;
-            SoundSystem.instance.Play("newmsg");
-            Omni2DSystem.instance.RefreshMissionDoneNum(1);
-            MissionSystem.instance.Complete(missionData);
-            currentMissionDone = true;
-            foreach (var g in submitSucToShows)
-                g.SetActive(true);
-            foreach (var g in submitSucToHides)
-                g.SetActive(false);
-            return;
-        }
-
-        public GameObject videoPlayButton;
-        public VideoPlayer vp;
     }
 }

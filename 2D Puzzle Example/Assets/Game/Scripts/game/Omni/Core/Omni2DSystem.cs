@@ -52,16 +52,8 @@ namespace Omni
 
         private void Update()
         {
-            // if (Input.GetKeyDown(KeyCode.P))
-            // {
-            //     Debug.Log("Try Pass Game Phase");
-            //
-            // }
-            // if (Input.GetKeyDown(KeyCode.Alpha6))
-            // {
-            //     Debug.Log("Try start work 6");
-            //     MissionSystem.instance.work6Mission.StartWork6ByPlot();
-            // }
+            if (Input.GetKeyDown(KeyCode.F2))
+                SkipBootAndLogin();
         }
 
         public void ToggleCg(CanvasGroup cg, bool on)

@@ -6228,7 +6228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &435704202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6241,8 +6241,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1340318573}
-  m_RootOrder: 6
+  m_Father: {fileID: 1016844950}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7934,12 +7934,12 @@ GameObject:
   - component: {fileID: 511849071}
   - component: {fileID: 511849070}
   m_Layer: 5
-  m_Name: Image
+  m_Name: beyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &511849069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16504,6 +16504,7 @@ RectTransform:
   - {fileID: 1619941234}
   - {fileID: 511849069}
   - {fileID: 1340318573}
+  - {fileID: 435704202}
   m_Father: {fileID: 993673016}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21476,6 +21477,10 @@ MonoBehaviour:
   webcamPreview: {fileID: 1312956258}
   modelView: {fileID: 1962287412}
   txt: {fileID: 291146611}
+  finishShows:
+  - {fileID: 1619941233}
+  - {fileID: 511849068}
+  - {fileID: 435704201}
 --- !u!1 &1235800261
 GameObject:
   m_ObjectHideFlags: 0
@@ -23398,7 +23403,6 @@ RectTransform:
   - {fileID: 107169385}
   - {fileID: 182670852}
   - {fileID: 793808990}
-  - {fileID: 435704202}
   - {fileID: 1962287413}
   m_Father: {fileID: 1016844950}
   m_RootOrder: 2
@@ -28360,7 +28364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1619941234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39512,7 +39516,7 @@ RectTransform:
   m_Children:
   - {fileID: 1218209074}
   m_Father: {fileID: 1340318573}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

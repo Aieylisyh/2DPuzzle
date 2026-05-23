@@ -1,179 +1,13 @@
-﻿using com;
-using Omni;
-using System.Collections;
-using System.Linq;
+﻿using Assets.Game.Scripts.game.Omni.Mission;
 using TMPro;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
 {
-    public class TextInfoMissionSystem : MonoBehaviour
+    public class TextInfoMissionSystem : MissionBehaviour
     {
-        public GameObject view;
-        public MissionData missionData;
-        bool currentMissionDone;
-
-        private void Awake()
-        {
-            view.SetActive(false);
-        }
-
-        /// <summary>
-        /// 首次开始这个任务
-        /// </summary>
-        public void ResetMission()
-        {
-            view.SetActive(true);
-
-            RefreshFinishBtn();
-            foreach (var cm in restaurantCheckmarks)
-            {
-                cm.SetActive(false);
-            }
-
-            keyword_burger.SetActive(false);
-            keyword_burgers.SetActive(false);
-            keyword_20min.SetActive(false);
-            keyword_15min.SetActive(false);
-            keyword_0fee.SetActive(false);
-            keyword_199fee.SetActive(false);
-            keyword_15_25_perperson.SetActive(false);
-            keyword_20_25_perperson.SetActive(false);
-
-            CheckKeywordsTriggerClueLv3();
-
-            txt_clueLv4.text = "0/3";
-            // txt_clueLv4.text = "need 3 checked";
-
-            foreach (var g in submitSucToShows)
-                g.SetActive(false);
-            foreach (var g in submitFailToShows)
-                g.SetActive(false);
-
-            ToggleFinishedButton(false);
-
-            if (currentMissionDone)
-            {
-                foreach (var g in submitSucToShows)
-                    g.SetActive(true);
-                foreach (var g in submitSucToHides)
-                    g.SetActive(false);
-            }
-        }
-
-        public void Hide()
-        {
-            view.SetActive(false);
-        }
-
-        /// <summary>
-        /// 失败了重新开始 去掉餐厅的勾勾
-        /// </summary>
-        public void RetryMission()
-        {
-            foreach (var g in submitFailToShows)
-                g.SetActive(false);
-            //    foreach (var g in submitFailToHides)
-            // g.SetActive(false);
-        }
-
-        public GameObject[] submitSucToShows;
-        public GameObject[] submitSucToHides;
-        public GameObject[] submitFailToShows;
-        public GameObject[] submitFailToHides;
-        /// <summary>
-        /// 点击finish触发（至少勾选了3个餐厅出现可以点击的finish）
-        /// </summary>
-        public void SubmitMission()
-        {
-            bool result = true;
-            int checkedCount = 0;
-            foreach (var cm in restaurantCheckmarks)
-            {
-                if (cm.activeSelf)
-                {
-                    checkedCount++;
-                    if (!correctRestaurantCheckmarks.Contains(cm))
-                    {
-                        result = false;//选了不该选的
-                    }
-                }
-            }
-            if (checkedCount != correctRestaurantCheckmarks.Length)
-            {
-                result = false;//选的数量不对
-            }
-
-            Debug.Log("SubmitMission" + result);
-            if (MissionSystem.instance.cheatMode_alwaysCorrect)
-                result = true;
-
-            if (result)
-            {
-                SoundSystem.instance.Play("newmsg");
-                Omni2DSystem.instance.RefreshMissionDoneNum(1);
-                MissionSystem.instance.Complete(missionData);
-                currentMissionDone = true;
-                foreach (var g in submitSucToShows)
-                    g.SetActive(true);
-                foreach (var g in submitSucToHides)
-                    g.SetActive(false);
-                return;
-            }
-            SoundSystem.instance.Play("warning");
-            foreach (var g in submitFailToShows)
-                g.SetActive(true);
-            foreach (var g in submitFailToHides)
-                g.SetActive(false);
-        }
-
-        public GameObject finishBtn_ok;
-        public GameObject finishBtn_notOk;
-
         public GameObject[] correctRestaurantCheckmarks;
         public GameObject[] restaurantCheckmarks;
-
-        int GetRestaurantCheckedCount()
-        {
-            int checkedCount = 0;
-            foreach (var cm in restaurantCheckmarks)
-            {
-                if (cm.activeSelf) checkedCount++;
-            }
-            return checkedCount;
-        }
-
-        void RefreshFinishBtn()
-        {
-            int checkedCount = GetRestaurantCheckedCount();
-            txt_clueLv4.text = checkedCount + "/3";
-            ToggleFinishedButton(checkedCount >= 3);
-        }
-
-        void ToggleFinishedButton(bool ok)
-        {
-            finishBtn_ok.SetActive(ok);
-            finishBtn_notOk.SetActive(!ok);
-        }
-
-        public void OnRestaurantChecked(GameObject checkmark)
-        {
-            //Debug.Log(checkmark);
-            int checkedCount = GetRestaurantCheckedCount();
-
-            if (checkmark.activeSelf)
-            {
-                checkmark.SetActive(false);
-            }
-            else
-            {
-                if (checkedCount >= 3)
-                    return;
-                checkmark.SetActive(true);
-            }
-
-            RefreshFinishBtn();
-        }
 
         public GameObject keyword_burger;
         public GameObject keyword_burgers;
@@ -192,30 +26,127 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
         public TextMeshProUGUI txt_clueLv3;
         public TextMeshProUGUI txt_clueLv4;
 
+        protected override void OnResetMission()
+        {
+            if (restaurantCheckmarks != null)
+            {
+                foreach (var cm in restaurantCheckmarks)
+                    SetActiveIfNotNull(cm, false);
+            }
+
+            SetActiveIfNotNull(keyword_burger, false);
+            SetActiveIfNotNull(keyword_burgers, false);
+            SetActiveIfNotNull(keyword_20min, false);
+            SetActiveIfNotNull(keyword_15min, false);
+            SetActiveIfNotNull(keyword_0fee, false);
+            SetActiveIfNotNull(keyword_199fee, false);
+            SetActiveIfNotNull(keyword_15_25_perperson, false);
+            SetActiveIfNotNull(keyword_20_25_perperson, false);
+
+            CheckKeywordsTriggerClueLv3();
+
+            if (txt_clueLv4 != null)
+                txt_clueLv4.text = "0/3";
+
+            RefreshFinishBtn();
+        }
+
+        protected override bool ValidateSubmission()
+        {
+            if (restaurantCheckmarks == null || correctRestaurantCheckmarks == null)
+                return false;
+
+            int checkedCount = 0;
+            bool result = true;
+
+            foreach (var cm in restaurantCheckmarks)
+            {
+                if (cm == null || !cm.activeSelf)
+                    continue;
+
+                checkedCount++;
+                if (!ContainsCheckmark(correctRestaurantCheckmarks, cm))
+                    result = false;
+            }
+
+            if (checkedCount != correctRestaurantCheckmarks.Length)
+                result = false;
+
+            return result;
+        }
+
+        public void OnRestaurantChecked(GameObject checkmark)
+        {
+            if (checkmark == null)
+                return;
+
+            int checkedCount = CountActiveGameObjects(restaurantCheckmarks);
+
+            if (checkmark.activeSelf)
+            {
+                checkmark.SetActive(false);
+            }
+            else
+            {
+                if (checkedCount >= 3)
+                    return;
+                checkmark.SetActive(true);
+            }
+
+            RefreshFinishBtn();
+        }
+
+        protected override void RefreshFinishBtn()
+        {
+            int checkedCount = CountActiveGameObjects(restaurantCheckmarks);
+
+            if (txt_clueLv4 != null)
+                txt_clueLv4.text = checkedCount + "/3";
+
+            ToggleFinishedButton(checkedCount >= 3);
+        }
+
         public void OnKeywordChecked(GameObject kw)
         {
-            if (!kw.activeSelf)
-            {
-                kw.SetActive(true);
-            }
+            if (kw == null || kw.activeSelf)
+                return;
+
+            kw.SetActive(true);
             CheckKeywordsTriggerClueLv3();
         }
 
         void CheckKeywordsTriggerClueLv3()
         {
             int triggered = 0;
-            clueLv3_burger.SetActive(keyword_burger.activeSelf && keyword_burgers.activeSelf);
-            clueLv3_min.SetActive(keyword_20min.activeSelf && keyword_15min.activeSelf);
-            clueLv3_fee.SetActive(keyword_0fee.activeSelf && keyword_199fee.activeSelf);
-            clueLv3_perperson.SetActive(keyword_15_25_perperson.activeSelf && keyword_20_25_perperson.activeSelf);
 
-            if (clueLv3_burger.activeSelf) triggered++;
-            if (clueLv3_min.activeSelf) triggered++;
-            if (clueLv3_fee.activeSelf) triggered++;
-            if (clueLv3_perperson.activeSelf) triggered++;
+            SetActiveIfNotNull(clueLv3_burger, IsActive(keyword_burger) && IsActive(keyword_burgers));
+            SetActiveIfNotNull(clueLv3_min, IsActive(keyword_20min) && IsActive(keyword_15min));
+            SetActiveIfNotNull(clueLv3_fee, IsActive(keyword_0fee) && IsActive(keyword_199fee));
+            SetActiveIfNotNull(clueLv3_perperson, IsActive(keyword_15_25_perperson) && IsActive(keyword_20_25_perperson));
 
+            if (IsActive(clueLv3_burger)) triggered++;
+            if (IsActive(clueLv3_min)) triggered++;
+            if (IsActive(clueLv3_fee)) triggered++;
+            if (IsActive(clueLv3_perperson)) triggered++;
 
-            txt_clueLv3.text = triggered + "/4";
+            if (txt_clueLv3 != null)
+                txt_clueLv3.text = triggered + "/4";
+        }
+
+        static bool IsActive(GameObject go) => go != null && go.activeSelf;
+
+        static bool ContainsCheckmark(GameObject[] checkmarks, GameObject target)
+        {
+            if (checkmarks == null || target == null)
+                return false;
+
+            foreach (var cm in checkmarks)
+            {
+                if (cm == target)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

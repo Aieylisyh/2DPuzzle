@@ -13,6 +13,8 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
         public static int defaultCamIndex = 0;
         public GameObject modelView;
         public TextMeshProUGUI txt;
+        public GameObject[] finishShows;
+
         void Start()
         {
             panel.SetActive(false);
@@ -24,6 +26,10 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
             // }
             infoPanel.SetActive(false);
             coreBtns.SetActive(false);
+            foreach (var item in finishShows)
+            {
+                item.SetActive(false);
+            }
         }
 
         public void OnClickOpenPanel()
@@ -42,6 +48,11 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
             webcamPreview.StopCapture();
             panel.SetActive(false);
             modelView.SetActive(false);
+
+            foreach (var item in finishShows)
+            {
+                item.SetActive(true);
+            }
         }
 
         public void OnClickAdd()

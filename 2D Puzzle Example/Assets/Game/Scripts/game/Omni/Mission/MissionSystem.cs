@@ -23,10 +23,48 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         public MapMission2System mapMs2;
         public Work6Mission work6Mission;
         public bool cheatMode_alwaysCorrect;
+        /// <summary>
+        /// F3 切换：为 true 时跳过「须先完成前置任务」限制。
+        /// </summary>
+        public bool cheatMode_skipOrderLock;
 
         private void Awake()
         {
             instance = this;
+        }
+
+        void Update()
+        {
+            if (!Input.GetKeyDown(KeyCode.F3))
+                return;
+
+            cheatMode_skipOrderLock = !cheatMode_skipOrderLock;
+            Debug.Log("Mission order lock " + (cheatMode_skipOrderLock ? "disabled" : "enabled") + " (F3)");
+
+            if (MissionListPanel.instance != null)
+                MissionListPanel.instance.RefreshAllMissionItems();
+        }
+
+        public bool IsMissionUnlocked(MissionData md)
+        {
+            if (md == null || md.proto == null)
+                return false;
+
+            if (cheatMode_skipOrderLock)
+                return true;
+
+            int targetOrder = md.proto.order;
+
+            foreach (var m in missions)
+            {
+                if (m == null || m.proto == null || m == md)
+                    continue;
+
+                if (m.proto.order < targetOrder && m.state != MissionData.State.Done)
+                    return false;
+            }
+
+            return true;
         }
 
         public void Add(int i)
@@ -79,26 +117,15 @@ namespace Assets.Game.Scripts.game.Omni.Mission
             // MissionListPanel.instance.RefreshCompletedMissionsCount();
         }
 
-        void Update()
-        {
-            // if (Input.GetKeyDown("1"))
-            // {
-            //     Add(missionPackages[0]);
-            // }
-            //
-            // if (Input.GetKeyDown("2"))
-            // {
-            //     Add(missionPackages[1]);
-            // }
-            //
-            // if (Input.GetKeyDown("0"))
-            // {
-            //     Complete(missions[0]);
-            // }
-        }
-
         public void ShowMission(MissionData md)
         {
+            if (!IsMissionUnlocked(md))
+            {
+                Debug.Log("Mission locked: complete previous missions first. " + md.proto.title);
+                if (SoundSystem.instance != null)
+                    SoundSystem.instance.Play("warning");
+                return;
+            }
             if (md.proto.type == MissionPrototype.Type.TextInfo)
             {
                 textInfoMs.ResetMission();
