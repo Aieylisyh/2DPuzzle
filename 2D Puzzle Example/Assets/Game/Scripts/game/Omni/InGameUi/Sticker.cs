@@ -11,6 +11,7 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
         public Vector2 offset;
         public float duration;
         public bool canRemove;
+
         public void OnClick()
         {
             if (!canRemove)
@@ -23,6 +24,12 @@ namespace Assets.Game.Scripts.game.Omni.InGameUi
                     this.gameObject.SetActive(false);
                 }
                 );
+        }
+
+        void OnDestroy()
+        {
+            if (rect != null)
+                rect.DOKill();
         }
     }
 }

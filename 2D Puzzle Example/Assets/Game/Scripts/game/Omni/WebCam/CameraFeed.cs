@@ -1,15 +1,21 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 public class CameraFeed : MonoBehaviour
 {
     WebCamTexture webcam;
+    Renderer targetRenderer;
+    Material runtimeMaterial;
+
+    void Awake()
+    {
+        targetRenderer = GetComponent<Renderer>();
+    }
 
     IEnumerator Start()
     {
-        // 1. Android / iOS permission request
-#if UNITY_ANDROID || UNITY_IOS  || UNITY_EDITOR
+#if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR
         yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
         if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
         {
@@ -17,24 +23,34 @@ public class CameraFeed : MonoBehaviour
             yield break;
         }
 #endif
-        // 2. Fire up the camera
+
         WebCamDevice[] devices = WebCamTexture.devices;
-        if (devices.Length == 0) { Debug.LogError("No camera found"); yield break; }
+        if (devices.Length == 0)
+        {
+            Debug.LogError("No camera found");
+            yield break;
+        }
 
-        webcam = new WebCamTexture(devices[0].name, 1280, 720, 30); // width, height, fps
-        GetComponent<Renderer>().material.mainTexture = webcam;      // show on a quad
-        Debug.Log("webcam");
-        Debug.Log(webcam);
+        webcam = new WebCamTexture(devices[0].name, 1280, 720, 30);
+        runtimeMaterial = targetRenderer.material;
+        runtimeMaterial.mainTexture = webcam;
         webcam.Play();
-
-        // 3. Optional: grab the pixels
-        yield return new WaitUntil(() => webcam.didUpdateThisFrame);
-        Color32[] pixels = webcam.GetPixels32();  // BGRA32 data
-        // …do something with pixels…
     }
 
     void OnDestroy()
     {
-        if (webcam != null) webcam.Stop();
+        if (webcam != null)
+        {
+            if (webcam.isPlaying)
+                webcam.Stop();
+            Destroy(webcam);
+            webcam = null;
+        }
+
+        if (runtimeMaterial != null)
+        {
+            Destroy(runtimeMaterial);
+            runtimeMaterial = null;
+        }
     }
 }

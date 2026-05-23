@@ -1,6 +1,5 @@
 ﻿using Assets.Game.Scripts.game.Omni.WebCam;
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +9,6 @@ public class WebcamPreview : MonoBehaviour
     WebCamTexture tex;
     RawImage img;
 
-    public bool IsCaptureActive { get; private set; }
-
     void Awake()
     {
         img = GetComponent<RawImage>();
@@ -19,8 +16,6 @@ public class WebcamPreview : MonoBehaviour
 
     public void StartCapture()
     {
-        IsCaptureActive = false;
-
         try
         {
             WebCamDevice[] devices = WebCamTexture.devices;
@@ -28,51 +23,56 @@ public class WebcamPreview : MonoBehaviour
 
             Debug.Log("StartCapture with cam index: " + webCamIndex);
             if (devices.Length == 0)
-            {
-                throw new Exception("No webcam found"); // failed to start
-            }
+                throw new Exception("No webcam found");
             if (webCamIndex >= devices.Length)
-            {
                 throw new Exception("Invalid webcam index");
-            }
-            StopCapture();
 
-            tex = new WebCamTexture(devices[webCamIndex].name);   // default cam
+            ReleaseTexture();
 
-            tex.Play();                                 // start capturing
+            tex = new WebCamTexture(devices[webCamIndex].name);
+            tex.Play();
             if (!tex.isPlaying)
-            {
-                throw new Exception("Failed to start webcam capture"); // failed to start
-            }
-            img.texture = tex;                          // show on UI
+                throw new Exception("Failed to start webcam capture");
 
-            // auto-rotate if the driver reports a rotation
+            img.texture = tex;
             img.uvRect = tex.videoVerticallyMirrored
-                       ? new Rect(0, 1, 1, -1)         // flip vertically
-                       : new Rect(0, 0, 1, 1);
+                ? new Rect(0, 1, 1, -1)
+                : new Rect(0, 0, 1, 1);
             img.rectTransform.localEulerAngles =
                 new Vector3(0, 0, -tex.videoRotationAngle);
-
-            IsCaptureActive = true;
         }
         catch (Exception e)
         {
             Debug.LogWarning(e);
-            StopCapture();
-            IsCaptureActive = false;
+            ReleaseTexture();
         }
     }
 
     public void StopCapture()
     {
-        if (tex != null && tex.isPlaying) tex.Stop();
-        IsCaptureActive = false;
+        ReleaseTexture();
+    }
+
+    void ReleaseTexture()
+    {
+        if (tex == null)
+            return;
+
+        if (tex.isPlaying)
+            tex.Stop();
+
+        if (img != null && img.texture == tex)
+            img.texture = null;
+
+        Destroy(tex);
+        tex = null;
     }
 
     void OnDestroy()
     {
-        StopCapture();
+        ReleaseTexture();
     }
+
     void OnDisable()
     {
         StopCapture();

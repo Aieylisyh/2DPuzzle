@@ -22,6 +22,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
 
         public void Hide()
         {
+            KillTweens();
             StopAllCoroutines();
             webcamPreview.StopCapture();
 
@@ -91,6 +92,17 @@ namespace Assets.Game.Scripts.game.Omni.Mission.Work6
             webcamPreview.StopCapture();
             yield return new WaitForSeconds(0.5f);
             SceneManager.LoadScene(1);
+        }
+
+        void OnDestroy()
+        {
+            KillTweens();
+        }
+
+        void KillTweens()
+        {
+            if (emailPopup != null)
+                emailPopup.DOKill();
         }
     }
 }

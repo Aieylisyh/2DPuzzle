@@ -45,5 +45,11 @@ namespace Assets.Game.Scripts.game.Omni._3d
             targetTrans.DOMove(closeTrans.position, duration).SetEase(Ease.OutBounce);
             targetTrans.DORotate(closeTrans.eulerAngles, duration).SetEase(Ease.OutBounce);
         }
+
+        void OnDestroy()
+        {
+            if (targetTrans != null)
+                targetTrans.DOKill();
+        }
     }
 }

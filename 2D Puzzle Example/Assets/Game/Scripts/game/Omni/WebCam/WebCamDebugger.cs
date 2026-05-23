@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.game.Omni.WebCam
@@ -15,26 +14,19 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
         public TextMeshProUGUI txt;
         public GameObject[] finishShows;
         public GameObject finishBtn;
-        public int correctCamIndex;
 
         void Start()
         {
             panel.SetActive(false);
-            // WebCamDevice[] devices = WebCamTexture.devices;
-            // foreach (WebCamDevice device in devices)
-            // {
-            //     Debug.Log(device.name);
-            //     Debug.Log(device.kind);
-            // }
             infoPanel.SetActive(false);
             coreBtns.SetActive(false);
-            finishBtn.SetActive(false);
             foreach (var item in finishShows)
             {
                 item.SetActive(false);
             }
 
-            RefreshFinishBtn();
+            if (finishBtn != null)
+                finishBtn.SetActive(true);
         }
 
         public void OnClickOpenPanel()
@@ -43,10 +35,11 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
             infoPanel.SetActive(true);
             coreBtns.SetActive(true);
 
-            SyncText();
+            if (finishBtn != null)
+                finishBtn.SetActive(true);
 
+            SyncText();
             webcamPreview.StartCapture();
-            RefreshFinishBtn();
         }
 
         public void OnClickFinshPanel()
@@ -78,17 +71,6 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
         void SyncText()
         {
             txt.text = "[" + defaultCamIndex + "]";
-            RefreshFinishBtn();
-        }
-
-        void RefreshFinishBtn()
-        {
-            if (finishBtn == null)
-                return;
-
-            bool indexCorrect = defaultCamIndex == correctCamIndex;
-            bool captureOk = webcamPreview != null && webcamPreview.IsCaptureActive;
-            finishBtn.SetActive(indexCorrect && captureOk);
         }
 
         void TestWebCam()
@@ -100,12 +82,11 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
             webcamPreview.StopCapture();
             webcamPreview.StartCapture();
         }
+
         public void OnClickToggleInfoPanel()
         {
             if (!coreBtns.activeSelf)
-            {
                 coreBtns.SetActive(true);
-            }
 
             infoPanel.SetActive(!infoPanel.activeSelf);
         }

@@ -42807,7 +42807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRT: {fileID: 0}
-  idleColor: {r: 0.7686275, g: 0.8078432, b: 0.7254902, a: 1}
+  idleColor: {r: 0.21568628, g: 0.101960786, b: 0.09803922, a: 1}
 --- !u!114 &6014211150150619345
 MonoBehaviour:
   m_ObjectHideFlags: 0

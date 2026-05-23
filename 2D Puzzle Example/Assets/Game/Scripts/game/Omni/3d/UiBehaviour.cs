@@ -32,5 +32,11 @@ namespace Assets.Game.Scripts.game.Omni._3d
                 cg_door.DOFade(0, 1);
             }
         }
+
+        void OnDestroy()
+        {
+            if (cg_door != null)
+                cg_door.DOKill();
+        }
     }
 }

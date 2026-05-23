@@ -113,5 +113,17 @@ namespace Omni
 
             pb.Boot();
         }
+
+        void OnDestroy()
+        {
+            if (screenRect != null)
+                screenRect.DOKill();
+            if (cg_computer_welcome != null)
+                cg_computer_welcome.DOKill();
+            if (cg_computer_bg != null)
+                cg_computer_bg.DOKill();
+            if (cg_computer_mainUI != null)
+                cg_computer_mainUI.DOKill();
+        }
     }
 }
