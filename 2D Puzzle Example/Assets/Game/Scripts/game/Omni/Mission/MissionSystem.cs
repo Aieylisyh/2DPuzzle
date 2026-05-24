@@ -28,6 +28,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         /// </summary>
         public bool cheatMode_skipOrderLock;
 
+        static bool hasShownFirstMissionOpenLine;
+
         private void Awake()
         {
             instance = this;
@@ -126,6 +128,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                     SoundSystem.instance.Play("warning");
                 return;
             }
+
+            if (MissionDialogFrame.instance != null)
+                MissionDialogFrame.instance.Hide();
+
             if (md.proto.type == MissionPrototype.Type.TextInfo)
             {
                 textInfoMs.ResetMission();
@@ -199,6 +205,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 videoRms.Hide();
                 mapMs1.Hide();
                 mapMs2.Hide();
+            }
+
+            if (!hasShownFirstMissionOpenLine)
+            {
+                hasShownFirstMissionOpenLine = true;
+                if (MissionDialogFrame.instance != null)
+                    MissionDialogFrame.instance.Show(MissionDialogLines.FirstMissionOpen);
             }
         }
     }

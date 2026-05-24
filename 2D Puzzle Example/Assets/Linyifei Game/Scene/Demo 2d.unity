@@ -38542,13 +38542,14 @@ GameObject:
   - component: {fileID: 1896602328}
   - component: {fileID: 1896602330}
   - component: {fileID: 1896602329}
+  - component: {fileID: 1896602331}
   m_Layer: 5
   m_Name: dialog frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1896602328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38609,6 +38610,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896602327}
   m_CullTransparentMesh: 1
+--- !u!114 &1896602331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896602327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c3e1f94b2d8c6479a0e5f3b8d1c2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameText: {fileID: 524334603}
+  contentText: {fileID: 1397246363}
 --- !u!1 &1897823824
 GameObject:
   m_ObjectHideFlags: 0

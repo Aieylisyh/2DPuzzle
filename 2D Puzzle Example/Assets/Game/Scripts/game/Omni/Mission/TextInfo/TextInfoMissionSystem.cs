@@ -14,6 +14,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
         public Sprite talkSp_readySubmit;
 
         bool hasShownKeywordTalk;
+        bool hasShownAllKeywordsTalk;
+        bool hasShownReadySubmitTalk;
 
         public GameObject[] correctRestaurantCheckmarks;
         public GameObject[] restaurantCheckmarks;
@@ -38,6 +40,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
         protected override void OnResetMission()
         {
             hasShownKeywordTalk = false;
+            hasShownAllKeywordsTalk = false;
+            hasShownReadySubmitTalk = false;
             MissionTalkHelper.Hide(selfTalk);
 
             if (restaurantCheckmarks != null)
@@ -60,8 +64,16 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             if (txt_clueLv4 != null)
                 txt_clueLv4.text = "0/3";
 
-            MissionTalkHelper.Show(selfTalk, talkSp_open);
+            ShowDialogOrImage(talkSp_open, MissionDialogLines.Work1Open);
             RefreshFinishBtn();
+        }
+
+        void ShowDialogOrImage(Sprite sprite, string line)
+        {
+            if (sprite != null)
+                MissionTalkHelper.Show(selfTalk, sprite);
+            else if (MissionDialogFrame.instance != null)
+                MissionDialogFrame.instance.Show(line);
         }
 
         protected override bool ValidateSubmission()
@@ -104,9 +116,9 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
                 if (checkedCount >= 3)
                     return;
                 checkmark.SetActive(true);
-                MissionTalkHelper.Show(selfTalk, talkSp_chooseRestaurant);
             }
 
+            TryShowReadySubmitTalk();
             RefreshFinishBtn();
         }
 
@@ -118,7 +130,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
                 txt_clueLv4.text = checkedCount + "/3";
 
             if (checkedCount >= 3)
-                MissionTalkHelper.Show(selfTalk, talkSp_readySubmit);
+                TryShowReadySubmitTalk();
 
             ToggleFinishedButton(checkedCount >= 3);
         }
@@ -133,10 +145,59 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             if (!hasShownKeywordTalk)
             {
                 hasShownKeywordTalk = true;
-                MissionTalkHelper.Show(selfTalk, talkSp_afterKeyword);
+                ShowDialogOrImage(talkSp_afterKeyword, MissionDialogLines.Work1FirstKeyword);
             }
 
             CheckKeywordsTriggerClueLv3();
+            TryShowAllKeywordsTalk();
+        }
+
+        void TryShowAllKeywordsTalk()
+        {
+            if (hasShownAllKeywordsTalk || !AllKeywordsChecked())
+                return;
+
+            hasShownAllKeywordsTalk = true;
+            ShowDialogOrImage(talkSp_chooseRestaurant, MissionDialogLines.Work1AllKeywords);
+        }
+
+        void TryShowReadySubmitTalk()
+        {
+            if (hasShownReadySubmitTalk || !AllKeywordsChecked())
+                return;
+
+            int checkedCount = CountActiveGameObjects(restaurantCheckmarks);
+            if (checkedCount < 3 || !HasAnyCorrectRestaurantSelected())
+                return;
+
+            hasShownReadySubmitTalk = true;
+            ShowDialogOrImage(talkSp_readySubmit, MissionDialogLines.Work1ReadySubmit);
+        }
+
+        bool AllKeywordsChecked()
+        {
+            return IsActive(keyword_burger)
+                && IsActive(keyword_burgers)
+                && IsActive(keyword_20min)
+                && IsActive(keyword_15min)
+                && IsActive(keyword_0fee)
+                && IsActive(keyword_199fee)
+                && IsActive(keyword_15_25_perperson)
+                && IsActive(keyword_20_25_perperson);
+        }
+
+        bool HasAnyCorrectRestaurantSelected()
+        {
+            if (correctRestaurantCheckmarks == null)
+                return false;
+
+            foreach (var cm in correctRestaurantCheckmarks)
+            {
+                if (IsActive(cm))
+                    return true;
+            }
+
+            return false;
         }
 
         void CheckKeywordsTriggerClueLv3()

@@ -48,7 +48,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void OnResetMission()
         {
             base.OnResetMission();
-            MissionTalkHelper.Show(selfTalk, talkSp_start);
+            ShowDialogOrImage(selfTalk, talkSp_start, MissionDialogLines.Work2Open);
         }
 
         public void 点击选项(GameObject 选项对应的checkmark)
@@ -60,7 +60,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         {
             base.RefreshFinishBtn();
 
-            if (selfTalk == null || talkSp_allAnswered == null || runtimeQuestions == null)
+            if (runtimeQuestions == null)
                 return;
 
             foreach (var q in runtimeQuestions)
@@ -69,7 +69,15 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                     return;
             }
 
-            MissionTalkHelper.Show(selfTalk, talkSp_allAnswered);
+            ShowDialogOrImage(selfTalk, talkSp_allAnswered, MissionDialogLines.Work2AllAnswered);
+        }
+
+        static void ShowDialogOrImage(Image selfTalk, Sprite sprite, string line)
+        {
+            if (sprite != null)
+                MissionTalkHelper.Show(selfTalk, sprite);
+            else if (MissionDialogFrame.instance != null)
+                MissionDialogFrame.instance.Show(line);
         }
     }
 }
