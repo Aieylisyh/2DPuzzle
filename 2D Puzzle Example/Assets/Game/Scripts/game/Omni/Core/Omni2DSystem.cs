@@ -48,6 +48,7 @@ namespace Omni
             instance = this;
             bgmController1.gameObject.SetActive(true);
             bgmController2.gameObject.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
         }
 
         private void Update()

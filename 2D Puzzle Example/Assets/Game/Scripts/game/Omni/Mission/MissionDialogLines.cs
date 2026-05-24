@@ -18,8 +18,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         public const string Work3Open = "Hold on, that's my number plate. David, you having a laugh?";
         public const string Work3FirstCorrect = "Brilliant. Don't know what's real anymore-work, home, none of it makes sense.";
         public const string Work3FirstWrong = "It's all blurring together now. The mission, my marriage, me... nothing feels solid.";
-        public const string Work3SubmitSuccess = "Brilliant. Don't know what's real anymore-work, home, none of it makes sense.";
-        public const string Work3SubmitFail = "It's all blurring together now. The mission, my marriage, me... nothing feels solid.";
 
         public const string Work4Open = "Mess in my chest, but I've still got a job to finish. No point stopping now.";
         public const string Work4FirstCorrect = "OK.";
