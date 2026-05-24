@@ -1,5 +1,6 @@
 ﻿using Assets.Game.Scripts.game.Omni.Mission;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 {
@@ -13,6 +14,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         }
 
         public QuestionAndAnswers[] questions;
+
+        public Image selfTalk;
+        public Sprite talkSp_start;
+        public Sprite talkSp_allAnswered;
 
         protected override void BindSerializedQuestions()
         {
@@ -32,6 +37,39 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                     currentCheckmark = q.currentCheckmark
                 };
             }
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            MissionTalkHelper.Hide(selfTalk);
+        }
+
+        protected override void OnResetMission()
+        {
+            base.OnResetMission();
+            MissionTalkHelper.Show(selfTalk, talkSp_start);
+        }
+
+        public void 点击选项(GameObject 选项对应的checkmark)
+        {
+            base.点击选项(选项对应的checkmark);
+        }
+
+        protected override void RefreshFinishBtn()
+        {
+            base.RefreshFinishBtn();
+
+            if (selfTalk == null || talkSp_allAnswered == null || runtimeQuestions == null)
+                return;
+
+            foreach (var q in runtimeQuestions)
+            {
+                if (!q.IsChecked())
+                    return;
+            }
+
+            MissionTalkHelper.Show(selfTalk, talkSp_allAnswered);
         }
     }
 }

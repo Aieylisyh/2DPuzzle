@@ -1,11 +1,20 @@
 ﻿using Assets.Game.Scripts.game.Omni.Mission;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
 {
     public class TextInfoMissionSystem : MissionBehaviour
     {
+        public Image selfTalk;
+        public Sprite talkSp_open;
+        public Sprite talkSp_afterKeyword;
+        public Sprite talkSp_chooseRestaurant;
+        public Sprite talkSp_readySubmit;
+
+        bool hasShownKeywordTalk;
+
         public GameObject[] correctRestaurantCheckmarks;
         public GameObject[] restaurantCheckmarks;
 
@@ -28,6 +37,9 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
 
         protected override void OnResetMission()
         {
+            hasShownKeywordTalk = false;
+            MissionTalkHelper.Hide(selfTalk);
+
             if (restaurantCheckmarks != null)
             {
                 foreach (var cm in restaurantCheckmarks)
@@ -48,6 +60,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             if (txt_clueLv4 != null)
                 txt_clueLv4.text = "0/3";
 
+            MissionTalkHelper.Show(selfTalk, talkSp_open);
             RefreshFinishBtn();
         }
 
@@ -91,6 +104,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
                 if (checkedCount >= 3)
                     return;
                 checkmark.SetActive(true);
+                MissionTalkHelper.Show(selfTalk, talkSp_chooseRestaurant);
             }
 
             RefreshFinishBtn();
@@ -103,6 +117,9 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             if (txt_clueLv4 != null)
                 txt_clueLv4.text = checkedCount + "/3";
 
+            if (checkedCount >= 3)
+                MissionTalkHelper.Show(selfTalk, talkSp_readySubmit);
+
             ToggleFinishedButton(checkedCount >= 3);
         }
 
@@ -112,6 +129,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
                 return;
 
             kw.SetActive(true);
+
+            if (!hasShownKeywordTalk)
+            {
+                hasShownKeywordTalk = true;
+                MissionTalkHelper.Show(selfTalk, talkSp_afterKeyword);
+            }
+
             CheckKeywordsTriggerClueLv3();
         }
 

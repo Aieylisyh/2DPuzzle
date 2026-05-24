@@ -16,8 +16,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             public GameObject hint;
         }
 
-        public MapData[] mapDatas;
-
         public Image selfTalk;
         public Sprite talkSp_start;
         public Sprite talkSp_popupEnd;
@@ -25,6 +23,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         public Sprite talkSp_suc;
         public GameObject transparentButton;
         public GameObject popupPanel;
+
+        public MapData[] mapDatas;
 
         protected override void BindSerializedMapDatas()
         {
@@ -50,9 +50,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void Awake()
         {
             base.Awake();
-
-            if (selfTalk != null)
-                selfTalk.enabled = false;
+            MissionTalkHelper.Hide(selfTalk);
         }
 
         protected override void OnResetMission()
@@ -62,12 +60,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             if (currentMissionDone)
                 return;
 
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_start;
-            }
-
+            MissionTalkHelper.Show(selfTalk, talkSp_start);
             SetActiveIfNotNull(transparentButton, true);
             SetActiveIfNotNull(popupPanel, false);
         }
@@ -75,24 +68,14 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void ApplyCompletedState()
         {
             base.ApplyCompletedState();
-
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_suc;
-            }
+            MissionTalkHelper.Show(selfTalk, talkSp_suc);
         }
 
         public void OnClickISeePopup()
         {
             SetActiveIfNotNull(transparentButton, false);
             SetActiveIfNotNull(popupPanel, false);
-
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_popupEnd;
-            }
+            MissionTalkHelper.Show(selfTalk, talkSp_popupEnd);
         }
 
         public void OnClickTransparentButton()
@@ -113,22 +96,12 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         public override void OnClickVideoPlayButton()
         {
             base.OnClickVideoPlayButton();
-
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_videoStart;
-            }
+            MissionTalkHelper.Show(selfTalk, talkSp_videoStart);
         }
 
         protected override void OnSubmitSuccess()
         {
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_suc;
-            }
-
+            MissionTalkHelper.Show(selfTalk, talkSp_suc);
             base.OnSubmitSuccess();
             StartCoroutine(StartWork6Delayed());
         }

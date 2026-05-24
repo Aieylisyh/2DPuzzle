@@ -14,11 +14,11 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             public GameObject hint;
         }
 
-        public MapData[] mapDatas;
-
         public Image selfTalk;
         public Sprite talkSp_start;
         public Sprite talkSp_suc;
+
+        public MapData[] mapDatas;
 
         protected override void BindSerializedMapDatas()
         {
@@ -44,30 +44,34 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void Awake()
         {
             base.Awake();
+            MissionTalkHelper.Hide(selfTalk);
+        }
 
-            if (selfTalk != null)
-                selfTalk.enabled = false;
+        protected override void OnResetMission()
+        {
+            base.OnResetMission();
+
+            if (currentMissionDone)
+                return;
+
+            MissionTalkHelper.Show(selfTalk, talkSp_start);
         }
 
         protected override void ApplyCompletedState()
         {
             base.ApplyCompletedState();
+            MissionTalkHelper.Show(selfTalk, talkSp_suc);
+        }
 
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_suc;
-            }
+        public override void OnClickVideoPlayButton()
+        {
+            base.OnClickVideoPlayButton();
+            MissionTalkHelper.Show(selfTalk, talkSp_start);
         }
 
         protected override void OnSubmitSuccess()
         {
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_suc;
-            }
-
+            MissionTalkHelper.Show(selfTalk, talkSp_suc);
             base.OnSubmitSuccess();
         }
     }

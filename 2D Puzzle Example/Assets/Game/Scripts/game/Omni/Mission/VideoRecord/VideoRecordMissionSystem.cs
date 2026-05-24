@@ -15,12 +15,12 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             public Sprite talkSp;
         }
 
-        public QuestionAndAnswers[] questions;
-
         public Image selfTalk;
         public Sprite talkSp_start;
         public Sprite talkSp_suc;
         public Sprite talkSp_fail;
+
+        public QuestionAndAnswers[] questions;
 
         protected override void BindSerializedQuestions()
         {
@@ -46,58 +46,47 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void Awake()
         {
             base.Awake();
+            MissionTalkHelper.Hide(selfTalk);
+        }
 
-            if (selfTalk != null)
-                selfTalk.enabled = false;
+        protected override void OnResetMission()
+        {
+            base.OnResetMission();
+            MissionTalkHelper.Hide(selfTalk);
+        }
+
+        public void 点击选项(GameObject 选项对应的checkmark)
+        {
+            base.点击选项(选项对应的checkmark);
         }
 
         protected override void OnQuestionAnswered(QuestionRuntime question)
         {
-            if (selfTalk == null)
+            if (selfTalk == null || question.talkSp == null)
                 return;
 
-            if (question.IsCorrect() && question.talkSp != null)
-            {
-                selfTalk.sprite = question.talkSp;
-                selfTalk.enabled = true;
-            }
+            if (question.IsCorrect())
+                MissionTalkHelper.Show(selfTalk, question.talkSp);
             else
-            {
-                selfTalk.enabled = false;
-            }
+                MissionTalkHelper.Show(selfTalk, talkSp_fail != null ? talkSp_fail : question.talkSp);
         }
 
         protected override void OnSubmitSuccess()
         {
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_suc;
-            }
-
+            MissionTalkHelper.Show(selfTalk, talkSp_suc);
             base.OnSubmitSuccess();
         }
 
         protected override void OnSubmitFail()
         {
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_fail;
-            }
-
+            MissionTalkHelper.Show(selfTalk, talkSp_fail);
             base.OnSubmitFail();
         }
 
         public override void OnClickVideoPlayButton()
         {
             base.OnClickVideoPlayButton();
-
-            if (selfTalk != null)
-            {
-                selfTalk.enabled = true;
-                selfTalk.sprite = talkSp_start;
-            }
+            MissionTalkHelper.Show(selfTalk, talkSp_start);
 
             if (Omni2DSystem.instance != null)
                 Omni2DSystem.instance.SwitchBgm();
