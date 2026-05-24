@@ -76,8 +76,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         {
             if (sprite != null)
                 MissionTalkHelper.Show(selfTalk, sprite);
-            else if (MissionDialogFrame.instance != null)
-                MissionDialogFrame.instance.Show(line);
+            else
+                MissionDialogFrame.ShowLine(line);
         }
     }
 }

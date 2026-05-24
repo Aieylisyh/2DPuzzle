@@ -18,7 +18,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
         bool hasShownVideoLine35;
         bool hasShownVideoLine70;
-        bool videoTimedLinesStarted;
         bool hasShownFirstCorrectTalk;
         bool hasShownFirstWrongTalk;
         Coroutine videoDialogRoutine;
@@ -51,17 +50,20 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
         void ResetVideoDialogState()
         {
-            if (videoDialogRoutine != null)
-            {
-                StopCoroutine(videoDialogRoutine);
-                videoDialogRoutine = null;
-            }
-
+            StopVideoDialogRoutine();
             hasShownVideoLine35 = false;
             hasShownVideoLine70 = false;
-            videoTimedLinesStarted = false;
             hasShownFirstCorrectTalk = false;
             hasShownFirstWrongTalk = false;
+        }
+
+        void StopVideoDialogRoutine()
+        {
+            if (videoDialogRoutine == null)
+                return;
+
+            StopCoroutine(videoDialogRoutine);
+            videoDialogRoutine = null;
         }
 
         public void 点击选项(GameObject 选项对应的checkmark)
@@ -77,7 +79,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                     return;
 
                 hasShownFirstCorrectTalk = true;
-                MissionDialogFrame.instance?.Show(MissionDialogLines.Work3FirstCorrect);
+                MissionDialogFrame.ShowLine(MissionDialogLines.Work3FirstCorrect);
                 return;
             }
 
@@ -85,19 +87,21 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                 return;
 
             hasShownFirstWrongTalk = true;
-            MissionDialogFrame.instance?.Show(MissionDialogLines.Work3FirstWrong);
+            MissionDialogFrame.ShowLine(MissionDialogLines.Work3FirstWrong);
         }
 
         public override void OnClickVideoPlayButton()
         {
             base.OnClickVideoPlayButton();
-            MissionDialogFrame.instance?.Show(MissionDialogLines.Work3Open);
 
-            if (!videoTimedLinesStarted && vp != null)
-            {
-                videoTimedLinesStarted = true;
+            StopVideoDialogRoutine();
+            hasShownVideoLine35 = false;
+            hasShownVideoLine70 = false;
+
+            MissionDialogFrame.ShowLine(MissionDialogLines.Work3Open);
+
+            if (vp != null)
                 videoDialogRoutine = StartCoroutine(MonitorVideoTimedDialog());
-            }
 
             if (Omni2DSystem.instance != null)
                 Omni2DSystem.instance.SwitchBgm();
@@ -114,13 +118,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                     if (!hasShownVideoLine35 && progress >= 0.35f)
                     {
                         hasShownVideoLine35 = true;
-                        MissionDialogFrame.instance?.Show(MissionDialogLines.Work3Video35);
+                        MissionDialogFrame.ShowLine(MissionDialogLines.Work3Video35);
                     }
 
                     if (!hasShownVideoLine70 && progress >= 0.70f)
                     {
                         hasShownVideoLine70 = true;
-                        MissionDialogFrame.instance?.Show(MissionDialogLines.Work3Video70);
+                        MissionDialogFrame.ShowLine(MissionDialogLines.Work3Video70);
                     }
                 }
 

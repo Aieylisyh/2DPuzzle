@@ -16,10 +16,36 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         {
             instance = this;
             ResolveReferences();
-            Hide();
 
             if (usernameText != null)
                 usernameText.text = Username;
+        }
+
+        void OnDestroy()
+        {
+            if (instance == this)
+                instance = null;
+        }
+
+        public static MissionDialogFrame Resolve()
+        {
+            if (instance != null)
+                return instance;
+
+            instance = FindObjectOfType<MissionDialogFrame>(true);
+            return instance;
+        }
+
+        public static void ShowLine(string text)
+        {
+            Resolve()?.Show(text);
+        }
+
+        public static void HideLine()
+        {
+            var frame = Resolve();
+            if (frame != null)
+                frame.Hide();
         }
 
         void ResolveReferences()

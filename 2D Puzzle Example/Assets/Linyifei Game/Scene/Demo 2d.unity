@@ -20472,6 +20472,7 @@ MonoBehaviour:
   mapMs1: {fileID: 1209450776}
   mapMs2: {fileID: 1209450777}
   work6Mission: {fileID: 1209450779}
+  dialogFrame: {fileID: 1896602331}
   cheatMode_alwaysCorrect: 0
   cheatMode_skipOrderLock: 0
 --- !u!114 &1209450773

@@ -64,7 +64,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             if (txt_clueLv4 != null)
                 txt_clueLv4.text = "0/3";
 
-            ShowDialogOrImage(talkSp_open, MissionDialogLines.Work1Open);
             RefreshFinishBtn();
         }
 
@@ -72,8 +71,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
         {
             if (sprite != null)
                 MissionTalkHelper.Show(selfTalk, sprite);
-            else if (MissionDialogFrame.instance != null)
-                MissionDialogFrame.instance.Show(line);
+            else
+                MissionDialogFrame.ShowLine(line);
         }
 
         protected override bool ValidateSubmission()

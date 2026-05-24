@@ -22,17 +22,21 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         public MapMissionSystem mapMs1;
         public MapMission2System mapMs2;
         public Work6Mission work6Mission;
+        public MissionDialogFrame dialogFrame;
         public bool cheatMode_alwaysCorrect;
         /// <summary>
         /// F3 切换：为 true 时跳过「须先完成前置任务」限制。
         /// </summary>
         public bool cheatMode_skipOrderLock;
 
-        static bool hasShownFirstMissionOpenLine;
+        static bool hasShownFirstMissionPackageLine;
 
         private void Awake()
         {
             instance = this;
+
+            if (dialogFrame != null)
+                MissionDialogFrame.instance = dialogFrame;
         }
 
         void Update()
@@ -89,6 +93,12 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 newMission.missionPackageId = mpp.id;
                 missions.Add(newMission);
                 MissionListPanel.instance.AddMission(newMission);
+            }
+
+            if (!hasShownFirstMissionPackageLine)
+            {
+                hasShownFirstMissionPackageLine = true;
+                MissionDialogFrame.ShowLine(MissionDialogLines.FirstMissionOpen);
             }
         }
 
@@ -205,13 +215,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 videoRms.Hide();
                 mapMs1.Hide();
                 mapMs2.Hide();
-            }
-
-            if (!hasShownFirstMissionOpenLine)
-            {
-                hasShownFirstMissionOpenLine = true;
-                if (MissionDialogFrame.instance != null)
-                    MissionDialogFrame.instance.Show(MissionDialogLines.FirstMissionOpen);
             }
         }
     }
