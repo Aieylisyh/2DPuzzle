@@ -31,6 +31,10 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
 
         public void OnClick()
         {
+            var ending = FindObjectOfType<EndingController>();
+            if (ending != null && ending.cfg != null)
+                ending.cfg.skipWebcamDebugger = true;
+
             SceneManager.LoadScene(0);
         }
     }

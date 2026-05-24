@@ -9,12 +9,19 @@ public class WebcamPreview : MonoBehaviour
     WebCamTexture tex;
     RawImage img;
 
+    public bool IsCapturing => tex != null && tex.isPlaying;
+
     void Awake()
     {
         img = GetComponent<RawImage>();
     }
 
     public void StartCapture()
+    {
+        TryStartCapture();
+    }
+
+    public bool TryStartCapture()
     {
         try
         {
@@ -40,11 +47,14 @@ public class WebcamPreview : MonoBehaviour
                 : new Rect(0, 0, 1, 1);
             img.rectTransform.localEulerAngles =
                 new Vector3(0, 0, -tex.videoRotationAngle);
+
+            return true;
         }
         catch (Exception e)
         {
             Debug.LogWarning(e);
             ReleaseTexture();
+            return false;
         }
     }
 

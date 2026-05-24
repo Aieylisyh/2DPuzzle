@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Omni;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.game.Omni.WebCam
@@ -27,6 +28,9 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
 
             if (finishBtn != null)
                 finishBtn.SetActive(true);
+
+            if (ShouldSkipSetup())
+                ApplyFinishedSetup();
         }
 
         public void OnClickOpenPanel()
@@ -44,14 +48,50 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
 
         public void OnClickFinshPanel()
         {
-            webcamPreview.StopCapture();
-            panel.SetActive(false);
-            modelView.SetActive(false);
+            ApplyFinishedSetup();
+            MarkSetupCompleted();
+        }
 
-            foreach (var item in finishShows)
+        public void ApplyFinishedSetup()
+        {
+            if (webcamPreview != null)
+                webcamPreview.StopCapture();
+
+            if (panel != null)
+                panel.SetActive(false);
+            if (infoPanel != null)
+                infoPanel.SetActive(false);
+            if (coreBtns != null)
+                coreBtns.SetActive(false);
+            if (modelView != null)
+                modelView.SetActive(false);
+
+            if (finishShows != null)
             {
-                item.SetActive(true);
+                foreach (var item in finishShows)
+                {
+                    if (item != null)
+                        item.SetActive(true);
+                }
             }
+
+            if (finishBtn != null)
+                finishBtn.SetActive(false);
+        }
+
+        static bool ShouldSkipSetup()
+        {
+            return Omni2DSystem.instance != null
+                && Omni2DSystem.instance.cfg != null
+                && Omni2DSystem.instance.cfg.skipWebcamDebugger;
+        }
+
+        static void MarkSetupCompleted()
+        {
+            if (Omni2DSystem.instance == null || Omni2DSystem.instance.cfg == null)
+                return;
+
+            Omni2DSystem.instance.cfg.skipWebcamDebugger = true;
         }
 
         public void OnClickAdd()

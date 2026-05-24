@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: New Omni Game Global Config
   m_EditorClassIdentifier: 
   ClickCallPoliceTime: 0
+  skipWebcamDebugger: 0

@@ -183,6 +183,8 @@ public class EndingController : MonoBehaviour
         // EndingController endingUI = GetComponent<EndingController>();
         // if(endingUI != null) endingUI.StartEndingSequence();
         yield return new WaitForSeconds(2);
+        if (cfg != null)
+            cfg.skipWebcamDebugger = true;
         SceneManager.LoadScene(0);
     }
 
