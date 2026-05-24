@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Assets.Game.Scripts.game.Omni.WebCam;
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -183,8 +184,7 @@ public class EndingController : MonoBehaviour
         // EndingController endingUI = GetComponent<EndingController>();
         // if(endingUI != null) endingUI.StartEndingSequence();
         yield return new WaitForSeconds(2);
-        if (cfg != null)
-            cfg.skipWebcamDebugger = true;
+        WebcamDebuggerSession.MarkSkipOnNextSceneLoad();
         SceneManager.LoadScene(0);
     }
 

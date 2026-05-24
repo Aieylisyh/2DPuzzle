@@ -1,5 +1,4 @@
-﻿using Omni;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace Assets.Game.Scripts.game.Omni.WebCam
@@ -29,8 +28,13 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
             if (finishBtn != null)
                 finishBtn.SetActive(true);
 
-            if (ShouldSkipSetup())
+            if (ConsumeSkipSetup())
                 ApplyFinishedSetup();
+        }
+
+        static bool ConsumeSkipSetup()
+        {
+            return WebcamDebuggerSession.ConsumeSkipOnSceneLoad();
         }
 
         public void OnClickOpenPanel()
@@ -49,7 +53,6 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
         public void OnClickFinshPanel()
         {
             ApplyFinishedSetup();
-            MarkSetupCompleted();
         }
 
         public void ApplyFinishedSetup()
@@ -77,21 +80,6 @@ namespace Assets.Game.Scripts.game.Omni.WebCam
 
             if (finishBtn != null)
                 finishBtn.SetActive(false);
-        }
-
-        static bool ShouldSkipSetup()
-        {
-            return Omni2DSystem.instance != null
-                && Omni2DSystem.instance.cfg != null
-                && Omni2DSystem.instance.cfg.skipWebcamDebugger;
-        }
-
-        static void MarkSetupCompleted()
-        {
-            if (Omni2DSystem.instance == null || Omni2DSystem.instance.cfg == null)
-                return;
-
-            Omni2DSystem.instance.cfg.skipWebcamDebugger = true;
         }
 
         public void OnClickAdd()

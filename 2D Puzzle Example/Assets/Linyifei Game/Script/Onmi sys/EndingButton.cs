@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Game.Scripts.game.Omni.WebCam;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -31,10 +32,7 @@ namespace Assets.Linyifei_Game.Script.Onmi_sys
 
         public void OnClick()
         {
-            var ending = FindObjectOfType<EndingController>();
-            if (ending != null && ending.cfg != null)
-                ending.cfg.skipWebcamDebugger = true;
-
+            WebcamDebuggerSession.MarkSkipOnNextSceneLoad();
             SceneManager.LoadScene(0);
         }
     }
