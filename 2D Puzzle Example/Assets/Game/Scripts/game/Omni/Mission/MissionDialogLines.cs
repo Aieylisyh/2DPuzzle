@@ -27,7 +27,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         /// <summary>Work3：视频首次播放约 70%（非提交结果）。</summary>
         public const string Work3Video70 = "Jesus Christ... he's getting in... they're kissing. What the bloody hell is this? My head's all over the place.";
 
-        /// <summary>Work3：首次点击播放视频。</summary>
+        /// <summary>Work3：首次打开任务（非点击播放视频）。</summary>
         public const string Work3Open = "Hold on, that's my number plate. David, you having a laugh?";
         /// <summary>Work3：首次点击 Finish 提交且全部选项正确。</summary>
         public const string Work3FirstSubmitSuccess = "Brilliant. Don't know what's real anymore-work, home, none of it makes sense.";

@@ -16,7 +16,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
         public QuestionAndAnswers[] questions;
 
-        bool hasShownPlayClickTalk;
         bool hasShownVideoLine35;
         bool hasShownVideoLine70;
         bool hasStartedVideoTimedLines;
@@ -53,12 +52,12 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                 return;
 
             ResetVideoDialogState();
+            ShowMissionDialog(MissionDialogLines.Work3Open);
         }
 
         void ResetVideoDialogState()
         {
             StopVideoDialogRoutine();
-            hasShownPlayClickTalk = false;
             hasShownVideoLine35 = false;
             hasShownVideoLine70 = false;
             ResetFirstSubmitTalkFlag();
@@ -109,12 +108,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                 if (Omni2DSystem.instance != null)
                     Omni2DSystem.instance.SwitchBgm();
                 return;
-            }
-
-            if (!hasShownPlayClickTalk)
-            {
-                hasShownPlayClickTalk = true;
-                ShowMissionDialog(MissionDialogLines.Work3Open);
             }
 
             if (!hasStartedVideoTimedLines && vp != null)

@@ -80,12 +80,12 @@ public class EndingController : MonoBehaviour
         if (cfg.ClickCallPoliceTime > 0)
         {
             isBeOrHe = false;
-            Debug.Log("EndingController: 进入了坏结局分支。");
+            Debug.Log("EndingController: 进入了好结局分支。");
         }
         else
         {
             isBeOrHe = true;
-            Debug.Log("EndingController: 进入了好结局分支。");
+            Debug.Log("EndingController: 进入了坏结局分支。");
         }
 
         endingButton.gameObject.SetActive(false);
