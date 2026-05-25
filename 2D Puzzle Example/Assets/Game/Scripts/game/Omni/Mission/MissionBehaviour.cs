@@ -18,6 +18,40 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         protected bool currentMissionDone;
 
+        protected bool PreserveMissionDialog =>
+            currentMissionDone
+            || (missionData != null && missionData.state == MissionData.State.Done);
+
+        protected void SyncCompletedStateFromMissionData()
+        {
+            if (missionData != null && missionData.state == MissionData.State.Done)
+                currentMissionDone = true;
+        }
+
+        protected void ShowMissionDialog(string line)
+        {
+            if (PreserveMissionDialog)
+                return;
+
+            MissionDialogFrame.ShowLine(line);
+        }
+
+        protected void ShowMissionTalk(UnityEngine.UI.Image selfTalk, UnityEngine.Sprite sprite)
+        {
+            if (PreserveMissionDialog)
+                return;
+
+            MissionTalkHelper.Show(selfTalk, sprite);
+        }
+
+        protected void HideMissionTalk(UnityEngine.UI.Image selfTalk)
+        {
+            if (PreserveMissionDialog)
+                return;
+
+            MissionTalkHelper.Hide(selfTalk);
+        }
+
         protected virtual void Awake()
         {
             if (view != null)
@@ -26,6 +60,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission
 
         public virtual void ResetMission()
         {
+            SyncCompletedStateFromMissionData();
+
             if (view != null)
                 view.SetActive(true);
 

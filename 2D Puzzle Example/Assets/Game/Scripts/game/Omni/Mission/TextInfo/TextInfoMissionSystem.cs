@@ -42,7 +42,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
             hasShownKeywordTalk = false;
             hasShownAllKeywordsTalk = false;
             hasShownReadySubmitTalk = false;
-            MissionTalkHelper.Hide(selfTalk);
+            HideMissionTalk(selfTalk);
 
             if (restaurantCheckmarks != null)
             {
@@ -69,6 +69,9 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
 
         void ShowDialogOrImage(Sprite sprite, string line)
         {
+            if (PreserveMissionDialog)
+                return;
+
             if (sprite != null)
                 MissionTalkHelper.Show(selfTalk, sprite);
             else

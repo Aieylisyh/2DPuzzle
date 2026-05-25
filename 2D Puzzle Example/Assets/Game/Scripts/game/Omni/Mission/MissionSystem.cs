@@ -139,74 +139,69 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 return;
             }
 
-            if (MissionDialogFrame.instance != null)
-                MissionDialogFrame.instance.Hide();
+            bool preserveDialog = md.state == MissionData.State.Done;
+            if (!preserveDialog)
+                MissionDialogFrame.HideLine();
 
             if (md.proto.type == MissionPrototype.Type.TextInfo)
             {
+                textInfoMs.missionData = md;
                 textInfoMs.ResetMission();
                 voiceRms.Hide();
                 videoRms.Hide();
                 mapMs1.Hide();
                 mapMs2.Hide();
                 work6Mission.Hide();
-
-                textInfoMs.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.VoiceRecord)
             {
+                voiceRms.missionData = md;
                 voiceRms.ResetMission();
                 textInfoMs.Hide();
                 videoRms.Hide();
                 mapMs1.Hide();
                 mapMs2.Hide();
                 work6Mission.Hide();
-
-                voiceRms.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.VideoRecord)
             {
+                videoRms.missionData = md;
                 videoRms.ResetMission();
                 textInfoMs.Hide();
                 voiceRms.Hide();
                 mapMs1.Hide();
                 mapMs2.Hide();
                 work6Mission.Hide();
-
-                videoRms.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.Map)
             {
+                mapMs1.missionData = md;
                 videoRms.Hide();
                 textInfoMs.Hide();
                 voiceRms.Hide();
                 mapMs1.ResetMission();
                 mapMs2.Hide();
                 work6Mission.Hide();
-
-                mapMs1.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.Map2)
             {
+                mapMs2.missionData = md;
                 videoRms.Hide();
                 textInfoMs.Hide();
                 voiceRms.Hide();
                 mapMs1.Hide();
                 mapMs2.ResetMission();
                 work6Mission.Hide();
-
-                mapMs2.missionData = md;
             }
             else if (md.proto.type == MissionPrototype.Type.Work6)
             {
+                work6Mission.missionData = md;
                 videoRms.Hide();
                 textInfoMs.Hide();
                 voiceRms.Hide();
                 mapMs1.Hide();
                 mapMs2.Hide();
                 work6Mission.ResetMission();
-
-                work6Mission.missionData = md;
             }
             else
             {

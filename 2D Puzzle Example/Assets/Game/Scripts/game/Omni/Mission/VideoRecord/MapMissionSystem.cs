@@ -54,24 +54,24 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             if (currentMissionDone)
                 return;
 
-            MissionTalkHelper.Show(selfTalk, talkSp_start);
+            ShowMissionTalk(selfTalk, talkSp_start);
         }
 
         protected override void ApplyCompletedState()
         {
             base.ApplyCompletedState();
-            MissionTalkHelper.Show(selfTalk, talkSp_suc);
+            ShowMissionTalk(selfTalk, talkSp_suc);
         }
 
         public override void OnClickVideoPlayButton()
         {
             base.OnClickVideoPlayButton();
-            MissionTalkHelper.Show(selfTalk, talkSp_start);
+            ShowMissionTalk(selfTalk, talkSp_start);
         }
 
         protected override void OnSubmitSuccess()
         {
-            MissionTalkHelper.Show(selfTalk, talkSp_suc);
+            ShowMissionTalk(selfTalk, talkSp_suc);
             base.OnSubmitSuccess();
         }
     }

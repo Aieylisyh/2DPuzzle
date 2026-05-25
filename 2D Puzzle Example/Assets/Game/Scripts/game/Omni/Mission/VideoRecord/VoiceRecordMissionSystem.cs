@@ -48,7 +48,11 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void OnResetMission()
         {
             base.OnResetMission();
-            ShowDialogOrImage(selfTalk, talkSp_start, MissionDialogLines.Work2Open);
+
+            if (PreserveMissionDialog)
+                return;
+
+            ShowDialogOrImage(this, selfTalk, talkSp_start, MissionDialogLines.Work2Open);
         }
 
         public void 点击选项(GameObject 选项对应的checkmark)
@@ -69,11 +73,14 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                     return;
             }
 
-            ShowDialogOrImage(selfTalk, talkSp_allAnswered, MissionDialogLines.Work2AllAnswered);
+            ShowDialogOrImage(this, selfTalk, talkSp_allAnswered, MissionDialogLines.Work2AllAnswered);
         }
 
-        static void ShowDialogOrImage(Image selfTalk, Sprite sprite, string line)
+        static void ShowDialogOrImage(VoiceRecordMissionSystem owner, Image selfTalk, Sprite sprite, string line)
         {
+            if (owner != null && owner.PreserveMissionDialog)
+                return;
+
             if (sprite != null)
                 MissionTalkHelper.Show(selfTalk, sprite);
             else

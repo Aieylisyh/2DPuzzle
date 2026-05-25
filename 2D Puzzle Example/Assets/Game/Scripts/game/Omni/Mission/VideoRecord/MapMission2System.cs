@@ -60,7 +60,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             if (currentMissionDone)
                 return;
 
-            MissionTalkHelper.Show(selfTalk, talkSp_start);
+            ShowMissionTalk(selfTalk, talkSp_start);
             SetActiveIfNotNull(transparentButton, true);
             SetActiveIfNotNull(popupPanel, false);
         }
@@ -68,14 +68,14 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void ApplyCompletedState()
         {
             base.ApplyCompletedState();
-            MissionTalkHelper.Show(selfTalk, talkSp_suc);
+            ShowMissionTalk(selfTalk, talkSp_suc);
         }
 
         public void OnClickISeePopup()
         {
             SetActiveIfNotNull(transparentButton, false);
             SetActiveIfNotNull(popupPanel, false);
-            MissionTalkHelper.Show(selfTalk, talkSp_popupEnd);
+            ShowMissionTalk(selfTalk, talkSp_popupEnd);
         }
 
         public void OnClickTransparentButton()
@@ -96,12 +96,12 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         public override void OnClickVideoPlayButton()
         {
             base.OnClickVideoPlayButton();
-            MissionTalkHelper.Show(selfTalk, talkSp_videoStart);
+            ShowMissionTalk(selfTalk, talkSp_videoStart);
         }
 
         protected override void OnSubmitSuccess()
         {
-            MissionTalkHelper.Show(selfTalk, talkSp_suc);
+            ShowMissionTalk(selfTalk, talkSp_suc);
             base.OnSubmitSuccess();
             StartCoroutine(StartWork6Delayed());
         }

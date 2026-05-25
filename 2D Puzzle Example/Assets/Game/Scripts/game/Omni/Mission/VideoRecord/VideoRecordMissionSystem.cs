@@ -49,6 +49,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void OnResetMission()
         {
             base.OnResetMission();
+
+            if (PreserveMissionDialog)
+                return;
+
             ResetVideoDialogState();
         }
 
@@ -90,11 +94,11 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
         void TryShowFirstFinishTalk(bool allCorrect)
         {
-            if (hasShownFirstFinishTalk)
+            if (hasShownFirstFinishTalk || PreserveMissionDialog)
                 return;
 
             hasShownFirstFinishTalk = true;
-            MissionDialogFrame.ShowLine(allCorrect
+            ShowMissionDialog(allCorrect
                 ? MissionDialogLines.Work3FirstCorrect
                 : MissionDialogLines.Work3FirstWrong);
         }
@@ -104,10 +108,17 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             PrepareVideoForPlayback();
             base.OnClickVideoPlayButton();
 
+            if (PreserveMissionDialog)
+            {
+                if (Omni2DSystem.instance != null)
+                    Omni2DSystem.instance.SwitchBgm();
+                return;
+            }
+
             if (!hasShownPlayClickTalk)
             {
                 hasShownPlayClickTalk = true;
-                MissionDialogFrame.ShowLine(MissionDialogLines.Work3Open);
+                ShowMissionDialog(MissionDialogLines.Work3Open);
             }
 
             if (!hasStartedVideoTimedLines && vp != null)
@@ -157,13 +168,13 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
                 if (!hasShownVideoLine35 && progress >= 0.35f)
                 {
                     hasShownVideoLine35 = true;
-                    MissionDialogFrame.ShowLine(MissionDialogLines.Work3Video35);
+                    ShowMissionDialog(MissionDialogLines.Work3Video35);
                 }
 
                 if (!hasShownVideoLine70 && progress >= 0.70f)
                 {
                     hasShownVideoLine70 = true;
-                    MissionDialogFrame.ShowLine(MissionDialogLines.Work3Video70);
+                    ShowMissionDialog(MissionDialogLines.Work3Video70);
                 }
 
                 if (hasShownVideoLine35 && hasShownVideoLine70)
