@@ -16,10 +16,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
         public QuestionAndAnswers[] questions;
 
+        bool hasShownPlayClickTalk;
         bool hasShownVideoLine35;
         bool hasShownVideoLine70;
-        bool hasShownFirstCorrectTalk;
-        bool hasShownFirstWrongTalk;
+        bool hasShownFirstFinishTalk;
         bool hasStartedVideoTimedLines;
         Coroutine videoDialogRoutine;
 
@@ -50,20 +50,15 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         {
             base.OnResetMission();
             ResetVideoDialogState();
-
-            if (currentMissionDone)
-                return;
-
-            ShowWork3OpenTalk();
         }
 
         void ResetVideoDialogState()
         {
             StopVideoDialogRoutine();
+            hasShownPlayClickTalk = false;
             hasShownVideoLine35 = false;
             hasShownVideoLine70 = false;
-            hasShownFirstCorrectTalk = false;
-            hasShownFirstWrongTalk = false;
+            hasShownFirstFinishTalk = false;
             hasStartedVideoTimedLines = false;
         }
 
@@ -76,33 +71,32 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             videoDialogRoutine = null;
         }
 
-        void ShowWork3OpenTalk()
-        {
-            MissionDialogFrame.ShowLine(MissionDialogLines.Work3Open);
-        }
-
         public void 点击选项(GameObject 选项对应的checkmark)
         {
             base.点击选项(选项对应的checkmark);
         }
 
-        protected override void OnQuestionAnswered(QuestionRuntime question)
+        protected override void OnSubmitSuccess()
         {
-            if (question.IsCorrect())
-            {
-                if (hasShownFirstCorrectTalk)
-                    return;
+            TryShowFirstFinishTalk(true);
+            base.OnSubmitSuccess();
+        }
 
-                hasShownFirstCorrectTalk = true;
-                MissionDialogFrame.ShowLine(MissionDialogLines.Work3FirstCorrect);
+        protected override void OnSubmitFail()
+        {
+            TryShowFirstFinishTalk(false);
+            base.OnSubmitFail();
+        }
+
+        void TryShowFirstFinishTalk(bool allCorrect)
+        {
+            if (hasShownFirstFinishTalk)
                 return;
-            }
 
-            if (hasShownFirstWrongTalk)
-                return;
-
-            hasShownFirstWrongTalk = true;
-            MissionDialogFrame.ShowLine(MissionDialogLines.Work3FirstWrong);
+            hasShownFirstFinishTalk = true;
+            MissionDialogFrame.ShowLine(allCorrect
+                ? MissionDialogLines.Work3FirstCorrect
+                : MissionDialogLines.Work3FirstWrong);
         }
 
         public override void OnClickVideoPlayButton()
@@ -110,7 +104,11 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             PrepareVideoForPlayback();
             base.OnClickVideoPlayButton();
 
-            ShowWork3OpenTalk();
+            if (!hasShownPlayClickTalk)
+            {
+                hasShownPlayClickTalk = true;
+                MissionDialogFrame.ShowLine(MissionDialogLines.Work3Open);
+            }
 
             if (!hasStartedVideoTimedLines && vp != null)
             {
