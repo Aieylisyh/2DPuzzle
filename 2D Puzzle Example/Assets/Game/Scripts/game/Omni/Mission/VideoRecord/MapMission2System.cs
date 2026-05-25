@@ -56,6 +56,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void OnResetMission()
         {
             base.OnResetMission();
+            ResetFirstSubmitTalkFlag();
 
             if (currentMissionDone)
                 return;
@@ -101,7 +102,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
         protected override void OnSubmitSuccess()
         {
-            ShowMissionTalk(selfTalk, talkSp_suc);
+            TryShowFirstSubmitTalk(true, null, null, selfTalk, talkSp_suc);
             base.OnSubmitSuccess();
             StartCoroutine(StartWork6Delayed());
         }

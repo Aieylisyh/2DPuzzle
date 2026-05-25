@@ -63,7 +63,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 redDotButton.SetActive(false);
         }
 
-        public void OnClickMapRedDot()
+        public virtual void OnClickMapRedDot()
         {
             if (vp == null || runtimeMapDatas == null)
                 return;

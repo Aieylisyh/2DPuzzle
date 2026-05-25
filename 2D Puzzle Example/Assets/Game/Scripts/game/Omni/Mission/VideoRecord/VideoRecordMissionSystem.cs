@@ -19,7 +19,6 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         bool hasShownPlayClickTalk;
         bool hasShownVideoLine35;
         bool hasShownVideoLine70;
-        bool hasShownFirstFinishTalk;
         bool hasStartedVideoTimedLines;
         Coroutine videoDialogRoutine;
 
@@ -62,7 +61,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
             hasShownPlayClickTalk = false;
             hasShownVideoLine35 = false;
             hasShownVideoLine70 = false;
-            hasShownFirstFinishTalk = false;
+            ResetFirstSubmitTalkFlag();
             hasStartedVideoTimedLines = false;
         }
 
@@ -94,13 +93,10 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
         void TryShowFirstFinishTalk(bool allCorrect)
         {
-            if (hasShownFirstFinishTalk || PreserveMissionDialog)
-                return;
-
-            hasShownFirstFinishTalk = true;
-            ShowMissionDialog(allCorrect
-                ? MissionDialogLines.Work3FirstCorrect
-                : MissionDialogLines.Work3FirstWrong);
+            TryShowFirstSubmitTalk(
+                allCorrect,
+                MissionDialogLines.Work3FirstSubmitSuccess,
+                MissionDialogLines.Work3FirstSubmitFail);
         }
 
         public override void OnClickVideoPlayButton()

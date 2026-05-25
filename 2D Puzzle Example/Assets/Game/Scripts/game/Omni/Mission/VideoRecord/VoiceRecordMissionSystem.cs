@@ -48,11 +48,18 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void OnResetMission()
         {
             base.OnResetMission();
+            ResetFirstSubmitTalkFlag();
 
             if (PreserveMissionDialog)
                 return;
 
             ShowDialogOrImage(this, selfTalk, talkSp_start, MissionDialogLines.Work2Open);
+        }
+
+        public override void SubmitMission()
+        {
+            DismissMissionDialog(selfTalk);
+            base.SubmitMission();
         }
 
         public void 点击选项(GameObject 选项对应的checkmark)

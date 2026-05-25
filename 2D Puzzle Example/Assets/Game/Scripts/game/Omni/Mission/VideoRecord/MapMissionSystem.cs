@@ -20,6 +20,8 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
 
         public MapData[] mapDatas;
 
+        bool hasDismissedOpenTalk;
+
         protected override void BindSerializedMapDatas()
         {
             if (mapDatas == null)
@@ -50,29 +52,52 @@ namespace Assets.Game.Scripts.game.Omni.Mission.VideoRecord
         protected override void OnResetMission()
         {
             base.OnResetMission();
+            ResetFirstSubmitTalkFlag();
+            hasDismissedOpenTalk = false;
 
             if (currentMissionDone)
                 return;
 
-            ShowMissionTalk(selfTalk, talkSp_start);
+            ShowDialogOrImage(talkSp_start, MissionDialogLines.Work4Open);
         }
 
         protected override void ApplyCompletedState()
         {
             base.ApplyCompletedState();
-            ShowMissionTalk(selfTalk, talkSp_suc);
+            ShowDialogOrImage(talkSp_suc, MissionDialogLines.Work4FirstSubmitSuccess);
         }
 
-        public override void OnClickVideoPlayButton()
+        public override void OnClickMapRedDot()
         {
-            base.OnClickVideoPlayButton();
-            ShowMissionTalk(selfTalk, talkSp_start);
+            if (!hasDismissedOpenTalk)
+            {
+                hasDismissedOpenTalk = true;
+                DismissMissionDialog(selfTalk);
+            }
+
+            base.OnClickMapRedDot();
         }
 
         protected override void OnSubmitSuccess()
         {
-            ShowMissionTalk(selfTalk, talkSp_suc);
+            TryShowFirstSubmitTalk(
+                true,
+                MissionDialogLines.Work4FirstSubmitSuccess,
+                null,
+                selfTalk,
+                talkSp_suc);
             base.OnSubmitSuccess();
+        }
+
+        void ShowDialogOrImage(Sprite sprite, string line)
+        {
+            if (PreserveMissionDialog)
+                return;
+
+            if (sprite != null)
+                ShowMissionTalk(selfTalk, sprite);
+            else
+                ShowMissionDialog(line);
         }
     }
 }

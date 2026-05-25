@@ -17,6 +17,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission
         public GameObject finishBtn_notOk;
 
         protected bool currentMissionDone;
+        protected bool hasShownFirstFinishTalk;
 
         protected bool PreserveMissionDialog =>
             currentMissionDone
@@ -50,6 +51,55 @@ namespace Assets.Game.Scripts.game.Omni.Mission
                 return;
 
             MissionTalkHelper.Hide(selfTalk);
+        }
+
+        protected void DismissMissionDialog(UnityEngine.UI.Image selfTalk = null)
+        {
+            if (PreserveMissionDialog)
+                return;
+
+            if (selfTalk != null)
+                MissionTalkHelper.Hide(selfTalk);
+
+            MissionDialogFrame.HideLine();
+        }
+
+        /// <summary>
+        /// 首次点击 Finish 提交时的成功/失败台词（非单个选项对错）。
+        /// </summary>
+        protected void TryShowFirstSubmitTalk(
+            bool submitSucceeded,
+            string successLine,
+            string failLine,
+            UnityEngine.UI.Image selfTalk = null,
+            UnityEngine.Sprite successSprite = null,
+            UnityEngine.Sprite failSprite = null)
+        {
+            if (hasShownFirstFinishTalk || PreserveMissionDialog)
+                return;
+
+            hasShownFirstFinishTalk = true;
+
+            if (submitSucceeded)
+            {
+                if (successSprite != null && selfTalk != null)
+                    ShowMissionTalk(selfTalk, successSprite);
+                else if (!string.IsNullOrEmpty(successLine))
+                    ShowMissionDialog(successLine);
+            }
+            else if (failSprite != null && selfTalk != null)
+            {
+                ShowMissionTalk(selfTalk, failSprite);
+            }
+            else if (!string.IsNullOrEmpty(failLine))
+            {
+                ShowMissionDialog(failLine);
+            }
+        }
+
+        protected void ResetFirstSubmitTalkFlag()
+        {
+            hasShownFirstFinishTalk = false;
         }
 
         protected virtual void Awake()

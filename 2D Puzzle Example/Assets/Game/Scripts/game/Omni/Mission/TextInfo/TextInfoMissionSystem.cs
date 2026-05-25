@@ -39,6 +39,7 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
 
         protected override void OnResetMission()
         {
+            ResetFirstSubmitTalkFlag();
             hasShownKeywordTalk = false;
             hasShownAllKeywordsTalk = false;
             hasShownReadySubmitTalk = false;
@@ -65,6 +66,17 @@ namespace Assets.Game.Scripts.game.Omni.Mission.TextInfo
                 txt_clueLv4.text = "0/3";
 
             RefreshFinishBtn();
+
+            if (PreserveMissionDialog)
+                return;
+
+            ShowDialogOrImage(talkSp_open, MissionDialogLines.Work1Open);
+        }
+
+        public override void SubmitMission()
+        {
+            DismissMissionDialog(selfTalk);
+            base.SubmitMission();
         }
 
         void ShowDialogOrImage(Sprite sprite, string line)
